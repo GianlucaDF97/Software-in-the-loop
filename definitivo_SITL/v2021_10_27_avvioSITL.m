@@ -29,7 +29,7 @@ deltaEtrim=U0(1);
 deltaAtrim=U0(2);
 deltaRtrim=U0(3);
 deltaTtrim=U0(4);
-decollo = input('Inserire 1 se si vuole simulare il decollo, 0 altrimenti: ');
+decollo = input('inserire 1 se si vuole simulare il decollo, 0 altrimenti: ');
 
 
 % %questa parte sostituisce trimCalc per il takeoff
@@ -156,7 +156,7 @@ Bias_acc = 0;
 bias_acc_gyro_flag = input('Inserire 1 se si vuole simulare il bias di acc. e gyro, 0 altrimenti: ');
 
 if bias_acc_gyro_flag == 1
-    
+
     baccxINI =0.0392;%[(m/s^2)^2]
     baccyINI=-0.0598;%[(m/s^2)^2]
     bacczINI=0.0384;%[(m/s^2)^2]
@@ -172,9 +172,8 @@ else
     bpINI = 0;
     bqINI = 0;
     brINI = 0;
-    
-end
 
+end
 
 T_cal=0.4;
 
@@ -185,7 +184,7 @@ Sensor_Offsets=[0,0,0];
  update=[2,2,2];
 run('COV_F1B.m')
 
- run('Load_modello_sensori.m')
+run('Load_modello_sensori.m')
 %--------------------------------------------------------------------------
 %% Condizioni iniziali filtro di Kalman------------------------------------
 

@@ -174,20 +174,20 @@ Cn_betarad=Cn_beta*180/pi; %[1/rad]
 
 %% Derivate p q r Andia   FUNZIONANO!!!
 CLp =   0;              
-CLq =   19.166; % 8.13;      
+CLq =   8.13;%19.166;      
 CLr =  0;
 CYp =   0.050728;       
 CYq =    0;         
 CYr =  0.358925;
-Clp =  -0.5058;%-0.4318;         
+Clp =  -0.4318;%-0.5058;        
 Clq =    0;         
 Clr =  0.1459;
 Cmp =   0;              
-Cmq =  -81.796;%-23.24 ;     
+Cmq =  -23.24;%-81.796;     
 Cmr =  0;
 Cnp =   0.007507;%2.94*10^-4 ;    
 Cnq =    0;         
-Cnr = -1.2593;%-0.4872;
+Cnr = -0.4872;%-1.2593;
 
 %%  Caricamento dei dati dell'elica tramite file mat
 % i dati sono stati calcolati nella cartella ELICA dove si possono trovare

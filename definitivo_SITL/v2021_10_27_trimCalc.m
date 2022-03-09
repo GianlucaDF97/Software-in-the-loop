@@ -1,4 +1,5 @@
 %%Lancio del calcolo del trim
+
 %load('datiAerodinamiciAENEA.mat')
 v2021_10_27_calcoloAerodinamica
 %a_20210506_calcoloAerodinamica
@@ -17,7 +18,7 @@ TrimParam.Options(3)=1e-7; %tolleranza in F
 TrimParam.Options(4)=1e-7;
 TrimParam.Options(14)=8000; %numero massimo iterazioni
 
-[X,U,Y,dX]=trim('modello_calcolo_trim_1',X0,U0,Y0,iX,iU,iY,dX0,idX,TrimParam.Options)
+[X,U,Y,dX]=trim('modello_calcolo_trim_1',X0,U0,Y0,iX,iU,iY,dX0,idX,TrimParam.Options);
 %[X,U,Y,dX]=trim('a_20210506_modello_calcolo_trim_1',X0,U0,Y0,iX,iU,iY,dX0,idX,TrimParam.Options)
 U0=U;
 State0.Pos0=X(10:12);
@@ -28,4 +29,3 @@ State0.Ail0=U0(2)/12.54;
 State0.Rud0=U0(3)/12.54;
 State0.Ele0=U0(1)/12.54;
 dX0=dX;
-clear X U Y dX Y0 iU iX iY idX TrimParam

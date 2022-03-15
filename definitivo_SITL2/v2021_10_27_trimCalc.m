@@ -1,7 +1,7 @@
 %%Lancio del calcolo del trim
 
 %load('datiAerodinamiciAENEA.mat')
-v2021_10_27_calcoloAerodinamica
+%v2021_10_27_calcoloAerodinamica
 %a_20210506_calcoloAerodinamica
 V_cruise = input('inserire un valore desiderato per V_cruise [m/s]: ');
 

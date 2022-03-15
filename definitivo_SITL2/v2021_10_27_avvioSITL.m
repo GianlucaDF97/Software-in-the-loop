@@ -189,24 +189,10 @@ run('Load_modello_sensori.m')
 %--------------------------------------------------------------------------
 %% Condizioni iniziali filtro di Kalman------------------------------------
 
-% latitudineINI =41.894432*pi/180;
-% 
-% longitudineINI =12.356650*pi/180;       %Posizione iniziale di Fiumicino
-
-%Per partire da sotto la pista di Fiumicino:
-% latitudineINI =41.704432*pi/180;
-%                                      
-% longitudineINI =12.186650*pi/180;
-
 %%Per partire più da vicino a Fiumicino:
-latitudineINI =41.854432*pi/180;
+latitudineINI =41.854432*pi/180; % posizione iniziale della simulazione
 
-longitudineINI =12.306650*pi/180;
-
-%%Per partire vicino Ciampino
-%latitudineINI = 41.790561*pi/180;
-
-%longitudineINI = 12.534074*pi/180;
+longitudineINI =12.306650*pi/180; %posizione iniziale della simulazione
 
 HINI = -State0.Pos0(3);
 % 

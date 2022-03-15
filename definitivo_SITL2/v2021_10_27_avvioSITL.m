@@ -8,7 +8,7 @@
 %%Aenea elaborato lo scorso anno, sono i files che riguardano i dati
 %%dell'autopilota
 %%input = ('porre che tipo di simulazione voler fare
-Ingaggio_AP = input("inserire 1 se si vuole ingaggiare l' AP, 0 altrimenti: "
+Ingaggio_AP = input("inserire 1 se si vuole ingaggiare l' AP, 0 altrimenti: ");
 Zpista=0;
 v2021_10_27_calcoloAerodinamica
 costantiMagicFormula =[ 10 1.3 1 0.95 ];

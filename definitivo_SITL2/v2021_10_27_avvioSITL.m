@@ -3,7 +3,7 @@
 %%in cui si inserisve anche il valore di velocità iniziale; lo stato
 %%iniziale fornito al modello tramite il vettore X0 calcolato come lo stato
 %%di uscita dal calcolo del trim
-
+%prova
 %%molti dati sono stati copiati dal file di avvio della simulazione di
 %%Aenea elaborato lo scorso anno, sono i files che riguardano i dati
 %%dell'autopilota

@@ -1,4 +1,3 @@
-% prova vale
 %%codice di avvio della simulazione per Aenea, i dati aerodinamici sono
 %%salvati in un file .mat che viene richiamato dalla funzione trimCalc per
 %%in cui si inserisve anche il valore di velocità iniziale; lo stato

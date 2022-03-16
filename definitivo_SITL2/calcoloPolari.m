@@ -3,6 +3,7 @@ function  [CD,CY,CL,CMxw,CMyw,CMzw,Cl,Cm,Cn,CFxb,CFyb,CFzb]=calcoloPolari(OGb,A,
 %tabelle per forze e momenti in assi vento e forze e momenti in assi corpo
 %il vettore baricentro viene dato in input e rappresenta le coordinte del
 %polo rispetto al baricentro
+%prova
 
 
 alphavec=[-6:6];

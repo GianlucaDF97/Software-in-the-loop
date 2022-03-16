@@ -4,7 +4,6 @@ function  [CD,CY,CL,CMxw,CMyw,CMzw,Cl,Cm,Cn,CFxb,CFyb,CFzb]=calcoloPolari(OGb,A,
 %il vettore baricentro viene dato in input e rappresenta le coordinte del
 %polo rispetto al baricentro
 
-%ihjkdbcak
 
 alphavec=[-6:6];
 betavec=[-12:4:12];

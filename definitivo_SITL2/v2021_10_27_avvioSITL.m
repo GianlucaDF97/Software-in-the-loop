@@ -59,7 +59,7 @@ t_AP=0.02;                                        %...di "Configuration paramete
 %% ATTUATORI------------------------------------------------------
 
 %Attuatori
-attuatore_delay=0.02;                        %ritardo (si prende pari alla frequenza di funzionamento del pc di bordo)
+attuatore_delay=0.0;                        %ritardo (si prende pari alla frequenza di funzionamento del pc di bordo)
 attuatore_pulsazione=100;                     %dinamica: pulsazione naturale 
 attuatore_smorzamento=0.85;                  %dinamica: smorzamento 
 attuatore_maxrate_manetta=300*pi/180;               %massima velocità di attuazione della manetta 
@@ -181,8 +181,8 @@ T_cal=0.4;
 bias = [baccxINI,baccyINI,bacczINI,bpINI,bqINI,brINI];
 
 Sensor_Offsets=[0,0,0];
- vd_ini=0;
- update=[2,2,2];
+vd_ini = 0;
+update = [2,2,2];
 run('COV_F1B.m')
 
 run('Load_modello_sensori.m')

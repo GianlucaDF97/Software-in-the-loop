@@ -1,0 +1,41 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   3 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "x_prd"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "autopilota_v_15_last:16498:246-251"\
+      Dimensions   [1,18]\
+    }\
+    ChartData {\
+      Name         "x_prd_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "autopilota_v_15_last:16498:246-251"\
+    }\
+    ChartData {\
+      Name         "p_prd"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "autopilota_v_15_last:16498:263-268"\
+      Dimensions   [18,18]\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

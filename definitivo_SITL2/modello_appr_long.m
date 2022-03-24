@@ -39,5 +39,5 @@ o_appr_sp=omega_sp_1*sqrt(1-zeta_sp_1^2);
 %Come dovrebbero venire gli autovalori secondo il modello approssimato
 n_appr_ph=-zeta_ph*omega_ph;
 o_appr_ph=omega_ph*sqrt(1-zeta_ph^2);
-E=Cle/Cde
+E=Cle/Cde;
 

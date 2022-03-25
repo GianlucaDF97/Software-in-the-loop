@@ -216,8 +216,8 @@ rtSigHierLoggingChildIdxs } , 0 , ( NULL ) } ; static
 rtwCAPI_ModelMappingStaticInfo mmiStatic = { { rtBlockSignals , 0 , ( NULL )
 , 0 , ( NULL ) , 0 } , { ( NULL ) , 0 , ( NULL ) , 0 } , { rtBlockStates , 35
 } , { rtDataTypeMap , rtDimensionMap , rtFixPtMap , rtElementMap ,
-rtSampleTimeMap , rtDimensionArray } , "float" , { 2098868253U , 2293853137U
-, 535171205U , 1696243120U } , & mmiStaticInfoLogging , 0 , 0 } ; const
+rtSampleTimeMap , rtDimensionArray } , "float" , { 1109358939U , 3441090976U
+, 2366405679U , 805253355U } , & mmiStaticInfoLogging , 0 , 0 } ; const
 rtwCAPI_ModelMappingStaticInfo * autopilota_v_15_last_GetCAPIStaticMap ( void
 ) { return & mmiStatic ; }
 #ifndef HOST_CAPI_BUILD

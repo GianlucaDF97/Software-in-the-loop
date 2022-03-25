@@ -83,84 +83,84 @@ real_T B_51_902_0 ; real_T B_51_903_0 ; real_T B_51_904_0 ; real_T B_51_906_0
 ; real_T B_51_907_0 ; real_T B_51_908_0 ; real_T B_51_909_0 ; real_T
 B_51_910_0 ; real_T B_51_913_0 ; real_T B_51_914_0 ; real_T B_51_914_1 ;
 real_T B_51_914_2 ; real_T B_51_914_3 ; real_T B_51_914_4 ; real_T B_51_914_5
-; real_T B_51_914_6 [ 3 ] ; real_T B_51_917_0 ; real_T B_51_918_0 ; real_T
-B_51_919_0 ; real_T B_51_920_0 ; real_T B_51_923_0 [ 3 ] ; real_T B_51_932_0
-[ 3 ] ; real_T B_51_943_0 [ 3 ] ; real_T B_51_945_0 [ 3 ] ; real_T B_51_947_0
-[ 3 ] ; real_T B_51_951_0 [ 3 ] ; real_T B_51_961_0 ; real_T B_51_968_0 ;
-real_T B_51_1044_0 ; real_T B_51_1101_0 ; real_T B_51_1157_0 ; real_T
-B_51_1183_0 [ 3 ] ; real_T B_51_1184_0 ; real_T B_51_1185_0 ; real_T
-B_51_1187_0 ; real_T B_51_1188_0 ; real_T B_51_1190_0 ; real_T B_51_1191_0 ;
-real_T B_51_1198_0 ; real_T B_51_1199_0 ; real_T B_51_1201_0 ; real_T
-B_51_1202_0 ; real_T B_51_1204_0 ; real_T B_51_1205_0 ; real_T B_51_1208_0 ;
-real_T B_51_1210_0 ; real_T B_51_1214_0 ; real_T B_51_1216_0 ; real_T
-B_51_1218_0 ; real_T B_51_1219_0 ; real_T B_51_1220_0 ; real_T B_51_1225_0 ;
-real_T B_51_1231_0 ; real_T B_51_1235_0 ; real_T B_51_1236_0 ; real_T
-B_51_1237_0 ; real_T B_51_1238_0 ; real_T B_51_1239_0 ; real_T B_51_1240_0 ;
-real_T B_51_1241_0 ; real_T B_51_1243_0 ; real_T B_51_1244_0 ; real_T
-B_51_1245_0 ; real_T B_51_1246_0 ; real_T B_51_3_0 [ 9 ] ; real_T B_51_4_0 [
-9 ] ; real_T B_51_5_0 [ 9 ] ; real_T B_51_6_0 ; real_T B_51_7_0 ; real_T
-B_51_8_0 ; real_T B_51_10_0 ; real_T B_51_12_0 ; real_T B_51_13_0_m ; real_T
-B_51_15_0 ; real_T B_51_17_0 ; real_T B_51_19_0 ; real_T B_51_21_0 ; real_T
-B_51_23_0 ; real_T B_51_25_0 ; real_T B_51_26_0 ; real_T B_51_28_0 ; real_T
-B_51_30_0 [ 126 ] ; real_T B_51_32_0 ; real_T B_51_33_0 ; real_T B_51_34_0 ;
-real_T B_51_35_0_c ; real_T B_51_36_0 ; real_T B_51_37_0 ; real_T B_51_38_0 ;
-real_T B_51_39_0 ; real_T B_51_40_0 ; real_T B_51_41_0 ; real_T B_51_42_0 ;
-real_T B_51_43_0 ; real_T B_51_44_0 ; real_T B_51_45_0 ; real_T B_51_46_0_k ;
-real_T B_51_47_0 ; real_T B_51_48_0 ; real_T B_51_49_0 ; real_T B_51_50_0 ;
-real_T B_51_51_0 ; real_T B_51_52_0 ; real_T B_51_53_0 ; real_T B_51_54_0 ;
-real_T B_51_55_0 ; real_T B_51_56_0 ; real_T B_51_57_0 ; real_T B_51_58_0 ;
-real_T B_51_59_0 ; real_T B_51_60_0_c [ 4 ] ; real_T B_51_62_0 ; real_T
-B_51_63_0_b [ 4 ] ; real_T B_51_65_0 ; real_T B_51_66_0 [ 4 ] ; real_T
-B_51_68_0 ; real_T B_51_69_0_p ; real_T B_51_70_0 [ 3 ] ; real_T B_51_71_0 [
-3 ] ; real_T B_51_73_0 ; real_T B_51_74_0 [ 3 ] ; real_T B_51_75_0_c ; real_T
-B_51_76_0 ; real_T B_51_77_0 ; real_T B_51_78_0 ; real_T B_51_79_0 ; real_T
-B_51_81_0 ; real_T B_51_82_0_f ; real_T B_51_83_0 ; real_T B_51_84_0 ; real_T
-B_51_87_0 ; real_T B_51_89_0 ; real_T B_51_93_0 ; real_T B_51_95_0 ; real_T
-B_51_99_1 ; real_T B_51_106_0_g [ 4 ] ; real_T B_51_111_0_g [ 3 ] ; real_T
-B_51_113_0 ; real_T B_51_114_0_m [ 3 ] ; real_T B_51_116_0_n ; real_T
-B_51_117_0_p ; real_T B_51_118_0_l ; real_T B_51_119_0_j ; real_T
-B_51_120_0_d ; real_T B_51_121_0 ; real_T B_51_122_0 ; real_T B_51_123_0 ;
-real_T B_51_124_0 ; real_T B_51_125_0 [ 3 ] ; real_T B_51_126_0 [ 3 ] ;
-real_T B_51_127_0 ; real_T B_51_128_0 ; real_T B_51_129_0 ; real_T B_51_130_0
-; real_T B_51_131_0 ; real_T B_51_132_0 ; real_T B_51_133_0 ; real_T
-B_51_134_0 ; real_T B_51_135_0 [ 3 ] ; real_T B_51_136_0 ; real_T B_51_137_0
-; real_T B_51_138_0 ; real_T B_51_139_0 ; real_T B_51_140_0 ; real_T
-B_51_141_0 [ 3 ] ; real_T B_51_143_0 ; real_T B_51_144_0 ; real_T B_51_145_0
-; real_T B_51_146_0_g ; real_T B_51_147_0_l ; real_T B_51_148_0_d ; real_T
-B_51_153_0 ; real_T B_51_154_0 ; real_T B_51_158_0 ; real_T B_51_159_0 ;
-real_T B_51_160_0 ; real_T B_51_161_0 ; real_T B_51_162_0 ; real_T B_51_163_0
-; real_T B_51_164_0 ; real_T B_51_165_0 ; real_T B_51_166_0 ; real_T
-B_51_167_0 ; real_T B_51_168_0 ; real_T B_51_169_0 ; real_T B_51_170_0 ;
-real_T B_51_171_0 ; real_T B_51_172_0 ; real_T B_51_173_0 ; real_T B_51_174_0
-; real_T B_51_175_0 ; real_T B_51_177_0 ; real_T B_51_178_0 ; real_T
-B_51_179_0 [ 14 ] ; real_T B_51_180_0 [ 24 ] ; real_T B_51_181_0 [ 28 ] ;
-real_T B_51_182_0 ; real_T B_51_184_0 ; real_T B_51_185_0 ; real_T B_51_188_0
-; real_T B_51_189_0 ; real_T B_51_190_0 ; real_T B_51_191_0 ; real_T
-B_51_193_0 ; real_T B_51_194_0 ; real_T B_51_195_0 ; real_T B_49_0_1 ; real_T
-B_48_0_1 ; real_T B_47_0_1 ; real_T B_46_0_1 ; real_T B_45_2_0 ; real_T
-B_45_6_0 ; real_T B_45_11_0 ; real_T B_45_15_0 ; real_T B_45_0_0 ; real_T
-B_45_1_0 ; real_T B_45_2_0_d ; real_T B_45_3_0 ; real_T B_45_4_0 ; real_T
-B_44_0_1 ; real_T B_43_0_1 ; real_T B_42_0_1 ; real_T B_41_0_1 ; real_T
-B_40_0_1 ; real_T B_38_0_0 [ 6 ] ; real_T B_38_1_1 [ 3 ] ; real_T B_37_0_0 [
-2 ] ; real_T B_37_1_1 ; real_T B_36_0_0 [ 2 ] ; real_T B_36_1_1 ; real_T
-B_35_0_1 ; real_T B_34_0_1 ; real_T B_33_0_0 ; real_T B_33_2_0 ; real_T
-B_30_0_0 ; real_T B_30_2_0 ; real_T B_27_6_0 [ 2 ] ; real_T B_27_9_0 [ 2 ] ;
-real_T B_27_11_0 [ 2 ] ; real_T B_27_1_0 ; real_T B_26_6_0 [ 2 ] ; real_T
-B_26_11_0 [ 2 ] ; real_T B_26_12_0 [ 2 ] ; real_T B_25_6_0 [ 2 ] ; real_T
-B_25_7_0 [ 2 ] ; real_T B_24_4_0 [ 2 ] ; real_T B_23_4_0 [ 2 ] ; real_T
-B_23_5_0 [ 2 ] ; real_T B_22_7_0 [ 2 ] ; real_T B_22_9_0 [ 2 ] ; real_T
-B_22_0_0 ; real_T B_22_3_0 ; real_T B_22_4_0 ; real_T B_19_0_0 ; real_T
-B_18_0_1 ; real_T B_18_0_2 ; real_T B_18_0_3 ; real_T B_17_0_1 ; real_T
-B_17_0_2 ; real_T B_17_0_3 ; real_T B_16_0_1 ; real_T B_15_0_1 ; real_T
-B_15_0_2 ; real_T B_14_0_1 ; real_T B_13_0_1 ; real_T B_13_0_2 ; real_T
-B_12_0_1 ; real_T B_11_0_1 ; real_T B_11_0_2 ; real_T B_10_0_1 ; real_T
-B_10_0_2 ; real_T B_9_0_1 [ 9 ] ; real_T B_8_0_0 [ 4 ] ; real_T B_8_1_1 ;
-real_T B_7_0_0 [ 4 ] ; real_T B_7_1_1 ; real_T B_6_0_0 [ 4 ] ; real_T B_6_1_1
-; real_T B_5_0_0 [ 4 ] ; real_T B_5_1_1 ; real_T B_4_0_0 [ 4 ] ; real_T
-B_4_1_1 ; real_T B_3_0_1 [ 9 ] ; real_T B_2_0_0 [ 4 ] ; real_T B_2_1_1 ;
-real_T B_1_0_0 [ 4 ] ; real_T B_1_1_1 ; real_T B_0_0_0 [ 4 ] ; real_T B_0_1_1
-; uint32_T B_51_99_0 ; boolean_T B_51_23_0_l ; boolean_T B_51_25_0_o ;
-boolean_T B_51_27_0 ; boolean_T B_51_964_0 ;
+; real_T B_51_914_6 [ 3 ] ; real_T B_51_917_0 [ 3 ] ; real_T B_51_926_0 [ 3 ]
+; real_T B_51_937_0 [ 3 ] ; real_T B_51_939_0 [ 3 ] ; real_T B_51_941_0 [ 3 ]
+; real_T B_51_945_0 [ 3 ] ; real_T B_51_955_0 ; real_T B_51_960_0 ; real_T
+B_51_961_0 ; real_T B_51_962_0 ; real_T B_51_963_0 ; real_T B_51_965_0 ;
+real_T B_51_968_0 ; real_T B_51_1044_0 ; real_T B_51_1101_0 ; real_T
+B_51_1157_0 ; real_T B_51_1183_0 [ 3 ] ; real_T B_51_1184_0 ; real_T
+B_51_1185_0 ; real_T B_51_1187_0 ; real_T B_51_1188_0 ; real_T B_51_1190_0 ;
+real_T B_51_1191_0 ; real_T B_51_1196_0 ; real_T B_51_1197_0 ; real_T
+B_51_1199_0 ; real_T B_51_1200_0 ; real_T B_51_1202_0 ; real_T B_51_1203_0 ;
+real_T B_51_1206_0 ; real_T B_51_1208_0 ; real_T B_51_1212_0 ; real_T
+B_51_1214_0 ; real_T B_51_1216_0 ; real_T B_51_1217_0 ; real_T B_51_1218_0 ;
+real_T B_51_1223_0 ; real_T B_51_1229_0 ; real_T B_51_1233_0 ; real_T
+B_51_1234_0 ; real_T B_51_1235_0 ; real_T B_51_1236_0 ; real_T B_51_1237_0 ;
+real_T B_51_1238_0 ; real_T B_51_1239_0 ; real_T B_51_1241_0 ; real_T
+B_51_1242_0 ; real_T B_51_1243_0 ; real_T B_51_1244_0 ; real_T B_51_3_0 [ 9 ]
+; real_T B_51_4_0 [ 9 ] ; real_T B_51_5_0 [ 9 ] ; real_T B_51_6_0 ; real_T
+B_51_7_0 ; real_T B_51_8_0 ; real_T B_51_10_0 ; real_T B_51_12_0 ; real_T
+B_51_13_0_m ; real_T B_51_15_0 ; real_T B_51_17_0 ; real_T B_51_19_0 ; real_T
+B_51_21_0 ; real_T B_51_23_0 ; real_T B_51_25_0 ; real_T B_51_26_0 ; real_T
+B_51_28_0 ; real_T B_51_30_0 [ 126 ] ; real_T B_51_32_0 ; real_T B_51_33_0 ;
+real_T B_51_34_0 ; real_T B_51_35_0_c ; real_T B_51_36_0 ; real_T B_51_37_0 ;
+real_T B_51_38_0 ; real_T B_51_39_0 ; real_T B_51_40_0 ; real_T B_51_41_0 ;
+real_T B_51_42_0 ; real_T B_51_43_0 ; real_T B_51_44_0 ; real_T B_51_45_0 ;
+real_T B_51_46_0_k ; real_T B_51_47_0 ; real_T B_51_48_0 ; real_T B_51_49_0 ;
+real_T B_51_50_0 ; real_T B_51_51_0 ; real_T B_51_52_0 ; real_T B_51_53_0 ;
+real_T B_51_54_0 ; real_T B_51_55_0 ; real_T B_51_56_0 ; real_T B_51_57_0 ;
+real_T B_51_58_0 ; real_T B_51_59_0 ; real_T B_51_60_0_c [ 4 ] ; real_T
+B_51_62_0 ; real_T B_51_63_0_b [ 4 ] ; real_T B_51_65_0 ; real_T B_51_66_0 [
+4 ] ; real_T B_51_68_0 ; real_T B_51_69_0_p ; real_T B_51_70_0 [ 3 ] ; real_T
+B_51_71_0 [ 3 ] ; real_T B_51_73_0 ; real_T B_51_74_0 [ 3 ] ; real_T
+B_51_75_0_c ; real_T B_51_76_0 ; real_T B_51_77_0 ; real_T B_51_78_0 ; real_T
+B_51_79_0 ; real_T B_51_81_0 ; real_T B_51_82_0_f ; real_T B_51_83_0 ; real_T
+B_51_84_0 ; real_T B_51_87_0 ; real_T B_51_89_0 ; real_T B_51_93_0 ; real_T
+B_51_95_0 ; real_T B_51_99_1 ; real_T B_51_106_0_g [ 4 ] ; real_T
+B_51_111_0_g [ 3 ] ; real_T B_51_113_0 ; real_T B_51_114_0_m [ 3 ] ; real_T
+B_51_116_0_n ; real_T B_51_117_0_p ; real_T B_51_118_0_l ; real_T
+B_51_119_0_j ; real_T B_51_120_0_d ; real_T B_51_121_0 ; real_T B_51_122_0 ;
+real_T B_51_123_0 ; real_T B_51_124_0 ; real_T B_51_125_0 [ 3 ] ; real_T
+B_51_126_0 [ 3 ] ; real_T B_51_127_0 ; real_T B_51_128_0 ; real_T B_51_129_0
+; real_T B_51_130_0 ; real_T B_51_131_0 ; real_T B_51_132_0 ; real_T
+B_51_133_0 ; real_T B_51_134_0 ; real_T B_51_135_0 [ 3 ] ; real_T B_51_136_0
+; real_T B_51_137_0 ; real_T B_51_138_0 ; real_T B_51_139_0 ; real_T
+B_51_140_0 ; real_T B_51_141_0 [ 3 ] ; real_T B_51_143_0 ; real_T B_51_144_0
+; real_T B_51_145_0 ; real_T B_51_146_0_g ; real_T B_51_147_0_l ; real_T
+B_51_148_0_d ; real_T B_51_153_0 ; real_T B_51_154_0 ; real_T B_51_158_0 ;
+real_T B_51_159_0 ; real_T B_51_160_0 ; real_T B_51_161_0 ; real_T B_51_162_0
+; real_T B_51_163_0 ; real_T B_51_164_0 ; real_T B_51_165_0 ; real_T
+B_51_166_0 ; real_T B_51_167_0 ; real_T B_51_168_0 ; real_T B_51_169_0 ;
+real_T B_51_170_0 ; real_T B_51_171_0 ; real_T B_51_172_0 ; real_T B_51_173_0
+; real_T B_51_174_0 ; real_T B_51_175_0 ; real_T B_51_177_0 ; real_T
+B_51_178_0 ; real_T B_51_179_0 [ 14 ] ; real_T B_51_180_0 [ 24 ] ; real_T
+B_51_181_0 [ 28 ] ; real_T B_51_182_0 ; real_T B_51_184_0 ; real_T B_51_185_0
+; real_T B_51_188_0 ; real_T B_51_189_0 ; real_T B_51_190_0 ; real_T
+B_51_191_0 ; real_T B_51_193_0 ; real_T B_51_194_0 ; real_T B_51_195_0 ;
+real_T B_49_0_1 ; real_T B_48_0_1 ; real_T B_47_0_1 ; real_T B_46_0_1 ;
+real_T B_45_2_0 ; real_T B_45_6_0 ; real_T B_45_11_0 ; real_T B_45_15_0 ;
+real_T B_45_0_0 ; real_T B_45_1_0 ; real_T B_45_2_0_d ; real_T B_45_3_0 ;
+real_T B_45_4_0 ; real_T B_44_0_1 ; real_T B_43_0_1 ; real_T B_42_0_1 ;
+real_T B_41_0_1 ; real_T B_40_0_1 ; real_T B_38_0_0 [ 6 ] ; real_T B_38_1_1 [
+3 ] ; real_T B_37_0_0 [ 2 ] ; real_T B_37_1_1 ; real_T B_36_0_0 [ 2 ] ;
+real_T B_36_1_1 ; real_T B_35_0_1 ; real_T B_34_0_1 ; real_T B_33_0_0 ;
+real_T B_33_2_0 ; real_T B_30_0_0 ; real_T B_30_2_0 ; real_T B_27_6_0 [ 2 ] ;
+real_T B_27_9_0 [ 2 ] ; real_T B_27_11_0 [ 2 ] ; real_T B_27_1_0 ; real_T
+B_26_6_0 [ 2 ] ; real_T B_26_11_0 [ 2 ] ; real_T B_26_12_0 [ 2 ] ; real_T
+B_25_6_0 [ 2 ] ; real_T B_25_7_0 [ 2 ] ; real_T B_24_4_0 [ 2 ] ; real_T
+B_23_4_0 [ 2 ] ; real_T B_23_5_0 [ 2 ] ; real_T B_22_7_0 [ 2 ] ; real_T
+B_22_9_0 [ 2 ] ; real_T B_22_0_0 ; real_T B_22_3_0 ; real_T B_22_4_0 ; real_T
+B_19_0_0 ; real_T B_18_0_1 ; real_T B_18_0_2 ; real_T B_18_0_3 ; real_T
+B_17_0_1 ; real_T B_17_0_2 ; real_T B_17_0_3 ; real_T B_16_0_1 ; real_T
+B_15_0_1 ; real_T B_15_0_2 ; real_T B_14_0_1 ; real_T B_13_0_1 ; real_T
+B_13_0_2 ; real_T B_12_0_1 ; real_T B_11_0_1 ; real_T B_11_0_2 ; real_T
+B_10_0_1 ; real_T B_10_0_2 ; real_T B_9_0_1 [ 9 ] ; real_T B_8_0_0 [ 4 ] ;
+real_T B_8_1_1 ; real_T B_7_0_0 [ 4 ] ; real_T B_7_1_1 ; real_T B_6_0_0 [ 4 ]
+; real_T B_6_1_1 ; real_T B_5_0_0 [ 4 ] ; real_T B_5_1_1 ; real_T B_4_0_0 [ 4
+] ; real_T B_4_1_1 ; real_T B_3_0_1 [ 9 ] ; real_T B_2_0_0 [ 4 ] ; real_T
+B_2_1_1 ; real_T B_1_0_0 [ 4 ] ; real_T B_1_1_1 ; real_T B_0_0_0 [ 4 ] ;
+real_T B_0_1_1 ; uint32_T B_51_99_0 ; boolean_T B_51_23_0_l ; boolean_T
+B_51_25_0_o ; boolean_T B_51_27_0 ; boolean_T B_51_958_0 ;
 B_Distanceintogusty_v2022_Modello_SITL_AENEA_2020b_T Distanceintogustz ;
 B_Distanceintogusty_v2022_Modello_SITL_AENEA_2020b_T Distanceintogusty ; }
 B_v2022_Modello_SITL_AENEA_2020b_T ; typedef struct { real_T UnitDelay_DSTATE
@@ -233,11 +233,10 @@ struct { void * TUbufferPtrs [ 2 ] ; } Delay_ahrs5_PWORK ; struct { void *
 TUbufferPtrs [ 2 ] ; } Delay_ahrs4_PWORK ; struct { void * TUbufferPtrs [ 2 ]
 ; } Delay_ahrs6_PWORK ; struct { void * TUbufferPtrs [ 2 ] ; }
 Delay_ahrs7_PWORK ; struct { void * TUbufferPtrs [ 2 ] ; } Delay_ahrs8_PWORK
-; void * Scope_PWORK ; void * Scope9_PWORK [ 2 ] ; struct { void * AQHandles
-; } TAQSigLogging_InsertedFor_Propulsione1_at_outport_0_PWORK ; struct { void
-* AQHandles ; }
-TAQSigLogging_InsertedFor_SubsystemReference_at_outport_0_PWORK ; void *
-Scope_PWORK_p ; void * Scope_PWORK_m ; struct { void * AQHandles ; }
+; void * Scope9_PWORK [ 2 ] ; struct { void * AQHandles ; }
+TAQSigLogging_InsertedFor_Propulsione1_at_outport_0_PWORK ; struct { void *
+AQHandles ; } TAQSigLogging_InsertedFor_SubsystemReference_at_outport_0_PWORK
+; void * Scope_PWORK ; void * Scope_PWORK_m ; struct { void * AQHandles ; }
 TAQSigLogging_InsertedFor_J_at_outport_0_PWORK ; struct { void * AQHandles ;
 } TAQSigLogging_InsertedFor_MATLABFunction_at_outport_0_PWORK ; struct { void
 * AQHandles ; } TAQSigLogging_InsertedFor_MATLABFunction_at_outport_1_PWORK ;
@@ -270,15 +269,15 @@ AQHandles ; } TAQSigLogging_InsertedFor_vcmdsmorzamento_at_outport_0_PWORK_f
 ; struct { void * AQHandles ; }
 TAQSigLogging_InsertedFor_hknmolla_at_outport_0_PWORK ; struct { void *
 AQHandles ; } TAQSigLogging_InsertedFor_vcndsmorzamento_at_outport_0_PWORK ;
-void * Scope_PWORK_p4 ; void * Scope_PWORK_k ; void * Scope_PWORK_j ; void *
+void * Scope_PWORK_p ; void * Scope_PWORK_k ; void * Scope_PWORK_j ; void *
 Scope_PWORK_mg [ 2 ] ; void * Scope1_PWORK [ 2 ] ; void * Scope2_PWORK [ 2 ]
-; void * Scope4_PWORK [ 4 ] ; void * Scope_PWORK_n ; void * Scope1_PWORK_l ;
-void * ToWorkspace_PWORK ; void * Scope_PWORK_pe [ 2 ] ; void *
-ToWorkspace_PWORK_c ; void * ToWorkspace1_PWORK ; void * ToWorkspace2_PWORK ;
-void * ToWorkspace5_PWORK ; void * ToWorkspace6_PWORK ; void *
-ToWorkspace7_PWORK ; void * ToWorkspace9_PWORK ; struct { void * AQHandles ;
-} TAQSigLogging_InsertedFor_RadianstoDegrees_at_outport_0_PWORK_d ; void *
-Scope2_PWORK_g [ 2 ] ; void * Scope_PWORK_nc [ 2 ] ; void * Scope1_PWORK_h ;
+; void * Scope4_PWORK [ 4 ] ; void * ToWorkspace_PWORK ; void *
+Scope_PWORK_pe [ 2 ] ; void * ToWorkspace_PWORK_c ; void * ToWorkspace1_PWORK
+; void * ToWorkspace2_PWORK ; void * ToWorkspace5_PWORK ; void *
+ToWorkspace6_PWORK ; void * ToWorkspace7_PWORK ; void * ToWorkspace9_PWORK ;
+struct { void * AQHandles ; }
+TAQSigLogging_InsertedFor_RadianstoDegrees_at_outport_0_PWORK_d ; void *
+Scope2_PWORK_g [ 2 ] ; void * Scope_PWORK_n [ 2 ] ; void * Scope1_PWORK_h ;
 void * Scope3_PWORK ; void * Scope4_PWORK_p ; int32_T Product2_DWORK2 [ 3 ] ;
 int32_T TmpAtomicSubsysAtSwitch3Inport1_sysIdxToRun ; int32_T
 u2piWrapper_sysIdxToRun ; int32_T CorrezionePSI_sysIdxToRun ; int32_T

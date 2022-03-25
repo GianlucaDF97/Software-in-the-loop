@@ -98,7 +98,7 @@ rt_ssReportDiagnosticAsWarning ( S_0 , diag ) ; } } } static void mdlOutputs
 real_T B_51_774_0 ; real_T B_51_815_0 ; real_T B_51_819_0 ; real_T B_51_825_0
 ; real_T B_51_835_0 ; real_T B_51_848_0 ; real_T B_51_856_0 ; real_T
 B_51_864_0 ; real_T B_51_872_0 ; real_T B_51_882_0 ; real_T B_51_892_0 ;
-real_T B_51_925_0 [ 3 ] ; B_v2022_Modello_SITL_AENEA_2020b_T * _rtB ;
+real_T B_51_919_0 [ 3 ] ; B_v2022_Modello_SITL_AENEA_2020b_T * _rtB ;
 DW_v2022_Modello_SITL_AENEA_2020b_T * _rtDW ;
 P_v2022_Modello_SITL_AENEA_2020b_T * _rtP ;
 X_v2022_Modello_SITL_AENEA_2020b_T * _rtX ; real_T rtb_B_51_12_0 [ 9 ] ;
@@ -1349,34 +1349,19 @@ ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_910_0 = _rtB
 * _rtB -> B_51_910_0 / _rtB -> B_51_195_0 ) ; ssCallAccelRunBlock ( S , 51 ,
 914 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 915 ,
 SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 916 ,
-SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_51_917_0 = _rtDW -> Delay_DSTATE [ 0 ] ;
-_rtB -> B_51_918_0 = _rtDW -> Delay1_DSTATE [ 0 ] ; _rtB -> B_51_919_0 =
-_rtDW -> Delay2_DSTATE [ 0 ] ; _rtB -> B_51_920_0 = _rtDW -> Delay3_DSTATE [
-0 ] ; } isHit = ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0 ) {
-rtb_B_51_84_0 = _rtP -> P_35 * _rtB -> B_51_917_0 - _rtB -> B_45_0_0 ; if (
-rtb_B_51_84_0 > _rtP -> P_36 ) { _rtB -> B_45_2_0 = rtb_B_51_84_0 ; } else {
-_rtB -> B_45_2_0 = _rtB -> B_45_1_0 ; } ssCallAccelRunBlock ( S , 45 , 3 ,
-SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_45_6_0 = ( _rtP -> P_37 * _rtB ->
-B_51_918_0 - _rtB -> B_45_2_0_d ) * _rtP -> P_38 ; ssCallAccelRunBlock ( S ,
-45 , 7 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 45 , 8 ,
-SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_45_11_0 = ( _rtP -> P_39 * _rtB ->
-B_51_919_0 - _rtB -> B_45_3_0 ) * _rtP -> P_40 ; ssCallAccelRunBlock ( S , 45
-, 12 , SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_45_15_0 = ( _rtP -> P_41 * _rtB ->
-B_51_920_0 - _rtB -> B_45_4_0 ) * _rtP -> P_42 ; ssCallAccelRunBlock ( S , 45
-, 16 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 922 ,
 SS_CALL_MDL_OUTPUTS ) ; } for ( isHit = 0 ; isHit < 3 ; isHit ++ ) { _rtB ->
-B_51_923_0 [ isHit ] = 0.0 ; _rtB -> B_51_923_0 [ isHit ] += rtb_B_51_12_0 [
-isHit ] * _rtB -> B_51_690_0 [ 0 ] ; _rtB -> B_51_923_0 [ isHit ] +=
-rtb_B_51_12_0 [ isHit + 3 ] * _rtB -> B_51_690_0 [ 1 ] ; _rtB -> B_51_923_0 [
+B_51_917_0 [ isHit ] = 0.0 ; _rtB -> B_51_917_0 [ isHit ] += rtb_B_51_12_0 [
+isHit ] * _rtB -> B_51_690_0 [ 0 ] ; _rtB -> B_51_917_0 [ isHit ] +=
+rtb_B_51_12_0 [ isHit + 3 ] * _rtB -> B_51_690_0 [ 1 ] ; _rtB -> B_51_917_0 [
 isHit ] += rtb_B_51_12_0 [ isHit + 6 ] * _rtB -> B_51_690_0 [ 2 ] ; } isHit =
 ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0 ) { ssCallAccelRunBlock ( S ,
-51 , 924 , SS_CALL_MDL_OUTPUTS ) ; B_51_925_0 [ 0 ] = _rtB -> B_51_110_0 ;
-B_51_925_0 [ 1 ] = _rtB -> B_51_35_0_c ; B_51_925_0 [ 2 ] = _rtB ->
+51 , 918 , SS_CALL_MDL_OUTPUTS ) ; B_51_919_0 [ 0 ] = _rtB -> B_51_110_0 ;
+B_51_919_0 [ 1 ] = _rtB -> B_51_35_0_c ; B_51_919_0 [ 2 ] = _rtB ->
 B_51_35_0_c ; { if ( _rtDW ->
 TAQSigLogging_InsertedFor_Propulsione1_at_outport_0_PWORK . AQHandles &&
 ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Propulsione1_at_outport_0_PWORK . AQHandles ,
-ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_925_0 [ 0 ] + 0 ) ; } } { if (
+ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_919_0 [ 0 ] + 0 ) ; } } { if (
 _rtDW -> TAQSigLogging_InsertedFor_SubsystemReference_at_outport_0_PWORK .
 AQHandles && ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_SubsystemReference_at_outport_0_PWORK . AQHandles ,
@@ -1385,9 +1370,9 @@ muDoubleScalarSinCos ( _rtB -> B_51_0_0 [ 0 ] , & rtb_B_51_1_0 [ 0 ] , &
 rtb_B_51_56_0 [ 0 ] ) ; muDoubleScalarSinCos ( _rtB -> B_51_0_0 [ 1 ] , &
 rtb_B_51_1_0 [ 1 ] , & rtb_B_51_56_0 [ 1 ] ) ; muDoubleScalarSinCos ( _rtB ->
 B_51_0_0 [ 2 ] , & rtb_B_51_1_0 [ 2 ] , & rtb_B_51_56_0 [ 2 ] ) ; _rtB ->
-B_51_932_0 [ 0 ] = ( _rtB -> B_51_69_0 [ 1 ] * rtb_B_51_1_0 [ 0 ] + _rtB ->
+B_51_926_0 [ 0 ] = ( _rtB -> B_51_69_0 [ 1 ] * rtb_B_51_1_0 [ 0 ] + _rtB ->
 B_51_69_0 [ 2 ] * rtb_B_51_56_0 [ 0 ] ) * ( rtb_B_51_1_0 [ 1 ] /
-rtb_B_51_56_0 [ 1 ] ) + _rtB -> B_51_69_0 [ 0 ] ; _rtB -> B_51_932_0 [ 1 ] =
+rtb_B_51_56_0 [ 1 ] ) + _rtB -> B_51_69_0 [ 0 ] ; _rtB -> B_51_926_0 [ 1 ] =
 _rtB -> B_51_69_0 [ 1 ] * rtb_B_51_56_0 [ 0 ] - _rtB -> B_51_69_0 [ 2 ] *
 rtb_B_51_1_0 [ 0 ] ; rtb_B_51_112_0 [ 0 ] = _rtB -> B_51_126_0 [ 1 ] * _rtB
 -> B_51_556_0 [ 2 ] ; rtb_B_51_112_0 [ 1 ] = _rtB -> B_51_126_0 [ 2 ] * _rtB
@@ -1405,16 +1390,16 @@ B_51_69_0 [ isHit ] ; tmp [ isHit + 3 ] = rtb_B_51_38_0 ; tmp [ isHit + 6 ] =
 rtb_B_51_42_0 ; tmp_0 [ isHit ] = _rtB -> B_51_69_0 [ isHit ] ; tmp_0 [ isHit
 + 3 ] = rtb_B_51_38_0 ; tmp_0 [ isHit + 6 ] = rtb_B_51_42_0 ; tmp_1 [ isHit ]
 = _rtB -> B_51_69_0 [ isHit ] ; tmp_1 [ isHit + 3 ] = rtb_B_51_38_0 ; tmp_1 [
-isHit + 6 ] = rtb_B_51_42_0 ; _rtB -> B_51_943_0 [ isHit ] = rtb_B_51_112_0 [
+isHit + 6 ] = rtb_B_51_42_0 ; _rtB -> B_51_937_0 [ isHit ] = rtb_B_51_112_0 [
 isHit ] - rtb_B_51_112_0 [ isHit + 3 ] ; rtb_B_51_1_0 [ isHit ] = _rtB ->
 B_51_3_0 [ isHit + 6 ] * _rtB -> B_51_69_0 [ 2 ] + ( _rtB -> B_51_3_0 [ isHit
 + 3 ] * _rtB -> B_51_69_0 [ 1 ] + _rtB -> B_51_3_0 [ isHit ] * _rtB ->
-B_51_69_0 [ 0 ] ) ; } _rtB -> B_51_932_0 [ 2 ] = ( rtb_B_51_12_0 [ 1 ] *
+B_51_69_0 [ 0 ] ) ; } _rtB -> B_51_926_0 [ 2 ] = ( rtb_B_51_12_0 [ 1 ] *
 rtb_B_51_195_0 [ 3 ] + tmp [ 2 ] * tmp_0 [ 6 ] ) / tmp_1 [ 7 ] ; _rtB ->
-B_51_945_0 [ 0 ] = _rtB -> B_51_70_0 [ 1 ] * _rtB -> B_51_614_0 [ 2 ] - _rtB
--> B_51_70_0 [ 2 ] * _rtB -> B_13_0_2 ; _rtB -> B_51_945_0 [ 1 ] = _rtB ->
+B_51_939_0 [ 0 ] = _rtB -> B_51_70_0 [ 1 ] * _rtB -> B_51_614_0 [ 2 ] - _rtB
+-> B_51_70_0 [ 2 ] * _rtB -> B_13_0_2 ; _rtB -> B_51_939_0 [ 1 ] = _rtB ->
 B_51_70_0 [ 2 ] * _rtB -> B_51_564_0 - _rtB -> B_51_70_0 [ 0 ] * _rtB ->
-B_51_614_0 [ 2 ] ; _rtB -> B_51_945_0 [ 2 ] = _rtB -> B_51_70_0 [ 0 ] * _rtB
+B_51_614_0 [ 2 ] ; _rtB -> B_51_939_0 [ 2 ] = _rtB -> B_51_70_0 [ 0 ] * _rtB
 -> B_13_0_2 - _rtB -> B_51_70_0 [ 1 ] * _rtB -> B_51_564_0 ; rtb_B_51_112_0 [
 0 ] = _rtB -> B_51_71_0 [ 1 ] * _rtB -> B_51_672_0 [ 2 ] ; rtb_B_51_112_0 [ 1
 ] = _rtB -> B_51_71_0 [ 2 ] * _rtB -> B_51_622_0 ; rtb_B_51_112_0 [ 2 ] =
@@ -1428,34 +1413,49 @@ rtb_B_51_1_0 [ 1 ] ; rtb_B_51_2_1 [ 0 ] = _rtB -> B_51_69_0 [ 2 ] *
 rtb_B_51_1_0 [ 1 ] ; rtb_B_51_2_1 [ 1 ] = _rtB -> B_51_69_0 [ 0 ] *
 rtb_B_51_1_0 [ 2 ] ; rtb_B_51_2_1 [ 2 ] = _rtB -> B_51_69_0 [ 1 ] *
 rtb_B_51_1_0 [ 0 ] ; for ( isHit = 0 ; isHit < 3 ; isHit ++ ) { _rtB ->
-B_51_947_0 [ isHit ] = rtb_B_51_112_0 [ isHit ] - rtb_B_51_112_0 [ isHit + 3
-] ; rtb_B_51_1_0 [ isHit ] = ( ( ( ( _rtB -> B_51_943_0 [ isHit ] + _rtB ->
-B_51_945_0 [ isHit ] ) + _rtB -> B_51_947_0 [ isHit ] ) + _rtB -> B_51_146_0
+B_51_941_0 [ isHit ] = rtb_B_51_112_0 [ isHit ] - rtb_B_51_112_0 [ isHit + 3
+] ; rtb_B_51_1_0 [ isHit ] = ( ( ( ( _rtB -> B_51_937_0 [ isHit ] + _rtB ->
+B_51_939_0 [ isHit ] ) + _rtB -> B_51_941_0 [ isHit ] ) + _rtB -> B_51_146_0
 [ isHit ] ) - ( _rtB -> B_51_4_0 [ isHit + 6 ] * _rtB -> B_51_69_0 [ 2 ] + (
 _rtB -> B_51_4_0 [ isHit + 3 ] * _rtB -> B_51_69_0 [ 1 ] + _rtB -> B_51_4_0 [
 isHit ] * _rtB -> B_51_69_0 [ 0 ] ) ) ) - ( rtb_B_51_56_0 [ isHit ] -
 rtb_B_51_2_1 [ isHit ] ) ; } rt_mrdivide_U1d1x3_U2d3x3_Yd1x3_snf (
-rtb_B_51_1_0 , _rtB -> B_51_5_0 , _rtB -> B_51_951_0 ) ; isHit =
+rtb_B_51_1_0 , _rtB -> B_51_5_0 , _rtB -> B_51_945_0 ) ; isHit =
 ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0 ) { ssCallAccelRunBlock ( S ,
-51 , 952 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 953 ,
+51 , 946 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 947 ,
 SS_CALL_MDL_OUTPUTS ) ; } ssCallAccelRunBlock ( S , 9 , 0 ,
 SS_CALL_MDL_OUTPUTS ) ; isHit = ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0
-) { ssCallAccelRunBlock ( S , 51 , 955 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 956 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 957 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 958 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 959 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 960 , SS_CALL_MDL_OUTPUTS ) ; } _rtB ->
-B_51_961_0 = _rtP -> P_341 * _rtB -> B_51_119_0 ; isHit = ssIsSampleHit ( S ,
-1 , 0 ) ; if ( isHit != 0 ) { ssCallAccelRunBlock ( S , 51 , 962 ,
-SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 963 ,
-SS_CALL_MDL_OUTPUTS ) ; } _rtB -> B_51_964_0 = ( _rtB -> B_51_961_0 >= _rtB
--> B_51_25_0 ) ; isHit = ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0 ) { if
-( _rtB -> B_51_964_0 ) { ssSetStopRequested ( S , 1 ) ; } if ( _rtB ->
-B_45_2_0 > _rtP -> P_342 ) { rtb_B_51_38_0 = _rtP -> P_342 ; } else if ( _rtB
--> B_45_2_0 < _rtP -> P_343 ) { rtb_B_51_38_0 = _rtP -> P_343 ; } else {
-rtb_B_51_38_0 = _rtB -> B_45_2_0 ; } _rtB -> B_51_968_0 = _rtP -> P_344 *
-rtb_B_51_38_0 + 1.0 ; { if ( _rtDW ->
+) { ssCallAccelRunBlock ( S , 51 , 949 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 950 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 951 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 952 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 953 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 954 , SS_CALL_MDL_OUTPUTS ) ; } _rtB ->
+B_51_955_0 = _rtP -> P_337 * _rtB -> B_51_119_0 ; isHit = ssIsSampleHit ( S ,
+1 , 0 ) ; if ( isHit != 0 ) { ssCallAccelRunBlock ( S , 51 , 956 ,
+SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 957 ,
+SS_CALL_MDL_OUTPUTS ) ; } _rtB -> B_51_958_0 = ( _rtB -> B_51_955_0 >= _rtB
+-> B_51_25_0 ) ; isHit = ssIsSampleHit ( S , 1 , 0 ) ; if ( ( isHit != 0 ) &&
+_rtB -> B_51_958_0 ) { ssSetStopRequested ( S , 1 ) ; } isHit = ssIsSampleHit
+( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_960_0 = _rtDW ->
+Delay_DSTATE [ 0 ] ; _rtB -> B_51_961_0 = _rtDW -> Delay1_DSTATE [ 0 ] ; _rtB
+-> B_51_962_0 = _rtDW -> Delay2_DSTATE [ 0 ] ; _rtB -> B_51_963_0 = _rtDW ->
+Delay3_DSTATE [ 0 ] ; } isHit = ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0
+) { rtb_B_51_84_0 = _rtP -> P_35 * _rtB -> B_51_960_0 - _rtB -> B_45_0_0 ; if
+( rtb_B_51_84_0 > _rtP -> P_36 ) { _rtB -> B_45_2_0 = rtb_B_51_84_0 ; } else
+{ _rtB -> B_45_2_0 = _rtB -> B_45_1_0 ; } ssCallAccelRunBlock ( S , 45 , 3 ,
+SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_45_6_0 = ( _rtP -> P_37 * _rtB ->
+B_51_961_0 - _rtB -> B_45_2_0_d ) * _rtP -> P_38 ; ssCallAccelRunBlock ( S ,
+45 , 7 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 45 , 8 ,
+SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_45_11_0 = ( _rtP -> P_39 * _rtB ->
+B_51_962_0 - _rtB -> B_45_3_0 ) * _rtP -> P_40 ; ssCallAccelRunBlock ( S , 45
+, 12 , SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_45_15_0 = ( _rtP -> P_41 * _rtB ->
+B_51_963_0 - _rtB -> B_45_4_0 ) * _rtP -> P_42 ; ssCallAccelRunBlock ( S , 45
+, 16 , SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_51_965_0 = _rtB -> B_45_2_0 ; if (
+_rtB -> B_51_965_0 > _rtP -> P_342 ) { rtb_B_51_38_0 = _rtP -> P_342 ; } else
+if ( _rtB -> B_51_965_0 < _rtP -> P_343 ) { rtb_B_51_38_0 = _rtP -> P_343 ; }
+else { rtb_B_51_38_0 = _rtB -> B_51_965_0 ; } _rtB -> B_51_968_0 = _rtP ->
+P_344 * rtb_B_51_38_0 + 1.0 ; { if ( _rtDW ->
 TAQSigLogging_InsertedFor_J_at_outport_0_PWORK . AQHandles && ssGetLogOutput
 ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_J_at_outport_0_PWORK . AQHandles , ssGetTaskTime (
@@ -1477,36 +1477,36 @@ TAQSigLogging_InsertedFor_Fase_Ato_at_outport_0_PWORK . AQHandles &&
 ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Fase_Ato_at_outport_0_PWORK . AQHandles ,
 ssGetTaskTime ( S , 1 ) , ( char * ) & _rtB -> B_51_147_0 + 0 ) ; } }
-B_51_925_0 [ 0 ] = _rtB -> B_51_564_0 ; B_51_925_0 [ 1 ] = _rtB -> B_13_0_2 ;
-B_51_925_0 [ 2 ] = _rtB -> B_51_614_0 [ 2 ] ; { if ( _rtDW ->
+B_51_919_0 [ 0 ] = _rtB -> B_51_564_0 ; B_51_919_0 [ 1 ] = _rtB -> B_13_0_2 ;
+B_51_919_0 [ 2 ] = _rtB -> B_51_614_0 [ 2 ] ; { if ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem1_at_outport_0_PWORK . AQHandles &&
 ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem1_at_outport_0_PWORK . AQHandles ,
-ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_925_0 [ 0 ] + 0 ) ; } } { if (
+ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_919_0 [ 0 ] + 0 ) ; } } { if (
 _rtDW -> TAQSigLogging_InsertedFor_Subsystem1_at_outport_1_PWORK . AQHandles
 && ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem1_at_outport_1_PWORK . AQHandles ,
-ssGetTaskTime ( S , 1 ) , ( char * ) & _rtB -> B_51_945_0 [ 0 ] + 0 ) ; } }
-B_51_925_0 [ 0 ] = _rtB -> B_51_622_0 ; B_51_925_0 [ 1 ] = _rtB -> B_15_0_2 ;
-B_51_925_0 [ 2 ] = _rtB -> B_51_672_0 [ 2 ] ; { if ( _rtDW ->
+ssGetTaskTime ( S , 1 ) , ( char * ) & _rtB -> B_51_939_0 [ 0 ] + 0 ) ; } }
+B_51_919_0 [ 0 ] = _rtB -> B_51_622_0 ; B_51_919_0 [ 1 ] = _rtB -> B_15_0_2 ;
+B_51_919_0 [ 2 ] = _rtB -> B_51_672_0 [ 2 ] ; { if ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem2_at_outport_0_PWORK . AQHandles &&
 ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem2_at_outport_0_PWORK . AQHandles ,
-ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_925_0 [ 0 ] + 0 ) ; } } { if (
+ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_919_0 [ 0 ] + 0 ) ; } } { if (
 _rtDW -> TAQSigLogging_InsertedFor_Subsystem2_at_outport_1_PWORK . AQHandles
 && ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem2_at_outport_1_PWORK . AQHandles ,
-ssGetTaskTime ( S , 1 ) , ( char * ) & _rtB -> B_51_947_0 [ 0 ] + 0 ) ; } }
-B_51_925_0 [ 0 ] = _rtB -> B_51_506_0 ; B_51_925_0 [ 1 ] = _rtB -> B_11_0_2 ;
-B_51_925_0 [ 2 ] = _rtB -> B_51_556_0 [ 2 ] ; { if ( _rtDW ->
+ssGetTaskTime ( S , 1 ) , ( char * ) & _rtB -> B_51_941_0 [ 0 ] + 0 ) ; } }
+B_51_919_0 [ 0 ] = _rtB -> B_51_506_0 ; B_51_919_0 [ 1 ] = _rtB -> B_11_0_2 ;
+B_51_919_0 [ 2 ] = _rtB -> B_51_556_0 [ 2 ] ; { if ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem_at_outport_0_PWORK . AQHandles &&
 ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem_at_outport_0_PWORK . AQHandles ,
-ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_925_0 [ 0 ] + 0 ) ; } } { if (
+ssGetTaskTime ( S , 1 ) , ( char * ) & B_51_919_0 [ 0 ] + 0 ) ; } } { if (
 _rtDW -> TAQSigLogging_InsertedFor_Subsystem_at_outport_1_PWORK . AQHandles
 && ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_Subsystem_at_outport_1_PWORK . AQHandles ,
-ssGetTaskTime ( S , 1 ) , ( char * ) & _rtB -> B_51_943_0 [ 0 ] + 0 ) ; } } {
+ssGetTaskTime ( S , 1 ) , ( char * ) & _rtB -> B_51_937_0 [ 0 ] + 0 ) ; } } {
 if ( _rtDW -> TAQSigLogging_InsertedFor_modoautopilota_at_outport_0_PWORK .
 AQHandles && ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_modoautopilota_at_outport_0_PWORK . AQHandles ,
@@ -1557,12 +1557,12 @@ _rtB -> B_51_0_0 [ 1 ] ) ; rtb_B_51_12_0 [ 7 ] = muDoubleScalarSin ( _rtB ->
 B_51_0_0 [ 0 ] ) * muDoubleScalarCos ( _rtB -> B_51_0_0 [ 1 ] ) ;
 rtb_B_51_12_0 [ 8 ] = muDoubleScalarCos ( _rtB -> B_51_0_0 [ 1 ] ) *
 muDoubleScalarCos ( _rtB -> B_51_0_0 [ 0 ] ) ; rtb_B_51_38_0 = ( _rtB ->
-B_51_126_0 [ 1 ] * _rtB -> B_51_951_0 [ 2 ] - _rtB -> B_51_126_0 [ 2 ] * _rtB
--> B_51_951_0 [ 1 ] ) + _rtB -> B_51_683_0 [ 0 ] ; rtb_B_51_42_0 = ( _rtB ->
-B_51_126_0 [ 2 ] * _rtB -> B_51_951_0 [ 0 ] - _rtB -> B_51_126_0 [ 0 ] * _rtB
--> B_51_951_0 [ 2 ] ) + _rtB -> B_51_683_0 [ 1 ] ; rtb_B_51_39_0 = ( _rtB ->
-B_51_126_0 [ 0 ] * _rtB -> B_51_951_0 [ 1 ] - _rtB -> B_51_126_0 [ 1 ] * _rtB
--> B_51_951_0 [ 0 ] ) + _rtB -> B_51_683_0 [ 2 ] ; for ( isHit = 0 ; isHit <
+B_51_126_0 [ 1 ] * _rtB -> B_51_945_0 [ 2 ] - _rtB -> B_51_126_0 [ 2 ] * _rtB
+-> B_51_945_0 [ 1 ] ) + _rtB -> B_51_683_0 [ 0 ] ; rtb_B_51_42_0 = ( _rtB ->
+B_51_126_0 [ 2 ] * _rtB -> B_51_945_0 [ 0 ] - _rtB -> B_51_126_0 [ 0 ] * _rtB
+-> B_51_945_0 [ 2 ] ) + _rtB -> B_51_683_0 [ 1 ] ; rtb_B_51_39_0 = ( _rtB ->
+B_51_126_0 [ 0 ] * _rtB -> B_51_945_0 [ 1 ] - _rtB -> B_51_126_0 [ 1 ] * _rtB
+-> B_51_945_0 [ 0 ] ) + _rtB -> B_51_683_0 [ 2 ] ; for ( isHit = 0 ; isHit <
 3 ; isHit ++ ) { rtb_B_51_1_0 [ isHit ] = rtb_B_51_12_0 [ 3 * isHit + 2 ] *
 rtb_B_51_39_0 + ( rtb_B_51_12_0 [ 3 * isHit + 1 ] * rtb_B_51_42_0 +
 rtb_B_51_12_0 [ 3 * isHit ] * rtb_B_51_38_0 ) ; } _rtB -> B_51_1044_0 =
@@ -1602,12 +1602,12 @@ _rtB -> B_51_0_0 [ 1 ] ) ; rtb_B_51_12_0 [ 7 ] = muDoubleScalarSin ( _rtB ->
 B_51_0_0 [ 0 ] ) * muDoubleScalarCos ( _rtB -> B_51_0_0 [ 1 ] ) ;
 rtb_B_51_12_0 [ 8 ] = muDoubleScalarCos ( _rtB -> B_51_0_0 [ 1 ] ) *
 muDoubleScalarCos ( _rtB -> B_51_0_0 [ 0 ] ) ; rtb_B_51_38_0 = ( _rtB ->
-B_51_70_0 [ 1 ] * _rtB -> B_51_951_0 [ 2 ] - _rtB -> B_51_70_0 [ 2 ] * _rtB
--> B_51_951_0 [ 1 ] ) + _rtB -> B_51_683_0 [ 0 ] ; rtb_B_51_42_0 = ( _rtB ->
-B_51_70_0 [ 2 ] * _rtB -> B_51_951_0 [ 0 ] - _rtB -> B_51_70_0 [ 0 ] * _rtB
--> B_51_951_0 [ 2 ] ) + _rtB -> B_51_683_0 [ 1 ] ; rtb_B_51_39_0 = ( _rtB ->
-B_51_70_0 [ 0 ] * _rtB -> B_51_951_0 [ 1 ] - _rtB -> B_51_70_0 [ 1 ] * _rtB
--> B_51_951_0 [ 0 ] ) + _rtB -> B_51_683_0 [ 2 ] ; for ( isHit = 0 ; isHit <
+B_51_70_0 [ 1 ] * _rtB -> B_51_945_0 [ 2 ] - _rtB -> B_51_70_0 [ 2 ] * _rtB
+-> B_51_945_0 [ 1 ] ) + _rtB -> B_51_683_0 [ 0 ] ; rtb_B_51_42_0 = ( _rtB ->
+B_51_70_0 [ 2 ] * _rtB -> B_51_945_0 [ 0 ] - _rtB -> B_51_70_0 [ 0 ] * _rtB
+-> B_51_945_0 [ 2 ] ) + _rtB -> B_51_683_0 [ 1 ] ; rtb_B_51_39_0 = ( _rtB ->
+B_51_70_0 [ 0 ] * _rtB -> B_51_945_0 [ 1 ] - _rtB -> B_51_70_0 [ 1 ] * _rtB
+-> B_51_945_0 [ 0 ] ) + _rtB -> B_51_683_0 [ 2 ] ; for ( isHit = 0 ; isHit <
 3 ; isHit ++ ) { rtb_B_51_1_0 [ isHit ] = rtb_B_51_12_0 [ 3 * isHit + 2 ] *
 rtb_B_51_39_0 + ( rtb_B_51_12_0 [ 3 * isHit + 1 ] * rtb_B_51_42_0 +
 rtb_B_51_12_0 [ 3 * isHit ] * rtb_B_51_38_0 ) ; } _rtB -> B_51_1101_0 =
@@ -1643,12 +1643,12 @@ _rtB -> B_51_0_0 [ 1 ] ) ; rtb_B_51_12_0 [ 7 ] = muDoubleScalarSin ( _rtB ->
 B_51_0_0 [ 0 ] ) * muDoubleScalarCos ( _rtB -> B_51_0_0 [ 1 ] ) ;
 rtb_B_51_12_0 [ 8 ] = muDoubleScalarCos ( _rtB -> B_51_0_0 [ 1 ] ) *
 muDoubleScalarCos ( _rtB -> B_51_0_0 [ 0 ] ) ; rtb_B_51_38_0 = ( _rtB ->
-B_51_71_0 [ 1 ] * _rtB -> B_51_951_0 [ 2 ] - _rtB -> B_51_71_0 [ 2 ] * _rtB
--> B_51_951_0 [ 1 ] ) + _rtB -> B_51_683_0 [ 0 ] ; rtb_B_51_42_0 = ( _rtB ->
-B_51_71_0 [ 2 ] * _rtB -> B_51_951_0 [ 0 ] - _rtB -> B_51_71_0 [ 0 ] * _rtB
--> B_51_951_0 [ 2 ] ) + _rtB -> B_51_683_0 [ 1 ] ; rtb_B_51_39_0 = ( _rtB ->
-B_51_71_0 [ 0 ] * _rtB -> B_51_951_0 [ 1 ] - _rtB -> B_51_71_0 [ 1 ] * _rtB
--> B_51_951_0 [ 0 ] ) + _rtB -> B_51_683_0 [ 2 ] ; for ( isHit = 0 ; isHit <
+B_51_71_0 [ 1 ] * _rtB -> B_51_945_0 [ 2 ] - _rtB -> B_51_71_0 [ 2 ] * _rtB
+-> B_51_945_0 [ 1 ] ) + _rtB -> B_51_683_0 [ 0 ] ; rtb_B_51_42_0 = ( _rtB ->
+B_51_71_0 [ 2 ] * _rtB -> B_51_945_0 [ 0 ] - _rtB -> B_51_71_0 [ 0 ] * _rtB
+-> B_51_945_0 [ 2 ] ) + _rtB -> B_51_683_0 [ 1 ] ; rtb_B_51_39_0 = ( _rtB ->
+B_51_71_0 [ 0 ] * _rtB -> B_51_945_0 [ 1 ] - _rtB -> B_51_71_0 [ 1 ] * _rtB
+-> B_51_945_0 [ 0 ] ) + _rtB -> B_51_683_0 [ 2 ] ; for ( isHit = 0 ; isHit <
 3 ; isHit ++ ) { rtb_B_51_1_0 [ isHit ] = rtb_B_51_12_0 [ 3 * isHit + 2 ] *
 rtb_B_51_39_0 + ( rtb_B_51_12_0 [ 3 * isHit + 1 ] * rtb_B_51_42_0 +
 rtb_B_51_12_0 [ 3 * isHit ] * rtb_B_51_38_0 ) ; } _rtB -> B_51_1157_0 =
@@ -1751,64 +1751,63 @@ _rtB -> B_51_82_0 ; isHit = ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0 ) {
 _rtB -> B_51_1191_0 = _rtP -> P_354 * _rtB -> B_45_15_0 ; ssCallAccelRunBlock
 ( S , 51 , 1192 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 1193
 , SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 1194 ,
-SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 1195 ,
-SS_CALL_MDL_OUTPUTS ) ; ssCallAccelRunBlock ( S , 51 , 1196 ,
 SS_CALL_MDL_OUTPUTS ) ; } isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit !=
-0 ) { _rtB -> B_51_1198_0 = _rtDW -> NextOutput_p2 ; } _rtB -> B_51_1199_0 =
-_rtB -> B_51_1198_0 - _rtP -> P_355 * rtb_B_51_81_0 ; isHit = ssIsSampleHit (
-S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1201_0 = _rtDW ->
-NextOutput_p1 ; } _rtB -> B_51_1202_0 = _rtB -> B_51_1201_0 - _rtP -> P_359 *
+0 ) { _rtB -> B_51_1196_0 = _rtDW -> NextOutput_p2 ; } _rtB -> B_51_1197_0 =
+_rtB -> B_51_1196_0 - _rtP -> P_355 * rtb_B_51_81_0 ; isHit = ssIsSampleHit (
+S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1199_0 = _rtDW ->
+NextOutput_p1 ; } _rtB -> B_51_1200_0 = _rtB -> B_51_1199_0 - _rtP -> P_359 *
 rtb_B_51_801_0 ; isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) {
-_rtB -> B_51_1204_0 = _rtDW -> NextOutput_me ; } _rtB -> B_51_1205_0 = _rtB
--> B_51_1204_0 - _rtP -> P_363 * rtb_B_51_797_0 ; isHit = ssIsSampleHit ( S ,
-3 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1208_0 = _rtDW -> NextOutput_bl ;
-} _rtB -> B_51_1210_0 = B_51_765_0 * _rtB -> B_51_189_0 * _rtB -> B_51_1208_0
+_rtB -> B_51_1202_0 = _rtDW -> NextOutput_me ; } _rtB -> B_51_1203_0 = _rtB
+-> B_51_1202_0 - _rtP -> P_363 * rtb_B_51_797_0 ; isHit = ssIsSampleHit ( S ,
+3 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1206_0 = _rtDW -> NextOutput_bl ;
+} _rtB -> B_51_1208_0 = B_51_765_0 * _rtB -> B_51_189_0 * _rtB -> B_51_1206_0
 - _rtP -> P_367 * rtb_B_51_91_0 ; isHit = ssIsSampleHit ( S , 1 , 0 ) ; if (
-isHit != 0 ) { ssCallAccelRunBlock ( S , 51 , 1211 , SS_CALL_MDL_OUTPUTS ) ;
+isHit != 0 ) { ssCallAccelRunBlock ( S , 51 , 1209 , SS_CALL_MDL_OUTPUTS ) ;
 } isHit = ssIsSampleHit ( S , 3 , 0 ) ; if ( isHit != 0 ) { _rtB ->
-B_51_1214_0 = _rtDW -> NextOutput_n ; } _rtB -> B_51_1216_0 = B_51_774_0 *
-_rtB -> B_51_190_0 * _rtB -> B_51_1214_0 - _rtP -> P_371 * _rtB -> B_51_775_0
+B_51_1212_0 = _rtDW -> NextOutput_n ; } _rtB -> B_51_1214_0 = B_51_774_0 *
+_rtB -> B_51_190_0 * _rtB -> B_51_1212_0 - _rtP -> P_371 * _rtB -> B_51_775_0
 ; isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB ->
-B_51_1218_0 = _rtB -> B_51_793_0 * muDoubleScalarCos ( _rtB -> B_51_803_0 ) ;
-isHit = ssIsSampleHit ( S , 3 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1219_0
-= _rtB -> B_51_1218_0 ; _rtB -> B_51_1220_0 = _rtB -> B_51_808_0 ; } } isHit
+B_51_1216_0 = _rtB -> B_51_793_0 * muDoubleScalarCos ( _rtB -> B_51_803_0 ) ;
+isHit = ssIsSampleHit ( S , 3 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1217_0
+= _rtB -> B_51_1216_0 ; _rtB -> B_51_1218_0 = _rtB -> B_51_808_0 ; } } isHit
 = ssIsSampleHit ( S , 3 , 0 ) ; if ( isHit != 0 ) { ssCallAccelRunBlock ( S ,
-51 , 1221 , SS_CALL_MDL_OUTPUTS ) ; } isHit = ssIsSampleHit ( S , 2 , 0 ) ;
-if ( isHit != 0 ) { _rtB -> B_51_1225_0 = muDoubleScalarSqrt ( _rtB ->
+51 , 1219 , SS_CALL_MDL_OUTPUTS ) ; } isHit = ssIsSampleHit ( S , 2 , 0 ) ;
+if ( isHit != 0 ) { _rtB -> B_51_1223_0 = muDoubleScalarSqrt ( _rtB ->
 B_51_812_0 * _rtB -> B_51_812_0 + _rtB -> B_51_808_0 * _rtB -> B_51_808_0 ) ;
+ssCallAccelRunBlock ( S , 51 , 1224 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 1225 , SS_CALL_MDL_OUTPUTS ) ;
 ssCallAccelRunBlock ( S , 51 , 1226 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 1227 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 1228 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 1229 , SS_CALL_MDL_OUTPUTS ) ; _rtB ->
-B_51_1231_0 = _rtB -> B_51_793_0 * muDoubleScalarSin ( _rtB -> B_51_803_0 ) ;
-ssCallAccelRunBlock ( S , 51 , 1232 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 1233 , SS_CALL_MDL_OUTPUTS ) ;
-ssCallAccelRunBlock ( S , 51 , 1234 , SS_CALL_MDL_OUTPUTS ) ; _rtB ->
-B_51_1235_0 = _rtDW -> NextOutput_a1 ; } _rtB -> B_51_1236_0 = _rtB ->
-B_51_1235_0 + _rtB -> B_51_728_0 ; isHit = ssIsSampleHit ( S , 1 , 0 ) ; if (
+ssCallAccelRunBlock ( S , 51 , 1227 , SS_CALL_MDL_OUTPUTS ) ; _rtB ->
+B_51_1229_0 = _rtB -> B_51_793_0 * muDoubleScalarSin ( _rtB -> B_51_803_0 ) ;
+ssCallAccelRunBlock ( S , 51 , 1230 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 1231 , SS_CALL_MDL_OUTPUTS ) ;
+ssCallAccelRunBlock ( S , 51 , 1232 , SS_CALL_MDL_OUTPUTS ) ; _rtB ->
+B_51_1233_0 = _rtDW -> NextOutput_a1 ; } _rtB -> B_51_1234_0 = _rtB ->
+B_51_1233_0 + _rtB -> B_51_728_0 ; isHit = ssIsSampleHit ( S , 1 , 0 ) ; if (
 isHit != 0 ) { isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) {
-_rtDW -> RateTransition24_Buffer = _rtB -> B_51_1236_0 ; } } isHit =
-ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1237_0 = _rtDW
--> RateTransition24_Buffer ; _rtB -> B_51_1238_0 = _rtDW -> NextOutput_mr ; }
-_rtB -> B_51_1239_0 = _rtB -> B_51_1238_0 + _rtB -> B_51_35_0 [ 2 ] ; isHit =
+_rtDW -> RateTransition24_Buffer = _rtB -> B_51_1234_0 ; } } isHit =
+ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1235_0 = _rtDW
+-> RateTransition24_Buffer ; _rtB -> B_51_1236_0 = _rtDW -> NextOutput_mr ; }
+_rtB -> B_51_1237_0 = _rtB -> B_51_1236_0 + _rtB -> B_51_35_0 [ 2 ] ; isHit =
 ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0 ) { isHit = ssIsSampleHit ( S ,
 2 , 0 ) ; if ( isHit != 0 ) { _rtDW -> RateTransition25_Buffer = _rtB ->
-B_51_1239_0 ; } } isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) {
-_rtB -> B_51_1240_0 = _rtDW -> RateTransition25_Buffer ; _rtB -> B_51_1241_0
+B_51_1237_0 ; } } isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) {
+_rtB -> B_51_1238_0 = _rtDW -> RateTransition25_Buffer ; _rtB -> B_51_1239_0
 = _rtDW -> NextOutput_o2 ; } isHit = ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit
 != 0 ) { isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtDW ->
-RateTransition26_Buffer = _rtB -> B_51_1241_0 + B_51_714_0 ; } } isHit =
-ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1243_0 = _rtDW
--> RateTransition26_Buffer ; _rtB -> B_51_1244_0 = _rtDW -> NextOutput_ej ; }
-_rtB -> B_51_1245_0 = _rtB -> B_51_1244_0 + _rtB -> B_51_67_0 ; isHit =
+RateTransition26_Buffer = _rtB -> B_51_1239_0 + B_51_714_0 ; } } isHit =
+ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) { _rtB -> B_51_1241_0 = _rtDW
+-> RateTransition26_Buffer ; _rtB -> B_51_1242_0 = _rtDW -> NextOutput_ej ; }
+_rtB -> B_51_1243_0 = _rtB -> B_51_1242_0 + _rtB -> B_51_67_0 ; isHit =
 ssIsSampleHit ( S , 1 , 0 ) ; if ( isHit != 0 ) { isHit = ssIsSampleHit ( S ,
 2 , 0 ) ; if ( isHit != 0 ) { _rtDW -> RateTransition27_Buffer = _rtB ->
-B_51_1245_0 ; } } isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) {
-_rtB -> B_51_1246_0 = _rtDW -> RateTransition27_Buffer ; { if ( _rtDW ->
+B_51_1243_0 ; } } isHit = ssIsSampleHit ( S , 2 , 0 ) ; if ( isHit != 0 ) {
+_rtB -> B_51_1244_0 = _rtDW -> RateTransition27_Buffer ; { if ( _rtDW ->
 TAQSigLogging_InsertedFor_RadianstoDegrees_at_outport_0_PWORK_d . AQHandles
 && ssGetLogOutput ( S ) ) { sdiWriteSignal ( _rtDW ->
 TAQSigLogging_InsertedFor_RadianstoDegrees_at_outport_0_PWORK_d . AQHandles ,
 ssGetTaskTime ( S , 2 ) , ( char * ) & B_51_819_0 + 0 ) ; } } }
+ssCallAccelRunBlock ( S , 51 , 1246 , SS_CALL_MDL_OUTPUTS ) ;
 UNUSED_PARAMETER ( tid ) ; } static void mdlOutputsTID4 ( SimStruct * S ,
 int_T tid ) { B_v2022_Modello_SITL_AENEA_2020b_T * _rtB ;
 DW_v2022_Modello_SITL_AENEA_2020b_T * _rtDW ;
@@ -1906,7 +1905,7 @@ muDoubleScalarSinCos ( 0.017453292519943295 * _rtP -> P_461 , & rtb_B_51_98_0
 rtb_B_51_109_1 ; _rtB -> B_51_111_0_g [ 1 ] = _rtP -> P_463 * rtb_B_51_98_0 ;
 _rtB -> B_51_111_0_g [ 2 ] = _rtP -> P_463 * _rtP -> P_462 ; _rtB ->
 B_51_113_0 = muDoubleScalarLog ( _rtP -> P_464 ) ; ssCallAccelRunBlock ( S ,
-51 , 1343 , SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_51_116_0_n = _rtP -> P_466 ;
+51 , 1342 , SS_CALL_MDL_OUTPUTS ) ; _rtB -> B_51_116_0_n = _rtP -> P_466 ;
 _rtB -> B_51_117_0_p = _rtP -> P_467 ; _rtB -> B_51_118_0_l = _rtP -> P_468 ;
 _rtB -> B_51_119_0_j = _rtP -> P_469 ; _rtB -> B_51_120_0_d = _rtP -> P_470 ;
 _rtB -> B_51_121_0 = _rtP -> P_471 ; _rtB -> B_51_122_0 = _rtP -> P_472 ;
@@ -2254,11 +2253,11 @@ _rtXdot = ( ( XDot_v2022_Modello_SITL_AENEA_2020b_T * ) ssGetdX ( S ) ) ;
 _rtX = ( ( X_v2022_Modello_SITL_AENEA_2020b_T * ) ssGetContStates ( S ) ) ;
 _rtP = ( ( P_v2022_Modello_SITL_AENEA_2020b_T * ) ssGetModelRtp ( S ) ) ;
 _rtB = ( ( B_v2022_Modello_SITL_AENEA_2020b_T * ) _ssGetModelBlockIO ( S ) )
-; _rtXdot -> phithetapsi_CSTATE [ 0 ] = _rtB -> B_51_932_0 [ 0 ] ; _rtXdot ->
+; _rtXdot -> phithetapsi_CSTATE [ 0 ] = _rtB -> B_51_926_0 [ 0 ] ; _rtXdot ->
 xeyeze_CSTATE [ 0 ] = _rtB -> B_51_690_0 [ 0 ] ; _rtXdot ->
-phithetapsi_CSTATE [ 1 ] = _rtB -> B_51_932_0 [ 1 ] ; _rtXdot ->
+phithetapsi_CSTATE [ 1 ] = _rtB -> B_51_926_0 [ 1 ] ; _rtXdot ->
 xeyeze_CSTATE [ 1 ] = _rtB -> B_51_690_0 [ 1 ] ; _rtXdot ->
-phithetapsi_CSTATE [ 2 ] = _rtB -> B_51_932_0 [ 2 ] ; _rtXdot ->
+phithetapsi_CSTATE [ 2 ] = _rtB -> B_51_926_0 [ 2 ] ; _rtXdot ->
 xeyeze_CSTATE [ 2 ] = _rtB -> B_51_690_0 [ 2 ] ; if ( _rtDW ->
 Distanceintogustx_MODE ) { if ( ( ( _rtX ->
 DistanceintoGustxLimitedtogustlengthd_CSTATE_f > _rtP -> P_3 ) && ( _rtX ->
@@ -2322,16 +2321,16 @@ _rtB -> B_51_428_0 != 0.0 ) { _rtXdot -> Integrator_CSTATE_md = 0.0 ; } else
 Integrator1_CSTATE_n ) { _rtXdot -> Integrator1_CSTATE_n = 0.0 ; } else if (
 _rtB -> B_51_428_0 != 0.0 ) { _rtXdot -> Integrator1_CSTATE_n = 0.0 ; } else
 { _rtXdot -> Integrator1_CSTATE_n = _rtB -> B_51_481_0 ; } _rtXdot ->
-pqr_CSTATE [ 0 ] = _rtB -> B_51_951_0 [ 0 ] ; _rtXdot ->
+pqr_CSTATE [ 0 ] = _rtB -> B_51_945_0 [ 0 ] ; _rtXdot ->
 PositionIntegrator2_CSTATE [ 0 ] = _rtB -> B_51_1183_0 [ 0 ] ; _rtXdot ->
-pqr_CSTATE [ 1 ] = _rtB -> B_51_951_0 [ 1 ] ; _rtXdot ->
+pqr_CSTATE [ 1 ] = _rtB -> B_51_945_0 [ 1 ] ; _rtXdot ->
 PositionIntegrator2_CSTATE [ 1 ] = _rtB -> B_51_1183_0 [ 1 ] ; _rtXdot ->
-pqr_CSTATE [ 2 ] = _rtB -> B_51_951_0 [ 2 ] ; _rtXdot ->
+pqr_CSTATE [ 2 ] = _rtB -> B_51_945_0 [ 2 ] ; _rtXdot ->
 PositionIntegrator2_CSTATE [ 2 ] = _rtB -> B_51_1183_0 [ 2 ] ; _rtXdot ->
-Integrator_CSTATE_j = _rtB -> B_51_1210_0 ; _rtXdot -> Integrator_CSTATE_k =
-_rtB -> B_51_1216_0 ; _rtXdot -> Integrator2_CSTATE = _rtB -> B_51_1199_0 ;
-_rtXdot -> Integrator1_CSTATE_h = _rtB -> B_51_1202_0 ; _rtXdot ->
-Integrator_CSTATE_d = _rtB -> B_51_1205_0 ; if ( _rtDW -> Hpgw_MODE ) {
+Integrator_CSTATE_j = _rtB -> B_51_1208_0 ; _rtXdot -> Integrator_CSTATE_k =
+_rtB -> B_51_1214_0 ; _rtXdot -> Integrator2_CSTATE = _rtB -> B_51_1197_0 ;
+_rtXdot -> Integrator1_CSTATE_h = _rtB -> B_51_1200_0 ; _rtXdot ->
+Integrator_CSTATE_d = _rtB -> B_51_1203_0 ; if ( _rtDW -> Hpgw_MODE ) {
 _rtXdot -> pgw_p_CSTATE [ 0 ] = _rtB -> B_22_9_0 [ 0 ] ; _rtXdot ->
 pgw_p_CSTATE [ 1 ] = _rtB -> B_22_9_0 [ 1 ] ; } else { { real_T * dx ; int_T
 i ; dx = & ( ( ( XDot_v2022_Modello_SITL_AENEA_2020b_T * ) ssGetdX ( S ) ) ->
@@ -2345,9 +2344,9 @@ real_T * dx ; int_T i ; dx = & ( ( ( XDot_v2022_Modello_SITL_AENEA_2020b_T *
 1 ] ; } else { { real_T * dx ; int_T i ; dx = & ( ( (
 XDot_v2022_Modello_SITL_AENEA_2020b_T * ) ssGetdX ( S ) ) -> rgw_p_CSTATE [ 0
 ] ) ; for ( i = 0 ; i < 2 ; i ++ ) { dx [ i ] = 0.0 ; } } } } static void
-mdlInitializeSizes ( SimStruct * S ) { ssSetChecksumVal ( S , 0 , 2831991146U
-) ; ssSetChecksumVal ( S , 1 , 4065493876U ) ; ssSetChecksumVal ( S , 2 ,
-1190706534U ) ; ssSetChecksumVal ( S , 3 , 91381760U ) ; { mxArray *
+mdlInitializeSizes ( SimStruct * S ) { ssSetChecksumVal ( S , 0 , 605443097U
+) ; ssSetChecksumVal ( S , 1 , 3599613794U ) ; ssSetChecksumVal ( S , 2 ,
+3664027465U ) ; ssSetChecksumVal ( S , 3 , 1150382535U ) ; { mxArray *
 slVerStructMat = NULL ; mxArray * slStrMat = mxCreateString ( "simulink" ) ;
 char slVerChar [ 10 ] ; int status = mexCallMATLAB ( 1 , & slVerStructMat , 1
 , & slStrMat , "ver" ) ; if ( status == 0 ) { mxArray * slVerMat = mxGetField

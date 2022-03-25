@@ -11,7 +11,7 @@
 %vettore dunque ha coordinate: OGb=[0 0 -0.15]
 
 % In questa sezione vengono inoltre individuati i vettori caratteristici
-% dell'aereo risetto ad un sistema di riferimento con origine nel motore;
+% dell'aereo rispetto ad un sistema di riferimento con origine nel motore;
 % per avere un chiarimento visivo cfr. manuale. La lettera P indica appunto
 % l'espressione del vettore rispetto a quel punto.
 xG=input('inserire la distanza del baricentro da O (base è 0.5): ' );
@@ -53,7 +53,7 @@ rACtG=rACtP-rGP; %posizione del centro aerodinamico del piano di coda
 %dati di simulazione nuovi.
 
 %posizione del polo delle simulazini aerodinamiche rispetto al baricentro,
-%viene riniminata per essere data come input alle funzioni che calcolano i
+%viene rinominata per essere data come input alle funzioni che calcolano i
 %coefficienti di momento che la utilizzano nel prodotto vettoriale delle
 %forze per ottenere i momenti rispetto al baricentro
 

@@ -189,10 +189,9 @@ run('Load_modello_sensori.m')
 %--------------------------------------------------------------------------
 %% Condizioni iniziali filtro di Kalman------------------------------------
 
-%%Per partire più da vicino a Fiumicino:
-latitudineINI =38.13751231365193*pi/180; % posizione iniziale della simulazione
+latitudineINI = 38.13751231365193*pi/180; % posizione iniziale della simulazione
 
-longitudineINI =-76.419523813645*pi/180; %posizione iniziale della simulazione
+longitudineINI = -76.419523813645*pi/180; %posizione iniziale della simulazione
 
 HINI = -State0.Pos0(3);
 % 
@@ -265,8 +264,6 @@ interventoT = 1*0.6;  % 10% del valore massimo di manetta pari a 1; 0.1 sono cir
 %nel caso di NAV i parametri sono:
 %waypoints(vuoto, vuoto, velocità, vuoto, x_comandato, y_comandato, h_comandato)
 
-
- 
  WP_db_info=[0 0 0 0 1 3; ...
             0 0 0 0 2 3; ...
             0 0 0 0 3 3; ...
@@ -280,10 +277,7 @@ WP_db_param=[...
              0 0 0 0 0 0 0;...
              0 0 0 0 0 0 0;...
              0 0 0 0 0 0 0];
-         
-         
-
-
+            
 % WP_AL=[...
 % %            0 10 0 0 41.893013 12.492236 100;... iniziale: FIUMICINO
 %              0 20 0 0 41.782985053032796, 12.2399979829788208 2.5+0.295;...

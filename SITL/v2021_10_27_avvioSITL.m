@@ -92,61 +92,8 @@ sensori_FreqCampionamento_GPS=1;
 sensori_FreqCampionamento_imu=0.04;
 sensori_FreqCampionamento_pitot=0.02;
 sensori_FreqCampionamento_RPM=0.02;
-% 
-% % Varianza_Lat = 6.1e-13; % (25 m2)
-% % 
-% % Varianza_Long = 6.1e-13; % (25 m2)
-% % 
-% % Varianza_h = 0.8241;
-% % 
-% % Varianza_v = 1.7e-4;
-% % 
-% % Varianza_assetto = 6e-5;
-% % 
-% % Varianza_p = 3.18e-5;
-% % 
-% % Varianza_q = 2.42e-5;
-% % 
-% % Varianza_r = 4.18e-5;
-% % 
-% % Varianza_accx = 4.13e-5;
-% % 
-% % Varianza_accy = 4.13e-5;
-% % 
-% % Varianza_accz = 8.29e-5;
-% 
-% 
-% % %%%VARIANZA NULLA
-% 
-% Varianza_Lat = 0; % (25 m2)
-% 
-% Varianza_Long = 0; % (25 m2)
-% 
-% Varianza_h = 0;
-% 
-% Varianza_v = 0;
-% 
-% Varianza_assetto = 0;
-% 
-% Varianza_p = 0;
-% 
-% Varianza_q = 0;
-% 
-% Varianza_r = 0;
-% 
-% Varianza_accx = 0;
-% 
-% Varianza_accy =0;
-% 
-% Varianza_accz = 0;
-
-%--------------------------------------------------------------------------
 
 %% Bias sensori------------------------------------------------------------
-
-% Bias_velang = 9.7e-5;
-% 
-% Bias_acc = 0.02;
 
 Bias_velang = 0;
 
@@ -194,48 +141,6 @@ latitudineINI = 38.13751231365193*pi/180; % posizione iniziale della simulazione
 longitudineINI = -76.419523813645*pi/180; %posizione iniziale della simulazione
 
 HINI = -State0.Pos0(3);
-% 
-% velnordINI = 25;
-% 
-% velestINI = -0.05;
-% 
-% veldownINI = 0;
-% 
-% vINI = 25;
-% 
-% phiINI = 0;
-% 
-% thetaINI = -0.01;
-% 
-% psiINI = 0;
-% 
-% accnordINI = 0;
-% 
-% accestINI = 0;
-% 
-% accdownINI = 0;
-% 
-% pINI = 0;
-% 
-% qINI = 0;
-% 
-% rINI = 0;
-% 
-% biasaccxINI = 0.02;
-% 
-% biasaccyINI = 0.02;
-% 
-% biasacczINI = 0.02;
-% 
-% biaspINI = 9.7e-5;
-% 
-% biasqINI = 9.7e-5;
-% 
-% biasrINI = 9.7e-5;
-
-
-
-
 %--------------------------------------------------------------------------
 %% --- Soglie modalità SAFE --- %%
 
@@ -245,10 +150,6 @@ safe_V   = 40; % soglia sulla velocità impostata a 40 m/s.
 time_alarm_SAFE = 300; % tempo necessario affinché scatti l'allarme del Safe. Se le soglie di sicurezza sono violate per un tempo inferiore a 1 sec l'allarme non scatta.
 
 %% --- Soglie modalità INTERVENTO PILOTA --- %%
-
-% interventoE = 25*0.3; % 30% (7.5 deg) del valore massimo assumibile dall'equilibratore pari a 25 deg.
-% interventoA = 20*0.3; % 30% (6 deg) del valore massimo assumibile dall'alettone pari a 20 deg.
-% interventoT = 1*0.1;  % 10% del valore massimo di manetta pari a 1; 0.1 sono circa tre scatti di comando della manetta
 
 interventoE_1  = 10;
 interventoE_05 = 25*0.8; % 30% (7.5 deg) del valore massimo assumibile dall'equilibratore pari a 25 deg.
@@ -395,16 +296,6 @@ K_AW_B_imb = 0;                             % Guadagno bumpless imbardata
 K_AW_B_AP_quota = 1000;                     % Guadagno bumpless quota
 
 % IN - GESTIONE CONTROLLORI DI QUOTA
-% Kp_h_cruise = 0.04;                         % Kp controllore quota in crociera
-% Ki_h_cruise = 0.008;                        % Ki controllore quota in crociera   
-% 
-% Kp_h_app = 0.046;                           % Kp controllore quota in fase di approach
-% Ki_h_app = 0.012;                           % Ki controllore quota in fase di approach
-% Kp_rc_app = 0.01;                           % Kp controllore rc in fase di approach
-% 
-% Kp_h_flare = 0.05;                          % Kp controllore quota in fase di flare
-% Ki_h_flare = 0.04;                          % Ki controllore quota in fase di flare
-% Kp_rc_flare = 0.07;                         % Kp controllore rc in fase di flare
 
 Kp_h_cruise = 0.04;                         % Kp controllore quota in crociera
 Ki_h_cruise = 0.008;                        % Ki controllore quota in crociera   

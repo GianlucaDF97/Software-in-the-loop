@@ -16,7 +16,6 @@
 % bordo d'attacco).
 % Il sistema di riferimento vede l'asse x positivo perso prua, l'asse y
 % verso la destra del pilota e l'asse z verso il basso.
-% I principali output di questo script sono:
 % !!ATTENZIONE!! se si parla di forza Fxw (forza lungo xwind) 
 % questa sarà l'opposto della resistenza aerodinamica!!!! e così per tutte
 % le tabelle delle forze in assi vento!!!!!!!!

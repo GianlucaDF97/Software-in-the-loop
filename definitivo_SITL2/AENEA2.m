@@ -22,7 +22,7 @@
 % le tabelle delle forze in assi vento!!!!!!!!
 % Per le tabelle dei momenti invece, il momento Mxb coincide di fatto con
 % il momento di rollio e così per tutte le derivate di momento!!!!!
-
+% I principali output di questo script sono:
 % CFxb/CFxw-> coefficiente di forza lungo x in assi body/wind
 % CFyb/CFyw-> coefficiente di forza lungo y in assi body/wind
 % CFzb/CFzw-> coefficiente di forza lungo z in assi body/wind
@@ -67,7 +67,7 @@
 % Le simulazioni per le superfici di controllo, tuttavia, sono state fatte
 % ad angolo di attacco ed angolo di derapata nulla (variando solo le
 % rotazioni delle superfici di controllo), quindi nel caso di ALETTONI
-% EQUILIBRATORE E TIMONE la terna wind e la terna body coincidono ed in
+% EQUILIBRATORE e TIMONE la terna wind e la terna body coincidono ed in
 % fase di post-processing dei risultati è solo necessario spostare i
 % risultati nel baricentro e non è necessaria una matrice di rotazione per
 % passare dalla terna wind alla terna body.

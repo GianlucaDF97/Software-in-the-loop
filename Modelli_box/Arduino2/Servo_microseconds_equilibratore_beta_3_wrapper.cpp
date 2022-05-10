@@ -36,7 +36,7 @@
  * Output function
  *
  */
-extern "C" void Servo_microseconds_equilibratore_beta_3_Outputs_wrapper(const int16_T *tau,
+void Servo_microseconds_equilibratore_beta_3_Outputs_wrapper(const int16_T *tau,
 			const real_T *xD)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
@@ -52,7 +52,7 @@ if (xD[0]==1){
  * Updates function
  *
  */
-extern "C" void Servo_microseconds_equilibratore_beta_3_Update_wrapper(const int16_T *tau,
+void Servo_microseconds_equilibratore_beta_3_Update_wrapper(const int16_T *tau,
 			real_T *xD)
 {
 /* %%%-SFUNWIZ_wrapper_Update_Changes_BEGIN --- EDIT HERE TO _END */

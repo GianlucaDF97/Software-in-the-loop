@@ -1,0 +1,14 @@
+rt_zcfcn.o: \
+ C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rt_zcfcn.c \
+ C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rt_zcfcn.h \
+ C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h \
+ C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/zero_crossing_types.h
+
+C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rt_zcfcn.h:
+
+C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h:
+
+C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/zero_crossing_types.h:

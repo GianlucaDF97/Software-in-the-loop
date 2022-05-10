@@ -1,0 +1,11 @@
+rtGetInf.o: \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/Autopilota_20210518/AHRS_HITL/telemetria_ahrs_ert_rtw/rtGetInf.c \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/Autopilota_20210518/AHRS_HITL/telemetria_ahrs_ert_rtw/rtGetInf.h \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/Autopilota_20210518/AHRS_HITL/telemetria_ahrs_ert_rtw/rtwtypes.h \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/Autopilota_20210518/AHRS_HITL/telemetria_ahrs_ert_rtw/rt_nonfinite.h
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/Autopilota_20210518/AHRS_HITL/telemetria_ahrs_ert_rtw/rtGetInf.h:
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/Autopilota_20210518/AHRS_HITL/telemetria_ahrs_ert_rtw/rtwtypes.h:
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/Autopilota_20210518/AHRS_HITL/telemetria_ahrs_ert_rtw/rt_nonfinite.h:

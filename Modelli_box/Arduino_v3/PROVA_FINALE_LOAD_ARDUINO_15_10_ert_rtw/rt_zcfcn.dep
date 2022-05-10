@@ -1,0 +1,14 @@
+rt_zcfcn.o: \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rt_zcfcn.c \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rt_zcfcn.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/zero_crossing_types.h
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rt_zcfcn.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/zero_crossing_types.h:

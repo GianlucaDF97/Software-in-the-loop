@@ -1,0 +1,529 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+	p_1_loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_0[0]
+	{
+	 type:    struct loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG*
+	 alias:   "State0"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[0]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CD0"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[1]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CLdE"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[2]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CLq"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CYdA"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[4]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CYdR"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[5]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CYp"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[6]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CYr"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[7]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CldA"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[8]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CldR"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[9]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Clp"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[10]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Clr"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[11]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CmdE"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[12]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Cmq"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[13]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CndA"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[14]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "CndR"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[15]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Cnp"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Cnr"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[17]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Dprop"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[18]
+	{
+	 type:    loaddspace_ArrayDT0_3_3_Col*
+	 alias:   "I"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[27]
+	{
+	 type:    loaddspace_ArrayDT0_30*
+	 alias:   "J_vec"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[57]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Jeng"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[58]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Jprop"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[59]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Rprop"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[60]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "S"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[61]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Std_vel"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[62]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ta_lat"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[63]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ta_long"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[64]
+	{
+	 type:    loaddspace_ArrayDT0_4*
+	 alias:   "U0"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[68]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Var_V_hor_static"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[69]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Var_heading_static"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[70]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "W"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[73]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_ax"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[74]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_ay"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[75]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_az"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[76]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_gm_phi"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[77]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_gm_psi"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[78]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_gm_theta"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[79]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_p"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[80]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_pressione"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[81]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_q"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[82]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "White_r"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[83]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Zeng"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[84]
+	{
+	 type:    loaddspace_ArrayDT0_16363*
+	 alias:   "adc_P_bmp"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16447]
+	{
+	 type:    loaddspace_ArrayDT0_13*
+	 alias:   "alphavec_rad"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16460]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "attuatore_Amax"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16461]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "attuatore_Emax"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16462]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "attuatore_Rmax"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16463]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "b"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16464]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "beta_phi"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16465]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "beta_psi"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16466]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "beta_theta"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16467]
+	{
+	 type:    loaddspace_ArrayDT0_7*
+	 alias:   "betavec_rad"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16474]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "c"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16475]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "cbar"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16476]
+	{
+	 type:    loaddspace_ArrayDT0_43*
+	 alias:   "degree_aileron"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16519]
+	{
+	 type:    loaddspace_ArrayDT0_15*
+	 alias:   "degree_elevator"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16534]
+	{
+	 type:    loaddspace_ArrayDT0_43*
+	 alias:   "degree_rudder"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16577]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "deltaTtrim"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16578]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "g"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16581]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "m"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16582]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "mean_ax"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16583]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "mean_ay"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16584]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "mean_az"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16585]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "mean_p"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16586]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "mean_q"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16587]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "mean_r"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16588]
+	{
+	 type:    loaddspace_ArrayDT0_43*
+	 alias:   "microsec_aileron"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16631]
+	{
+	 type:    loaddspace_ArrayDT0_15*
+	 alias:   "microsec_elevator"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16646]
+	{
+	 type:    loaddspace_ArrayDT0_43*
+	 alias:   "microsec_rudder"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[16689]
+	{
+	 type:    loaddspace_ArrayDT0_16363*
+	 alias:   "p_bmp"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33052]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rACtG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33055]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rACwG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33058]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rAHRSG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33061]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rLEG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33064]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rNPG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33067]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rPG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33070]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rmglG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33073]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rmgrG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33076]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "rngG"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33079]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "seed_ahrs"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33080]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "seed_baro"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33081]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "seed_gps"
+	 flags:   PARAM
+	}
+	p_1_loaddspace_real_T_1[33082]
+	{
+	 type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0*
+	 alias:   "wind_constant"
+	 flags:   PARAM
+	}
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+group "State Machine Data"
+
+
+endgroup
+
+
+-- ******** Labels ************************************************************
+
+-- Generation of labels turned off with TRCGenerateLabels option.
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+

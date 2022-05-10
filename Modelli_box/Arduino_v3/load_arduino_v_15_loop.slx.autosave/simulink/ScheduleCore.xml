@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sltp_graph version="1.1" packageUris="http://schema.mathworks.com/mf0/sltp_mm/R2018b_201805251631">
+  <sltp.mm.core.Context type="sltp.mm.core.Context" uuid="dadf9bba-abf9-477b-8b28-a506c6c55a00">
+    <priorityDirection>HighNumberLast</priorityDirection>
+    <tasks type="sltp.mm.core.Task" uuid="cde0459d-564c-4189-b15d-4ce45eda8ea6"/>
+    <tasks type="sltp.mm.core.Task" uuid="eed38ff6-e988-46e4-a9ec-0a4e3d1b7f6e"/>
+    <tasks type="sltp.mm.core.Task" uuid="86c4a93b-58dd-41e3-a8b5-500d749056a1"/>
+    <tasks type="sltp.mm.core.Task" uuid="b67e0719-8504-4aeb-8ae6-66d4438d9bb3"/>
+    <unusedIds>4</unusedIds>
+    <rootTask type="sltp.mm.core.Task" uuid="cde0459d-564c-4189-b15d-4ce45eda8ea6">
+      <context type="sltp.mm.core.Context" uuid="dadf9bba-abf9-477b-8b28-a506c6c55a00"/>
+      <explicit>false</explicit>
+      <name>Default</name>
+      <priority>-2147483648</priority>
+      <subgraph type="sltp.mm.core.Graph" uuid="4ff73144-c3a9-4017-a543-e68e715f8f6a">
+        <connections type="sltp.mm.core.Connection" uuid="7d89a11e-52bf-4d0b-91e0-3248aa784d9e">
+          <dst type="sltp.mm.core.Task" uuid="eed38ff6-e988-46e4-a9ec-0a4e3d1b7f6e"/>
+          <src type="sltp.mm.core.Task" uuid="b67e0719-8504-4aeb-8ae6-66d4438d9bb3"/>
+        </connections>
+        <tasks type="sltp.mm.core.Task" uuid="eed38ff6-e988-46e4-a9ec-0a4e3d1b7f6e">
+          <baseTask>true</baseTask>
+          <context type="sltp.mm.core.Context" uuid="dadf9bba-abf9-477b-8b28-a506c6c55a00"/>
+          <explicit>false</explicit>
+          <id>1</id>
+          <inConnections type="sltp.mm.core.Connection" uuid="7d89a11e-52bf-4d0b-91e0-3248aa784d9e"/>
+          <name>D1</name>
+          <priority>40</priority>
+          <rates type="sltp.mm.core.Rate" uuid="729843f6-d15c-4151-8b1a-775e6b5124c7">
+            <color>255</color>
+            <rateSpec type="sltp.mm.core.RateSpec">
+              <period>0.02</period>
+            </rateSpec>
+            <sti>-1</sti>
+          </rates>
+        </tasks>
+        <tasks type="sltp.mm.core.Task" uuid="86c4a93b-58dd-41e3-a8b5-500d749056a1">
+          <context type="sltp.mm.core.Context" uuid="dadf9bba-abf9-477b-8b28-a506c6c55a00"/>
+          <explicit>false</explicit>
+          <id>2</id>
+          <name>D2</name>
+          <priority>41</priority>
+          <rates type="sltp.mm.core.Rate" uuid="ccd874d5-5651-4207-ad08-da5559beed29">
+            <color>255</color>
+            <rateSpec type="sltp.mm.core.RateSpec">
+              <period>0.040000000000000001</period>
+            </rateSpec>
+            <sti>-1</sti>
+          </rates>
+        </tasks>
+        <tasks type="sltp.mm.core.Task" uuid="b67e0719-8504-4aeb-8ae6-66d4438d9bb3">
+          <context type="sltp.mm.core.Context" uuid="dadf9bba-abf9-477b-8b28-a506c6c55a00"/>
+          <explicit>false</explicit>
+          <id>3</id>
+          <name>D3</name>
+          <outConnections type="sltp.mm.core.Connection" uuid="7d89a11e-52bf-4d0b-91e0-3248aa784d9e"/>
+          <priority>42</priority>
+          <rates type="sltp.mm.core.Rate" uuid="6f32eb5d-17b4-4d17-8f93-5b2ed604c4a5">
+            <color>255</color>
+            <rateSpec type="sltp.mm.core.RateSpec">
+              <period>0.10000000000000001</period>
+            </rateSpec>
+            <sti>-1</sti>
+          </rates>
+        </tasks>
+      </subgraph>
+    </rootTask>
+  </sltp.mm.core.Context>
+</sltp_graph>

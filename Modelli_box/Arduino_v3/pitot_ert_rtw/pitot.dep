@@ -1,0 +1,50 @@
+pitot.o: \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/pitot.c \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/pitot.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_continuous.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_solver.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_continuous.h \
+ C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/shared/svd/include/MW_AnalogIn.h \
+ C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/shared/svd/include/MW_SVD.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/pitot_types.h \
+ C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/shared/svd/include/MW_SVD.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/MW_target_hardware_resources.h \
+ C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/SUPPOR~1/ARDUIN~1/SCHEDU~1/include/arduinoAVRScheduler.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/leonardo/pins_arduino.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/pitot_private.h
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/pitot.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_continuous.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_solver.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_continuous.h:
+
+C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/shared/svd/include/MW_AnalogIn.h:
+
+C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/shared/svd/include/MW_SVD.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/pitot_types.h:
+
+C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/shared/svd/include/MW_SVD.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/MW_target_hardware_resources.h:
+
+C:/PROGRA~3/MATLAB/SUPPOR~1/R2020b/toolbox/target/SUPPOR~1/ARDUIN~1/SCHEDU~1/include/arduinoAVRScheduler.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2020b/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/leonardo/pins_arduino.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/pitot_private.h:

@@ -47,14 +47,12 @@ uint8_t messold[38];
  * Start function
  *
  */
-extern "C" void Mti_Start_wrapper(real_T *xD)
+void Mti_Start_wrapper(real_T *xD)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     
-    Serial.begin(SERIAL_BAUDRATE);
-    //delay(SERIAL_OPEN_DELAY);
-    
+      
     Serial3.begin(SERIAL_BAUDRATE);
     //delay(SERIAL_OPEN_DELAY);
 //     Serial3.write(go_to_meas,5);
@@ -66,13 +64,12 @@ extern "C" void Mti_Start_wrapper(real_T *xD)
  * Output function
  *
  */
-extern "C" void Mti_Outputs_wrapper(uint8_T *messaggio,
+void Mti_Outputs_wrapper(uint8_T *messaggio,
 			const real_T *xD)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 if(xD[0]==1){
     #ifndef MATLAB_MEX_FILE
-  //  Serial.println(Serial3.read());
 //     for (int r = 0; r<3; r++){
 //         tmp_buff[r] = Serial3.read();
 //     }
@@ -111,7 +108,7 @@ if(xD[0]==1){
  * Updates function
  *
  */
-extern "C" void Mti_Update_wrapper(uint8_T *messaggio,
+void Mti_Update_wrapper(uint8_T *messaggio,
 			real_T *xD)
 {
 /* %%%-SFUNWIZ_wrapper_Update_Changes_BEGIN --- EDIT HERE TO _END */

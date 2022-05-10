@@ -1,0 +1,4 @@
+calc_T_wrapper.o: ../calc_T_wrapper.c \
+ C:/Users/GIAMPA~1/Desktop/TESTID~1/MATLAB/AUTOPI~1/load_arduino_v_13_ert_rtw/rtwtypes.h
+
+C:/Users/GIAMPA~1/Desktop/TESTID~1/MATLAB/AUTOPI~1/load_arduino_v_13_ert_rtw/rtwtypes.h:

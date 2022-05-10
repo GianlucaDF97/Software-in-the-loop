@@ -1,0 +1,31 @@
+updown.o: C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/updown.c \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/a_20210531_test_GPS_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_extmode.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/sysran_types.h \
+ C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_types.h \
+ C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_share.h \
+ C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_svr.h \
+ C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_work.h \
+ C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/updown_util.h \
+ C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/dt_info.h \
+ C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/upsup_public.h
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/a_20210531_test_GPS_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/rtw_extmode.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/sysran_types.h:
+
+C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_types.h:
+
+C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_share.h:
+
+C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_svr.h:
+
+C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/ext_work.h:
+
+C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/updown_util.h:
+
+C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/dt_info.h:
+
+C:/PROGRA~1/MATLAB/R2020b/rtw/c/src/ext_mode/common/upsup_public.h:

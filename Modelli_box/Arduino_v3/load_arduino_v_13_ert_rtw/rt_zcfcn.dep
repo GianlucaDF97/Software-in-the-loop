@@ -1,0 +1,11 @@
+rt_zcfcn.o: rt_zcfcn.c rt_zcfcn.h rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2018b/simulink/include/solver_zc.h \
+ zero_crossing_types.h
+
+rt_zcfcn.h:
+
+rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2018b/simulink/include/solver_zc.h:
+
+zero_crossing_types.h:

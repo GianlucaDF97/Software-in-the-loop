@@ -1,0 +1,5 @@
+calc_T_wrapper.o: \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/calc_T_wrapper.c \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_prova_costanti_ert_rtw/rtwtypes.h
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_prova_costanti_ert_rtw/rtwtypes.h:

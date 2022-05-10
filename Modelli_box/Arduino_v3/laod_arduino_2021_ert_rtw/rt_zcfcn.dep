@@ -1,0 +1,14 @@
+rt_zcfcn.o: \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/laod_arduino_2021_ert_rtw/rt_zcfcn.c \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/laod_arduino_2021_ert_rtw/rt_zcfcn.h \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/laod_arduino_2021_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/laod_arduino_2021_ert_rtw/zero_crossing_types.h
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/laod_arduino_2021_ert_rtw/rt_zcfcn.h:
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/laod_arduino_2021_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h:
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/laod_arduino_2021_ert_rtw/zero_crossing_types.h:

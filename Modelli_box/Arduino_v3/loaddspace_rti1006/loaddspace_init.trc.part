@@ -1,0 +1,124 @@
+
+
+-- Type definitions for structures
+
+typedef loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0 flt(64,IEEE)[3]
+
+struct loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Pos0"
+      type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "PHI0"
+      type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Vb0"
+      type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Omega0"
+      type:    loaddspace_struct_ckUvIw1SyOAjdVf7lN2sjG_Pos0_0
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "Ail0"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "Rud0"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "Ele0"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct loaddspace_struct_dZjXwTiylTPloSUBFpnHJB
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "InputPortsWidth"
+      type:    int(32)
+      offs:    -1
+    }
+endstruct
+
+struct loaddspace_struct_isB4Cw3Ovpp8VfzP6RUqbD
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "OutputPortsWidth"
+      type:    int(32)
+      offs:    -1
+    }
+endstruct
+
+typedef loaddspace_struct_6Hj7z6Di1PEUr8TFSJkHvD_OutputPortsWidth_0 int(32)[2]
+
+struct loaddspace_struct_6Hj7z6Di1PEUr8TFSJkHvD
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "OutputPortsWidth"
+      type:    loaddspace_struct_6Hj7z6Di1PEUr8TFSJkHvD_OutputPortsWidth_0
+      offs:    -1
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef loaddspace_ArrayDT0_6 flt(64,IEEE)[6]
+typedef loaddspace_ArrayDT0_9 flt(64,IEEE)[9]
+typedef loaddspace_ArrayDT0_3_3_Col col flt(64,IEEE)[3][3]
+typedef loaddspace_ArrayDT0_3_1_Col col flt(64,IEEE)[3][1]
+typedef loaddspace_ArrayDT0_6_3_Col col flt(64,IEEE)[6][3]
+typedef loaddspace_ArrayDT0_1_3_Col col flt(64,IEEE)[1][3]
+typedef loaddspace_ArrayDT0_2 flt(64,IEEE)[2]
+typedef loaddspace_ArrayDT0_4 flt(64,IEEE)[4]
+typedef loaddspace_ArrayDT1_9 flt(32,IEEE)[9]
+typedef loaddspace_ArrayDT3_4 uint(8)[4]
+typedef loaddspace_ArrayDT3_8 uint(8)[8]
+typedef loaddspace_ArrayDT3_2 uint(8)[2]
+typedef loaddspace_ArrayDT3_64 uint(8)[64]
+typedef loaddspace_ArrayDT3_131 uint(8)[131]
+typedef loaddspace_ArrayDT3_41 uint(8)[41]
+typedef loaddspace_ArrayDT0_30 flt(64,IEEE)[30]
+typedef loaddspace_ArrayDT0_16363 flt(64,IEEE)[16363]
+typedef loaddspace_ArrayDT0_13 flt(64,IEEE)[13]
+typedef loaddspace_ArrayDT0_7 flt(64,IEEE)[7]
+typedef loaddspace_ArrayDT0_43 flt(64,IEEE)[43]
+typedef loaddspace_ArrayDT0_15 flt(64,IEEE)[15]
+typedef loaddspace_ArrayDT0_13_7_Col col flt(64,IEEE)[13][7]
+typedef loaddspace_ArrayDT0_30_11_Col col flt(64,IEEE)[30][11]
+typedef loaddspace_ArrayDT0_11 flt(64,IEEE)[11]
+typedef loaddspace_ArrayDT7_2 uint(32)[2]
+typedef loaddspace_ArrayDT3_5 uint(8)[5]
+typedef loaddspace_ArrayDT0_8 flt(64,IEEE)[8]
+typedef loaddspace_ArrayDT6_3 int(32)[3]
+
+

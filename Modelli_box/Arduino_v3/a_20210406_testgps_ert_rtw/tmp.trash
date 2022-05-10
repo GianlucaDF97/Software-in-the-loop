@@ -1,0 +1,7 @@
+Atmel SMART device 0x285e0a60 found
+Erase flash
+done in 0.037 seconds
+
+Write 76032 bytes to flash (297 pages)
+[                              ] 0% (0/297 pages)
+SAM-BA operation failed

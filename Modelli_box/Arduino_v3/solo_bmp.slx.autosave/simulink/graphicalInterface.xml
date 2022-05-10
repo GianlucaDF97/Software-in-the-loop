@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GraphicalInterface>
+  <P Name="NumRootInports">0</P>
+  <P Name="NumRootOutports">0</P>
+  <P Name="ParameterArgumentNames"/>
+  <P Name="NumModelReferences">0</P>
+  <P Name="NumTestPointedSignals">0</P>
+  <P Name="NumProvidedFunctions">0</P>
+  <P Name="NumRequiredFunctions">0</P>
+  <P Name="NumResetEvents">0</P>
+  <P Name="HasInitializeEvent">0</P>
+  <P Name="HasTerminateEvent">0</P>
+  <P Name="PreCompExecutionDomainType">Unset</P>
+  <P Name="IsExportFunctionModel">0</P>
+  <P Name="NumParameterArguments">0</P>
+  <P Name="NumExternalFileReferences">31</P>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/Degrees to Radians</P>
+    <P Name="SID">4164</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Reversal</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/Enabled Subsystem/Byte Reversal</P>
+    <P Name="SID">4142</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Unpack</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/Enabled Subsystem/Byte Unpack</P>
+    <P Name="SID">4143</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/Enabled Subsystem/I2C Read</P>
+    <P Name="SID">4145</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/Enabled Subsystem/I2C Write</P>
+    <P Name="SID">4146</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/I2C Read1</P>
+    <P Name="SID">4019</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/I2C Read12</P>
+    <P Name="SID">4020</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/I2C Write</P>
+    <P Name="SID">4148</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Logic and Bit
+Operations/Bitwise
+Operator</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/While Iterator Subsystem/Bitwise Operator</P>
+    <P Name="SID">4152</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/While Iterator Subsystem/I2C Read</P>
+    <P Name="SID">4155</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/BMP_280/Execution_loop/While Iterator Subsystem/I2C Write1</P>
+    <P Name="SID">4156</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Logic and Bit
+Operations/Bitwise
+Operator</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/Bitwise Operator1</P>
+    <P Name="SID">4042</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Unpack</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/Byte Unpack</P>
+    <P Name="SID">4043</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read</P>
+    <P Name="SID">4048</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read1</P>
+    <P Name="SID">4049</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read10</P>
+    <P Name="SID">4050</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read11</P>
+    <P Name="SID">4051</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read12</P>
+    <P Name="SID">4052</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read2</P>
+    <P Name="SID">4053</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read3</P>
+    <P Name="SID">4054</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read4</P>
+    <P Name="SID">4055</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read5</P>
+    <P Name="SID">4056</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read6</P>
+    <P Name="SID">4057</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read7</P>
+    <P Name="SID">4058</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read8</P>
+    <P Name="SID">4059</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Read9</P>
+    <P Name="SID">4060</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Write1</P>
+    <P Name="SID">4061</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Write2</P>
+    <P Name="SID">4062</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/BMP_280/One_time_initialization1/I2C Write3</P>
+    <P Name="SID">4063</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Digital Output</P>
+    <P Name="Path">$bdroot/LED 13-44/Digital Output</P>
+    <P Name="SID">2049</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Digital Output</P>
+    <P Name="Path">$bdroot/LED 13-44/Digital Output1</P>
+    <P Name="SID">2050</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <P Name="OrderedModelArguments">1</P>
+</GraphicalInterface>

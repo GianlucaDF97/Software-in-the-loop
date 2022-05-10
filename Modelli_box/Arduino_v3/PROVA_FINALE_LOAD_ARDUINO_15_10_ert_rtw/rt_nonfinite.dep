@@ -1,0 +1,14 @@
+rt_nonfinite.o: \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rt_nonfinite.c \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rt_nonfinite.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtwtypes.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtGetNaN.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtGetInf.h
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rt_nonfinite.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtwtypes.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtGetNaN.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/ARDUINO_V3/PROVA_FINALE_LOAD_ARDUINO_15_10_ert_rtw/rtGetInf.h:

@@ -1,0 +1,5 @@
+ArduinoPinHandleMap.o: \
+ C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/rtwtypes.h
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/pitot_ert_rtw/rtwtypes.h:

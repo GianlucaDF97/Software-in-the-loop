@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LogicAnalyzerPlugin>
+  <P Name="LogicAnalyzerPlugin">on</P>
+  <P Name="LogicAnalyzerSignalOrdering">9c22a9c4-685e-44e2-bafe-2f5c1340bd07,635b0838-2b9f-4331-a14f-93ba7118bfc7</P>
+</LogicAnalyzerPlugin>

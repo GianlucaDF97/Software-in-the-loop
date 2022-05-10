@@ -1,0 +1,1 @@
+-- call "C:\Program Files\dSPACE RCPHIL 2020-B\exe\x86-insmod.exe" -m -f ..\modello_HITL_SFT_v4.x86 > ..\modello_HITL_SFT_v4.map 

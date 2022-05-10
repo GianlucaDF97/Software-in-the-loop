@@ -1,0 +1,11 @@
+rtGetNaN.o: \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_07_15_v2_ert_rtw/rtGetNaN.c \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_07_15_v2_ert_rtw/rtGetNaN.h \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_07_15_v2_ert_rtw/rtwtypes.h \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_07_15_v2_ert_rtw/rt_nonfinite.h
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_07_15_v2_ert_rtw/rtGetNaN.h:
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_07_15_v2_ert_rtw/rtwtypes.h:
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/LOG_DATI_GPS_BMP_07_15_v2_ert_rtw/rt_nonfinite.h:

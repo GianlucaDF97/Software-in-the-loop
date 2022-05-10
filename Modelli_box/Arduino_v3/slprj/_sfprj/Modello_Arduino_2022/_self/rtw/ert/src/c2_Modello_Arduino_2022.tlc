@@ -1,0 +1,69 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   7 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "x"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Modello_Arduino_2022:9044:753-754"\
+      Dimensions   [4]\
+    }\
+    ChartData {\
+      Name         "x_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Modello_Arduino_2022:9044:753-754"\
+    }\
+    ChartData {\
+      Name         "x_new_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Modello_Arduino_2022:9044:755-760"\
+    }\
+    ChartData {\
+      Name         "cycle_count"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Modello_Arduino_2022:9044:761-772"\
+    }\
+    ChartData {\
+      Name         "cycle_count_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Modello_Arduino_2022:9044:761-772"\
+    }\
+    ChartData {\
+      Name         "eps"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Modello_Arduino_2022:9044:773-776"\
+      Dimensions   [1,4]\
+    }\
+    ChartData {\
+      Name         "eps_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Modello_Arduino_2022:9044:773-776"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

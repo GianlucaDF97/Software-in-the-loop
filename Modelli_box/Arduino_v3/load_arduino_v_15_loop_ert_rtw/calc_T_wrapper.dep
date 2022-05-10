@@ -1,0 +1,5 @@
+calc_T_wrapper.o: \
+ C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/calc_T_wrapper.c \
+ C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rtwtypes.h
+
+C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rtwtypes.h:

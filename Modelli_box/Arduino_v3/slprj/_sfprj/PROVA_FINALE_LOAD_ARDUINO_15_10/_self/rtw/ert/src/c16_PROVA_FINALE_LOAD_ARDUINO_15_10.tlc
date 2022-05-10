@@ -1,0 +1,71 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   7 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "riferimenti"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "PROVA_FINALE_LOAD_ARDUINO_15_10:4394:1577-1588"\
+      Dimensions   [16]\
+    }\
+    ChartData {\
+      Name         "WP_dbP"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "PROVA_FINALE_LOAD_ARDUINO_15_10:4394:1639-1645"\
+      Dimensions   [6,7]\
+    }\
+    ChartData {\
+      Name         "WP_dbP_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "PROVA_FINALE_LOAD_ARDUINO_15_10:4394:1639-1645"\
+    }\
+    ChartData {\
+      Name         "WP_dbI"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "PROVA_FINALE_LOAD_ARDUINO_15_10:4394:1646-1652"\
+      Dimensions   [6,6]\
+    }\
+    ChartData {\
+      Name         "WP_dbP_AL"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "PROVA_FINALE_LOAD_ARDUINO_15_10:4394:1653-1662"\
+      Dimensions   [6,7]\
+    }\
+    ChartData {\
+      Name         "WP_dbP_AL_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "PROVA_FINALE_LOAD_ARDUINO_15_10:4394:1653-1662"\
+    }\
+    ChartData {\
+      Name         "test1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "PROVA_FINALE_LOAD_ARDUINO_15_10:4394:1709-1714"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

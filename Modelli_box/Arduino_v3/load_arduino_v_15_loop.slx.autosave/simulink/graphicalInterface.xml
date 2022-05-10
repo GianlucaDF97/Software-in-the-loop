@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GraphicalInterface>
+  <P Name="NumRootInports">0</P>
+  <P Name="NumRootOutports">0</P>
+  <P Name="ParameterArgumentNames"/>
+  <P Name="NumModelReferences">0</P>
+  <P Name="NumTestPointedSignals">2</P>
+  <TestPointedSignal>
+    <P Name="SignalName"/>
+    <P Name="FullBlockPath">$bdroot/AUTOPILOTA/Subsystem1/From24</P>
+    <P Name="LogSignal">1</P>
+    <P Name="MaxPoints">5000</P>
+    <P Name="Decimation">2</P>
+  </TestPointedSignal>
+  <TestPointedSignal>
+    <P Name="SignalName">QUOTA</P>
+    <P Name="FullBlockPath">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Switch di selezione  Task - Waypoint navigation4</P>
+    <P Name="LogSignal">1</P>
+    <P Name="MaxPoints">5000</P>
+    <P Name="Decimation">2</P>
+  </TestPointedSignal>
+  <P Name="NumProvidedFunctions">0</P>
+  <P Name="NumRequiredFunctions">0</P>
+  <P Name="NumResetEvents">0</P>
+  <P Name="HasInitializeEvent">0</P>
+  <P Name="HasTerminateEvent">0</P>
+  <P Name="PreCompExecutionDomainType">Unset</P>
+  <P Name="IsExportFunctionModel">0</P>
+  <P Name="NumParameterArguments">0</P>
+  <P Name="NumExternalFileReferences">91</P>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Serial Transmit</P>
+    <P Name="Path">$bdroot/AIR TX/Enable /Chart/sendbyte/Serial Transmit</P>
+    <P Name="SID">117::129</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AIR TX/GPS/Radians to Degrees</P>
+    <P Name="SID">129</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AIR TX/GPS/Radians to Degrees1</P>
+    <P Name="SID">130</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AIR TX/Servo/Conversione/Radians to Degrees1</P>
+    <P Name="SID">212</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AIR TX/Servo/Conversione/Radians to Degrees2</P>
+    <P Name="SID">213</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AIR TX/Servo/Conversione/Radians to Degrees3</P>
+    <P Name="SID">214</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AIR TX/VFR/Radians to Degrees</P>
+    <P Name="SID">6656</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI QUOTA/Controllore di RC1/PI Approach</P>
+    <P Name="SID">7035</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI QUOTA/Controllore di RC1/PI Approach1</P>
+    <P Name="SID">7036</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI QUOTA/Controllore di RC1/PI RC saturato</P>
+    <P Name="SID">7037</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Discontinuities/Saturation
+Dynamic</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI QUOTA/Saturazione RC /Saturation Dynamic1</P>
+    <P Name="SID">7076</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI ROTTA/PID Controller1</P>
+    <P Name="SID">7127</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI ROTTA/calcolo errore Psi /Degrees to Radians</P>
+    <P Name="SID">7136</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI ROTTA/calcolo errore Psi /Radians to Degrees</P>
+    <P Name="SID">7138</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/AUTOPILOTI1/CONTROLLORE DI VELOCITA&apos;/PID Controller</P>
+    <P Name="SID">7167</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/CONTROLLI INTERNI E SWITCH1/Controllore PID/PID Controller</P>
+    <P Name="SID">5369</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/CONTROLLI INTERNI E SWITCH1/Controllore PID/elevator - takeoff/Degrees to Radians</P>
+    <P Name="SID">6846</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/CONTROLLI INTERNI E SWITCH1/Controllore PID1/PID Controller</P>
+    <P Name="SID">5394</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/GESTIONE AUTOPILOTI1/Radians to Degrees</P>
+    <P Name="SID">5775</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/GESTIONE AUTOPILOTI1/Radians to Degrees1</P>
+    <P Name="SID">5776</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/GESTIONE AUTOPILOTI1/Radians to Degrees2</P>
+    <P Name="SID">5777</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Radians to Degrees</P>
+    <P Name="SID">5867</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Radians to Degrees1</P>
+    <P Name="SID">6626</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">dspsigops/Sample
+and Hold</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Sample and Hold</P>
+    <P Name="SID">5869</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">dspsigops/Sample
+and Hold</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Sample and Hold1</P>
+    <P Name="SID">5870</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem/Radians to Degrees3</P>
+    <P Name="SID">6016</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /Radians to Degrees</P>
+    <P Name="SID">6078</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /Radians to Degrees1</P>
+    <P Name="SID">6079</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Continuous/PID Controller</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller</P>
+    <P Name="SID">6208</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/Radians to Degrees2</P>
+    <P Name="SID">6209</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Degrees to Radians</P>
+    <P Name="SID">6220</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">aerolibtransform2sys/LatLong wrap</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap</P>
+    <P Name="SID">6221</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">aerolibtransform2sys/LatLong wrap</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0</P>
+    <P Name="SID">6222</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/Degrees to Radians</P>
+    <P Name="SID">6236</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">aerolibtransform2/LLA to Flat Earth/Subsystem/Find Radian//Distance/denom</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/denom</P>
+    <P Name="SID">6250</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">aerolibtransform2/Geocentric to 
+Geodetic Latitude/e^4</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/e^4</P>
+    <P Name="SID">6251</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees10</P>
+    <P Name="SID">6277</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees11</P>
+    <P Name="SID">6278</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees16</P>
+    <P Name="SID">6279</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees17</P>
+    <P Name="SID">6280</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees4</P>
+    <P Name="SID">6281</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees5</P>
+    <P Name="SID">6282</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees6</P>
+    <P Name="SID">6283</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">dspsigops/Sample
+and Hold</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem1/Sample and Hold</P>
+    <P Name="SID">6285</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees</P>
+    <P Name="SID">6319</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees1</P>
+    <P Name="SID">6320</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees2</P>
+    <P Name="SID">6321</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees12</P>
+    <P Name="SID">6343</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees13</P>
+    <P Name="SID">6344</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees9</P>
+    <P Name="SID">6345</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Digital Output</P>
+    <P Name="Path">$bdroot/LED 13-44/Digital Output</P>
+    <P Name="SID">2049</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Digital Output</P>
+    <P Name="Path">$bdroot/LED 13-44/Digital Output1</P>
+    <P Name="SID">2050</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/Degrees to Radians</P>
+    <P Name="SID">4389</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/Degrees to Radians1</P>
+    <P Name="SID">4390</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/Degrees to Radians2</P>
+    <P Name="SID">4391</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/Degrees to Radians3</P>
+    <P Name="SID">6655</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Pack</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Byte Pack</P>
+    <P Name="SID">3908</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Degrees to Radians</P>
+    <P Name="SID">3915</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Degrees to Radians1</P>
+    <P Name="SID">3916</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Degrees to Radians2</P>
+    <P Name="SID">6652</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">cstblocks/Linear Parameter Varying/Discrete Varying Lowpass</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Discrete Varying Lowpass</P>
+    <P Name="SID">6963</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Radians to Degrees</P>
+    <P Name="SID">6797</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Radians to Degrees1</P>
+    <P Name="SID">6798</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Radians to Degrees2</P>
+    <P Name="SID">6799</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Serial Receive</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Serial Receive</P>
+    <P Name="SID">3939</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Serial Transmit</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Serial Transmit</P>
+    <P Name="SID">3940</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Unpack</P>
+    <P Name="Path">$bdroot/MISURE DA SENSORI  FILTRATE/TX &amp; RX Seriale Arduino Raspberry/Subsystem1/Subsystem2/Byte Unpack</P>
+    <P Name="SID">6620</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Discontinuities/Saturation
+Dynamic</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/Dynamic rate limiter/Saturation Dynamic</P>
+    <P Name="SID">6585</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/Execution_loop/I2C Read1</P>
+    <P Name="SID">552</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/Execution_loop/I2C Read12</P>
+    <P Name="SID">553</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Logic and Bit
+Operations/Bitwise
+Operator</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/Bitwise Operator1</P>
+    <P Name="SID">3791</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Unpack</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/Byte Unpack</P>
+    <P Name="SID">3792</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read</P>
+    <P Name="SID">3807</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read1</P>
+    <P Name="SID">3808</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read10</P>
+    <P Name="SID">3809</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read11</P>
+    <P Name="SID">3810</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read12</P>
+    <P Name="SID">3811</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read2</P>
+    <P Name="SID">3812</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read3</P>
+    <P Name="SID">3813</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read4</P>
+    <P Name="SID">3814</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read5</P>
+    <P Name="SID">3815</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read6</P>
+    <P Name="SID">3816</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read7</P>
+    <P Name="SID">3817</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read8</P>
+    <P Name="SID">3818</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Read</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Read9</P>
+    <P Name="SID">3819</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Write1</P>
+    <P Name="SID">3820</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Write2</P>
+    <P Name="SID">3821</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/I2C Write</P>
+    <P Name="Path">$bdroot/Misure Sensori/BMP_280/One_time_initialization/I2C Write3</P>
+    <P Name="SID">3822</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">arduinolib/Serial Receive</P>
+    <P Name="Path">$bdroot/Misure Sensori/GPS_Venus/Serial Receive1</P>
+    <P Name="SID">2328</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Reversal</P>
+    <P Name="Path">$bdroot/Misure Sensori/X-Sense MTi/Byte Reversal</P>
+    <P Name="SID">716</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">svdutilitieslib/Byte Unpack</P>
+    <P Name="Path">$bdroot/Misure Sensori/X-Sense MTi/Byte Unpack</P>
+    <P Name="SID">717</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <P Name="OrderedModelArguments">1</P>
+</GraphicalInterface>

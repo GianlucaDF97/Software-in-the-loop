@@ -1,0 +1,5 @@
+calc_p_wrapper.o: \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/calc_p_wrapper.c \
+ C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/provaLOG_09_27_ert_rtw/rtwtypes.h
+
+C:/SUBTEAMS_2020_2021/SOFTWARE/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/provaLOG_09_27_ert_rtw/rtwtypes.h:

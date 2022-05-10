@@ -1,0 +1,14 @@
+rt_zcfcn.o: \
+ C:/Users/lapis-dspace/Documents/GitHub/Software-in-the-loop/Modelli_box/Arduino_v3/Modello_Arduino_2022_ert_rtw/rt_zcfcn.c \
+ C:/Users/lapis-dspace/Documents/GitHub/Software-in-the-loop/Modelli_box/Arduino_v3/Modello_Arduino_2022_ert_rtw/rt_zcfcn.h \
+ C:/Users/lapis-dspace/Documents/GitHub/Software-in-the-loop/Modelli_box/Arduino_v3/Modello_Arduino_2022_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h \
+ C:/Users/lapis-dspace/Documents/GitHub/Software-in-the-loop/Modelli_box/Arduino_v3/Modello_Arduino_2022_ert_rtw/zero_crossing_types.h
+
+C:/Users/lapis-dspace/Documents/GitHub/Software-in-the-loop/Modelli_box/Arduino_v3/Modello_Arduino_2022_ert_rtw/rt_zcfcn.h:
+
+C:/Users/lapis-dspace/Documents/GitHub/Software-in-the-loop/Modelli_box/Arduino_v3/Modello_Arduino_2022_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/simulink/include/solver_zc.h:
+
+C:/Users/lapis-dspace/Documents/GitHub/Software-in-the-loop/Modelli_box/Arduino_v3/Modello_Arduino_2022_ert_rtw/zero_crossing_types.h:

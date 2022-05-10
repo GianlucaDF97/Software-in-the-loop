@@ -1,0 +1,86 @@
+%  FILE PER CARICAMENTO VARIABILI SU AUTOPILOTA %
+
+t_AP = 0.02;
+
+%% SEZIONE CARATTERISTICHE VELIVOLO
+
+V_stall = 18;
+V_max = 35;
+
+%% SEZIONE ROTAZIONE SUPERFICI MOBILI
+
+attuatore_Amax = deg2rad(20);
+attuatore_Emax = deg2rad(25);
+attuatore_Rmax = deg2rad(25);
+attuatore_Tmax = 0.6;
+attuatore_Tmin = 0;
+
+%% SEZIONE SAFE
+
+interventoA_05 = 6;
+interventoA_1 = 2;
+interventoE_05 = 7.5;
+interventoE_1 = 3.2;
+interventoT = 0.1;
+safe_phi = 55;
+safe_V = 40;
+time_alarm_SAFE = 1;
+
+%% SEZIONE TUNING GUADAGNI DEI CONTROLLORI 
+
+% IN - PARAMETRI SISTEMA DI CONTROLLO -
+Kp_becch = -0.1918*25;                      % Kp controllore beccheggio
+Ki_becch = -0.064065*25;                    % Ki controllore beccheggio
+Kp_q = -0.025*25;                           % Kp controllore velocita beccheggio
+
+Kp_roll = 0.11*25;                          % Kp controllore rollio
+Ki_roll = 0.025*25;                         % Ki controllore rollio
+Kp_p = 0.025*25;                            % Kp controllore velocita rollio
+
+Kp_imb = -0.04*100;                         % Kp controllore imbardata
+
+Kp_AP_vel = 0.2692*20;                      % Kp controllore velocita
+Ki_AP_vel = 0.001*20;                       % Kp controllore velocita
+
+Kp_AP_quota_hold_h = 0.15;                  % Kp controllore quota ad alte velocita
+Kp_AP_quota_hold_l = 1;                     % Kp controllore quota a basse velocita
+Kp_AP_quota_select = 0.014;                 % Kp controllore di quota
+Ki_AP_quota_select = 0.014;                 % Ki controllore di quota
+
+Kp_AP_rotta = 0.5;                          % Kp controllore di rotta
+Ki_AP_rotta = 0.32;                         % Ki controllore di rotta
+
+K_imb_inv = -1;                             % Kp imbardata inversa
+
+K_AW_B_becc = -250;                         % Guadagno bumpless beccheggio
+K_AW_B_roll =  500;                         % Guadagno bumpless rollio
+K_AW_B_imb = 0;                             % Guadagno bumpless imbardata
+K_AW_B_AP_quota = 1000;                     % Guadagno bumpless quota
+
+% IN - GESTIONE CONTROLLORI DI QUOTA
+Kp_h_cruise = 0.04;                         % Kp controllore quota in crociera
+Ki_h_cruise = 0.008;                        % Ki controllore quota in crociera   
+
+Kp_h_app = 0.046;                           % Kp controllore quota in fase di approach
+Ki_h_app = 0.012;                           % Ki controllore quota in fase di approach
+Kp_rc_app = 0.01;                           % Kp controllore rc in fase di approach
+
+Kp_h_flare = 0.05;                          % Kp controllore quota in fase di flare
+Ki_h_flare = 0.04;                          % Ki controllore quota in fase di flare
+Kp_rc_flare = 0.07;                         % Kp controllore rc in fase di flare
+
+
+
+% IN - CONTROLLORE DI ROTTA -
+Kp_Rotta_AL = 5;
+Kp_Rotta_ATO = 4;
+% IN - CONTROLLORE DI IMBARDATA -
+Kp_Rotta_psi = -0.01;
+
+
+
+
+%% SEZIONE WAYPOINT
+
+vel_wp1_al = 25;
+vel_wp2_al = 20;

@@ -1,0 +1,14 @@
+rt_nonfinite.o: \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rt_nonfinite.c \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rt_nonfinite.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rtwtypes.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rtGetNaN.h \
+ C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rtGetInf.h
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rt_nonfinite.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rtwtypes.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rtGetNaN.h:
+
+C:/SUBTEAMS_2021_2022/SOFTWARE_copia_vecchia/AUTOPILOTA/drive1/Load_hardware/Arduino_v2_1/Copy_2_of_provaLOG_09_28_BUONO_ert_rtw/rtGetInf.h:

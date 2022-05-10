@@ -1,0 +1,16 @@
+[System]
+Version=2.2
+SystemType=SingleProcessorSystem
+DAQService=DsDAQ
+DsDAQBackground=1
+DAQService=HostService
+Status=Start
+RTP=Master
+
+[Master]
+Type=DS1006
+State=Enabled
+ServiceID=1
+BoardName=unknown
+File=modello_hitl_sft_v4.x86
+ID=942C3AE8-6873-4884-A56A-85CC5108D234

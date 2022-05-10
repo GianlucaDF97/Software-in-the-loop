@@ -1,0 +1,11 @@
+rtiostream_utils.o: \
+ C:/PROGRA~1/MATLAB/R2020b/toolbox/coder/rtiostream/src/utils/rtiostream_utils.c \
+ C:/PROGRA~1/MATLAB/R2020b/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h \
+ C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/MATLAB/R2020b/toolbox/coder/rtiostream/src/rtiostream.h
+
+C:/PROGRA~1/MATLAB/R2020b/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h:
+
+C:/Users/ricca/Desktop/FLIGHT~1/drive1/LOAD_H~1/ARDUIN~2/load_arduino_v_15_loop_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/MATLAB/R2020b/toolbox/coder/rtiostream/src/rtiostream.h:

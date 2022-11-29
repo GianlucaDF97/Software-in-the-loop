@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.35
+// Model version                  : 1.48
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu Nov 10 14:41:53 2022
+// C/C++ source code generated on : Tue Nov 29 10:36:24 2022
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -19,7 +19,6 @@
 #ifndef RTW_HEADER_Aenea_model_private_h_
 #define RTW_HEADER_Aenea_model_private_h_
 #include "rtwtypes.h"
-#include "multiword_types.h"
 #include "zero_crossing_types.h"
 #include "Aenea_model.h"
 #ifndef UCHAR_MAX
@@ -73,33 +72,64 @@ preprocessor word size checks.
 // Used to reverse endianness
 #define SWAP16(x)                      (((x) >> 8) | (((x) & 0xff) << 8))
 #define SWAP32(x)                      (SWAP16((x) >> 16) | (SWAP16((x) & 0xffff) << 16))
+#ifdef __cplusplus
 
-extern void BMP280_sfun_Start_wrapper(void);
-extern void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
-  real32_T *OAT,
-  real32_T *BaroPressure,
-  real32_T *BaroAlt);
-extern void BMP280_sfun_Terminate_wrapper(void);
-extern void Mti_sfun_Start_wrapper(void);
-extern void Mti_sfun_Outputs_wrapper(const real_T *debug,
-  uint8_T *messaggio);
-extern void Mti_sfun_Terminate_wrapper(void);
+extern "C" {
+
+#endif
+
+  extern void BMP280_sfun_Start_wrapper(void);
+  extern void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
+    real32_T *OAT,
+    real32_T *BaroPressure,
+    real32_T *BaroAlt);
+  extern void BMP280_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void Mti_sfun_Start_wrapper(void);
+  extern void Mti_sfun_Outputs_wrapper(const real_T *debug,
+    uint8_T *messaggio);
+  extern void Mti_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void GPS_sfun_Start_wrapper(void);
+  extern void GPS_sfun_Outputs_wrapper(real_T *d_lat,
+    real_T *d_long,
+    real_T *f_groundspeed,
+    real_T *f_msl,
+    real_T *f_heading,
+    real_T *d_fixType);
+  extern void GPS_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
 extern real_T rt_roundd_snf(real_T u);
 extern real32_T rt_roundf_snf(real32_T u);
 extern real_T rt_atan2d_snf(real_T u0, real_T u1);
 extern real_T rt_modd_snf(real_T u0, real_T u1);
-extern real_T uMultiWord2Double(const uint32_T u1[], int32_T n1, int32_T e1);
-extern void MultiWordSub(const uint32_T u1[], const uint32_T u2[], uint32_T y[],
-  int32_T n);
-extern void uLong2MultiWord(uint32_T u, uint32_T y[], int32_T n);
-extern void MultiWordAdd(const uint32_T u1[], const uint32_T u2[], uint32_T y[],
-  int32_T n);
-extern void uMultiWord2MultiWord(const uint32_T u1[], int32_T n1, uint32_T y[],
-  int32_T n);
-extern void uMultiWordMul(const uint32_T u1[], int32_T n1, const uint32_T u2[],
-  int32_T n2, uint32_T y[], int32_T n);
-extern void uMultiWordShl(const uint32_T u1[], int32_T n1, uint32_T n2, uint32_T
-  y[], int32_T n);
 extern void Aenea_model_EnabledSubsystem(uint8_T rtu_Enable, real_T rtu_Time,
   real_T *rty_u0);
 extern void Aenea_ResettableSubsystem_Reset(DW_ResettableSubsystem_Aenea__T

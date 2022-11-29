@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.35
+// Model version                  : 1.48
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu Nov 10 14:41:53 2022
+// C/C++ source code generated on : Tue Nov 29 10:36:24 2022
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -18,16 +18,12 @@
 //
 #ifndef RTW_HEADER_Aenea_model_h_
 #define RTW_HEADER_Aenea_model_h_
-#include <cmath>
 #include <cfloat>
+#include <cmath>
 #include <cstring>
-#include <stdio.h>
 #include "rtwtypes.h"
 #include "zero_crossing_types.h"
 #include "Aenea_model_types.h"
-
-// Shared type includes
-#include "multiword_types.h"
 #include "rt_zcfcn.h"
 #include "rt_nonfinite.h"
 #include "rt_defines.h"
@@ -69,25 +65,26 @@ typedef struct {
   real_T klm_gain_c[18];
   real_T a[16];
   real_T A[16];
-  real_T TmpSignalConversionAtSFunct[14];// '<S553>/MATLAB Function2'
-  uint8_T messaggio_h[100];            // '<S1>/MATLAB Function4'
+  real_T rtb_TmpSignalConversionAtSFun_k[14];
+  uint8_T messaggio[100];              // '<S1>/MATLAB Function4'
   uint8_T messaggio_2[100];            // '<S1>/MATLAB Function4'
   boolean_T x[100];
   real_T residui[11];                  // '<S552>/DEFINITIVA'
   real_T dv1[11];
-  char_T s1_data[81];
   real_T UnitDelay[9];                 // '<S566>/Unit Delay'
-  real_T ComplextoRealImag[9];         // '<S576>/Complex to Real-Imag'
-  real_T In[21];                       // '<S560>/In'
   real_T DataTypeConversion1[9];       // '<S5>/Data Type Conversion1'
   real_T aterra_tmp[9];
   int32_T ipiv[11];
   real_T x_new[4];
   real_T aterra[3];
-  uint128m_T r;
   boolean_T NOT[14];                   // '<S558>/NOT'
-  uint96m_T r1;
-  uint96m_T r2;
+  real_T Lat;                          // '<S565>/S-Function Builder'
+  real_T Long;                         // '<S565>/S-Function Builder'
+  real_T V;                            // '<S565>/S-Function Builder'
+  real_T quota;                        // '<S565>/S-Function Builder'
+  real_T heading;                      // '<S565>/S-Function Builder'
+  real_T SFunctionBuilder_o6;          // '<S565>/S-Function Builder'
+  real_T In[21];                       // '<S560>/In'
   real_T Lat_K;                        // '<S552>/DEFINITIVA'
   real_T Long_K;                       // '<S552>/DEFINITIVA'
   real_T h_K;                          // '<S552>/DEFINITIVA'
@@ -134,7 +131,7 @@ typedef struct {
   uint8_T SFunctionBuilder1[41];       // '<S566>/S-Function Builder1'
   real_T num_254;
   real_T Delta_clock;
-  real_T a_k;
+  real_T a_c;
   real_T psi_ref;
   real_T dist;
   real_T angoloWP;
@@ -154,21 +151,15 @@ typedef struct {
   real_T psi_ref_tmp_tmp_tmp;
   real_T psi_ref_tmp_tmp;
   real_T temp;
-  real_T smax_c;
-  real_T y_b;
-  real_T scanned1;
+  real_T smax_b;
+  real_T y_p;
   real_T Y_tmp;
-  real_T Y_tmp_p;
   real_T Y_tmp_c;
   real_T Y_tmp_f;
   real_T Y_tmp_g;
-  real_T scanned1_g;
-  real_T scanned2;
-  real_T scanned1_m;
-  real_T scanned2_n;
-  real_T scanned1_p;
+  real_T Y_tmp_g1;
   int8_T p[4];
-  int8_T ipiv_l[4];
+  int8_T ipiv_m[4];
   real32_T DataTypeConversion3;        // '<S568>/Data Type Conversion3'
   real32_T SFunctionBuilder_o1;        // '<S568>/S-Function Builder'
   real32_T SFunctionBuilder_o2;        // '<S568>/S-Function Builder'
@@ -182,9 +173,9 @@ typedef struct {
   int32_T c_ix;
   int32_T e;
   int32_T ijA;
-  int32_T Switch_j;                    // '<S553>/Switch'
+  int32_T Switch_n;                    // '<S553>/Switch'
   int32_T i;
-  int32_T i_d;
+  int32_T i_p;
   uint32_T qY;
   ZCEventType zcEvent;
   uint8_T ByteUnpack_o1[4];            // '<S566>/Byte Unpack'
@@ -231,7 +222,7 @@ typedef struct {
   real_T Memory_PreviousInput_p;       // '<S435>/Memory'
   real_T Memory1_PreviousInput_e;      // '<S435>/Memory1'
   real_T alarm;                        // '<S412>/MATLAB Function1'
-  real_T Memory_PreviousInput_nq;      // '<S433>/Memory'
+  real_T Memory_PreviousInput_n;       // '<S433>/Memory'
   real_T mess_len;                     // '<S1>/MATLAB Function4'
   real_T test1;                        // '<S1>/MATLAB Function1'
   real32_T riferimenti[16];            // '<S1>/MATLAB Function1'
@@ -261,7 +252,7 @@ typedef struct {
   uint8_T is_active_c23_Aenea_model;
                                    // '<S35>/SELEZIONE MODALITA'  HOLD//SELECT'
   uint8_T is_c23_Aenea_model;      // '<S35>/SELEZIONE MODALITA'  HOLD//SELECT'
-  uint8_T message_g[100];              // '<S1>/MATLAB Function4'
+  uint8_T message[100];                // '<S1>/MATLAB Function4'
   uint8_T counter_j;                   // '<S1>/MATLAB Function4'
   boolean_T x_prd_not_empty;           // '<S552>/DEFINITIVA'
   boolean_T x_not_empty;               // '<S448>/MATLAB Function'
@@ -715,12 +706,18 @@ extern "C" {
 //  Block '<S573>/Constant1' : Unused code path elimination
 //  Block '<S573>/Constant2' : Unused code path elimination
 //  Block '<S573>/Constant3' : Unused code path elimination
+//  Block '<S573>/Constant4' : Unused code path elimination
+//  Block '<S573>/Constant5' : Unused code path elimination
+//  Block '<S573>/Constant6' : Unused code path elimination
 //  Block '<S573>/Equal' : Unused code path elimination
 //  Block '<S573>/Equal1' : Unused code path elimination
 //  Block '<S573>/Equal2' : Unused code path elimination
+//  Block '<S573>/Equal3' : Unused code path elimination
+//  Block '<S573>/Equal4' : Unused code path elimination
+//  Block '<S573>/Equal5' : Unused code path elimination
 //  Block '<S573>/OR' : Unused code path elimination
 //  Block '<S573>/Switch' : Unused code path elimination
-//  Block '<S565>/Sum' : Unused code path elimination
+//  Block '<S565>/Sum1' : Unused code path elimination
 //  Block '<S6>/Gain3' : Unused code path elimination
 //  Block '<S6>/K AntiWindup-Bumpless AP quota' : Unused code path elimination
 //  Block '<S6>/K AntiWindup-Bumpless controllore beccheggio' : Unused code path elimination
@@ -740,16 +737,16 @@ extern "C" {
 //  Block '<S6>/Kp controllore velocità beccheggio1' : Unused code path elimination
 //  Block '<S6>/Saturation' : Unused code path elimination
 //  Block '<S6>/n-D Lookup Table' : Unused code path elimination
-//  Block '<S579>/Constant8' : Unused code path elimination
-//  Block '<S579>/Constant9' : Unused code path elimination
-//  Block '<S579>/Divide' : Unused code path elimination
-//  Block '<S579>/Gain' : Unused code path elimination
-//  Block '<S579>/Multiply' : Unused code path elimination
-//  Block '<S579>/Saturation' : Unused code path elimination
-//  Block '<S579>/Sum' : Unused code path elimination
-//  Block '<S579>/Sum1' : Unused code path elimination
-//  Block '<S579>/Sum2' : Unused code path elimination
-//  Block '<S579>/Sum3' : Unused code path elimination
+//  Block '<S575>/Constant8' : Unused code path elimination
+//  Block '<S575>/Constant9' : Unused code path elimination
+//  Block '<S575>/Divide' : Unused code path elimination
+//  Block '<S575>/Gain' : Unused code path elimination
+//  Block '<S575>/Multiply' : Unused code path elimination
+//  Block '<S575>/Saturation' : Unused code path elimination
+//  Block '<S575>/Sum' : Unused code path elimination
+//  Block '<S575>/Sum1' : Unused code path elimination
+//  Block '<S575>/Sum2' : Unused code path elimination
+//  Block '<S575>/Sum3' : Unused code path elimination
 //  Block '<S7>/Constant4' : Unused code path elimination
 //  Block '<S7>/Data Type Conversion' : Unused code path elimination
 //  Block '<S7>/Data Type Conversion1' : Unused code path elimination
@@ -764,33 +761,33 @@ extern "C" {
 //  Block '<S7>/Data Type Conversion20' : Unused code path elimination
 //  Block '<S7>/Data Type Conversion21' : Unused code path elimination
 //  Block '<S7>/Data Type Conversion3' : Unused code path elimination
-//  Block '<S581>/Constant8' : Unused code path elimination
-//  Block '<S581>/Constant9' : Unused code path elimination
-//  Block '<S581>/Divide' : Unused code path elimination
-//  Block '<S581>/Gain' : Unused code path elimination
-//  Block '<S581>/Multiply' : Unused code path elimination
-//  Block '<S581>/Saturation' : Unused code path elimination
-//  Block '<S581>/Sum' : Unused code path elimination
-//  Block '<S581>/Sum1' : Unused code path elimination
-//  Block '<S581>/Sum2' : Unused code path elimination
-//  Block '<S581>/Sum3' : Unused code path elimination
-//  Block '<S582>/Constant8' : Unused code path elimination
-//  Block '<S582>/Constant9' : Unused code path elimination
-//  Block '<S582>/Divide' : Unused code path elimination
-//  Block '<S582>/Multiply' : Unused code path elimination
-//  Block '<S582>/Sum1' : Unused code path elimination
-//  Block '<S582>/Sum2' : Unused code path elimination
-//  Block '<S582>/Sum3' : Unused code path elimination
-//  Block '<S582>/Sum4' : Unused code path elimination
+//  Block '<S577>/Constant8' : Unused code path elimination
+//  Block '<S577>/Constant9' : Unused code path elimination
+//  Block '<S577>/Divide' : Unused code path elimination
+//  Block '<S577>/Gain' : Unused code path elimination
+//  Block '<S577>/Multiply' : Unused code path elimination
+//  Block '<S577>/Saturation' : Unused code path elimination
+//  Block '<S577>/Sum' : Unused code path elimination
+//  Block '<S577>/Sum1' : Unused code path elimination
+//  Block '<S577>/Sum2' : Unused code path elimination
+//  Block '<S577>/Sum3' : Unused code path elimination
+//  Block '<S578>/Constant8' : Unused code path elimination
+//  Block '<S578>/Constant9' : Unused code path elimination
+//  Block '<S578>/Divide' : Unused code path elimination
+//  Block '<S578>/Multiply' : Unused code path elimination
+//  Block '<S578>/Sum1' : Unused code path elimination
+//  Block '<S578>/Sum2' : Unused code path elimination
+//  Block '<S578>/Sum3' : Unused code path elimination
+//  Block '<S578>/Sum4' : Unused code path elimination
 //  Block '<Root>/SI UAV uint8' : Unused code path elimination
-//  Block '<S584>/Constant' : Unused code path elimination
-//  Block '<S584>/Constant1' : Unused code path elimination
-//  Block '<S584>/Divide' : Unused code path elimination
-//  Block '<S584>/Multiply' : Unused code path elimination
-//  Block '<S584>/Sum' : Unused code path elimination
-//  Block '<S584>/Sum1' : Unused code path elimination
-//  Block '<S584>/Sum2' : Unused code path elimination
-//  Block '<S584>/Sum3' : Unused code path elimination
+//  Block '<S580>/Constant' : Unused code path elimination
+//  Block '<S580>/Constant1' : Unused code path elimination
+//  Block '<S580>/Divide' : Unused code path elimination
+//  Block '<S580>/Multiply' : Unused code path elimination
+//  Block '<S580>/Sum' : Unused code path elimination
+//  Block '<S580>/Sum1' : Unused code path elimination
+//  Block '<S580>/Sum2' : Unused code path elimination
+//  Block '<S580>/Sum3' : Unused code path elimination
 //  Block '<S8>/Constant' : Unused code path elimination
 //  Block '<S8>/Constant1' : Unused code path elimination
 //  Block '<S8>/Constant2' : Unused code path elimination
@@ -811,25 +808,25 @@ extern "C" {
 //  Block '<S8>/Data Type Conversion7' : Unused code path elimination
 //  Block '<S8>/Data Type Conversion8' : Unused code path elimination
 //  Block '<S8>/Data Type Conversion9' : Unused code path elimination
-//  Block '<S585>/Constant' : Unused code path elimination
-//  Block '<S585>/Constant1' : Unused code path elimination
-//  Block '<S585>/Divide' : Unused code path elimination
-//  Block '<S585>/Multiply' : Unused code path elimination
-//  Block '<S585>/Sum' : Unused code path elimination
-//  Block '<S585>/Sum1' : Unused code path elimination
-//  Block '<S585>/Sum2' : Unused code path elimination
-//  Block '<S585>/Sum3' : Unused code path elimination
-//  Block '<S586>/Multiply' : Unused code path elimination
-//  Block '<S586>/Sum' : Unused code path elimination
-//  Block '<S586>/Sum1' : Unused code path elimination
-//  Block '<S587>/Constant' : Unused code path elimination
-//  Block '<S587>/Constant1' : Unused code path elimination
-//  Block '<S587>/Divide' : Unused code path elimination
-//  Block '<S587>/Multiply' : Unused code path elimination
-//  Block '<S587>/Sum' : Unused code path elimination
-//  Block '<S587>/Sum1' : Unused code path elimination
-//  Block '<S587>/Sum2' : Unused code path elimination
-//  Block '<S587>/Sum3' : Unused code path elimination
+//  Block '<S581>/Constant' : Unused code path elimination
+//  Block '<S581>/Constant1' : Unused code path elimination
+//  Block '<S581>/Divide' : Unused code path elimination
+//  Block '<S581>/Multiply' : Unused code path elimination
+//  Block '<S581>/Sum' : Unused code path elimination
+//  Block '<S581>/Sum1' : Unused code path elimination
+//  Block '<S581>/Sum2' : Unused code path elimination
+//  Block '<S581>/Sum3' : Unused code path elimination
+//  Block '<S582>/Multiply' : Unused code path elimination
+//  Block '<S582>/Sum' : Unused code path elimination
+//  Block '<S582>/Sum1' : Unused code path elimination
+//  Block '<S583>/Constant' : Unused code path elimination
+//  Block '<S583>/Constant1' : Unused code path elimination
+//  Block '<S583>/Divide' : Unused code path elimination
+//  Block '<S583>/Multiply' : Unused code path elimination
+//  Block '<S583>/Sum' : Unused code path elimination
+//  Block '<S583>/Sum1' : Unused code path elimination
+//  Block '<S583>/Sum2' : Unused code path elimination
+//  Block '<S583>/Sum3' : Unused code path elimination
 //  Block '<S1>/Data Type Conversion' : Eliminate redundant data type conversion
 //  Block '<S1>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S291>/Kt' : Eliminated nontunable gain of 1
@@ -1424,21 +1421,17 @@ extern "C" {
 //  '<S570>' : 'Aenea_model/Misure Sensori/BMP_280/Subsystem'
 //  '<S571>' : 'Aenea_model/Misure Sensori/BMP_280/Dynamic rate limiter/Saturation Dynamic'
 //  '<S572>' : 'Aenea_model/Misure Sensori/BMP_280/Subsystem/Subsystem1'
-//  '<S573>' : 'Aenea_model/Misure Sensori/GPS_Venus/Subsystem1'
-//  '<S574>' : 'Aenea_model/Misure Sensori/GPS_Venus/Subsystem2'
-//  '<S575>' : 'Aenea_model/Misure Sensori/GPS_Venus/Subsystem2/Create_message'
-//  '<S576>' : 'Aenea_model/Misure Sensori/GPS_Venus/Subsystem2/Subsystem'
-//  '<S577>' : 'Aenea_model/Misure Sensori/GPS_Venus/Subsystem2/Subsystem/MATLAB Function'
-//  '<S578>' : 'Aenea_model/RADIOCOMANDO/AILERON'
-//  '<S579>' : 'Aenea_model/RADIOCOMANDO/AILERON1'
-//  '<S580>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR'
-//  '<S581>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR1'
-//  '<S582>' : 'Aenea_model/RADIOCOMANDO/RUDDER'
-//  '<S583>' : 'Aenea_model/RADIOCOMANDO/THROTTLE'
-//  '<S584>' : 'Aenea_model/Servi/AILERON1'
-//  '<S585>' : 'Aenea_model/Servi/RUDDER6'
-//  '<S586>' : 'Aenea_model/Servi/THROTTLE1'
-//  '<S587>' : 'Aenea_model/Servi/elevator'
+//  '<S573>' : 'Aenea_model/Misure Sensori/GPS_Venus/Subsystem2'
+//  '<S574>' : 'Aenea_model/RADIOCOMANDO/AILERON'
+//  '<S575>' : 'Aenea_model/RADIOCOMANDO/AILERON1'
+//  '<S576>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR'
+//  '<S577>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR1'
+//  '<S578>' : 'Aenea_model/RADIOCOMANDO/RUDDER'
+//  '<S579>' : 'Aenea_model/RADIOCOMANDO/THROTTLE'
+//  '<S580>' : 'Aenea_model/Servi/AILERON1'
+//  '<S581>' : 'Aenea_model/Servi/RUDDER6'
+//  '<S582>' : 'Aenea_model/Servi/THROTTLE1'
+//  '<S583>' : 'Aenea_model/Servi/elevator'
 
 #endif                                 // RTW_HEADER_Aenea_model_h_
 

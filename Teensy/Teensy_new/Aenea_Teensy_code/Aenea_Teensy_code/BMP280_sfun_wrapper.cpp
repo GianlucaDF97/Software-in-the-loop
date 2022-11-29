@@ -1,4 +1,4 @@
-
+ 
 /*
  * Include Files
  *
@@ -9,21 +9,21 @@
 #else
 #include "rtwtypes.h"
 #endif
-
-
-
+ 
+ 
+ 
 /* %%%-SFUNWIZ_wrapper_includes_Changes_BEGIN --- EDIT HERE TO _END */
 #include <math.h>
 #ifndef MATLAB_MEX_FILE
 #include <Wire.h>
 #include <Adafruit_BMP280.h>
-
+ 
 Adafruit_BMP280 bmp; // I2C
 #endif
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
 #define u_width 1
 #define y_width 1
-
+ 
 /*
  * Create external references here.  
  *
@@ -31,12 +31,12 @@ Adafruit_BMP280 bmp; // I2C
 /* %%%-SFUNWIZ_wrapper_externs_Changes_BEGIN --- EDIT HERE TO _END */
 /* extern double func(double a); */
 /* %%%-SFUNWIZ_wrapper_externs_Changes_END --- EDIT HERE TO _BEGIN */
-
+ 
 /*
  * Start function
  *
  */
-void BMP280_sfun_Start_wrapper(void)
+extern "C" void BMP280_sfun_Start_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
@@ -44,7 +44,7 @@ void BMP280_sfun_Start_wrapper(void)
     Serial2.begin(57600);
     unsigned status;
     status = bmp.begin(BMP280_ADDRESS_ALT, BMP280_CHIPID);
-
+ 
     pinMode(13,OUTPUT);
         
     bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,     /* Operating Mode. */
@@ -59,7 +59,7 @@ void BMP280_sfun_Start_wrapper(void)
  * Output function
  *
  */
-void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
+extern "C" void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
 			real32_T *OAT,
 			real32_T *BaroPressure,
 			real32_T *BaroAlt)
@@ -70,7 +70,7 @@ void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
     Serial.print(F("Temperature = "));
     Serial.print(OAT[0]);
     Serial.println(" *C");
-
+ 
     Serial2.print(F("Temperature = "));
     Serial2.print(OAT[0]);
     Serial2.println(" *C");
@@ -79,7 +79,7 @@ void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
     Serial.print(F("Pressure = "));
     Serial.print(BaroPressure[0]);
     Serial.println(" Pa");
-
+ 
     Serial2.print(F("Pressure = "));
     Serial2.print(BaroPressure[0]);
     Serial2.println(" Pa");
@@ -88,7 +88,7 @@ void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
     Serial.print(F("Approx altitude = "));
     Serial.print(BaroAlt[0]); // Adjusted to local forecast! 
     Serial.println(" m");
-
+ 
     Serial2.print(F("Approx altitude = "));
     Serial2.print(BaroAlt[0]); // Adjusted to local forecast! 
     Serial2.println(" m");
@@ -97,12 +97,12 @@ void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
     #endif
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
-
+ 
 /*
  * Terminate function
  *
  */
-void BMP280_sfun_Terminate_wrapper(void)
+extern "C" void BMP280_sfun_Terminate_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Terminate_Changes_BEGIN --- EDIT HERE TO _END */
 /*
@@ -110,4 +110,4 @@ void BMP280_sfun_Terminate_wrapper(void)
     */
 /* %%%-SFUNWIZ_wrapper_Terminate_Changes_END --- EDIT HERE TO _BEGIN */
 }
-
+ 

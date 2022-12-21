@@ -25,7 +25,7 @@
  */
 /* %%%-SFUNWIZ_wrapper_externs_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
-uint8_t Serial2RX_buffer[128];
+uint8_t Serial1RX_buffer[128];
 #endif
 /* %%%-SFUNWIZ_wrapper_externs_Changes_END --- EDIT HERE TO _BEGIN */
  
@@ -37,8 +37,8 @@ extern "C" void Seriale_mav_sfun_Start_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
-    Serial2.begin(57600) ;
-    Serial2.addMemoryForRead(Serial2RX_buffer, sizeof(Serial2RX_buffer));
+    Serial1.begin(57600) ;
+    Serial1.addMemoryForRead(Serial1RX_buffer, sizeof(Serial1RX_buffer));
     #endif
 /* %%%-SFUNWIZ_wrapper_Start_Changes_END --- EDIT HERE TO _BEGIN */
 }
@@ -56,12 +56,12 @@ extern "C" void Seriale_mav_sfun_Outputs_wrapper(uint8_T *Messaggio,
     for(int j=0; j<100;j++)
         Messaggio[j] = 0;
     
-    serial_available[0] = Serial2.available();
+    serial_available[0] = Serial1.available();
     
     int i = 0;
-    while (Serial2.available() > 0) {
-        Messaggio[i] = Serial2.read();
-        //Serial2.print(Messaggio[i]);
+    while (Serial1.available() > 0) {
+        Messaggio[i] = Serial1.read();
+        //Serial1.print(Messaggio[i]);
         if (i == 100)
             break;
         i++;

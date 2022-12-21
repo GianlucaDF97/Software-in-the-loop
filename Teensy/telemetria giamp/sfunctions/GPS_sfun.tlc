@@ -1,5 +1,5 @@
 %% File : GPS_sfun.tlc
-%% Created : Thu Nov 24 13:32:27 2022
+%% Created : Tue Dec 20 11:32:06 2022
 %%
 %% Description: 
 %%   Simulink Coder wrapper functions interface generated for 
@@ -47,7 +47,8 @@
 			real_T *f_groundspeed,
 			real_T *f_msl,
 			real_T *f_heading,
-			real_T *d_fixType);
+			real_T *d_fixType,
+			boolean_T *gps_data_fresh);
     #undef SFB_EXTERN_C
     #endif
     %closefile hFile
@@ -70,7 +71,8 @@
 			real_T *f_groundspeed,
 			real_T *f_msl,
 			real_T *f_heading,
-			real_T *d_fixType);
+			real_T *d_fixType,
+			boolean_T *gps_data_fresh);
     extern void GPS_sfun_Terminate_wrapper(void);
     void GPS_sfun_Start_wrapper_accel(void){
     GPS_sfun_Start_wrapper();
@@ -80,13 +82,15 @@
 			real_T *f_groundspeed,
 			real_T *f_msl,
 			real_T *f_heading,
-			real_T *d_fixType){
+			real_T *d_fixType,
+			boolean_T *gps_data_fresh){
     GPS_sfun_Outputs_wrapper(d_lat,
 			d_long,
 			f_groundspeed,
 			f_msl,
 			f_heading,
-			d_fixType);
+			d_fixType,
+			gps_data_fresh);
     }
 
     %closefile cFile
@@ -108,7 +112,8 @@
 			real_T *f_groundspeed,
 			real_T *f_msl,
 			real_T *f_heading,
-			real_T *d_fixType);
+			real_T *d_fixType,
+			boolean_T *gps_data_fresh);
 
     extern void GPS_sfun_Terminate_wrapper(void);
 
@@ -148,11 +153,12 @@
   %assign py3 = LibBlockOutputSignalAddr(3, "", "", 0)
   %assign py4 = LibBlockOutputSignalAddr(4, "", "", 0)
   %assign py5 = LibBlockOutputSignalAddr(5, "", "", 0)
+  %assign py6 = LibBlockOutputSignalAddr(6, "", "", 0)
   
   %if IsModelReferenceSimTarget() || CodeFormat == "S-Function" || ::isRAccel
-    GPS_sfun_Outputs_wrapper_accel(%<py0>, %<py1>, %<py2>, %<py3>, %<py4>, %<py5>);
+    GPS_sfun_Outputs_wrapper_accel(%<py0>, %<py1>, %<py2>, %<py3>, %<py4>, %<py5>, %<py6>);
   %else
-    GPS_sfun_Outputs_wrapper(%<py0>, %<py1>, %<py2>, %<py3>, %<py4>, %<py5>);
+    GPS_sfun_Outputs_wrapper(%<py0>, %<py1>, %<py2>, %<py3>, %<py4>, %<py5>, %<py6>);
   %endif
 
   %%

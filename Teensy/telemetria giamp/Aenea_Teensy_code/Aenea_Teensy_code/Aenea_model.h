@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.66
+// Model version                  : 1.81
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu Nov 24 13:43:13 2022
+// C/C++ source code generated on : Tue Dec 20 14:13:44 2022
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -72,24 +72,16 @@ typedef struct {
   real_T residui[11];                  // '<S553>/DEFINITIVA'
   real_T dv1[11];
   real_T UnitDelay[9];                 // '<S567>/Unit Delay'
-  real_T DataTypeConversion1_c[9];     // '<S5>/Data Type Conversion1'
+  real_T In[21];                       // '<S561>/In'
+  real_T ManualSwitch[9];              // '<S567>/Manual Switch'
   real_T aterra_tmp[9];
   int32_T ipiv[11];
   real32_T ByteUnpack_o2[9];           // '<S567>/Byte Unpack'
   real32_T ByteReversal[9];            // '<S567>/Byte Reversal'
   real_T x_new[4];
   real_T aterra[3];
-  real_T In_c[2];                      // '<S463>/In'
   boolean_T NOT[14];                   // '<S559>/NOT'
   uint16_T WP_info_in[6];
-  real_T Lat;                          // '<S566>/S-Function Builder'
-  real_T Long;                         // '<S566>/S-Function Builder'
-  real_T V;                            // '<S566>/S-Function Builder'
-  real_T quota;                        // '<S566>/S-Function Builder'
-  real_T heading;                      // '<S566>/S-Function Builder'
-  real_T SFunctionBuilder_o6;          // '<S566>/S-Function Builder'
-  real_T T;                            // '<S573>/T'
-  real_T In[21];                       // '<S561>/In'
   real_T Lat_K;                        // '<S553>/DEFINITIVA'
   real_T Long_K;                       // '<S553>/DEFINITIVA'
   real_T h_K;                          // '<S553>/DEFINITIVA'
@@ -104,6 +96,7 @@ typedef struct {
   real_T Gain_o;                       // '<S457>/Gain'
   real_T velocita; // '<S438>/Switch di selezione  Task - Waypoint navigation5'
   real_T QUOTA_e;  // '<S438>/Switch di selezione  Task - Waypoint navigation4'
+  real_T In_c[2];                      // '<S463>/In'
   real_T Constant1;                    // '<S453>/Constant1'
   real_T Sum2;                         // '<S453>/Sum2'
   real_T maneuver_selector;            // '<S438>/Chart1'
@@ -137,22 +130,20 @@ typedef struct {
   real_T modo;                         // '<S34>/ STATI'
   real_T OutportBufferForOut1;         // '<S299>/Constant'
   real_T num_254;
-  real_T Delta_clock;
-  real_T a_b;
+  real_T a_c;
   real_T dist;
   real_T dist_fut;
   real_T Gain1;                        // '<S548>/Gain1'
   real_T Gain1_m;                      // '<S549>/Gain1'
   real_T Gain1_k;                      // '<S551>/Gain1'
   real_T Gain_h;                       // '<S29>/Gain'
+  real_T Sum5;                         // '<S573>/Sum5'
   real_T SignPreSat;                   // '<S272>/SignPreSat'
-  real_T Sum5;                         // '<S580>/Sum5'
   real_T SwitchBumpless2;              // '<S300>/Switch Bumpless 2'
+  real_T Sum_i;                        // '<S397>/Sum'
   real_T Saturation_a;                 // '<S395>/Saturation'
-  real_T Sum3_h;                       // '<S575>/Sum3'
   real_T Alettoni;                     // '<S33>/saturatore A'
-  real_T Product1;                     // '<S555>/Product1'
-  real_T V_est;                        // '<S4>/Multiply3'
+  real_T Sum_f;                        // '<S434>/Sum'
   real_T Sum2_k2;                      // '<S301>/Sum2'
   real_T Switch_j;                     // '<S532>/Switch'
   real_T Long_Home;                    // '<S438>/CALIBRATING_HOME_COORDINATES'
@@ -171,39 +162,33 @@ typedef struct {
   real_T psi_ref_tmp;
   real_T temp;
   real_T smax;
-  real_T y_p;
+  real_T y_b;
   real_T Y_tmp;
+  real_T Y_tmp_p;
   real_T Y_tmp_c;
   real_T Y_tmp_f;
   real_T Y_tmp_g;
   real_T Y_tmp_g1;
-  real_T Y_tmp_m;
   int8_T p[4];
-  int8_T ipiv_n[4];
+  int8_T ipiv_m[4];
   real32_T SFunction_o8;               // '<S1>/S-Function'
   real32_T SFunction_o10[7];           // '<S1>/S-Function'
   real32_T SFunction_o13;              // '<S1>/S-Function'
   real32_T SFunction_o17;              // '<S1>/S-Function'
   real32_T DataTypeConversion1[6];     // '<S15>/Data Type Conversion1'
   real32_T AGAC[4];                    // '<S20>/Data Type Conversion'
+  real32_T DataTypeConversion2;        // '<Root>/Data Type Conversion2'
   real32_T DataTypeConversion1_m;      // '<Root>/Data Type Conversion1'
   real32_T DataTypeConversion;         // '<S2>/Data Type Conversion'
-  real32_T DataTypeConversion3_p;      // '<S569>/Data Type Conversion3'
-  real32_T SFunctionBuilder_o1;        // '<S569>/S-Function Builder'
-  real32_T SFunctionBuilder_o2;        // '<S569>/S-Function Builder'
-  real32_T SFunctionBuilder_o3;        // '<S569>/S-Function Builder'
   real32_T WP_param[7];                // '<S21>/MATLAB Function'
   real32_T Val_out_MAV[16];            // '<S1>/MATLAB Function1'
   real32_T f;
-  int32_T SFunctionBuilder_o2_a;       // '<S1>/S-Function Builder'
+  int32_T SFunctionBuilder_o2;         // '<S1>/S-Function Builder'
   int32_T Add;                         // '<S1>/Add'
   int32_T DataTypeConversion_g[4];     // '<S13>/Data Type Conversion'
   uint16_T Memory[8];                  // '<S1>/Memory'
-  uint16_T SFunction_o9[6];            // '<S1>/S-Function'
   uint16_T SFunction_o11[8];           // '<S1>/S-Function'
   uint16_T LVDE[8];                    // '<S19>/Data Type Conversion2'
-  uint16_T ByteUnpack[8];              // '<S565>/Byte Unpack'
-  int16_T DataTypeConversion1_j[3];    // '<S13>/Data Type Conversion1'
   int32_T caso;
   int32_T tolleranza_distWP_fut;
   int32_T soglia_dist;
@@ -213,9 +198,9 @@ typedef struct {
   int32_T c_ix;
   int32_T ijA;
   int32_T Switch_h;                    // '<S554>/Switch'
-  int32_T Switch_oz;                   // '<S449>/Switch'
+  int32_T Switch_o;                    // '<S449>/Switch'
   int32_T i;
-  int32_T i_p;
+  int32_T i_n;
   int32_T j;
   int32_T jBcol;
   uint32_T SFunction_o2;               // '<S1>/S-Function'
@@ -223,7 +208,8 @@ typedef struct {
   uint32_T qY;
   ZCEventType zcEvent;
   uint16_T SFunction_o7[2];            // '<S1>/S-Function'
-  uint16_T DataTypeConversion2;        // '<S13>/Data Type Conversion2'
+  uint16_T SFunction_o9[6];            // '<S1>/S-Function'
+  uint16_T DataTypeConversion2_p;      // '<S13>/Data Type Conversion2'
   uint16_T Heading[9];                 // '<S17>/Data Type Conversion1'
   uint16_T Memory_o;                   // '<S2>/Memory'
   uint16_T SFunction_o3;               // '<S2>/S-Function'
@@ -232,12 +218,13 @@ typedef struct {
   uint16_T new_mex;                    // '<S1>/MATLAB Function3'
   uint16_T GC_info[3];                 // '<S1>/MATLAB Function1'
   int16_T DataTypeConversion_j[9];     // '<S15>/Data Type Conversion'
+  int16_T DataTypeConversion1_j[3];    // '<S13>/Data Type Conversion1'
   int16_T Heading_f;                   // '<S20>/Data Type Conversion1'
   int16_T DataTypeConversion2_m;       // '<S2>/Data Type Conversion2'
   uint8_T SFunctionBuilder1[41];       // '<S567>/S-Function Builder1'
   uint8_T ByteUnpack_o1[4];            // '<S567>/Byte Unpack'
   uint8_T ByteUnpack_o3;               // '<S567>/Byte Unpack'
-  uint8_T SFunctionBuilder_o1_a[100];  // '<S1>/S-Function Builder'
+  uint8_T SFunctionBuilder_o1[100];    // '<S1>/S-Function Builder'
   uint8_T Memory1[2];                  // '<S1>/Memory1'
   uint8_T Memory_h[4];                 // '<Root>/Memory'
   uint8_T Memory3;                     // '<S1>/Memory3'
@@ -263,14 +250,12 @@ typedef struct {
 typedef struct {
   real_T UnitDelay_DSTATE[9];          // '<S567>/Unit Delay'
   real_T UnitDelay_DSTATE_c;           // '<S555>/Unit Delay'
-  real_T UnitDelay1_DSTATE;            // '<S565>/Unit Delay1'
   real_T Integrator_DSTATE;            // '<S338>/Integrator'
   real_T Integrator_DSTATE_l;          // '<S388>/Integrator'
   real_T DiscreteWashoutFilter_states; // '<S302>/Discrete Washout Filter'
   real_T Delay_DSTATE;                 // '<S246>/Delay'
   real_T Integrator_DSTATE_lq;         // '<S281>/Integrator'
   real_T DiscreteTimeIntegrator_DSTATE;// '<S303>/Discrete-Time Integrator'
-  real_T DelayInput2_DSTATE;           // '<S568>/Delay Input2'
   real_T DiscreteTimeIntegrator_DSTATE_j;// '<S449>/Discrete-Time Integrator'
   volatile real_T RateTransition_Buffer0;// '<S23>/Rate Transition'
   real_T Memory1_PreviousInput;        // '<S23>/Memory1'
@@ -278,9 +263,6 @@ typedef struct {
   real_T Memory_PreviousInput_e[14];   // '<S559>/Memory'
   real_T Memory_PreviousInput_o[14];   // '<S558>/Memory'
   real_T Memory2_PreviousInput;        // '<S23>/Memory2'
-  real_T P_ref;                        // '<S565>/MATLAB Function'
-  real_T rl_up;                        // '<S565>/MATLAB Function'
-  real_T rl_dw;                        // '<S565>/MATLAB Function'
   real_T x_prd[18];                    // '<S553>/DEFINITIVA'
   real_T p_prd[324];                   // '<S553>/DEFINITIVA'
   real_T flag;                         // '<S440>/GO_HOME'
@@ -414,11 +396,6 @@ typedef struct {
   //  Referenced by: '<Root>/SI UAV uint8'
 
   uint8_T SIUAVuint8_Value;
-
-  // Computed Parameter: registromemoria213_Value
-  //  Referenced by: '<S565>/registro memoria2 13'
-
-  uint8_T registromemoria213_Value[16];
 } ConstP_Aenea_model_T;
 
 // Real-time Model Data Structure
@@ -459,7 +436,6 @@ extern DW_Aenea_model_T Aenea_model_DW;
 extern PrevZCX_Aenea_model_T Aenea_model_PrevZCX;
 
 // External data declarations for dependent source files
-extern const real32_T Aenea_model_R32GND;// real32_T ground
 extern const uint16_T Aenea_model_U16GND;// uint16_T ground
 extern const ConstB_Aenea_model_T Aenea_model_ConstB;// constant block i/o
 
@@ -657,31 +633,7 @@ extern "C" {
 //  Block '<S35>/Switch di selezione  Task - Waypoint navigation' : Unused code path elimination
 //  Block '<S35>/Switch di selezione  Task - Waypoint navigation3' : Unused code path elimination
 //  Block '<S4>/Constant2' : Unused code path elimination
-//  Block '<S568>/FixPt Data Type Duplicate' : Unused code path elimination
-//  Block '<S572>/Data Type Duplicate' : Unused code path elimination
-//  Block '<S572>/Data Type Propagation' : Unused code path elimination
-//  Block '<S566>/Constant' : Unused code path elimination
-//  Block '<S566>/Constant2' : Unused code path elimination
-//  Block '<S566>/Constant3' : Unused code path elimination
-//  Block '<S566>/Manual Switch1' : Unused code path elimination
-//  Block '<S566>/Manual Switch3' : Unused code path elimination
-//  Block '<S566>/Manual Switch4' : Unused code path elimination
-//  Block '<S574>/Constant' : Unused code path elimination
-//  Block '<S574>/Constant1' : Unused code path elimination
-//  Block '<S574>/Constant2' : Unused code path elimination
-//  Block '<S574>/Constant3' : Unused code path elimination
-//  Block '<S574>/Constant4' : Unused code path elimination
-//  Block '<S574>/Constant5' : Unused code path elimination
-//  Block '<S574>/Constant6' : Unused code path elimination
-//  Block '<S574>/Equal' : Unused code path elimination
-//  Block '<S574>/Equal1' : Unused code path elimination
-//  Block '<S574>/Equal2' : Unused code path elimination
-//  Block '<S574>/Equal3' : Unused code path elimination
-//  Block '<S574>/Equal4' : Unused code path elimination
-//  Block '<S574>/Equal5' : Unused code path elimination
-//  Block '<S574>/OR' : Unused code path elimination
-//  Block '<S574>/Switch' : Unused code path elimination
-//  Block '<S566>/Sum1' : Unused code path elimination
+//  Block '<S5>/Constant9' : Unused code path elimination
 //  Block '<S6>/K AntiWindup-Bumpless AP quota' : Unused code path elimination
 //  Block '<S6>/K AntiWindup-Bumpless controllore beccheggio' : Unused code path elimination
 //  Block '<S6>/K AntiWindup-Bumpless controllore imbardata' : Unused code path elimination
@@ -696,14 +648,14 @@ extern "C" {
 //  Block '<S7>/Data Type Conversion1' : Unused code path elimination
 //  Block '<S7>/Data Type Conversion2' : Unused code path elimination
 //  Block '<S7>/Data Type Conversion3' : Unused code path elimination
-//  Block '<S581>/Constant' : Unused code path elimination
-//  Block '<S581>/Constant1' : Unused code path elimination
-//  Block '<S581>/Divide' : Unused code path elimination
-//  Block '<S581>/Multiply' : Unused code path elimination
-//  Block '<S581>/Sum' : Unused code path elimination
-//  Block '<S581>/Sum1' : Unused code path elimination
-//  Block '<S581>/Sum2' : Unused code path elimination
-//  Block '<S581>/Sum3' : Unused code path elimination
+//  Block '<S574>/Constant' : Unused code path elimination
+//  Block '<S574>/Constant1' : Unused code path elimination
+//  Block '<S574>/Divide' : Unused code path elimination
+//  Block '<S574>/Multiply' : Unused code path elimination
+//  Block '<S574>/Sum' : Unused code path elimination
+//  Block '<S574>/Sum1' : Unused code path elimination
+//  Block '<S574>/Sum2' : Unused code path elimination
+//  Block '<S574>/Sum3' : Unused code path elimination
 //  Block '<S8>/Constant' : Unused code path elimination
 //  Block '<S8>/Constant1' : Unused code path elimination
 //  Block '<S8>/Constant2' : Unused code path elimination
@@ -724,27 +676,33 @@ extern "C" {
 //  Block '<S8>/Data Type Conversion7' : Unused code path elimination
 //  Block '<S8>/Data Type Conversion8' : Unused code path elimination
 //  Block '<S8>/Data Type Conversion9' : Unused code path elimination
-//  Block '<S582>/Constant' : Unused code path elimination
-//  Block '<S582>/Constant1' : Unused code path elimination
-//  Block '<S582>/Divide' : Unused code path elimination
-//  Block '<S582>/Multiply' : Unused code path elimination
-//  Block '<S582>/Sum' : Unused code path elimination
-//  Block '<S582>/Sum1' : Unused code path elimination
-//  Block '<S582>/Sum2' : Unused code path elimination
-//  Block '<S582>/Sum3' : Unused code path elimination
-//  Block '<S583>/Multiply' : Unused code path elimination
-//  Block '<S583>/Sum' : Unused code path elimination
-//  Block '<S583>/Sum1' : Unused code path elimination
-//  Block '<S584>/Constant' : Unused code path elimination
-//  Block '<S584>/Constant1' : Unused code path elimination
-//  Block '<S584>/Divide' : Unused code path elimination
-//  Block '<S584>/Multiply' : Unused code path elimination
-//  Block '<S584>/Sum' : Unused code path elimination
-//  Block '<S584>/Sum1' : Unused code path elimination
-//  Block '<S584>/Sum2' : Unused code path elimination
-//  Block '<S584>/Sum3' : Unused code path elimination
+//  Block '<S575>/Constant' : Unused code path elimination
+//  Block '<S575>/Constant1' : Unused code path elimination
+//  Block '<S575>/Divide' : Unused code path elimination
+//  Block '<S575>/Multiply' : Unused code path elimination
+//  Block '<S575>/Sum' : Unused code path elimination
+//  Block '<S575>/Sum1' : Unused code path elimination
+//  Block '<S575>/Sum2' : Unused code path elimination
+//  Block '<S575>/Sum3' : Unused code path elimination
+//  Block '<S576>/Multiply' : Unused code path elimination
+//  Block '<S576>/Sum' : Unused code path elimination
+//  Block '<S576>/Sum1' : Unused code path elimination
+//  Block '<S577>/Constant' : Unused code path elimination
+//  Block '<S577>/Constant1' : Unused code path elimination
+//  Block '<S577>/Divide' : Unused code path elimination
+//  Block '<S577>/Multiply' : Unused code path elimination
+//  Block '<S577>/Sum' : Unused code path elimination
+//  Block '<S577>/Sum1' : Unused code path elimination
+//  Block '<S577>/Sum2' : Unused code path elimination
+//  Block '<S577>/Sum3' : Unused code path elimination
 //  Block '<S1>/Data Type Conversion' : Eliminate redundant data type conversion
 //  Block '<S1>/Data Type Conversion1' : Eliminate redundant data type conversion
+//  Block '<S13>/Manual Switch' : Eliminated due to constant selection input
+//  Block '<S13>/Manual Switch1' : Eliminated due to constant selection input
+//  Block '<S13>/Manual Switch2' : Eliminated due to constant selection input
+//  Block '<S13>/Manual Switch3' : Eliminated due to constant selection input
+//  Block '<S13>/Manual Switch4' : Eliminated due to constant selection input
+//  Block '<S13>/Manual Switch5' : Eliminated due to constant selection input
 //  Block '<S15>/Manual Switch' : Eliminated due to constant selection input
 //  Block '<S15>/Manual Switch1' : Eliminated due to constant selection input
 //  Block '<S15>/Manual Switch2' : Eliminated due to constant selection input
@@ -760,14 +718,35 @@ extern "C" {
 //  Block '<S399>/Kt' : Eliminated nontunable gain of 1
 //  Block '<S33>/Gain' : Eliminated nontunable gain of 1
 //  Block '<S33>/Gain2' : Eliminated nontunable gain of 1
-//  Block '<Root>/Data Type Conversion2' : Eliminate redundant data type conversion
 //  Block '<S4>/Data Type Conversion1' : Eliminate redundant data type conversion
-//  Block '<S565>/Data Type Conversion' : Eliminate redundant data type conversion
-//  Block '<S565>/Data Type Conversion1' : Eliminate redundant data type conversion
-//  Block '<S566>/Manual Switch' : Eliminated due to constant selection input
-//  Block '<S566>/Manual Switch2' : Eliminated due to constant selection input
-//  Block '<S566>/Manual Switch5' : Eliminated due to constant selection input
-//  Block '<S578>/Gain' : Eliminated nontunable gain of 1
+//  Block '<S5>/Data Type Conversion1' : Eliminate redundant data type conversion
+//  Block '<S5>/Manual Switch' : Eliminated due to constant selection input
+//  Block '<S5>/Manual Switch1' : Eliminated due to constant selection input
+//  Block '<S5>/Manual Switch3' : Eliminated due to constant selection input
+//  Block '<S5>/Manual Switch4' : Eliminated due to constant selection input
+//  Block '<S5>/Manual Switch5' : Eliminated due to constant selection input
+//  Block '<S5>/Manual Switch6' : Eliminated due to constant selection input
+//  Block '<S5>/Manual Switch7' : Eliminated due to constant selection input
+//  Block '<S5>/Manual Switch8' : Eliminated due to constant selection input
+//  Block '<S7>/Data Type Conversion10' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion11' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion12' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion18' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion19' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion20' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion21' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion4' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion6' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion7' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion8' : Eliminate redundant data type conversion
+//  Block '<S7>/Data Type Conversion9' : Eliminate redundant data type conversion
+//  Block '<S571>/Gain' : Eliminated nontunable gain of 1
+//  Block '<S13>/Constant' : Unused code path elimination
+//  Block '<S13>/Constant1' : Unused code path elimination
+//  Block '<S13>/Constant2' : Unused code path elimination
+//  Block '<S13>/Constant3' : Unused code path elimination
+//  Block '<S13>/Constant4' : Unused code path elimination
+//  Block '<S13>/Constant5' : Unused code path elimination
 //  Block '<S15>/Constant3' : Unused code path elimination
 //  Block '<S15>/Constant4' : Unused code path elimination
 //  Block '<S15>/Constant5' : Unused code path elimination
@@ -775,9 +754,7 @@ extern "C" {
 //  Block '<S15>/Constant7' : Unused code path elimination
 //  Block '<S15>/Constant8' : Unused code path elimination
 //  Block '<S15>/Constant9' : Unused code path elimination
-//  Block '<S566>/Constant1' : Unused code path elimination
-//  Block '<S566>/Constant4' : Unused code path elimination
-//  Block '<S566>/Constant5' : Unused code path elimination
+//  Block '<S5>/Constant1' : Unused code path elimination
 
 
 //-
@@ -1362,23 +1339,16 @@ extern "C" {
 //  '<S565>' : 'Aenea_model/Misure Sensori/BMP_280'
 //  '<S566>' : 'Aenea_model/Misure Sensori/GPS_Venus'
 //  '<S567>' : 'Aenea_model/Misure Sensori/MTi'
-//  '<S568>' : 'Aenea_model/Misure Sensori/BMP_280/Dynamic rate limiter'
-//  '<S569>' : 'Aenea_model/Misure Sensori/BMP_280/Execution_loop'
-//  '<S570>' : 'Aenea_model/Misure Sensori/BMP_280/MATLAB Function'
-//  '<S571>' : 'Aenea_model/Misure Sensori/BMP_280/Subsystem'
-//  '<S572>' : 'Aenea_model/Misure Sensori/BMP_280/Dynamic rate limiter/Saturation Dynamic'
-//  '<S573>' : 'Aenea_model/Misure Sensori/BMP_280/Subsystem/Subsystem1'
-//  '<S574>' : 'Aenea_model/Misure Sensori/GPS_Venus/Subsystem2'
-//  '<S575>' : 'Aenea_model/RADIOCOMANDO/AILERON'
-//  '<S576>' : 'Aenea_model/RADIOCOMANDO/AILERON1'
-//  '<S577>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR'
-//  '<S578>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR1'
-//  '<S579>' : 'Aenea_model/RADIOCOMANDO/RUDDER'
-//  '<S580>' : 'Aenea_model/RADIOCOMANDO/THROTTLE'
-//  '<S581>' : 'Aenea_model/Servi/AILERON1'
-//  '<S582>' : 'Aenea_model/Servi/RUDDER6'
-//  '<S583>' : 'Aenea_model/Servi/THROTTLE1'
-//  '<S584>' : 'Aenea_model/Servi/elevator'
+//  '<S568>' : 'Aenea_model/RADIOCOMANDO/AILERON'
+//  '<S569>' : 'Aenea_model/RADIOCOMANDO/AILERON1'
+//  '<S570>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR'
+//  '<S571>' : 'Aenea_model/RADIOCOMANDO/ELEVATOR1'
+//  '<S572>' : 'Aenea_model/RADIOCOMANDO/RUDDER'
+//  '<S573>' : 'Aenea_model/RADIOCOMANDO/THROTTLE'
+//  '<S574>' : 'Aenea_model/Servi/AILERON1'
+//  '<S575>' : 'Aenea_model/Servi/RUDDER6'
+//  '<S576>' : 'Aenea_model/Servi/THROTTLE1'
+//  '<S577>' : 'Aenea_model/Servi/elevator'
 
 #endif                                 // RTW_HEADER_Aenea_model_h_
 

@@ -30,7 +30,7 @@ SFE_UBLOX_GPS myGNSS;
  *
  */
 /* %%%-SFUNWIZ_wrapper_externs_Changes_BEGIN --- EDIT HERE TO _END */
-long lastTime = 0; //Simple local timer. Limits amount if I2C traffic to u-blox module.
+ 
 /* %%%-SFUNWIZ_wrapper_externs_Changes_END --- EDIT HERE TO _BEGIN */
  
 /*
@@ -41,9 +41,7 @@ extern "C" void GPS_sfun_Start_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
-    Serial.begin(115200);
-    Serial2.begin(57600);
-    while (!Serial2); //Wait for user to open terminal
+//     Serial1.begin(57600);
  
   myWire.begin();
  
@@ -51,18 +49,21 @@ extern "C" void GPS_sfun_Start_wrapper(void)
  
   if (myGNSS.begin(myWire) == false) //Connect to the Ublox module using Wire port
   {
-    //Serial2.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
-    return
+    //Serial1.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
+return
       ;
   }
   
  
-  //myGNSS.enableDebugging(Serial); // Uncomment this line to enable debug messages
+  //myGNSS.enableDebugging(Serial); // Uncomment this line to enable debug message
  
-  
   myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
- 
+  myGNSS.setNavigationFrequency(10); // produce 10 solution per second
+  myGNSS.setAutoPVT(true);
+   myGNSS.setAutoHPPOSLLH(true);
+    
   
+ 
 #endif
 /* %%%-SFUNWIZ_wrapper_Start_Changes_END --- EDIT HERE TO _BEGIN */
 }
@@ -75,15 +76,18 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
 			real_T *f_groundspeed,
 			real_T *f_msl,
 			real_T *f_heading,
-			real_T *d_fixType)
+			real_T *d_fixType,
+			boolean_T *gps_data_fresh)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     //Query module only every second.
   //The module only responds when a new position is available.
-  if (millis() - lastTime > 1000)
+    *gps_data_fresh=false;
+    
+  if (myGNSS.getPVT() || myGNSS.getHPPOSLLH())
   {
-    lastTime = millis(); //Update the timer
+    *gps_data_fresh=true;
  
     // getHighResLatitude: returns the latitude from HPPOSLLH as an int32_t in degrees * 10^-7
     // getHighResLatitudeHp: returns the high resolution component of latitude from HPPOSLLH as an int8_t in degrees * 10^-9
@@ -110,10 +114,10 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
     int32_t heading=myGNSS.getHeading();  
       
       
-    int d_fixType = myGNSS.getFixType(); // returns the type of fix: 0=no, 1=1D, 2=2D, 3=3D, 4=GNSS+Deadreckoning
-    int RTK=myGNSS.getCarrierSolutionType(); // Returns RTK solution: 0=no, 1=float solution, 2=fixed solution
+   int d_fixType = myGNSS.getFixType(); // returns the type of fix: 0=no, 1=1D, 2=2D, 3=3D, 4=GNSS+Deadreckoning
+   int RTK=myGNSS.getCarrierSolutionType(); // Returns RTK solution: 0=no, 1=float solution, 2=fixed solution
    if  (d_fixType==4){
-       d_fixType=6; //la regola solitamente dice che il fixType 6 corrisponde al dead reckoning, si è imposto questo if solo per farlo corrispondere.
+       d_fixType=6; //la regola solitamente dice che il fixType 6 corrisponde al dead reckoning, si  imposto questo if solo per farlo corrispondere.
    }
    else if (RTK==1){
        d_fixType=5;
@@ -121,7 +125,6 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
    else if (RTK==2){
        d_fixType=4;
    }
- 
     // Defines storage for the lat and lon as double
     double d_lat; // latitude
     double d_lon; // longitude
@@ -133,11 +136,11 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
     d_lon += ((double)longitudeHp) / 1000000000.0; // Now add the high resolution component (degrees * 10^-9 )
  
    // Print the lat and lon
-  
-   /* Serial2.print("Lat (deg): ");
-    Serial2.print(d_lat, 9);
-    Serial2.print(", Lon (deg): ");
-    Serial2.print(d_lon, 9);*/
+//   
+//     Serial1.print("Lat (deg): ");
+//     Serial1.print(d_lat, 9);
+//     Serial1.print(", Lon (deg): ");
+//     Serial1.print(d_lon, 9);
  
     // Now define float storage for the heights and accuracy
     // float f_ellipsoid;
@@ -173,25 +176,25 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
     // Finally, do the printing
   
     
-   // Serial2.print(", Ellipsoid (m): ");
-   // Serial2.print(f_ellipsoid, 4); // Print the ellipsoid with 4 decimal places
+   // Serial1.print(", Ellipsoid (m): ");
+   // Serial1.print(f_ellipsoid, 4); // Print the ellipsoid with 4 decimal places
    
-   /* Serial2.print(", Mean Sea Level (m): ");
-    Serial2.print(f_msl, 4); // Print the mean sea level with 4 decimal places
+    // Serial1.print(", Mean Sea Level (m): ");
+    // Serial1.print(f_msl, 4); // Print the mean sea level with 4 decimal places
     
-    Serial2.print(", Accuracy (m): ");
-    Serial2.println(f_accuracy, 4); // Print the accuracy with 4 decimal places
+    // Serial1.print(", Ground Speed (m): ");
+   //  Serial1.print(f_groundspeed, 4); // Print the ground speed with 4 decimal places 
     
-    Serial2.print(", Ground Speed (m): ");
-    Serial2.print(f_groundspeed, 4); // Print the ellipsoid with 4 decimal places 
+    //Serial1.print(", Heading (m): ");
+//     Serial1.print(f_heading, 5); // Print the heading with 4 decimal places  
+//       
+//     Serial1.print(", d_fixType: ");
+//     Serial1.print( d_fixType); //
+//       
+//     Serial1.print(", Accuracy (m): ");
+//     Serial1.println(f_accuracy, 4); // Print the accuracy with 4 decimal places
+//     Serial1.println(" ");   
     
-    Serial2.print(", Heading (m): ");
-    Serial2.print(f_heading, 5); // Print the ellipsoid with 4 decimal places  
-      
-    Serial2.print(", d_fixType ");
-    Serial2.print(d_fixType); // Print the ellipsoid with 4 decimal places
-    Serial2.println(" ");   
-    */
       
   }
      #endif

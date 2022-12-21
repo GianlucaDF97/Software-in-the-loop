@@ -42,8 +42,6 @@ extern "C" void GPS_sfun_Start_wrapper(void)
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     Serial.begin(115200);
-    Serial2.begin(57600);
-    while (!Serial2); //Wait for user to open terminal
  
   myWire.begin();
  
@@ -52,7 +50,7 @@ extern "C" void GPS_sfun_Start_wrapper(void)
   if (myGNSS.begin(myWire) == false) //Connect to the Ublox module using Wire port
   {
     //Serial2.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
-    while (1)
+return
       ;
   }
   

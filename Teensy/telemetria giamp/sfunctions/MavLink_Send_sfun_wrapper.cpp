@@ -27,7 +27,7 @@
  */
 /* %%%-SFUNWIZ_wrapper_externs_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
-uint8_t Serial2TX_buffer[512];
+uint8_t Serial1TX_buffer[512];
 #endif
 /* %%%-SFUNWIZ_wrapper_externs_Changes_END --- EDIT HERE TO _BEGIN */
  
@@ -39,8 +39,8 @@ extern "C" void MavLink_Send_sfun_Start_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
-    Serial2.begin(57600);
-    Serial2.addMemoryForWrite(Serial2TX_buffer, sizeof(Serial2TX_buffer));
+    Serial1.begin(57600);
+    Serial1.addMemoryForWrite(Serial1TX_buffer, sizeof(Serial1TX_buffer));
     #endif
 /* %%%-SFUNWIZ_wrapper_Start_Changes_END --- EDIT HERE TO _BEGIN */
 }
@@ -54,8 +54,8 @@ extern "C" void MavLink_Send_sfun_Outputs_wrapper(const uint8_T *mavlink_buf_out
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     for (int i = 0; i < mavlink_buf_len[0]; i++) {
-        Serial2.write(mavlink_buf_out[i]);
-        //Serial2.println(mavlink_buf_out[i]);
+        Serial1.write(mavlink_buf_out[i]);
+        //Serial1.println(mavlink_buf_out[i]);
     }
     #endif
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */

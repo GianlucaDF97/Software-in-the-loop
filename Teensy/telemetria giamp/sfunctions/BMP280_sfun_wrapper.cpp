@@ -41,7 +41,7 @@ extern "C" void BMP280_sfun_Start_wrapper(void)
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     Serial.begin(9600);
-    Serial2.begin(57600);
+//     Serial1.begin(57600);
     unsigned status;
     status = bmp.begin(BMP280_ADDRESS_ALT, BMP280_CHIPID);
  
@@ -71,27 +71,27 @@ extern "C" void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
     Serial.print(OAT[0]);
     Serial.println(" *C");
  
-    Serial2.print(F("Temperature = "));
-    Serial2.print(OAT[0]);
-    Serial2.println(" *C");*/
+    Serial1.print(F("Temperature = "));
+    Serial1.print(OAT[0]);
+    Serial1.println(" *C");*/
     
     BaroPressure[0] = bmp.readPressure();
     /*Serial.print(F("Pressure = "));
     Serial.print(BaroPressure[0]);
     Serial.println(" Pa");
  
-    Serial2.print(F("Pressure = "));
-    Serial2.print(BaroPressure[0]);
-    Serial2.println(" Pa");
+    Serial1.print(F("Pressure = "));
+    Serial1.print(BaroPressure[0]);
+    Serial1.println(" Pa");
     */
     BaroAlt[0] = bmp.readAltitude(h_ref[0]/100);
     /*Serial.print(F("Approx altitude = "));
     Serial.print(BaroAlt[0]); // Adjusted to local forecast! 
     Serial.println(" m");
  
-    Serial2.print(F("Approx altitude = "));
-    Serial2.print(BaroAlt[0]); // Adjusted to local forecast! 
-    Serial2.println(" m");*/
+    Serial1.print(F("Approx altitude = "));
+    Serial1.print(BaroAlt[0]); // Adjusted to local forecast! 
+    Serial1.println(" m");*/
     
     delay(1500);
     #endif

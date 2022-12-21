@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.66
+// Model version                  : 1.81
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu Nov 24 13:43:13 2022
+// C/C++ source code generated on : Tue Dec 20 14:13:44 2022
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -94,22 +94,15 @@ extern "C" {
 
 #endif
 
-  extern void BMP280_sfun_Start_wrapper(void);
-  extern void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
-    real32_T *OAT,
-    real32_T *BaroPressure,
-    real32_T *BaroAlt);
-  extern void BMP280_sfun_Terminate_wrapper(void);
+  extern void Mti_sfun_Start_wrapper(void);
+  extern void Mti_sfun_Outputs_wrapper(const real_T *debug,
+    uint8_T *messaggio);
+  extern void Mti_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 
 }
 #endif
-
-extern void Mti_sfun_Start_wrapper(void);
-extern void Mti_sfun_Outputs_wrapper(const real_T *debug,
-  uint8_T *messaggio);
-extern void Mti_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 
@@ -162,26 +155,6 @@ extern "C" {
     real32_T *P_ref,
     const int_T u_width);
   extern void receive_MAVLink_v4_6_beta_AL_HITL_HOME_Terminate_wrapper(void);
-
-#ifdef __cplusplus
-
-}
-#endif
-
-#ifdef __cplusplus
-
-extern "C" {
-
-#endif
-
-  extern void GPS_sfun_Start_wrapper(void);
-  extern void GPS_sfun_Outputs_wrapper(real_T *d_lat,
-    real_T *d_long,
-    real_T *f_groundspeed,
-    real_T *f_msl,
-    real_T *f_heading,
-    real_T *d_fixType);
-  extern void GPS_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 

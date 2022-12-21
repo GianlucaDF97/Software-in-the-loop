@@ -1,4 +1,4 @@
-
+ 
 /*
  * Include Files
  *
@@ -9,9 +9,9 @@
 #else
 #include "rtwtypes.h"
 #endif
-
-
-
+ 
+ 
+ 
 /* %%%-SFUNWIZ_wrapper_includes_Changes_BEGIN --- EDIT HERE TO _END */
 #if defined(MATLAB_MEX_FILE)
 #include "tmwtypes.h"
@@ -32,13 +32,13 @@ unsigned int buff[41];
  int auto_start[5]={250, 01,06,00,249};
  
 #endif
-
+ 
 #define u_width 9
 #define y_width 1
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
 #define u_width 9
 #define y_width 1
-
+ 
 /*
  * Create external references here.  
  *
@@ -46,19 +46,19 @@ unsigned int buff[41];
 /* %%%-SFUNWIZ_wrapper_externs_Changes_BEGIN --- EDIT HERE TO _END */
  
 /* %%%-SFUNWIZ_wrapper_externs_Changes_END --- EDIT HERE TO _BEGIN */
-
+ 
 /*
  * Start function
  *
  */
-void Mti_sfun_Start_wrapper(void)
+extern "C" void Mti_sfun_Start_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     
     // per printare i valori del debug
-    Serial.begin(9600);
-    Serial2.begin(57600);
+  
+//     Serial1.begin(57600);
        
     Serial3.begin(115200) ;
     for (int j = 0 ; j<5 ;j++) 
@@ -73,7 +73,7 @@ void Mti_sfun_Start_wrapper(void)
  * Output function
  *
  */
-void Mti_sfun_Outputs_wrapper(const real_T *debug,
+extern "C" void Mti_sfun_Outputs_wrapper(const real_T *debug,
 			uint8_T *messaggio)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
@@ -84,16 +84,16 @@ void Mti_sfun_Outputs_wrapper(const real_T *debug,
   
     // per printare i valori del debug
     /*Serial.println("AHRS");
-    Serial2.println("AHRS");*/
+    Serial1.println("AHRS");*/
     for(int t = 0; t<9; t++){
-        /*Serial2.println(debug[t]);
+        /*Serial1.println(debug[t]);
         Serial.println(debug[t]);*/
     }
     
     int len_mex = 41 ;
     int i =4;
     bool timeout=false;
-
+ 
     
     for (int j = 0 ; j<5 ;j++) 
         Serial3.write(req_data[j]) ;
@@ -101,9 +101,9 @@ void Mti_sfun_Outputs_wrapper(const real_T *debug,
     //Control[0] = 0;
     
     AHRSlastReceiveTime=millis();
-
+ 
     
-    //Serial2.println(Serial3.available());
+    //Serial1.println(Serial3.available());
     int onebyte=Serial3.read();
     
     if(onebyte==250){
@@ -117,7 +117,7 @@ void Mti_sfun_Outputs_wrapper(const real_T *debug,
               onebyte=Serial3.read();
               if(onebyte==36){
                 messaggio[3]=onebyte;
-
+ 
                while((i<len_mex) && (!timeout)){
         
                  if(Serial3.available()){
@@ -133,7 +133,7 @@ void Mti_sfun_Outputs_wrapper(const real_T *debug,
        
     }
               }
-
+ 
               
             }
         }
@@ -143,5 +143,15 @@ void Mti_sfun_Outputs_wrapper(const real_T *debug,
     #endif
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
-
-
+ 
+/*
+ * Terminate function
+ *
+ */
+extern "C" void Mti_sfun_Terminate_wrapper(void)
+{
+/* %%%-SFUNWIZ_wrapper_Terminate_Changes_BEGIN --- EDIT HERE TO _END */
+ 
+/* %%%-SFUNWIZ_wrapper_Terminate_Changes_END --- EDIT HERE TO _BEGIN */
+}
+ 

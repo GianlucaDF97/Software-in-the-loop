@@ -41,7 +41,7 @@ extern "C" void GPS_sfun_Start_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
-    Serial.begin(115200);
+    Serial1.begin(57600);
  
   myWire.begin();
  
@@ -49,7 +49,7 @@ extern "C" void GPS_sfun_Start_wrapper(void)
  
   if (myGNSS.begin(myWire) == false) //Connect to the Ublox module using Wire port
   {
-    //Serial2.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
+    //Serial1.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
 return
       ;
   }
@@ -130,10 +130,10 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
  
    // Print the lat and lon
   
-    Serial2.print("Lat (deg): ");
-    Serial2.print(d_lat, 9);
-    Serial2.print(", Lon (deg): ");
-    Serial2.print(d_lon, 9);
+    Serial1.print("Lat (deg): ");
+    Serial1.print(d_lat, 9);
+    Serial1.print(", Lon (deg): ");
+    Serial1.print(d_lon, 9);
  
     // Now define float storage for the heights and accuracy
     // float f_ellipsoid;
@@ -169,24 +169,24 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
     // Finally, do the printing
   
     
-   // Serial2.print(", Ellipsoid (m): ");
-   // Serial2.print(f_ellipsoid, 4); // Print the ellipsoid with 4 decimal places
+   // Serial1.print(", Ellipsoid (m): ");
+   // Serial1.print(f_ellipsoid, 4); // Print the ellipsoid with 4 decimal places
    
-    Serial2.print(", Mean Sea Level (m): ");
-    Serial2.print(f_msl, 4); // Print the mean sea level with 4 decimal places
+    Serial1.print(", Mean Sea Level (m): ");
+    Serial1.print(f_msl, 4); // Print the mean sea level with 4 decimal places
     
-    Serial2.print(", Ground Speed (m): ");
-    Serial2.print(f_groundspeed, 4); // Print the ground speed with 4 decimal places 
+    Serial1.print(", Ground Speed (m): ");
+    Serial1.print(f_groundspeed, 4); // Print the ground speed with 4 decimal places 
     
-    Serial2.print(", Heading (m): ");
-    Serial2.print(f_heading, 5); // Print the heading with 4 decimal places  
+    Serial1.print(", Heading (m): ");
+    Serial1.print(f_heading, 5); // Print the heading with 4 decimal places  
       
-    Serial2.print(", d_fixType: ");
-    Serial2.print( d_fixType); //
+    Serial1.print(", d_fixType: ");
+    Serial1.print( d_fixType); //
       
-    Serial2.print(", Accuracy (m): ");
-    Serial2.println(f_accuracy, 4); // Print the accuracy with 4 decimal places
-    Serial2.println(" ");   
+    Serial1.print(", Accuracy (m): ");
+    Serial1.println(f_accuracy, 4); // Print the accuracy with 4 decimal places
+    Serial1.println(" ");   
     
       
   }

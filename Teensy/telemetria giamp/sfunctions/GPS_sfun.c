@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Thu Nov 24 13:32:27 2022
+ * Created: Tue Dec 20 11:32:06 2022
  */
 
 #define S_FUNCTION_LEVEL 2
@@ -35,7 +35,7 @@
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
 #define NUM_INPUTS            0
 
-#define NUM_OUTPUTS           6
+#define NUM_OUTPUTS           7
 /* Output Port  0 */
 #define OUT_PORT_0_NAME       d_lat
 #define OUTPUT_0_WIDTH        1
@@ -132,6 +132,22 @@
 #define OUT_5_FRACTIONLENGTH  3
 #define OUT_5_BIAS            0
 #define OUT_5_SLOPE           0.125
+/* Output Port  6 */
+#define OUT_PORT_6_NAME       gps_data_fresh
+#define OUTPUT_6_WIDTH        1
+#define OUTPUT_DIMS_6_COL     1
+#define OUTPUT_6_DTYPE        boolean_T
+#define OUTPUT_6_COMPLEX      COMPLEX_NO
+#define OUT_6_FRAME_BASED     FRAME_NO
+#define OUT_6_BUS_BASED       0
+#define OUT_6_BUS_NAME        
+#define OUT_6_DIMS            1-D
+#define OUT_6_ISSIGNED        1
+#define OUT_6_WORDLENGTH      8
+#define OUT_6_FIXPOINTSCALING 1
+#define OUT_6_FRACTIONLENGTH  3
+#define OUT_6_BIAS            0
+#define OUT_6_SLOPE           0.125
 
 #define NPARAMS               0
 
@@ -160,7 +176,8 @@ extern void GPS_sfun_Outputs_wrapper(real_T *d_lat,
 			real_T *f_groundspeed,
 			real_T *f_msl,
 			real_T *f_heading,
-			real_T *d_fixType);
+			real_T *d_fixType,
+			boolean_T *gps_data_fresh);
 /*====================*
  * S-function methods *
  *====================*/
@@ -212,6 +229,10 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortWidth(S, 5, OUTPUT_5_WIDTH);
     ssSetOutputPortDataType(S, 5, SS_DOUBLE);
     ssSetOutputPortComplexSignal(S, 5, OUTPUT_5_COMPLEX);
+    /* Output Port 6 */
+    ssSetOutputPortWidth(S, 6, OUTPUT_6_WIDTH);
+    ssSetOutputPortDataType(S, 6, SS_BOOLEAN);
+    ssSetOutputPortComplexSignal(S, 6, OUTPUT_6_COMPLEX);
     ssSetNumPWork(S, 0);
 
     ssSetNumSampleTimes(S, 1);
@@ -277,8 +298,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     real_T *f_msl = (real_T *) ssGetOutputPortRealSignal(S, 3);
     real_T *f_heading = (real_T *) ssGetOutputPortRealSignal(S, 4);
     real_T *d_fixType = (real_T *) ssGetOutputPortRealSignal(S, 5);
+    boolean_T *gps_data_fresh = (boolean_T *) ssGetOutputPortRealSignal(S, 6);
 
-    GPS_sfun_Outputs_wrapper(d_lat, d_long, f_groundspeed, f_msl, f_heading, d_fixType);
+    GPS_sfun_Outputs_wrapper(d_lat, d_long, f_groundspeed, f_msl, f_heading, d_fixType, gps_data_fresh);
 
 }
 

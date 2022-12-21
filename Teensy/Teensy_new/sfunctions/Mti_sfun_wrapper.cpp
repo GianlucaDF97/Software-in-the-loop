@@ -58,7 +58,7 @@ extern "C" void Mti_sfun_Start_wrapper(void)
     
     // per printare i valori del debug
     Serial.begin(9600);
-    Serial2.begin(57600);
+    Serial1.begin(57600);
        
     Serial3.begin(115200) ;
     for (int j = 0 ; j<5 ;j++) 
@@ -84,9 +84,9 @@ extern "C" void Mti_sfun_Outputs_wrapper(const real_T *debug,
   
     // per printare i valori del debug
 //    Serial.println("AHRS");
-    Serial2.println("AHRS");
+    Serial1.println("AHRS");
     for(int t = 0; t<9; t++){
-        Serial2.println(debug[t]);
+        Serial1.println(debug[t]);
  //     Serial.println(debug[t]);
     }
     
@@ -103,7 +103,7 @@ extern "C" void Mti_sfun_Outputs_wrapper(const real_T *debug,
     AHRSlastReceiveTime=millis();
  
     
-    //Serial2.println(Serial3.available());
+    //Serial1.println(Serial3.available());
     int onebyte=Serial3.read();
     
     if(onebyte==250){

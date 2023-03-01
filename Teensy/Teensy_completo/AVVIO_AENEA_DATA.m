@@ -7,6 +7,7 @@ filepath = fileparts(mfilename('fullpath'));
     
 basePath = filepath;    
 
+busdef();
 % addpath(genpath('C:\Program Files (x86)\Arduino\hardware\teensy\avr'));
 
 %  FILE PER CARICAMENTO VARIABILI SU AUTOPILOTA %

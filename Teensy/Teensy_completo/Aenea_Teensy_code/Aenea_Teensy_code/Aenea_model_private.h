@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.91
+// Model version                  : 1.149
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Fri Dec 23 15:37:23 2022
+// C/C++ source code generated on : Wed Mar  1 17:02:35 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -186,12 +186,12 @@ extern "C" {
 #endif
 
   extern void GPS_sfun_Start_wrapper(void);
-  extern void GPS_sfun_Outputs_wrapper(real_T *d_lat,
-    real_T *d_long,
-    real_T *f_groundspeed,
-    real_T *f_msl,
-    real_T *f_heading,
-    real_T *d_fixType,
+  extern void GPS_sfun_Outputs_wrapper(real_T *lat,
+    real_T *lon,
+    real_T *V,
+    real_T *MSL,
+    real_T *heading,
+    real_T *fixType,
     boolean_T *gps_data_fresh);
   extern void GPS_sfun_Terminate_wrapper(void);
 
@@ -206,9 +206,11 @@ extern "C" {
 
 #endif
 
-  extern void pitot_sfun_Start_wrapper(void);
-  extern void pitot_sfun_Outputs_wrapper(real_T *velocity);
-  extern void pitot_sfun_Terminate_wrapper(void);
+  extern void pitot_lidar_sfun_Start_wrapper(void);
+  extern void pitot_lidar_sfun_Outputs_wrapper(real_T *velocity,
+    real_T *distance,
+    real_T *dp);
+  extern void pitot_lidar_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 
@@ -294,6 +296,22 @@ extern "C" {
   extern void enable_sfun_Outputs_wrapper(const uint8_T *u0,
     uint8_T *y0);
   extern void enable_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void Signal_Logger_sfun_Start_wrapper(void);
+  extern void Signal_Logger_sfun_Outputs_wrapper(const BUS_log_t *flightData,
+    const boolean_T *sec_flag);
+  extern void Signal_Logger_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 

@@ -49,7 +49,7 @@ extern "C" void GPS_sfun_Start_wrapper(void)
  
   if (myGNSS.begin(myWire) == false) //Connect to the Ublox module using Wire port
   {
-    Serial.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
+    //Serial.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
 return
       ;
   }
@@ -71,23 +71,24 @@ return
  * Output function
  *
  */
-extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
-			real_T *d_long,
-			real_T *f_groundspeed,
-			real_T *f_msl,
-			real_T *f_heading,
-			real_T *d_fixType,
+extern "C" void GPS_sfun_Outputs_wrapper(real_T *lat,
+			real_T *lon,
+			real_T *V,
+			real_T *MSL,
+			real_T *heading,
+			real_T *fixType,
 			boolean_T *gps_data_fresh)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     //Query module only every second.
   //The module only responds when a new position is available.
-    *gps_data_fresh=false;
+ 
+ 
     
   if (myGNSS.getPVT() || myGNSS.getHPPOSLLH())
   {
-    *gps_data_fresh=true;
+    gps_data_fresh[0]=true;
  
     // getHighResLatitude: returns the latitude from HPPOSLLH as an int32_t in degrees * 10^-7
     // getHighResLatitudeHp: returns the high resolution component of latitude from HPPOSLLH as an int8_t in degrees * 10^-9
@@ -111,7 +112,7 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
     uint32_t accuracy = myGNSS.getHorizontalAccuracy();
       
     int32_t groundspeed= myGNSS.getGroundSpeed();
-    int32_t heading=myGNSS.getHeading();  
+    int32_t i_heading=myGNSS.getHeading();  
       
       
    int d_fixType = myGNSS.getFixType(); // returns the type of fix: 0=no, 1=1D, 2=2D, 3=3D, 4=GNSS+Deadreckoning
@@ -137,17 +138,17 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
  
    // Print the lat and lon
  
-    Serial.print("Lat (deg): ");
+   /* Serial.print("Lat (deg): ");
     Serial.print(d_lat, 9);
     Serial.print(", Lon (deg): ");
-    Serial.print(d_lon, 9);
+    Serial.print(d_lon, 9);*/
  
     // Now define float storage for the heights and accuracy
     // float f_ellipsoid;
-    float f_msl;
-    float f_accuracy;
-    float f_groundspeed;
-    float f_heading;
+    double f_msl;
+    double f_accuracy;
+    double f_groundspeed;
+    double f_heading;
     
     
  
@@ -157,29 +158,29 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
     //f_ellipsoid = f_ellipsoid / 10000.0; // Convert from mm * 10^-1 to m
  
     // Calculate the height above mean sea level in mm * 10^-1
-    f_msl = (msl * 10) + mslHp;
+    f_msl = (((double)msl) * 10) + (double)mslHp;
     // Now convert to m
     f_msl = f_msl / 10000.0; // Convert from mm * 10^-1 to m
  
     // Convert the horizontal accuracy (mm * 10^-1) to a float
-    f_accuracy = accuracy;
+    f_accuracy = (double)accuracy;
     // Now convert to m
     f_accuracy = f_accuracy / 10000.0; // Convert from mm * 10^-1 to m
  
     // Convert the ground Speed (mm/s in m/s)  
-    f_groundspeed=groundspeed/1000.0;  
+    f_groundspeed=((double)groundspeed)/1000.0;  
     // Convert heading  (deggree *10^-5)
-    f_heading=heading/100000.0;
+    f_heading=((double)i_heading)/100000.0;
     
     
-  
+     
     // Finally, do the printing
   
     
    // Serial.print(", Ellipsoid (m): ");
    // Serial.print(f_ellipsoid, 4); // Print the ellipsoid with 4 decimal places
    
-    Serial.print(", Mean Sea Level (m): ");
+    /*Serial.print(", Mean Sea Level (m): ");
     Serial.print(f_msl, 4); // Print the mean sea level with 4 decimal places
     
     Serial.print(", Ground Speed (m): ");
@@ -193,8 +194,19 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *d_lat,
       
     Serial.print(", Accuracy (m): ");
     Serial.println(f_accuracy, 4); // Print the accuracy with 4 decimal places
-    Serial.println(" ");   
-    
+    Serial.println(" ");   */
+      
+      lat[0]=d_lat;
+      lon[0]=d_lon;
+      V[0]=f_groundspeed;
+      MSL[0]=f_msl;
+      heading[0]=f_heading;
+      fixType[0]=d_fixType;
+      
+      
+  }else
+  {
+      gps_data_fresh[0]=false;
       
   }
      #endif

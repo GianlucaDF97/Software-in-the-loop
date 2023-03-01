@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Fri Dec 23 13:03:02 2022
+ * Created: Thu Feb 23 15:26:01 2023
  */
 
 #define S_FUNCTION_LEVEL 2
@@ -37,7 +37,7 @@
 
 #define NUM_OUTPUTS           7
 /* Output Port  0 */
-#define OUT_PORT_0_NAME       d_lat
+#define OUT_PORT_0_NAME       lat
 #define OUTPUT_0_WIDTH        1
 #define OUTPUT_DIMS_0_COL     1
 #define OUTPUT_0_DTYPE        real_T
@@ -53,7 +53,7 @@
 #define OUT_0_BIAS            0
 #define OUT_0_SLOPE           0.125
 /* Output Port  1 */
-#define OUT_PORT_1_NAME       d_long
+#define OUT_PORT_1_NAME       lon
 #define OUTPUT_1_WIDTH        1
 #define OUTPUT_DIMS_1_COL     1
 #define OUTPUT_1_DTYPE        real_T
@@ -69,7 +69,7 @@
 #define OUT_1_BIAS            0
 #define OUT_1_SLOPE           0.125
 /* Output Port  2 */
-#define OUT_PORT_2_NAME       f_groundspeed
+#define OUT_PORT_2_NAME       V
 #define OUTPUT_2_WIDTH        1
 #define OUTPUT_DIMS_2_COL     1
 #define OUTPUT_2_DTYPE        real_T
@@ -85,7 +85,7 @@
 #define OUT_2_BIAS            0
 #define OUT_2_SLOPE           0.125
 /* Output Port  3 */
-#define OUT_PORT_3_NAME       f_msl
+#define OUT_PORT_3_NAME       MSL
 #define OUTPUT_3_WIDTH        1
 #define OUTPUT_DIMS_3_COL     1
 #define OUTPUT_3_DTYPE        real_T
@@ -101,7 +101,7 @@
 #define OUT_3_BIAS            0
 #define OUT_3_SLOPE           0.125
 /* Output Port  4 */
-#define OUT_PORT_4_NAME       f_heading
+#define OUT_PORT_4_NAME       heading
 #define OUTPUT_4_WIDTH        1
 #define OUTPUT_DIMS_4_COL     1
 #define OUTPUT_4_DTYPE        real_T
@@ -117,7 +117,7 @@
 #define OUT_4_BIAS            0
 #define OUT_4_SLOPE           0.125
 /* Output Port  5 */
-#define OUT_PORT_5_NAME       d_fixType
+#define OUT_PORT_5_NAME       fixType
 #define OUTPUT_5_WIDTH        1
 #define OUTPUT_DIMS_5_COL     1
 #define OUTPUT_5_DTYPE        real_T
@@ -171,12 +171,12 @@
 
 
 extern void GPS_sfun_Start_wrapper(void);
-extern void GPS_sfun_Outputs_wrapper(real_T *d_lat,
-			real_T *d_long,
-			real_T *f_groundspeed,
-			real_T *f_msl,
-			real_T *f_heading,
-			real_T *d_fixType,
+extern void GPS_sfun_Outputs_wrapper(real_T *lat,
+			real_T *lon,
+			real_T *V,
+			real_T *MSL,
+			real_T *heading,
+			real_T *fixType,
 			boolean_T *gps_data_fresh);
 /*====================*
  * S-function methods *
@@ -292,15 +292,15 @@ static void mdlStart(SimStruct *S)
  */
 static void mdlOutputs(SimStruct *S, int_T tid)
 {
-    real_T *d_lat = (real_T *) ssGetOutputPortRealSignal(S, 0);
-    real_T *d_long = (real_T *) ssGetOutputPortRealSignal(S, 1);
-    real_T *f_groundspeed = (real_T *) ssGetOutputPortRealSignal(S, 2);
-    real_T *f_msl = (real_T *) ssGetOutputPortRealSignal(S, 3);
-    real_T *f_heading = (real_T *) ssGetOutputPortRealSignal(S, 4);
-    real_T *d_fixType = (real_T *) ssGetOutputPortRealSignal(S, 5);
+    real_T *lat = (real_T *) ssGetOutputPortRealSignal(S, 0);
+    real_T *lon = (real_T *) ssGetOutputPortRealSignal(S, 1);
+    real_T *V = (real_T *) ssGetOutputPortRealSignal(S, 2);
+    real_T *MSL = (real_T *) ssGetOutputPortRealSignal(S, 3);
+    real_T *heading = (real_T *) ssGetOutputPortRealSignal(S, 4);
+    real_T *fixType = (real_T *) ssGetOutputPortRealSignal(S, 5);
     boolean_T *gps_data_fresh = (boolean_T *) ssGetOutputPortRealSignal(S, 6);
 
-    GPS_sfun_Outputs_wrapper(d_lat, d_long, f_groundspeed, f_msl, f_heading, d_fixType, gps_data_fresh);
+    GPS_sfun_Outputs_wrapper(lat, lon, V, MSL, heading, fixType, gps_data_fresh);
 
 }
 

@@ -79,11 +79,11 @@ extern "C" void Mti_sfun_Outputs_wrapper(const real_T *debug,
     // controllare sulla documentazione Mti ( low-level communication ) 
   
     // per printare i valori del debug
-    Serial.println("AHRS");
+   // Serial.println("AHRS");
     
     for(int t = 0; t<9; t++){
         
-        Serial.println(debug[t]);
+      //  Serial.println(debug[t]);
     }
     
     int len_mex = 41 ;
@@ -99,7 +99,7 @@ extern "C" void Mti_sfun_Outputs_wrapper(const real_T *debug,
     AHRSlastReceiveTime=millis();
  
     
-    Serial.println(Serial3.available());
+    //Serial.println(Serial3.available());
     int onebyte=Serial3.read();
     
     if(onebyte==250){

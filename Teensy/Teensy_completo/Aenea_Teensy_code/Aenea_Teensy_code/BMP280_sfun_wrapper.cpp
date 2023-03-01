@@ -66,19 +66,19 @@ extern "C" void BMP280_sfun_Outputs_wrapper(const real32_T *h_ref,
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
     OAT[0] = bmp.readTemperature();
-    Serial.print(F("Temperature = "));
+ /*   Serial.print(F("Temperature = "));
     Serial.print(OAT[0]);
-    Serial.println(" *C");
+    Serial.println(" *C");*/
     
     BaroPressure[0] = bmp.readPressure();
-    Serial.print(F("Pressure = "));
+   /* Serial.print(F("Pressure = "));
     Serial.print(BaroPressure[0]);
-    Serial.println(" Pa");
+    Serial.println(" Pa");*/
  
     BaroAlt[0] = bmp.readAltitude(h_ref[0]/100);
-    Serial.print(F("Approx altitude = "));
+  /*  Serial.print(F("Approx altitude = "));
     Serial.print(BaroAlt[0]); // Adjusted to local forecast! 
-    Serial.println(" m");
+    Serial.println(" m");*/
     
     #endif
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */

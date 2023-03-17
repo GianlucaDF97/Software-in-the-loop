@@ -107,15 +107,16 @@ int onebyte=0;
     }
     
     VELOCITY=(uint16_t)(velocity*100);
-    Hvelocity = uint8_t(VELOCITY >> 8);
-    Lvelocity = uint8_t(VELOCITY & 0xff);
+    Hvelocity = (uint8_t)(VELOCITY >> 8); // ho due byte con questo shifto tutto a destra e cosi prendo il secondo byte
+    Lvelocity = (uint8_t)(VELOCITY & 0x00ff); // è un filtro che corrisponde a 0000 0000 1111 1111 gli zeri rendono 0 il corrispettivo bit gli 1 fanno si che il corrispettivo biut si mantenga,
+                                              // cosi riesco ad ottenere solo il primo byte perche gli zeri annullano il secondo (sto legendo i byte da destra a sinistra
 
-    dP = (int32_t)(dp*100);
+    dP = (uint32_t)(dp*100);
     
-    HHP = uint8_t(dP >> 24);
-    HhP = uint8_t(dP >> 16);
-    LlP = uint8_t(dP >> 8);
-    LLP = uint8_t(dP & 0xff);
+    HHP = (uint8_t)(dP >> 24);
+    HhP = (uint8_t)(dP >> 16);
+    LlP = (uint8_t)(dP >> 8);
+    LLP = (uint8_t)(dP & 0xff);
 
 Serial.println(Serial1.available());
         if(Serial1.available()>0){
@@ -137,9 +138,9 @@ Serial.println(Serial1.available());
        
    
    
-  /*  Serial.print("dp:");
+  Serial.print("dp:");
     Serial.println(dp);
-    Serial.print("velocity:");
+   Serial.print("velocity:");
     Serial.println(velocity);
     Serial.println(VELOCITY, BIN);
     Serial.println(254, BIN);
@@ -160,7 +161,7 @@ Serial.println(Serial1.available());
     Serial.println(LlP, BIN);
     Serial.print("LLP:");
     Serial.println(LLP, BIN);
-    Serial.println(" ");*/
+    Serial.println(" ");
    }
    }
    }

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.149
+// Model version                  : 1.152
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed Mar  1 17:02:35 2023
+// C/C++ source code generated on : Mon Mar 13 15:23:14 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -21,6 +21,7 @@
 #include <cfloat>
 #include <cmath>
 #include <cstring>
+#include <stddef.h>
 #include "rtwtypes.h"
 #include "zero_crossing_types.h"
 #include "Aenea_model_types.h"
@@ -66,20 +67,18 @@ typedef struct {
   real_T klm_gain_c[18];
   real_T a[16];
   real_T A[16];
-  real_T TmpSignalConversionAtSFunct[14];// '<S560>/MATLAB Function2'
+  real_T rtb_TmpSignalConversionAtSFun_k[14];
   uint8_T messaggio[100];              // '<S3>/MATLAB Function4'
   uint8_T messaggio_2[100];            // '<S3>/MATLAB Function4'
   boolean_T x[100];
   real_T residui[11];                  // '<S559>/DEFINITIVA'
   real_T dv1[11];
   real_T UnitDelay[9];                 // '<S575>/Unit Delay'
-  real_T DataTypeConversion1_k[9];     // '<S7>/Data Type Conversion1'
+  real_T DataTypeConversion1_c[9];     // '<S7>/Data Type Conversion1'
   real_T aterra_tmp[9];
   char_T b_data[64];
   char_T sfull[64];
   int32_T ipiv[11];
-  real32_T ByteUnpack_o2[9];           // '<S575>/Byte Unpack'
-  real32_T ByteReversal[9];            // '<S575>/Byte Reversal'
   real_T x_new[4];
   real_T aterra[3];
   char_T hex_checksum_data[17];
@@ -97,16 +96,10 @@ typedef struct {
   real_T Switch;                       // '<S585>/Switch'
   real_T T;                            // '<S582>/T'
   real_T In[21];                       // '<S567>/In'
-  real_T Misure[14];                   // '<S559>/Misure'
-  real_T OutportBufferForpsi;
-  real_T OutportBufferFortheta;
   real_T Lat_K;                        // '<S559>/DEFINITIVA'
   real_T Long_K;                       // '<S559>/DEFINITIVA'
   real_T h_K;                          // '<S559>/DEFINITIVA'
   real_T vd_K;                         // '<S559>/DEFINITIVA'
-  real_T p_K;                          // '<S559>/DEFINITIVA'
-  real_T q_K;                          // '<S559>/DEFINITIVA'
-  real_T r_K;                          // '<S559>/DEFINITIVA'
   real_T v_K;                          // '<S559>/DEFINITIVA'
   real_T imbardata;                    // '<S559>/DEFINITIVA'
   real_T V_goHome;                     // '<S444>/GO_HOME'
@@ -152,14 +145,14 @@ typedef struct {
   real_T OutportBufferForOut1;         // '<S303>/Constant'
   real_T checksum;
   real_T olddi;
-  real_T a_c;
+  real_T a_b;
   real_T dist;
   real_T dist_fut;
   real_T Sum_l;                        // '<S561>/Sum'
-  real_T Sum_fb;                       // '<S351>/Sum'
-  real_T Gain1_f;                      // '<S552>/Gain1'
-  real_T Gain1_fg;                     // '<S553>/Gain1'
   real_T Gain1_o;                      // '<S554>/Gain1'
+  real_T Sum_fb;                       // '<S351>/Sum'
+  real_T Gain1_i;                      // '<S555>/Gain1'
+  real_T Gain1_i0;                     // '<S556>/Gain1'
   real_T Gain_h;                       // '<S33>/Gain'
   real_T Sum5;                         // '<S592>/Sum5'
   real_T e;                            // '<S37>/Sum2'
@@ -172,7 +165,8 @@ typedef struct {
   real_T Sum3_h;                       // '<S587>/Sum3'
   real_T Alettoni;                     // '<S37>/saturatore A'
   real_T Sum3_l;                       // '<S596>/Sum3'
-  real_T Product1;                     // '<S561>/Product1'
+  real_T Alt;                          // '<S6>/Switch'
+  real_T Sum_fj;                       // '<S438>/Sum'
   real_T V_nord;                       // '<S6>/Multiply2'
   real_T V_est;                        // '<S6>/Multiply3'
   real_T Sum2_k2;                      // '<S305>/Sum2'
@@ -192,15 +186,15 @@ typedef struct {
   real_T psi_ref_tmp;
   real_T temp;
   real_T smax;
-  real_T y_b;
+  real_T y_p;
   real_T Y_tmp;
-  real_T Y_tmp_p;
   real_T Y_tmp_c;
   real_T Y_tmp_f;
   real_T Y_tmp_g;
   real_T Y_tmp_g1;
+  real_T Y_tmp_m;
   int8_T p[4];
-  int8_T ipiv_m[4];
+  int8_T ipiv_n[4];
   real32_T SFunction_o8;               // '<S3>/S-Function'
   real32_T SFunction_o10[7];           // '<S3>/S-Function'
   real32_T SFunction_o13;              // '<S3>/S-Function'
@@ -210,6 +204,7 @@ typedef struct {
   real32_T DataTypeConversion2;        // '<S1>/Data Type Conversion2'
   real32_T DataTypeConversion1_m;      // '<S1>/Data Type Conversion1'
   real32_T DataTypeConversion;         // '<S4>/Data Type Conversion'
+  real32_T DataTypeConversion1_e;      // '<S4>/Data Type Conversion1'
   real32_T DataTypeConversion3_p;      // '<S578>/Data Type Conversion3'
   real32_T SFunctionBuilder_o1_g;      // '<S578>/S-Function Builder'
   real32_T SFunctionBuilder_o2_p;      // '<S578>/S-Function Builder'
@@ -221,10 +216,6 @@ typedef struct {
   int32_T Add;                         // '<S3>/Add'
   int32_T DataTypeConversion_g[4];     // '<S15>/Data Type Conversion'
   uint16_T Memory[8];                  // '<S3>/Memory'
-  uint16_T SFunction_o11[8];           // '<S3>/S-Function'
-  uint16_T LVDE[8];                    // '<S21>/Data Type Conversion2'
-  uint16_T Heading[9];                 // '<S19>/Data Type Conversion1'
-  int16_T DataTypeConversion1_j[3];    // '<S15>/Data Type Conversion1'
   int32_T srem;
   int32_T b_k;
   int32_T npad;
@@ -236,17 +227,22 @@ typedef struct {
   int32_T c_ix;
   int32_T ijA;
   int32_T i;
-  int32_T i_n;
+  int32_T i_p;
   int32_T j;
   int32_T jBcol;
   uint32_T SFunction_o2;               // '<S3>/S-Function'
   uint32_T DataTypeConversion3;        // '<S18>/Data Type Conversion3'
+  real32_T ByteUnpack_o2[9];           // '<S575>/Byte Unpack'
+  real32_T ByteReversal[9];            // '<S575>/Byte Reversal'
   uint32_T qY;
   ZCEventType zcEvent;
   uint16_T SFunction_o7[2];            // '<S3>/S-Function'
   uint16_T SFunction_o9[6];            // '<S3>/S-Function'
+  uint16_T SFunction_o11[8];           // '<S3>/S-Function'
+  uint16_T LVDE[8];                    // '<S21>/Data Type Conversion2'
   uint16_T DataTypeConversion2_p;      // '<S15>/Data Type Conversion2'
   uint16_T ByteUnpack[8];              // '<S7>/Byte Unpack'
+  uint16_T Heading[9];                 // '<S19>/Data Type Conversion1'
   uint16_T Memory_o;                   // '<S4>/Memory'
   uint16_T SFunction_o3;               // '<S4>/S-Function'
   uint16_T SFunction_o4;               // '<S4>/S-Function'
@@ -254,6 +250,7 @@ typedef struct {
   uint16_T new_mex;                    // '<S3>/MATLAB Function3'
   uint16_T GC_info[3];                 // '<S3>/MATLAB Function1'
   int16_T DataTypeConversion_j[9];     // '<S17>/Data Type Conversion'
+  int16_T DataTypeConversion1_j[3];    // '<S15>/Data Type Conversion1'
   int16_T Heading_f;                   // '<S22>/Data Type Conversion1'
   int16_T DataTypeConversion2_m;       // '<S4>/Data Type Conversion2'
   uint8_T SFunctionBuilder1[41];       // '<S575>/S-Function Builder1'
@@ -313,7 +310,7 @@ typedef struct {
   real_T p_prd[324];                   // '<S559>/DEFINITIVA'
   real_T flag;                         // '<S444>/GO_HOME'
   real_T Memory4_PreviousInput;        // '<S443>/Memory4'
-  real_T flag_f;                       // '<S443>/WAYPOINTS'
+  real_T flag_o;                       // '<S443>/WAYPOINTS'
   real_T lat1;                         // '<S443>/WAYPOINTS'
   real_T long1;                        // '<S443>/WAYPOINTS'
   real_T Memory7_PreviousInput;        // '<S442>/Memory7'
@@ -323,7 +320,7 @@ typedef struct {
   real_T x[4];                         // '<S453>/MATLAB Function'
   real_T cycle_count;                  // '<S453>/MATLAB Function'
   real_T eps[4];                       // '<S453>/MATLAB Function'
-  real_T flag_a;                       // '<S442>/ALLINEAMENTO'
+  real_T flag_k;                       // '<S442>/ALLINEAMENTO'
   real_T Memory3_PreviousInput;        // '<S441>/Memory3'
   real_T V_ref;                        // '<S441>/VETTORIALE'
   real_T ALT_ref;                      // '<S441>/VETTORIALE'
@@ -369,7 +366,7 @@ typedef struct {
                                    // '<S40>/SELEZIONE MODALITA'  HOLD//SELECT'
   uint8_T is_c23_Aenea_model;      // '<S40>/SELEZIONE MODALITA'  HOLD//SELECT'
   uint8_T message[100];                // '<S3>/MATLAB Function4'
-  uint8_T counter_j;                   // '<S3>/MATLAB Function4'
+  uint8_T counter_f;                   // '<S3>/MATLAB Function4'
   boolean_T x_prd_not_empty;           // '<S559>/DEFINITIVA'
   boolean_T x_not_empty;               // '<S453>/MATLAB Function'
   boolean_T x_new_not_empty;           // '<S453>/MATLAB Function'
@@ -411,13 +408,11 @@ typedef const struct tag_ConstB_Aenea_model_T {
   real_T DataTypeConversion14;         // '<S9>/Data Type Conversion14'
   real_T DataTypeConversion17;         // '<S9>/Data Type Conversion17'
   real_T DataTypeConversion15;         // '<S9>/Data Type Conversion15'
-  real_T PatohPa1;                     // '<S4>/Pa to hPa1'
   real_T Sum2;                         // '<S593>/Sum2'
   real_T Sum2_d;                       // '<S596>/Sum2'
   real_T Sum2_g;                       // '<S594>/Sum2'
   real_T Sum1;                         // '<S595>/Sum1'
   uint32_T DataTypeConversion;         // '<S16>/Data Type Conversion'
-  real32_T DataTypeConversion1;        // '<S4>/Data Type Conversion1'
   uint16_T Gain;                       // '<S21>/Gain'
   uint16_T Throttle;                   // '<S22>/Data Type Conversion2'
   int16_T K_imb_inv;                   // '<S8>/Gain3'

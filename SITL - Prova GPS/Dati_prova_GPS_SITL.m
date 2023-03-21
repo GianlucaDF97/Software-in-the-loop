@@ -1,3 +1,4 @@
+clear
 load('C:\Users\User\Desktop\DataLog\Log_monopattino_13_Mar.mat')
 
 %per trasformare le timeseries in vettori di double
@@ -60,29 +61,60 @@ vel_GPS_smooth_5=timeseries(Real_meas_smooth_5(2,:),time5);
 % hold off
 
 %% Dopo simulazione simulink n.1
-gspeed_1=out.sim_gspeed_1;
-err_gspeed_1=vel_GPS(1:501)'-gspeed_1;
-heading_1=out.sim_heading_1;
+sw=1;
+out=sim('Prova_SITL_GPS',10);
+% ,'FixedStep','0.02'
+% gspeed_1=out.sim_gspeed_1;
+gspeed_1=out.sim_gspeed;
+gspeed_1=reshape(gspeed_1(1,1,:),[1,length(time1)]);
+err_gspeed_1=vel_GPS(1:501)-gspeed_1;
+% heading_1=out.sim_heading_1;
+heading_1=out.sim_heading;
+heading_1=heading_1';
 err_heading_1=heading(1:501)-heading_1;
 %% Dopo simulazione simulink n.2
-gspeed_2=out.sim_gspeed_2;
-err_gspeed_2=vel_GPS(502:1002)'-gspeed_2;
-heading_2=out.sim_heading_2;
+sw=2;
+out=sim('Prova_SITL_GPS',10);
+% gspeed_2=out.sim_gspeed_2;
+gspeed_2=out.sim_gspeed;
+gspeed_2=reshape(gspeed_2(1,1,:),[1,length(time2)]);
+err_gspeed_2=vel_GPS(502:1002)-gspeed_2;
+% heading_2=out.sim_heading_2;
+heading_2=out.sim_heading;
+heading_2=heading_2';
 err_heading_2=heading(502:1002)-heading_2;
 %% Dopo simulazione simulink n.3
-gspeed_3=out.sim_gspeed_3;
-err_gspeed_3=vel_GPS(1003:1503)'-gspeed_3;
-heading_3=out.sim_heading_3;
+sw=3;
+out=sim('Prova_SITL_GPS',10);
+% gspeed_3=out.sim_gspeed_3;
+gspeed_3=out.sim_gspeed;
+gspeed_3=reshape(gspeed_3(1,1,:),[1,length(time3)]);
+err_gspeed_3=vel_GPS(1003:1503)-gspeed_3;
+% heading_3=out.sim_heading_3;
+heading_3=out.sim_heading;
+heading_3=heading_3';
 err_heading_3=heading(1003:1503)-heading_3;
 %% Dopo simulazione simulink n.4
-gspeed_4=out.sim_gspeed_4;
-err_gspeed_4=vel_GPS(1504:3504)'-gspeed_4;
-heading_4=out.sim_heading_4;
+sw=4;
+out=sim('Prova_SITL_GPS',40);
+% gspeed_4=out.sim_gspeed_4;
+gspeed_4=out.sim_gspeed;
+gspeed_4=reshape(gspeed_4(1,1,:),[1,length(time4)]);
+err_gspeed_4=vel_GPS(1504:3504)-gspeed_4;
+% heading_4=out.sim_heading_4;
+heading_4=out.sim_heading;
+heading_4=heading_4';
 err_heading_4=heading(1504:3504)-heading_4;
 %% Dopo simulazione simulink n.5
-gspeed_5=out.sim_gspeed_5;
-err_gspeed_5=vel_GPS(3505:5005)'-gspeed_5;
-heading_5=out.sim_heading_5;
+sw=5;
+out=sim('Prova_SITL_GPS',30);
+% gspeed_5=out.sim_gspeed_5;
+gspeed_5=out.sim_gspeed;
+gspeed_5=reshape(gspeed_5(1,1,:),[1,length(time5)]);
+err_gspeed_5=vel_GPS(3505:5005)-gspeed_5;
+% heading_5=out.sim_heading_5;
+heading_5=out.sim_heading;
+heading_5=heading_5';
 err_heading_5=heading(3505:5005)-heading_5;
 
 %% Grafici

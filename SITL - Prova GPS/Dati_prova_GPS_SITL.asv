@@ -64,50 +64,46 @@ gspeed_1=out.sim_gspeed_1;
 err_gspeed_1=vel_GPS(1:501)'-gspeed_1;
 heading_1=out.sim_heading_1;
 err_heading_1=heading(1:501)-heading_1;
+figure(101)
+plot(140:0.02:150,err_gspeed_1,'b-','LineWidth',1)
+title('Errore velocità GPS in t=[140 150] s')
 %% Dopo simulazione simulink n.2
 gspeed_2=out.sim_gspeed_2;
 err_gspeed_2=vel_GPS(502:1002)'-gspeed_2;
 heading_2=out.sim_heading_2;
 err_heading_2=heading(502:1002)-heading_2;
+figure(102)
+plot(240:0.02:250,err_gspeed_2,'b-','LineWidth',1)
+title('Errore velocità GPS in t=[240 250] s')
 %% Dopo simulazione simulink n.3
 gspeed_3=out.sim_gspeed_3;
 err_gspeed_3=vel_GPS(1003:1503)'-gspeed_3;
 heading_3=out.sim_heading_3;
 err_heading_3=heading(1003:1503)-heading_3;
+figure(103)
+plot(280:0.02:290,err_gspeed_3,'b-','LineWidth',1)
+title('Errore velocità GPS in t=[280 290] s')
 %% Dopo simulazione simulink n.4
 gspeed_4=out.sim_gspeed_4;
 err_gspeed_4=vel_GPS(1504:3504)'-gspeed_4;
 heading_4=out.sim_heading_4;
 err_heading_4=heading(1504:3504)-heading_4;
+figure(104)
+plot(340:0.02:380,err_gspeed_4,'b-','LineWidth',1)
+title('Errore velocità GPS in t=[340 380] s')
 %% Dopo simulazione simulink n.5
 gspeed_5=out.sim_gspeed_5;
 err_gspeed_5=vel_GPS(3505:5005)'-gspeed_5;
 heading_5=out.sim_heading_5;
 err_heading_5=heading(3505:5005)-heading_5;
-
-%% Grafici
-figure(101)
-plot(140:0.02:150,err_gspeed_1,'b-','LineWidth',1)
-title('Errore velocità GPS in t=[140 150] s')
-figure(102)
-plot(240:0.02:250,err_gspeed_2,'b-','LineWidth',1)
-title('Errore velocità GPS in t=[240 250] s')
-figure(103)
-plot(280:0.02:290,err_gspeed_3,'b-','LineWidth',1)
-title('Errore velocità GPS in t=[280 290] s')
-figure(104)
-plot(340:0.02:380,err_gspeed_4,'b-','LineWidth',1)
-title('Errore velocità GPS in t=[340 380] s')
 figure(105)
 plot(490:0.02:520,err_gspeed_5,'b-','LineWidth',1)
 title('Errore velocità GPS in t=[490 520] s')
 
-%% Grafico unico degli errori
-figure(106)
-hold on
-plot(err_gspeed_1,'b-','LineWidth',1)
-plot(err_gspeed_2,'k-','LineWidth',1)
-plot(err_gspeed_3,'r-','LineWidth',1)
-plot(err_gspeed_4,'m-','LineWidth',1)
-plot(err_gspeed_5,'g-','LineWidth',1)
+
+
+
+
+
+
 

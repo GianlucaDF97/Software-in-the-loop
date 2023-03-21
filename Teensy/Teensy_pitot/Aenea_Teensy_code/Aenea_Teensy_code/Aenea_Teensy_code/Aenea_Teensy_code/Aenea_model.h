@@ -9,7 +9,7 @@
 //
 // Model version                  : 1.151
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu Mar  9 12:45:29 2023
+// C/C++ source code generated on : Thu Mar  9 13:04:25 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -62,7 +62,7 @@ typedef struct {
   real_T DataTypeConversion4[42];      // '<S442>/Data Type Conversion4'
   uint8_T buffer[300];                 // '<S3>/MATLAB Function2'
   BUS_log_t BusCreator1;               // '<S2>/Bus Creator1'
-  real_T y[21];                        // '<S563>/MATLAB Function2'
+  real_T y[21];                        // '<S560>/MATLAB Function2'
   real_T x_est[18];
   real_T klm_gain_c[18];
   real_T a[16];
@@ -71,9 +71,9 @@ typedef struct {
   uint8_T messaggio[100];              // '<S3>/MATLAB Function4'
   uint8_T messaggio_2[100];            // '<S3>/MATLAB Function4'
   boolean_T x[100];
-  real_T residui[11];                  // '<S562>/DEFINITIVA'
+  real_T residui[11];                  // '<S559>/DEFINITIVA'
   real_T dv1[11];
-  real_T UnitDelay[9];                 // '<S578>/Unit Delay'
+  real_T UnitDelay[9];                 // '<S575>/Unit Delay'
   real_T DataTypeConversion1_c[9];     // '<S7>/Data Type Conversion1'
   real_T aterra_tmp[9];
   char_T b_data[64];
@@ -82,26 +82,26 @@ typedef struct {
   real_T x_new[4];
   real_T aterra[3];
   char_T hex_checksum_data[17];
-  boolean_T NOT[14];                   // '<S568>/NOT'
+  boolean_T NOT[14];                   // '<S565>/NOT'
   uint16_T WP_info_in[6];
-  real_T Lat;                          // '<S577>/S-Function Builder'
-  real_T Long;                         // '<S577>/S-Function Builder'
-  real_T V;                            // '<S577>/S-Function Builder'
-  real_T quota;                        // '<S577>/S-Function Builder'
-  real_T heading;                      // '<S577>/S-Function Builder'
-  real_T SFunctionBuilder_o6;          // '<S577>/S-Function Builder'
-  real_T SFunctionBuilder_o1;          // '<S579>/S-Function Builder'
-  real_T SFunctionBuilder_o2;          // '<S579>/S-Function Builder'
-  real_T SFunctionBuilder_o3;          // '<S579>/S-Function Builder'
-  real_T Switch;                       // '<S588>/Switch'
-  real_T T;                            // '<S585>/T'
-  real_T In[21];                       // '<S570>/In'
-  real_T Lat_K;                        // '<S562>/DEFINITIVA'
-  real_T Long_K;                       // '<S562>/DEFINITIVA'
-  real_T h_K;                          // '<S562>/DEFINITIVA'
-  real_T vd_K;                         // '<S562>/DEFINITIVA'
-  real_T v_K;                          // '<S562>/DEFINITIVA'
-  real_T imbardata;                    // '<S562>/DEFINITIVA'
+  real_T Lat;                          // '<S574>/S-Function Builder'
+  real_T Long;                         // '<S574>/S-Function Builder'
+  real_T V;                            // '<S574>/S-Function Builder'
+  real_T quota;                        // '<S574>/S-Function Builder'
+  real_T heading;                      // '<S574>/S-Function Builder'
+  real_T SFunctionBuilder_o6;          // '<S574>/S-Function Builder'
+  real_T SFunctionBuilder_o1;          // '<S576>/S-Function Builder'
+  real_T SFunctionBuilder_o2;          // '<S576>/S-Function Builder'
+  real_T SFunctionBuilder_o3;          // '<S576>/S-Function Builder'
+  real_T Switch;                       // '<S585>/Switch'
+  real_T T;                            // '<S582>/T'
+  real_T In[21];                       // '<S567>/In'
+  real_T Lat_K;                        // '<S559>/DEFINITIVA'
+  real_T Long_K;                       // '<S559>/DEFINITIVA'
+  real_T h_K;                          // '<S559>/DEFINITIVA'
+  real_T vd_K;                         // '<S559>/DEFINITIVA'
+  real_T v_K;                          // '<S559>/DEFINITIVA'
+  real_T imbardata;                    // '<S559>/DEFINITIVA'
   real_T V_goHome;                     // '<S444>/GO_HOME'
   real_T h_goHome;                     // '<S444>/GO_HOME'
   real_T VELOCITA;                     // '<S443>/saturatore V'
@@ -148,23 +148,23 @@ typedef struct {
   real_T a_b;
   real_T dist;
   real_T dist_fut;
-  real_T Sum_l;                        // '<S564>/Sum'
-  real_T Gain1_d;                      // '<S552>/Gain1'
-  real_T Gain1_m;                      // '<S553>/Gain1'
-  real_T Gain1_o;                      // '<S556>/Gain1'
+  real_T Sum_l;                        // '<S561>/Sum'
+  real_T Gain1_o;                      // '<S554>/Gain1'
   real_T Sum_fb;                       // '<S351>/Sum'
-  real_T Gain1_i;                      // '<S558>/Gain1'
-  real_T Gain1_i0;                     // '<S559>/Gain1'
+  real_T Gain1_i;                      // '<S555>/Gain1'
+  real_T Gain1_i0;                     // '<S556>/Gain1'
   real_T Gain_h;                       // '<S33>/Gain'
-  real_T Sum5;                         // '<S595>/Sum5'
+  real_T Sum5;                         // '<S592>/Sum5'
+  real_T e;                            // '<S37>/Sum2'
   real_T Saturation_o;                 // '<S349>/Saturation'
   real_T SwitchBumpless2;              // '<S304>/Switch Bumpless 2'
-  real_T Sum3_p;                       // '<S592>/Sum3'
+  real_T Sum3_p;                       // '<S589>/Sum3'
   real_T Alettoni_n;                   // '<S37>/Switch Bumpless 5'
   real_T e_h5;                         // '<S37>/Sum5'
-  real_T Sum3_h;                       // '<S590>/Sum3'
+  real_T Saturation_a;                 // '<S399>/Saturation'
+  real_T Sum3_h;                       // '<S587>/Sum3'
   real_T Alettoni;                     // '<S37>/saturatore A'
-  real_T Sum3_l;                       // '<S599>/Sum3'
+  real_T Sum3_l;                       // '<S596>/Sum3'
   real_T Alt;                          // '<S6>/Switch'
   real_T Sum_fj;                       // '<S438>/Sum'
   real_T V_nord;                       // '<S6>/Multiply2'
@@ -205,10 +205,10 @@ typedef struct {
   real32_T DataTypeConversion1_m;      // '<S1>/Data Type Conversion1'
   real32_T DataTypeConversion;         // '<S4>/Data Type Conversion'
   real32_T DataTypeConversion1_e;      // '<S4>/Data Type Conversion1'
-  real32_T DataTypeConversion3_p;      // '<S581>/Data Type Conversion3'
-  real32_T SFunctionBuilder_o1_g;      // '<S581>/S-Function Builder'
-  real32_T SFunctionBuilder_o2_p;      // '<S581>/S-Function Builder'
-  real32_T SFunctionBuilder_o3_h;      // '<S581>/S-Function Builder'
+  real32_T DataTypeConversion3_p;      // '<S578>/Data Type Conversion3'
+  real32_T SFunctionBuilder_o1_g;      // '<S578>/S-Function Builder'
+  real32_T SFunctionBuilder_o2_p;      // '<S578>/S-Function Builder'
+  real32_T SFunctionBuilder_o3_h;      // '<S578>/S-Function Builder'
   real32_T WP_param[7];                // '<S23>/MATLAB Function'
   real32_T Val_out_MAV[16];            // '<S3>/MATLAB Function1'
   real32_T f;
@@ -232,8 +232,8 @@ typedef struct {
   int32_T jBcol;
   uint32_T SFunction_o2;               // '<S3>/S-Function'
   uint32_T DataTypeConversion3;        // '<S18>/Data Type Conversion3'
-  real32_T ByteUnpack_o2[9];           // '<S578>/Byte Unpack'
-  real32_T ByteReversal[9];            // '<S578>/Byte Reversal'
+  real32_T ByteUnpack_o2[9];           // '<S575>/Byte Unpack'
+  real32_T ByteReversal[9];            // '<S575>/Byte Reversal'
   uint32_T qY;
   ZCEventType zcEvent;
   uint16_T SFunction_o7[2];            // '<S3>/S-Function'
@@ -253,9 +253,9 @@ typedef struct {
   int16_T DataTypeConversion1_j[3];    // '<S15>/Data Type Conversion1'
   int16_T Heading_f;                   // '<S22>/Data Type Conversion1'
   int16_T DataTypeConversion2_m;       // '<S4>/Data Type Conversion2'
-  uint8_T SFunctionBuilder1[41];       // '<S578>/S-Function Builder1'
-  uint8_T ByteUnpack_o1[4];            // '<S578>/Byte Unpack'
-  uint8_T ByteUnpack_o3;               // '<S578>/Byte Unpack'
+  uint8_T SFunctionBuilder1[41];       // '<S575>/S-Function Builder1'
+  uint8_T ByteUnpack_o1[4];            // '<S575>/Byte Unpack'
+  uint8_T ByteUnpack_o3;               // '<S575>/Byte Unpack'
   uint8_T SFunctionBuilder_o1_a[100];  // '<S3>/S-Function Builder'
   uint8_T Memory1[2];                  // '<S3>/Memory1'
   uint8_T Memory_h[4];                 // '<S1>/Memory'
@@ -273,41 +273,41 @@ typedef struct {
   uint8_T SFunction_o1_i;              // '<S4>/S-Function'
   uint8_T SFunction_o2_h[264];         // '<S4>/S-Function'
   uint8_T SFunctionBuilder;            // '<S4>/S-Function Builder'
-  uint8_T Mex_out[41];                 // '<S578>/MATLAB Function1'
+  uint8_T Mex_out[41];                 // '<S575>/MATLAB Function1'
   uint8_T iflogic;                     // '<S18>/iflogic_function'
   uint8_T mess_out[100];               // '<S3>/MATLAB Function2'
-  boolean_T SFunctionBuilder_o7;       // '<S577>/S-Function Builder'
-  boolean_T Compare;                   // '<S575>/Compare'
+  boolean_T SFunctionBuilder_o7;       // '<S574>/S-Function Builder'
+  boolean_T Compare;                   // '<S572>/Compare'
   boolean_T HitCrossing;               // '<S251>/Hit  Crossing'
-  boolean_T Compare_i;                 // '<S600>/Compare'
+  boolean_T Compare_i;                 // '<S597>/Compare'
 } B_Aenea_model_T;
 
 // Block states (default storage) for system '<Root>'
 typedef struct {
-  real_T UnitDelay_DSTATE[9];          // '<S578>/Unit Delay'
-  real_T UnitDelay1_DSTATE;            // '<S574>/Unit Delay1'
-  real_T UnitDelay_DSTATE_c;           // '<S564>/Unit Delay'
-  real_T UnitDelay_DSTATE_h[5];        // '<S577>/Unit Delay'
+  real_T UnitDelay_DSTATE[9];          // '<S575>/Unit Delay'
+  real_T UnitDelay1_DSTATE;            // '<S571>/Unit Delay1'
+  real_T UnitDelay_DSTATE_c;           // '<S561>/Unit Delay'
+  real_T UnitDelay_DSTATE_h[5];        // '<S574>/Unit Delay'
   real_T Integrator_DSTATE;            // '<S342>/Integrator'
   real_T Integrator_DSTATE_l;          // '<S392>/Integrator'
   real_T DiscreteWashoutFilter_states; // '<S306>/Discrete Washout Filter'
-  real_T DelayInput2_DSTATE;           // '<S580>/Delay Input2'
+  real_T DelayInput2_DSTATE;           // '<S577>/Delay Input2'
   real_T Delay_DSTATE;                 // '<S250>/Delay'
   real_T Integrator_DSTATE_lq;         // '<S285>/Integrator'
   real_T DiscreteTimeIntegrator_DSTATE;// '<S307>/Discrete-Time Integrator'
-  real_T UnitDelay_DSTATE_n;           // '<S615>/Unit Delay'
+  real_T UnitDelay_DSTATE_n;           // '<S612>/Unit Delay'
   real_T DiscreteTimeIntegrator_DSTATE_j;// '<S453>/Discrete-Time Integrator'
   volatile real_T RateTransition_Buffer0;// '<S27>/Rate Transition'
   real_T Memory1_PreviousInput;        // '<S27>/Memory1'
   real_T Memory_PreviousInput;         // '<S27>/Memory'
-  real_T Memory_PreviousInput_e[14];   // '<S568>/Memory'
-  real_T Memory_PreviousInput_o[14];   // '<S567>/Memory'
+  real_T Memory_PreviousInput_e[14];   // '<S565>/Memory'
+  real_T Memory_PreviousInput_o[14];   // '<S564>/Memory'
   real_T Memory2_PreviousInput;        // '<S27>/Memory2'
-  real_T P_ref;                        // '<S574>/MATLAB Function'
-  real_T rl_up;                        // '<S574>/MATLAB Function'
-  real_T rl_dw;                        // '<S574>/MATLAB Function'
-  real_T x_prd[18];                    // '<S562>/DEFINITIVA'
-  real_T p_prd[324];                   // '<S562>/DEFINITIVA'
+  real_T P_ref;                        // '<S571>/MATLAB Function'
+  real_T rl_up;                        // '<S571>/MATLAB Function'
+  real_T rl_dw;                        // '<S571>/MATLAB Function'
+  real_T x_prd[18];                    // '<S559>/DEFINITIVA'
+  real_T p_prd[324];                   // '<S559>/DEFINITIVA'
   real_T flag;                         // '<S444>/GO_HOME'
   real_T Memory4_PreviousInput;        // '<S443>/Memory4'
   real_T flag_o;                       // '<S443>/WAYPOINTS'
@@ -338,9 +338,9 @@ typedef struct {
   uint16_T Memory_PreviousInput_e4;    // '<S4>/Memory'
   uint16_T counter;                    // '<S3>/MATLAB Function3'
   uint16_T WP_dbI[36];                 // '<S3>/MATLAB Function1'
-  uint8_T UnitDelay1_DSTATE_b[41];     // '<S578>/Unit Delay1'
-  uint8_T Output_DSTATE;               // '<S576>/Output'
-  uint8_T Output_DSTATE_k;             // '<S601>/Output'
+  uint8_T UnitDelay1_DSTATE_b[41];     // '<S575>/Unit Delay1'
+  uint8_T Output_DSTATE;               // '<S573>/Output'
+  uint8_T Output_DSTATE_k;             // '<S598>/Output'
   int8_T Integrator_PrevResetState;    // '<S392>/Integrator'
   int8_T DiscreteTimeIntegrator_PrevRese;// '<S307>/Discrete-Time Integrator'
   int8_T DiscreteTimeIntegrator_PrevRe_o;// '<S453>/Discrete-Time Integrator'
@@ -367,7 +367,7 @@ typedef struct {
   uint8_T is_c23_Aenea_model;      // '<S40>/SELEZIONE MODALITA'  HOLD//SELECT'
   uint8_T message[100];                // '<S3>/MATLAB Function4'
   uint8_T counter_f;                   // '<S3>/MATLAB Function4'
-  boolean_T x_prd_not_empty;           // '<S562>/DEFINITIVA'
+  boolean_T x_prd_not_empty;           // '<S559>/DEFINITIVA'
   boolean_T x_not_empty;               // '<S453>/MATLAB Function'
   boolean_T x_new_not_empty;           // '<S453>/MATLAB Function'
   boolean_T cycle_count_not_empty;     // '<S453>/MATLAB Function'
@@ -386,7 +386,7 @@ typedef struct {
 // Zero-crossing (trigger) state
 typedef struct {
   ZCSigState HitCrossing_Input_ZCE;    // '<S251>/Hit  Crossing'
-  ZCSigState SampleandHold_Trig_ZCE;   // '<S563>/Sample and Hold'
+  ZCSigState SampleandHold_Trig_ZCE;   // '<S560>/Sample and Hold'
   ZCSigState SampleandHold_Trig_ZCE_l; // '<S442>/Sample and Hold'
   ZCSigState SampleandHold1_Trig_ZCE;  // '<S440>/Sample and Hold1'
   ZCSigState SampleandHold_Trig_ZCE_a; // '<S440>/Sample and Hold'
@@ -408,10 +408,10 @@ typedef const struct tag_ConstB_Aenea_model_T {
   real_T DataTypeConversion14;         // '<S9>/Data Type Conversion14'
   real_T DataTypeConversion17;         // '<S9>/Data Type Conversion17'
   real_T DataTypeConversion15;         // '<S9>/Data Type Conversion15'
-  real_T Sum2;                         // '<S596>/Sum2'
-  real_T Sum2_d;                       // '<S599>/Sum2'
-  real_T Sum2_g;                       // '<S597>/Sum2'
-  real_T Sum1;                         // '<S598>/Sum1'
+  real_T Sum2;                         // '<S593>/Sum2'
+  real_T Sum2_d;                       // '<S596>/Sum2'
+  real_T Sum2_g;                       // '<S594>/Sum2'
+  real_T Sum1;                         // '<S595>/Sum1'
   uint32_T DataTypeConversion;         // '<S16>/Data Type Conversion'
   uint16_T Gain;                       // '<S21>/Gain'
   uint16_T Throttle;                   // '<S22>/Data Type Conversion2'
@@ -684,14 +684,14 @@ extern "C" {
 //  Block '<S39>/Switch di selezione  Task - Waypoint navigation' : Unused code path elimination
 //  Block '<S39>/Switch di selezione  Task - Waypoint navigation3' : Unused code path elimination
 //  Block '<S6>/Constant2' : Unused code path elimination
-//  Block '<S563>/Memory' : Unused code path elimination
-//  Block '<S580>/FixPt Data Type Duplicate' : Unused code path elimination
-//  Block '<S584>/Data Type Duplicate' : Unused code path elimination
-//  Block '<S584>/Data Type Propagation' : Unused code path elimination
+//  Block '<S560>/Memory' : Unused code path elimination
+//  Block '<S577>/FixPt Data Type Duplicate' : Unused code path elimination
+//  Block '<S581>/Data Type Duplicate' : Unused code path elimination
+//  Block '<S581>/Data Type Propagation' : Unused code path elimination
 //  Block '<S7>/Constant9' : Unused code path elimination
-//  Block '<S576>/Data Type Propagation' : Unused code path elimination
-//  Block '<S586>/FixPt Data Type Duplicate' : Unused code path elimination
-//  Block '<S587>/FixPt Data Type Duplicate1' : Unused code path elimination
+//  Block '<S573>/Data Type Propagation' : Unused code path elimination
+//  Block '<S583>/FixPt Data Type Duplicate' : Unused code path elimination
+//  Block '<S584>/FixPt Data Type Duplicate1' : Unused code path elimination
 //  Block '<S8>/K AntiWindup-Bumpless AP quota' : Unused code path elimination
 //  Block '<S8>/K AntiWindup-Bumpless controllore beccheggio' : Unused code path elimination
 //  Block '<S8>/K AntiWindup-Bumpless controllore imbardata' : Unused code path elimination
@@ -702,9 +702,9 @@ extern "C" {
 //  Block '<S8>/Kp AP rotta' : Unused code path elimination
 //  Block '<S8>/Saturation' : Unused code path elimination
 //  Block '<S8>/n-D Lookup Table' : Unused code path elimination
-//  Block '<S601>/Data Type Propagation' : Unused code path elimination
-//  Block '<S611>/FixPt Data Type Duplicate' : Unused code path elimination
-//  Block '<S612>/FixPt Data Type Duplicate1' : Unused code path elimination
+//  Block '<S598>/Data Type Propagation' : Unused code path elimination
+//  Block '<S608>/FixPt Data Type Duplicate' : Unused code path elimination
+//  Block '<S609>/FixPt Data Type Duplicate1' : Unused code path elimination
 //  Block '<S3>/Data Type Conversion' : Eliminate redundant data type conversion
 //  Block '<S3>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S21>/Data Type Conversion' : Eliminate redundant data type conversion
@@ -716,13 +716,13 @@ extern "C" {
 //  Block '<S37>/Gain' : Eliminated nontunable gain of 1
 //  Block '<S37>/Gain2' : Eliminated nontunable gain of 1
 //  Block '<S6>/Data Type Conversion1' : Eliminate redundant data type conversion
-//  Block '<S574>/Data Type Conversion' : Eliminate redundant data type conversion
-//  Block '<S574>/Data Type Conversion1' : Eliminate redundant data type conversion
+//  Block '<S571>/Data Type Conversion' : Eliminate redundant data type conversion
+//  Block '<S571>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S7>/Manual Switch' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch1' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch2' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch3' : Eliminated due to constant selection input
-//  Block '<S593>/Gain' : Eliminated nontunable gain of 1
+//  Block '<S590>/Gain' : Eliminated nontunable gain of 1
 //  Block '<S10>/Data Type Conversion10' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion11' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion3' : Eliminate redundant data type conversion
@@ -1303,70 +1303,67 @@ extern "C" {
 //  '<S549>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees12'
 //  '<S550>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees13'
 //  '<S551>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees9'
-//  '<S552>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians'
-//  '<S553>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians1'
-//  '<S554>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians10'
-//  '<S555>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians11'
-//  '<S556>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians12'
-//  '<S557>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians2'
-//  '<S558>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians7'
-//  '<S559>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians8'
-//  '<S560>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians9'
-//  '<S561>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass'
-//  '<S562>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2'
-//  '<S563>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2'
-//  '<S564>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS'
-//  '<S565>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS/MATLAB Function'
-//  '<S566>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2/DEFINITIVA'
-//  '<S567>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1'
-//  '<S568>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti'
-//  '<S569>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/MATLAB Function2'
-//  '<S570>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Sample and Hold'
-//  '<S571>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function'
-//  '<S572>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function1'
-//  '<S573>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti/MATLAB Function'
-//  '<S574>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280'
-//  '<S575>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Compare To Constant'
-//  '<S576>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited'
-//  '<S577>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus'
-//  '<S578>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi'
-//  '<S579>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Pitot_Lidar'
-//  '<S580>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter'
-//  '<S581>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Execution_loop'
-//  '<S582>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/MATLAB Function'
-//  '<S583>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem'
-//  '<S584>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter/Saturation Dynamic'
-//  '<S585>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem/Subsystem1'
-//  '<S586>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Increment Real World'
-//  '<S587>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Wrap To Zero'
-//  '<S588>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus/Subsystem2'
-//  '<S589>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi/MATLAB Function1'
-//  '<S590>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON'
-//  '<S591>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON1'
-//  '<S592>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR'
-//  '<S593>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR1'
-//  '<S594>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/RUDDER'
-//  '<S595>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/THROTTLE'
-//  '<S596>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/AILERON1'
-//  '<S597>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/RUDDER6'
-//  '<S598>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/THROTTLE1'
-//  '<S599>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/elevator'
-//  '<S600>' : 'Aenea_model/LOG_DATA_MODEL/Compare To Constant'
-//  '<S601>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited'
-//  '<S602>' : 'Aenea_model/LOG_DATA_MODEL/LOG_BOOL_SIGNALS'
-//  '<S603>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS'
-//  '<S604>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT16_SIGNALS'
-//  '<S605>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT32_SIGNALS'
-//  '<S606>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT8_SIGNALS'
-//  '<S607>' : 'Aenea_model/LOG_DATA_MODEL/LOG_SINGLE_SIGNALS'
-//  '<S608>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT16_SIGNALS'
-//  '<S609>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT32_SIGNALS'
-//  '<S610>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT8_SIGNALS'
-//  '<S611>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Increment Real World'
-//  '<S612>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Wrap To Zero'
-//  '<S613>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees'
-//  '<S614>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees1'
-//  '<S615>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Subsystem'
+//  '<S552>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians10'
+//  '<S553>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians11'
+//  '<S554>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians12'
+//  '<S555>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians7'
+//  '<S556>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians8'
+//  '<S557>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians9'
+//  '<S558>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass'
+//  '<S559>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2'
+//  '<S560>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2'
+//  '<S561>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS'
+//  '<S562>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS/MATLAB Function'
+//  '<S563>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2/DEFINITIVA'
+//  '<S564>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1'
+//  '<S565>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti'
+//  '<S566>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/MATLAB Function2'
+//  '<S567>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Sample and Hold'
+//  '<S568>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function'
+//  '<S569>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function1'
+//  '<S570>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti/MATLAB Function'
+//  '<S571>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280'
+//  '<S572>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Compare To Constant'
+//  '<S573>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited'
+//  '<S574>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus'
+//  '<S575>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi'
+//  '<S576>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Pitot_Lidar'
+//  '<S577>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter'
+//  '<S578>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Execution_loop'
+//  '<S579>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/MATLAB Function'
+//  '<S580>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem'
+//  '<S581>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter/Saturation Dynamic'
+//  '<S582>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem/Subsystem1'
+//  '<S583>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Increment Real World'
+//  '<S584>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Wrap To Zero'
+//  '<S585>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus/Subsystem2'
+//  '<S586>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi/MATLAB Function1'
+//  '<S587>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON'
+//  '<S588>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON1'
+//  '<S589>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR'
+//  '<S590>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR1'
+//  '<S591>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/RUDDER'
+//  '<S592>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/THROTTLE'
+//  '<S593>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/AILERON1'
+//  '<S594>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/RUDDER6'
+//  '<S595>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/THROTTLE1'
+//  '<S596>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/elevator'
+//  '<S597>' : 'Aenea_model/LOG_DATA_MODEL/Compare To Constant'
+//  '<S598>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited'
+//  '<S599>' : 'Aenea_model/LOG_DATA_MODEL/LOG_BOOL_SIGNALS'
+//  '<S600>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS'
+//  '<S601>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT16_SIGNALS'
+//  '<S602>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT32_SIGNALS'
+//  '<S603>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT8_SIGNALS'
+//  '<S604>' : 'Aenea_model/LOG_DATA_MODEL/LOG_SINGLE_SIGNALS'
+//  '<S605>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT16_SIGNALS'
+//  '<S606>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT32_SIGNALS'
+//  '<S607>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT8_SIGNALS'
+//  '<S608>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Increment Real World'
+//  '<S609>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Wrap To Zero'
+//  '<S610>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees'
+//  '<S611>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees1'
+//  '<S612>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Subsystem'
 
 #endif                                 // RTW_HEADER_Aenea_model_h_
 

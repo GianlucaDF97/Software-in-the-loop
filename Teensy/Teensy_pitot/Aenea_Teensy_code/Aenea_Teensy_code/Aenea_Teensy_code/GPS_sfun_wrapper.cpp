@@ -180,7 +180,7 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *lat,
    // Serial.print(", Ellipsoid (m): ");
    // Serial.print(f_ellipsoid, 4); // Print the ellipsoid with 4 decimal places
    
-    /*Serial.print(", Mean Sea Level (m): ");
+   /* Serial.print(", Mean Sea Level (m): ");
     Serial.print(f_msl, 4); // Print the mean sea level with 4 decimal places
     
     Serial.print(", Ground Speed (m): ");
@@ -194,7 +194,7 @@ extern "C" void GPS_sfun_Outputs_wrapper(real_T *lat,
       
     Serial.print(", Accuracy (m): ");
     Serial.println(f_accuracy, 4); // Print the accuracy with 4 decimal places
-    Serial.println(" ");   */
+      Serial.println(" "); */  
       
       lat[0]=d_lat;
       lon[0]=d_lon;

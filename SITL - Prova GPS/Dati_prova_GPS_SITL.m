@@ -1,5 +1,6 @@
+%%
 clear
-load('C:\Users\User\Desktop\DataLog\Log_monopattino_13_Mar.mat')
+load('Log_monopattino_13_Mar.mat')
 
 %per trasformare le timeseries in vettori di double
 heading_tot=reshape(dataLog.heading_raw.Data(1,1,:),[1,length(dataLog.heading_raw.Time)]);
@@ -12,9 +13,9 @@ long_tot=reshape(dataLog.Long_raw.Data(1,1,:),[1,length(dataLog.Long_raw.Time)])
 long_tot=cast(long_tot,'double');
 %creazione vettori con dati che ci interessano
 heading=[heading_tot(7000:7500) heading_tot(12000:12500) heading_tot(14000:14500) heading_tot(17000:19000) heading_tot(24500:26000)];
-vel_GPS=[vel_GPS_tot(7000:7500) vel_GPS_tot(12000:12500) vel_GPS_tot(14000:14500) vel_GPS_tot(17000:19000) vel_GPS_tot(24500:26000)];
-lat=[lat_tot(7000:7500) lat_tot(12000:12500) lat_tot(14000:14500) lat_tot(17000:19000) lat_tot(24500:26000)];
-long=[long_tot(7000:7500) long_tot(12000:12500) long_tot(14000:14500) long_tot(17000:19000) long_tot(24500:26000)];
+vel_GPS=[vel_GPS_tot(7000:7500)  vel_GPS_tot(12000:12500) vel_GPS_tot(14000:14500) vel_GPS_tot(17000:19000) vel_GPS_tot(24500:26000)];
+lat=[lat_tot(7000:7500)  lat_tot(12000:12500) lat_tot(14000:14500) lat_tot(17000:19000) lat_tot(24500:26000)];
+long=[long_tot(7000:7500)  long_tot(12000:12500) long_tot(14000:14500) long_tot(17000:19000) long_tot(24500:26000)];
 %creazione matrice con tutti i dati di interesse
 Real_meas=[heading; vel_GPS; lat; long];
 %filtro smooth data
@@ -24,12 +25,12 @@ Real_meas_smooth_3=smoothdata(Real_meas(:,1003:1503),2,'sgolay');
 Real_meas_smooth_4=smoothdata(Real_meas(:,1504:3504),2,'sgolay');
 Real_meas_smooth_5=smoothdata(Real_meas(:,3505:5005),2,'sgolay');
 %vettori dei tempi per creazione timeseries
-time1=0:0.02:10;
-time2=time1;
-time3=time2;
+time=0:0.02:10;
 time4=0:0.02:40;
 time5=0:0.02:30;
-%creazione timeseries da usare come input nel modello simulink
+
+
+%creazione timeseries da usare come input nel modello simulink- SIMULATE
 heading_smooth_1=timeseries(Real_meas_smooth_1(1,:),time1);
 vel_GPS_smooth_1=timeseries(Real_meas_smooth_1(2,:),time1);
 heading_smooth_2=timeseries(Real_meas_smooth_2(1,:),time2);
@@ -43,8 +44,8 @@ vel_GPS_smooth_5=timeseries(Real_meas_smooth_5(2,:),time5);
 
 % figure(100)
 % hold on
-% plot(heading(1:501),'k-','LineWidth',1)
-% plot(Real_meas_smooth_1(1,:),'b-','LineWidth',1)
+% plot(vel_GPS(1:251),'k-','LineWidth',1)
+% plot(Real_meas_smooth_1(2,:),'b-','LineWidth',1)
 % plot(501,heading(501),'k.','MarkerSize',15)
 % plot(502:1002,heading(502:1002),'k-','LineWidth',1)
 % plot(502:1002,Real_meas_smooth_2(1,:),'b-','LineWidth',1)
@@ -60,6 +61,21 @@ vel_GPS_smooth_5=timeseries(Real_meas_smooth_5(2,:),time5);
 % plot(5005,heading(5005),'k.','MarkerSize',15)
 % hold off
 
+%% simulazioni
+sw=input('inserisci ontervallo scelto');
+out=sim('Prova_SITL_GPS',10);
+gspeed_1=out.sim_gspeed;
+gspeed_1=reshape(gspeed_1(1,1,:),[1,length(time1)]);
+i=0;
+if (sw==1 || sw=2 || sw==3)
+    err_gspeed_real=vel_GPS(1:length(time))-Real_meas_smooth_1(2,:);
+    err_gspeed_sim=gspeed_1-Real_meas_smooth_1(2,:);
+else  sw==4
+    
+heading_1=out.sim_heading;
+heading_1=heading_1';
+err_heading_real_1=heading(1:501)-Real_meas_smooth_1(1,:);
+err_heading_sim_1=heading_1-Real_meas_smooth_1(1,:);
 %% Dopo simulazione simulink n.1
 sw=1;
 out=sim('Prova_SITL_GPS',10);
@@ -67,11 +83,20 @@ out=sim('Prova_SITL_GPS',10);
 % gspeed_1=out.sim_gspeed_1;
 gspeed_1=out.sim_gspeed;
 gspeed_1=reshape(gspeed_1(1,1,:),[1,length(time1)]);
-err_gspeed_1=vel_GPS(1:501)-gspeed_1;
+err_gspeed_real_1=vel_GPS(1:501)-Real_meas_smooth_1(2,:);
+err_gspeed_sim_1=gspeed_1-Real_meas_smooth_1(2,:);
+
 % heading_1=out.sim_heading_1;
 heading_1=out.sim_heading;
 heading_1=heading_1';
-err_heading_1=heading(1:501)-heading_1;
+err_heading_real_1=heading(1:501)-Real_meas_smooth_1(1,:);
+err_heading_sim_1=heading_1-Real_meas_smooth_1(1,:);
+
+sigma_vel_real=std(err_gspeed_real_1);
+sigma_vel_sim=std(err_gspeed_sim_1);
+
+sigma_heading_real=std(err_heading_real_1);
+sigma_heading_sim=std(err_gspeed_sim_1);
 %% Dopo simulazione simulink n.2
 sw=2;
 out=sim('Prova_SITL_GPS',10);
@@ -119,7 +144,16 @@ err_heading_5=heading(3505:5005)-heading_5;
 
 %% Grafici
 figure(101)
-plot(140:0.02:150,err_gspeed_1,'b-','LineWidth',1)
+hold on
+plot(time1,err_gspeed_sim_1,'b-','LineWidth',1)
+plot(time1,err_gspeed_real_1,'r-','LineWidth',1)
+hold off
+figure(102)
+hold on
+plot(time1,vel_GPS(1,1:251),'b-','LineWidth',1)
+plot(time1,gspeed_1,'r-','LineWidth',1)
+hold off
+
 title('Errore velocità GPS in t=[140 150] s')
 figure(102)
 plot(240:0.02:250,err_gspeed_2,'b-','LineWidth',1)

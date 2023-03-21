@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.152
+// Model version                  : 1.156
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Mon Mar 13 15:23:14 2023
+// C/C++ source code generated on : Sat Mar 18 10:27:45 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -718,7 +718,6 @@ extern "C" {
 //  Block '<S6>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S571>/Data Type Conversion' : Eliminate redundant data type conversion
 //  Block '<S571>/Data Type Conversion1' : Eliminate redundant data type conversion
-//  Block '<S7>/Manual Switch' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch1' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch2' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch3' : Eliminated due to constant selection input
@@ -734,7 +733,6 @@ extern "C" {
 //  Block '<S10>/Data Type Conversion9' : Eliminate redundant data type conversion
 //  Block '<S7>/Constant1' : Unused code path elimination
 //  Block '<S7>/Constant2' : Unused code path elimination
-//  Block '<S7>/Constant8' : Unused code path elimination
 
 
 //-

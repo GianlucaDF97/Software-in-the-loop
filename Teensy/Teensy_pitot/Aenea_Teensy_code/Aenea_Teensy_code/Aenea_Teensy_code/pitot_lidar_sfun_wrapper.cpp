@@ -81,6 +81,7 @@ Serial.print("onebyte 2:");
                 //Serial.print("Lvelocity:");
                 //Serial.println(Lvelocity,BIN);
                 //Serial.println(Hvelocity | Lvelocity, BIN);
+                
                 velocity[0]=(double)(Hvelocity | Lvelocity)/100;
                 Serial.print("velocità:");
                 Serial.println(velocity[0]);

@@ -58,16 +58,14 @@ extern "C" void pitot_lidar_sfun_Outputs_wrapper(real_T *velocity,
 #ifndef MATLAB_MEX_FILE  
   Serial2.write(104); //byte di richiesta dati 
    //Serial.println("inizio comunicazione print 1");
-   //Serial.print("print dell'available:");
-   //Serial.println(Serial2.available());
    if(Serial2.available()==10){
         //Serial.println("inizio comunicazione print 2");
         uint8_t onebyte=Serial2.read();
-Serial.print("onebyte 1:");
+        Serial.print("onebyte 1:");
         Serial.println(onebyte);
         if(onebyte==254){
             onebyte=Serial2.read();
-Serial.print("onebyte 2:");
+            Serial.print("onebyte 2:");
             Serial.println(onebyte);
             if(onebyte==255){
                 uint16_t Hvelocity=Serial2.read();
@@ -81,15 +79,14 @@ Serial.print("onebyte 2:");
                 //Serial.print("Lvelocity:");
                 //Serial.println(Lvelocity,BIN);
                 //Serial.println(Hvelocity | Lvelocity, BIN);
-                
-                velocity[0]=(double)(Hvelocity | Lvelocity)/100;
+                velocity[0]=(double)(int16_t)(Hvelocity | Lvelocity)/100;
                 Serial.print("velocità:");
                 Serial.println(velocity[0]);
                 
                 uint16_t Hdist=Serial2.read();
                 uint16_t Ldist=Serial2.read();
                 Hdist=Hdist<<8;
-                distance[0]=(double)(Hdist | Ldist);
+                distance[0]=(double)(int16_t)(Hdist | Ldist);
                 Serial.print("distanza:");
                 Serial.println(distance[0]);
                 
@@ -100,7 +97,7 @@ Serial.print("onebyte 2:");
                 HHP=HHP<<24;
                 HhP=HhP<<16;
                 LlP=LlP<<8;
-                dp[0]=(double)(HHP | HhP | LlP | LLP)/100;
+                dp[0]=(double)(int16_t)(HHP | HhP | LlP | LLP)/100;
                 Serial.print("dp:");
                 Serial.println(dp[0]);
  

@@ -55,7 +55,7 @@ void setup() {
 void loop() {
  
 //int val = 0;
-int32_t dP = 0;
+uint32_t dP = 0;
 
 //pitot
 double V_0 = 5.0; // supply voltage to the pressure sensor
@@ -105,15 +105,14 @@ int onebyte=0;
     } else {
       velocity = -sqrt(-2 * dp / rho);
     }
-    
-    VELOCITY=(int16_t)(velocity*100);
-    Hvelocity = (int8_t)(VELOCITY >> 8); // ho due byte con questo shifto tutto a destra e cosi prendo il secondo byte
-    Lvelocity = (int8_t)(VELOCITY & 0x00ff); // è un filtro che corrisponde a 0000 0000 1111 1111 gli zeri rendono 0 il corrispettivo bit gli 1 fanno si che il corrispettivo biut si mantenga,
+    //non si può fare lo shift su una grandezza con segno negativo (quindi con cast int) perche altrimenti quando shifto si generano tutti 1 invece che tutti zero.
+    VELOCITY=(uint16_t)(velocity*100);
+    Hvelocity = (uint8_t)(VELOCITY>> 8); // ho due byte con questo shifto tutto a destra e cosi prendo il secondo byte    Lvelocity = (uint8_t)(VELOCITY & 0x00ff); // è un filtro che corrisponde a 0000 0000 1111 1111 gli zeri rendono 0 il corrispettivo bit gli 1 fanno si che il corrispettivo biut si mantenga,
                                               // cosi riesco ad ottenere solo il primo byte perche gli zeri annullano il secondo (sto legendo i byte da destra a sinistra
-
-    dP = (int32_t)(dp*100);
+    Lvelocity=(uint8_t)(VELOCITY & 0xff);
+    dP =(uint32_t)((dp*100));
     
-    HHP = (uint8_t)(dP >> 24);
+    HHP = (uint8_t)(dP >> 24); 
     HhP = (uint8_t)(dP >> 16);
     LlP = (uint8_t)(dP >> 8);
     LLP = (uint8_t)(dP & 0xff);

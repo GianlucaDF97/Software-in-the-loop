@@ -60,14 +60,14 @@ else
     lat_smooth=timeseries(Real_meas_smooth(3,:),time);
     long_smooth=timeseries(Real_meas_smooth(4,:),time);
     
-    errore=100;
-    std_lat=2.7348e-7;
-    std_long=1.3733e-6;
-    std_lat1=deg2rad(6.3673e-6);
-    std_long1=deg2rad(5.9309e-6);
-    eps1=0.2544;
-    eps2=0.16;
-   while abs(errore)>0.1
+%     errore=100;
+%     std_lat=2.7348e-7;
+%     std_long=1.3733e-6;
+%     std_lat1=deg2rad(6.3673e-6);
+%     std_long1=deg2rad(5.9309e-6);
+%     eps1=0.2544;
+%     eps2=0.16;
+%    while abs(errore)>0.1
         
     out=sim('Prova_SITL_GPS',delta_t);
 
@@ -104,21 +104,21 @@ else
         err_dist_sim=[err_dist_sim haversine(long_sim_smooth(i,1),long_sim(i,1),lat_sim_smooth(i,1),lat_sim(i,1))];
     end
     sigma_dist_real=std(err_dist_real);
-    sigma_dist_sim=std(err_dist_sim)
-    errore=sigma_dist_real-sigma_dist_sim;
-    if abs(errore)>0.1
-        eps1=sigma_dist_sim;
-        std_lat_new=(std_lat-std_lat1)/(eps1-eps2)*(0.4041-eps1);
-        std_long_new=(std_long-std_long1)/(eps1-eps2)*(0.4041-eps1);
-        std_long1=std_long;
-        std_lat1=std_lat;
-        std_lat=std_lat_new;
-        std_long=std_long_new;
-        eps2=eps1;
-        
-    end
+    sigma_dist_sim=std(err_dist_sim);
+    errore=sigma_dist_real-sigma_dist_sim
+%     if abs(errore)>0.1
+%         eps1=sigma_dist_sim;
+%         std_lat_new=(std_lat-std_lat1)/(eps1-eps2)*(0.4041-eps2)+std_lat1;
+%         std_long_new=(std_long-std_long1)/(eps1-eps2)*(0.4041-eps2)+std_long1;
+%         std_long1=std_long;
+%         std_lat1=std_lat;
+%         std_lat=std_lat_new;
+%         std_long=std_long_new;
+%         eps2=eps1;
+%         
+%     end
      end
-end
+% end
 
 % err_lat_sim=out.errore_lat;
 % err_long_sim=out.errore_long;

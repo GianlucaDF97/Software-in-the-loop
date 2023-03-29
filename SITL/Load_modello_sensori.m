@@ -1,6 +1,6 @@
 
-% il 07/03/22 D' alessio, Di micco, Viscione e Perfetti hanno modificato
-% questo file seguendo le indicazioni del dottor D' antuono
+% il 29/03/23 De Santis e Magrini hanno modificato le variabili relative al
+% gps per il nuovo modello
 
 %% Load Modello Sensori
 
@@ -10,16 +10,15 @@ Ts_base=0.02;
 
 
 delay_gps=0;
-Ts_gps=0.2;%[s]
-% il 07/03/22 è stato cambiato seguendo le indicazioni del dottor d' antuono  prima i valori erano quelli commentati 
-Std_vel=0.05; %0.71*0.1/5[m/s] 
-Var_heading_static=0.1;%[rad]
-Var_V_hor=0.5*0.01;%[m/s]
-Var_V_hor_static=0.25;%[m/s]
+Ts_gps=0.1;%[s] 
+Std_vel=0.05; %[m/s] 
+Var_heading=0.0025;
+Var_heading_static=0.0625;%[rad]
+Var_V_hor=0.1;%[m/s]
+Var_V_hor_static=0.04;%[m/s]
 
-Std_con_lat=2.7349e-07; %[rad]
-% il 07/03/22 è stato cambiato seguendo le indicazioni del dottor d' antuono  prima i valori erano quelli commentati 
-Std_con_long=1.3733e-06; %9.1555e-07[rad]
+Std_con_lat=7.501025208540287e-07; %[rad]
+Std_con_long=5.101110498551838e-06; %[rad]
 
 Ta_lat=10^2;%[s]
 Ta_long=10^2;%[s]

@@ -108,10 +108,10 @@ hold on
 plot(time,err_gspeed_sim,'b-','LineWidth',1)
 plot(time,err_gspeed_real,'r-','LineWidth',1)
 yline(sigma_vel_real,'g--','LineWidth',2)
-yline(sigma_vel_sim,'m--*','LineWidth',2)
+yline(sigma_vel_sim,'m--','LineWidth',2)
 hold off
 title(['errore Vel GPS [m/s] simulazione' num2str(sw) ''] )
-legend('errore velocità simulata', 'errore velocità misurata dal gps reale', '\sigma_{err }_{vel }_{real }==0.0243','\sigma_{err }_{vel }_{sim }==0.0534','interpeter','latex')
+legend('errore velocità simulata', 'errore velocità misurata dal gps reale',[ '\sigma_{err }_{vel }_{real }'  num2str(sigma_vel_real)],['\sigma_{err }_{vel }_{sim } ' num2str(sigma_vel_sim)])
 
 subplot(2,1,2)
 hold on
@@ -127,10 +127,10 @@ hold on
 plot(time,err_heading_sim,'b-','LineWidth',1)
 plot(time,err_heading_real,'r-','LineWidth',1)
 yline(deg2rad(sigma_heading_real),'g--','LineWIdth',2)
-yline(deg2rad(sigma_heading_sim),'m--*','LineWIdth',2)
+yline(deg2rad(sigma_heading_sim),'m--','LineWIdth',2)
 hold off
 title(['errore heading [☺ rad] simulazione [rad]' num2str(sw) ''])
-legend('errore heading simulato', 'errore heading misurato dal gps reale', '\sigma_{err }_{heading }_{real }=0.5949','\sigma_{err }_{heading }_{sim }==0.5298','interpeter','latex')
+legend('errore heading simulato', 'errore heading misurato dal gps reale', ['\sigma_{err }_{heading}' num2str(sigma_heading_real)] , ['\sigma_{err }_{heading }_{sim }'  num2str(sigma_heading_sim)])
 subplot(2,1,2)
 hold on
 plot(time,heading_sim,'b-','LineWidth',1)

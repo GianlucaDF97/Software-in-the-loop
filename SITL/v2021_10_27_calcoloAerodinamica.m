@@ -85,12 +85,12 @@ CD0=0.024; %0.2 % costante che stava dentro il modello nel calcolo di CD
 A=0.5*rho*v^2*S;%Coefficiente per adimensionalizzare le forze
 B=0.5*rho*v^2*S*b;%Coefficiente per adimensionalizzare i momenti lat-dir
 K=0.5*rho*v^2*S*cbar;%%Coefficiente per adimensionalizzare il mom di becchegg.
-Rprop=0.2667; %[m]
-Dprop=2*Rprop;
-mprop=0.178; %[Kg]
-Jprop=mprop*(Dprop^2)/12; %J=m/12*l^2 [Kg/m^2]
+Rprop=0.2667; %[m] %raggio elica
+Dprop=2*Rprop; 
+mprop=0.178; %[Kg] %massa motore
+Jprop=mprop*(Dprop^2)/12; %J=m/12*l^2 [Kg/m^2] %momento di inerzia elica
 Jeng=0; %[Kg/m^2]
-m=9.4; %[kg]
+m=9.4; %[kg] %massa AENEA2
 g=[0 0 9.81]'; %[m/s^2]
 W=m*g; %[N]
 Ix=1.4070; %[kg*m^2]

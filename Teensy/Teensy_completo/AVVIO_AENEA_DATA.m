@@ -34,6 +34,15 @@ theta_max = deg2rad(15);
 theta_min = deg2rad(-15);
 phi_max = deg2rad(30);
 phi_min = deg2rad(-30);
+%% SEGNALI PWM MAX E MIN
+pwm_throttle_max=1;
+pwm_throttle_min=1;
+pwm_elevator_max=1;
+pwm_elevator_min=1;
+pwm_aileron_max=1;
+pwm_aileron_min=1;
+pwm_rudder_max=1;
+pwm_rudder_min=1;
 %% INVERSIONE COMANDI
 inv_T = 1;            % inverti motore
 inv_E = 1;            % inverti equilibratore

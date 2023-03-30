@@ -136,9 +136,9 @@ run('Load_modello_sensori.m')
 %--------------------------------------------------------------------------
 %% Condizioni iniziali filtro di Kalman------------------------------------
 
-latitudineINI = 41.89977547437336*pi/180; % posizione iniziale della simulazione
+latitudineINI = 41.88754294247101*pi/180; % posizione iniziale della simulazione
  
-longitudineINI = 12.516026295152871*pi/180; %posizione iniziale della simulazione
+longitudineINI = 12.539364533818434*pi/180; %posizione iniziale della simulazione
 
 HINI = -State0.Pos0(3);
 %--------------------------------------------------------------------------
@@ -171,9 +171,9 @@ interventoT = 1*0.6;  % 10% del valore massimo di manetta pari a 1; 0.1 sono cir
             0 0 0 0 0 0];
        
 WP_db_param=[...
-             0 0 17 0 41.89259555916619, 12.515444955280577 75;...
-             0 0 20 0 41.90498629059706, 12.516014717908352 65;...
-             0 0 24 0 41.89489563609509, 12.530400952268987 80;... 
+             0 0 17 0 41.887798530888304, 12.537905412104232 75;...
+             0 0 20 0 41.89052329007801, 12.492437426923948 65;...
+             0 0 24 0 41.93506891472633, 12.504514543566634 80;... 
              0 0 0 0 0 0 0;
              0 0 0 0 0 0 0;
              0 0 0 0 0 0 0;

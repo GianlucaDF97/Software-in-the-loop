@@ -1,4 +1,3 @@
-%
 clear
 load('Log_monopattino_13_Mar.mat')
 sw=input('inserire numero simulazione');
@@ -46,8 +45,8 @@ else
     time=0:0.02:delta_t;
     heading=deg2rad((heading_tot(index(1):index(1)+length(time)-1)));
     vel_GPS=vel_GPS_tot(index(1):index(1)+length(time)-1);
-    lat=lat_tot(index(1):index(1)+length(time)-1);
-    long=long_tot(index(1):index(1)+length(time)-1);
+    lat=deg2rad(lat_tot(index(1):index(1)+length(time)-1));
+    long=deg2rad(long_tot(index(1):index(1)+length(time)-1));
 
   
     %creazione matrice con tutti i dati di interesse
@@ -60,7 +59,17 @@ else
     vel_GPS_smooth=timeseries(Real_meas_smooth(2,:),time);
     lat_smooth=timeseries(Real_meas_smooth(3,:),time);
     long_smooth=timeseries(Real_meas_smooth(4,:),time);
-     out=sim('Prova_SITL_GPS',delta_t);
+    
+%     errore=100;
+%     std_lat=2.7348e-7;
+%     std_long=1.3733e-6;
+%     std_lat1=deg2rad(6.3673e-6);
+%     std_long1=deg2rad(5.9309e-6);
+%     eps1=0.2544;
+%     eps2=0.16;
+%    while abs(errore)>0.1
+        
+    out=sim('Prova_SITL_GPS',delta_t);
 
     gspeed=out.sim_gspeed;
     gspeed=reshape(gspeed(1,1,:),[1,length(time)]);
@@ -80,18 +89,44 @@ else
     sigma_heading_sim=std(rad2deg(err_heading_sim));
     lat_sim=out.lat_sim;
     long_sim=out.long_sim;
-    lat_sim=reshape(lat_sim(1,1,:),[1,length(time)]);
-    long_sim=reshape(long_sim(1,1,:),[1,length(time)]);
-end
+%     lat_sim=reshape(lat_sim(1,1,:),[1,length(time)]);
+%     long_sim=reshape(long_sim(1,1,:),[1,length(time)]);
 
-err_lat_sim=out.errore_lat;
-err_long_sim=out.errore_long;
-err_dist_sim=out.err_dist_sim;
+    %stima grandezze misurate
+    lat_sim_smooth=smoothdata(lat_sim(:,:),1,'sgolay');
+    long_sim_smooth=smoothdata(long_sim(:,:),1,'sgolay');
+    
+    
+    err_dist_sim=[];
+    err_dist_real=[];
+    for i=1:length(time)
+        err_dist_real=[err_dist_real haversine(long(1,i),Real_meas_smooth(4,i),lat(1,i),Real_meas_smooth(3,i))];
+        err_dist_sim=[err_dist_sim haversine(long_sim_smooth(i,1),long_sim(i,1),lat_sim_smooth(i,1),lat_sim(i,1))];
+    end
+    sigma_dist_real=std(err_dist_real);
+    sigma_dist_sim=std(err_dist_sim);
+    errore=sigma_dist_real-sigma_dist_sim
+%     if abs(errore)>0.1
+%         eps1=sigma_dist_sim;
+%         std_lat_new=(std_lat-std_lat1)/(eps1-eps2)*(0.4041-eps2)+std_lat1;
+%         std_long_new=(std_long-std_long1)/(eps1-eps2)*(0.4041-eps2)+std_long1;
+%         std_long1=std_long;
+%         std_lat1=std_lat;
+%         std_lat=std_lat_new;
+%         std_long=std_long_new;
+%         eps2=eps1;
+%         
+%     end
+     end
+% end
 
+% err_lat_sim=out.errore_lat;
+% err_long_sim=out.errore_long;
+% err_dist_sim=out.err_dist_sim;
+% sigma_lat_sim=std(err_lat_sim);
+% sigma_long_sim=std(err_long_sim);
+% sigma_dist_sim=std(err_dist_sim);
 
-sigma_lat_sim=std(err_lat_sim);
-sigma_long_sim=std(err_long_sim);
-sigma_dist_sim=std(err_dist_sim);
 
 
 clear index
@@ -138,6 +173,17 @@ plot(time,heading,'r-','LineWidth',1)
 hold off
 title(['confronto heading [ rad] dati reali e simulati' num2str(sw) ''])
 legend('heading simulato', 'heading misurato dal gps reale')
+
+
+figure(104)
+hold on
+plot(time,err_dist_sim,'b-','LineWidth',1)
+plot(time,err_dist_real,'r-','LineWidth',1)
+yline(deg2rad(sigma_dist_real),'g--','LineWIdth',2)
+yline(deg2rad(sigma_dist_sim),'m--*','LineWIdth',2)
+hold off
+title(['errore distanza [m] simulazione' num2str(sw) ''])
+legend('errore distanza simulata', 'errore distanza dal gps reale', '\sigma_{err }_{dist }_{real }=','\sigma_{err }_{dist }_{sim }=','interpeter','latex')
 %%
 close all
 sw1=input('inserire simulazione richiesta, per la cost ');
@@ -167,6 +213,8 @@ legend('errore distanza cost', 'errore distanza rampa',['\sigma_{cost}  ' num2st
 % plot(time,gspeed,'b-','LineWidth',1)
 % hold off
 % title(['confronto tra dati GPS reali e dati simulati simulazione' num2str(sw) ''])
+
+
 
 
 

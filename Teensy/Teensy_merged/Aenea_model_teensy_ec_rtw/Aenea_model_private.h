@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.160
+// Model version                  : 1.167
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed Apr  5 13:37:48 2023
+// C/C++ source code generated on : Tue Apr 11 17:14:22 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -226,6 +226,81 @@ extern "C" {
   extern void blink_sfun_Start_wrapper(void);
   extern void blink_sfun_Outputs_wrapper(const boolean_T *clock);
   extern void blink_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_throttle_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_throttle_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_throttle_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_goHome_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_goHome_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_goHome_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_elevator_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_elevator_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_elevator_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_aileron_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_aileron_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_aileron_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_rudder_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_rudder_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_rudder_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 

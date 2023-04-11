@@ -18,6 +18,11 @@ end
 packNGo(buildInfo,'packType', 'flat','fileName','Aenea_Teensy_code');
 unzip('Aenea_Teensy_code.zip','Aenea_Teensy_code')
 movefile Aenea_Teensy_code/ert_main.cpp Aenea_Teensy_code/Aenea_Teensy_code.ino
+copyfile pwm_libraries/calcInputThrottle.c Aenea_Teensy_code
+copyfile pwm_libraries/calcInputAileron.c Aenea_Teensy_code
+copyfile pwm_libraries/calcInputElevator.c Aenea_Teensy_code
+copyfile pwm_libraries/calcInputRudder.c Aenea_Teensy_code
+copyfile pwm_libraries/calcInput_go_Home.c Aenea_Teensy_code
 delete 'Aenea_Teensy_code/defines.txt'
 delete 'Aenea_Teensy_code.zip'
 

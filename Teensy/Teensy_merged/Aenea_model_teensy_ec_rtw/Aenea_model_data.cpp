@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.160
+// Model version                  : 1.167
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed Apr  5 13:37:48 2023
+// C/C++ source code generated on : Tue Apr 11 17:14:22 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -23,56 +23,18 @@
 const ConstB_Aenea_model_T Aenea_model_ConstB = {
   0.011111111111111112
   ,                                    // '<S22>/USCITA PERCENTUALE'
-  1.0
-  ,                                    // '<S9>/Data Type Conversion5'
-  0.0
-  ,                                    // '<S592>/Sum2'
   0.0
   ,                                    // '<S592>/Sum3'
-  rtGetNaN()
-  ,                                    // '<S592>/Divide2'
-  0.0
-  ,                                    // '<S9>/Switch'
-  1.0
-  ,                                    // '<S9>/Data Type Conversion13'
-  0.0
-  ,                                    // '<S589>/Sum'
   0.0
   ,                                    // '<S589>/Sum1'
-  rtGetNaN()
-  ,                                    // '<S589>/Divide'
-  1.0
-  ,                                    // '<S9>/Data Type Conversion16'
-  0.0
-  ,                                    // '<S590>/Sum'
   0.0
   ,                                    // '<S590>/Sum1'
-  rtGetNaN()
-  ,                                    // '<S590>/Divide'
-  1.0
-  ,                                    // '<S9>/Data Type Conversion14'
-  0.0
-  ,                                    // '<S587>/Sum'
   0.0
   ,                                    // '<S587>/Sum1'
-  rtGetNaN()
-  ,                                    // '<S587>/Divide'
-  1.0
-  ,                                    // '<S9>/Data Type Conversion17'
-  0.0
-  ,                                    // '<S588>/Sum'
   0.0
   ,                                    // '<S588>/Sum1'
-  rtGetNaN()
-  ,                                    // '<S588>/Divide'
-  1.0
-  ,                                    // '<S9>/Data Type Conversion15'
-  0.0
-  ,                                    // '<S591>/Sum1'
   0.0
   ,                                    // '<S591>/Sum2'
-  rtGetNaN()
-  ,                                    // '<S591>/Divide'
   1400.0
   ,                                    // '<S593>/Sum2'
   1400.0

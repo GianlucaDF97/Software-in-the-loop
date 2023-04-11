@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.160
+// Model version                  : 1.167
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed Apr  5 13:37:48 2023
+// C/C++ source code generated on : Tue Apr 11 17:14:22 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -63,7 +63,7 @@ typedef struct {
   real32_T groundspeed_filt;
   real32_T heading_filt;
   real32_T dist_lidar_filt;
-  real32_T dp_diff_raw;
+  real32_T dp_raw;
 } BUS_single_log_t;
 
 #endif

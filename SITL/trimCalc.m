@@ -18,7 +18,7 @@ TrimParam.Options(14)=8000; %numero massimo iterazioni
 
 [X,U,Y,dX]=trim('modello_calcolo_trim_1',X0,U0,Y0,iX,iU,iY,dX0,idX,TrimParam.Options)
 U0=U;
-State0.Pos0=X(10:12);
+State0.Pos0=X(10:12)
 State0.Vb0=X(1:3);
 State0.PHI0=X(4:6);
 State0.Omega0=X(7:9);

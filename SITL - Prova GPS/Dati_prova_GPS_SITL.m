@@ -70,7 +70,7 @@ i=0;
 if (sw==1 || sw=2 || sw==3)
     err_gspeed_real=vel_GPS(1:length(time))-Real_meas_smooth_1(2,:);
     err_gspeed_sim=gspeed_1-Real_meas_smooth_1(2,:);
-else  sw==4
+elseif  sw==4
     
 heading_1=out.sim_heading;
 heading_1=heading_1';

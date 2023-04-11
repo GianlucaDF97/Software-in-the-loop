@@ -58,7 +58,7 @@ return
   //myGNSS.enableDebugging(Serial); // Uncomment this line to enable debug message
  
   myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
-  myGNSS.setNavigationFrequency(10); // produce 10 solution per second
+  myGNSS.setNavigationFrequency(5); // produce 10 solution per second
   myGNSS.setAutoPVT(true);
    myGNSS.setAutoHPPOSLLH(true);
     

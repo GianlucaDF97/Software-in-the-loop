@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.160
+// Model version                  : 1.162
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed Apr  5 13:37:48 2023
+// C/C++ source code generated on : Sun Apr  9 11:19:09 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -6578,7 +6578,7 @@ void Aenea_model_step(void)
   Aenea_model_B.BusCreator1.single_data.heading_filt = static_cast<real32_T>
     (Aenea_model_B.imbardata);
   Aenea_model_B.BusCreator1.single_data.dist_lidar_filt = 0.0F;
-  Aenea_model_B.BusCreator1.single_data.dp_diff_raw = static_cast<real32_T>
+  Aenea_model_B.BusCreator1.single_data.dp_raw = static_cast<real32_T>
     (Aenea_model_B.SFunctionBuilder_o3);
   Aenea_model_B.BusCreator1.int32_data.dummy3 = 528;
   Aenea_model_B.BusCreator1.int32_data.dummy4 = -15;

@@ -10,7 +10,9 @@
 %%input = ('porre che tipo di simulazione voler fare
 Ingaggio_AP = input("inserire 1 se si vuole ingaggiare l' AP, 0 altrimenti: ");
 Zpista=0;
+
 v2021_10_27_calcoloAerodinamica
+
 costantiMagicFormula =[ 10 1.3 1 0.95 ];
 massaRuotePosteriori = m;%[kg]
 massaRuotaAnteriore = m;%[kg]
@@ -25,7 +27,9 @@ precompressione_post_s= +(Xa*9.4*9.81)/(2*(Xa-Xp));
 precompressione_post_d= +(Xa*9.4*9.81)/(2*(Xa-Xp));
 precompressione_ant= +(-Xp*9.4*9.81)/(2*(Xa-Xp));
 load('coefficienti_curve_renard.mat');
+
 v2021_10_27_trimCalc %da questo codice escono i dati iniziali per l'integratore del modello X0 e i comandi iniziali come U0
+
 deltaEtrim=U0(1);
 deltaAtrim=U0(2);
 deltaRtrim=U0(3);

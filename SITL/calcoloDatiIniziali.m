@@ -26,7 +26,7 @@ State0.Pos0=[0 0 -h0]; %Il punto tra due variabili crea un campo chiamato con il
 % Angoli di eulero ( radianti)
 phi0=0;
 theta0=alpha_trim; %volo orizzontale 
-psi0=0;
+psi0=deg2rad(input('Inserire valore di psi di partenza in GRADI:'));
 X0(4:6) = [phi0 theta0 psi0 ];
 State0.PHI0=[phi0 theta0 psi0 ];
 

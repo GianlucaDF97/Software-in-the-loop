@@ -7,8 +7,8 @@
 #ifndef _CALCINPUTTHROTTLE_H_
 #define _CALCINPUTTHROTTLE_H_
 
-#define THROTTLE_SIGNAL_IN 36 // INTERRUPT 0 = DIGITAL PIN 2 - use the interrupt number in attachInterrupt
-#define THROTTLE_SIGNAL_IN_PIN 36 // INTERRUPT 0 = DIGITAL PIN 2 - use the PIN number in digitalRead
+#define THROTTLE_SIGNAL_IN 23 // INTERRUPT 0 = DIGITAL PIN 2 - use the interrupt number in attachInterrupt
+#define THROTTLE_SIGNAL_IN_PIN 23 // INTERRUPT 0 = DIGITAL PIN 2 - use the PIN number in digitalRead
 #define NEUTRAL_THROTTLE 1500 // this is the duration in microseconds of neutral throttle on an elect1ric RC Car
 //Throttle ha il canale 1 (SStat1, ISF1, Out1)
 //L'uscita (out1) ha come uscita il pin 2

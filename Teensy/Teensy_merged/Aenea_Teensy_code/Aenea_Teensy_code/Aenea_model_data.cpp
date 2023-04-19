@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.168
+// Model version                  : 1.170
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue Apr 11 18:23:51 2023
+// C/C++ source code generated on : Wed Apr 19 17:44:02 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -23,25 +23,25 @@
 const ConstB_Aenea_model_T Aenea_model_ConstB = {
   0.011111111111111112
   ,                                    // '<S22>/USCITA PERCENTUALE'
-  0.0
+  841.0
   ,                                    // '<S592>/Sum3'
-  0.0
+  945.0
   ,                                    // '<S589>/Sum1'
-  0.0
+  945.0
   ,                                    // '<S590>/Sum1'
-  0.0
+  841.0
   ,                                    // '<S587>/Sum1'
-  0.0
+  841.0
   ,                                    // '<S588>/Sum1'
-  0.0
+  841.0
   ,                                    // '<S591>/Sum2'
-  0.0
+  841.0
   ,                                    // '<S595>/Sum1'
-  0.0
+  945.0
   ,                                    // '<S596>/Sum2'
-  0.0
+  841.0
   ,                                    // '<S593>/Sum2'
-  0.0
+  841.0
   ,                                    // '<S594>/Sum2'
   0U
   ,                                    // '<S16>/Data Type Conversion'

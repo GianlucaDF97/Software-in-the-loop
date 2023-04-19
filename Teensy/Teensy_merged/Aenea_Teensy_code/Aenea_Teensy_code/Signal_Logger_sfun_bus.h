@@ -106,6 +106,7 @@ typedef struct {
   real32_T groundspeed_filt;
   real32_T heading_filt;
   real32_T dist_lidar_filt;
+  real32_T dp_raw;
 } BUS_single_log_t;
 #endif
 

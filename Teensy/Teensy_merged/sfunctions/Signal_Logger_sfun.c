@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Wed Apr 05 11:54:22 2023
+ * Created: Wed Apr 19 16:32:48 2023
  */
 
 #define S_FUNCTION_LEVEL 2
@@ -286,7 +286,7 @@ static void mdlStart(SimStruct *S)
 	DTypeId BUS_uint32_log_tId = ssGetDataTypeId(S, "BUS_uint32_log_t");
 	DTypeId BUS_uint8_log_tId = ssGetDataTypeId(S, "BUS_uint8_log_t");
 
-	busInfoStruct *busInfo = (busInfoStruct *)malloc(96*sizeof(busInfoStruct));
+	busInfoStruct *busInfo = (busInfoStruct *)malloc(98*sizeof(busInfoStruct));
 	if(busInfo==NULL) {
         ssSetErrorStatus(S, "Memory allocation failure");
         return;
@@ -406,86 +406,90 @@ static void mdlStart(SimStruct *S)
 							dtaGetDataTypeElementOffset(dta, bpath, BUS_single_log_tId, 22);
 	busInfo[27].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "single"));
 	busInfo[27].numElems = 1;
-	busInfo[28].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 2) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int32_log_tId, 0);
-	busInfo[28].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int32"));
+	busInfo[28].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 1) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_single_log_tId, 23);
+	busInfo[28].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "single"));
 	busInfo[28].numElems = 1;
 	busInfo[29].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 2) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int32_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int32_log_tId, 0);
 	busInfo[29].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int32"));
 	busInfo[29].numElems = 1;
-	busInfo[30].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 3) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint32_log_tId, 0);
-	busInfo[30].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint32"));
+	busInfo[30].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 2) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int32_log_tId, 1);
+	busInfo[30].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int32"));
 	busInfo[30].numElems = 1;
 	busInfo[31].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 3) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint32_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint32_log_tId, 0);
 	busInfo[31].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint32"));
 	busInfo[31].numElems = 1;
-	busInfo[32].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 0);
-	busInfo[32].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
+	busInfo[32].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 3) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint32_log_tId, 1);
+	busInfo[32].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint32"));
 	busInfo[32].numElems = 1;
 	busInfo[33].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 0);
 	busInfo[33].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[33].numElems = 1;
 	busInfo[34].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 2);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 1);
 	busInfo[34].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[34].numElems = 1;
 	busInfo[35].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 3);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 2);
 	busInfo[35].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[35].numElems = 1;
 	busInfo[36].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 4);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 3);
 	busInfo[36].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[36].numElems = 1;
 	busInfo[37].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 5);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 4);
 	busInfo[37].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[37].numElems = 1;
 	busInfo[38].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 6);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 5);
 	busInfo[38].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[38].numElems = 1;
 	busInfo[39].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 7);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 6);
 	busInfo[39].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[39].numElems = 1;
-	busInfo[40].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 5) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint16_log_tId, 0);
-	busInfo[40].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint16"));
+	busInfo[40].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 4) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int16_log_tId, 7);
+	busInfo[40].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int16"));
 	busInfo[40].numElems = 1;
 	busInfo[41].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 5) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint16_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint16_log_tId, 0);
 	busInfo[41].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint16"));
 	busInfo[41].numElems = 1;
-	busInfo[42].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 6) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int8_log_tId, 0);
-	busInfo[42].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int8"));
+	busInfo[42].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 5) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint16_log_tId, 1);
+	busInfo[42].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint16"));
 	busInfo[42].numElems = 1;
 	busInfo[43].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 6) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_int8_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int8_log_tId, 0);
 	busInfo[43].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int8"));
 	busInfo[43].numElems = 1;
-	busInfo[44].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 7) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint8_log_tId, 0);
-	busInfo[44].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint8"));
+	busInfo[44].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 6) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_int8_log_tId, 1);
+	busInfo[44].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "int8"));
 	busInfo[44].numElems = 1;
 	busInfo[45].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 7) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint8_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint8_log_tId, 0);
 	busInfo[45].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint8"));
 	busInfo[45].numElems = 1;
-	busInfo[46].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 8) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 0);
-	busInfo[46].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "boolean"));
+	busInfo[46].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 7) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint8_log_tId, 1);
+	busInfo[46].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint8"));
 	busInfo[46].numElems = 1;
 	busInfo[47].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 8) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 0);
 	busInfo[47].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "boolean"));
 	busInfo[47].numElems = 1;
+	busInfo[48].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 8) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 1);
+	busInfo[48].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "boolean"));
+	busInfo[48].numElems = 1;
 	ssSetUserData(S, busInfo);
 
     Signal_Logger_sfun_Start_wrapper();
@@ -534,26 +538,27 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 	(void) memcpy(&_flightDataBUS.single_data.groundspeed_filt, flightData + busInfo[25].offset, busInfo[25].elemSize * busInfo[25].numElems);
 	(void) memcpy(&_flightDataBUS.single_data.heading_filt, flightData + busInfo[26].offset, busInfo[26].elemSize * busInfo[26].numElems);
 	(void) memcpy(&_flightDataBUS.single_data.dist_lidar_filt, flightData + busInfo[27].offset, busInfo[27].elemSize * busInfo[27].numElems);
-	(void) memcpy(&_flightDataBUS.int32_data.dummy3, flightData + busInfo[28].offset, busInfo[28].elemSize * busInfo[28].numElems);
-	(void) memcpy(&_flightDataBUS.int32_data.dummy4, flightData + busInfo[29].offset, busInfo[29].elemSize * busInfo[29].numElems);
-	(void) memcpy(&_flightDataBUS.uint32_data.dummy5, flightData + busInfo[30].offset, busInfo[30].elemSize * busInfo[30].numElems);
-	(void) memcpy(&_flightDataBUS.uint32_data.dummy6, flightData + busInfo[31].offset, busInfo[31].elemSize * busInfo[31].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.manual_throttleCmd_pwm, flightData + busInfo[32].offset, busInfo[32].elemSize * busInfo[32].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.manual_elevatorCmd_pwm, flightData + busInfo[33].offset, busInfo[33].elemSize * busInfo[33].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.manual_aileronCmd_pwm, flightData + busInfo[34].offset, busInfo[34].elemSize * busInfo[34].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.manual_rudderCmd_pwm, flightData + busInfo[35].offset, busInfo[35].elemSize * busInfo[35].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.throttleCmd_pwm, flightData + busInfo[36].offset, busInfo[36].elemSize * busInfo[36].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.elevatorCmd_pwm, flightData + busInfo[37].offset, busInfo[37].elemSize * busInfo[37].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.aileronCmd_pwm, flightData + busInfo[38].offset, busInfo[38].elemSize * busInfo[38].numElems);
-	(void) memcpy(&_flightDataBUS.int16_data.rudderCmd_pwm, flightData + busInfo[39].offset, busInfo[39].elemSize * busInfo[39].numElems);
-	(void) memcpy(&_flightDataBUS.uint16_data.dummy9, flightData + busInfo[40].offset, busInfo[40].elemSize * busInfo[40].numElems);
-	(void) memcpy(&_flightDataBUS.uint16_data.dummy10, flightData + busInfo[41].offset, busInfo[41].elemSize * busInfo[41].numElems);
-	(void) memcpy(&_flightDataBUS.int8_data.dummy11, flightData + busInfo[42].offset, busInfo[42].elemSize * busInfo[42].numElems);
-	(void) memcpy(&_flightDataBUS.int8_data.dummy12, flightData + busInfo[43].offset, busInfo[43].elemSize * busInfo[43].numElems);
-	(void) memcpy(&_flightDataBUS.uint8_data.gps_fix, flightData + busInfo[44].offset, busInfo[44].elemSize * busInfo[44].numElems);
-	(void) memcpy(&_flightDataBUS.uint8_data.dummy12, flightData + busInfo[45].offset, busInfo[45].elemSize * busInfo[45].numElems);
-	(void) memcpy(&_flightDataBUS.bool_data.dummy15, flightData + busInfo[46].offset, busInfo[46].elemSize * busInfo[46].numElems);
-	(void) memcpy(&_flightDataBUS.bool_data.dummy16, flightData + busInfo[47].offset, busInfo[47].elemSize * busInfo[47].numElems);
+	(void) memcpy(&_flightDataBUS.single_data.dp_raw, flightData + busInfo[28].offset, busInfo[28].elemSize * busInfo[28].numElems);
+	(void) memcpy(&_flightDataBUS.int32_data.dummy3, flightData + busInfo[29].offset, busInfo[29].elemSize * busInfo[29].numElems);
+	(void) memcpy(&_flightDataBUS.int32_data.dummy4, flightData + busInfo[30].offset, busInfo[30].elemSize * busInfo[30].numElems);
+	(void) memcpy(&_flightDataBUS.uint32_data.dummy5, flightData + busInfo[31].offset, busInfo[31].elemSize * busInfo[31].numElems);
+	(void) memcpy(&_flightDataBUS.uint32_data.dummy6, flightData + busInfo[32].offset, busInfo[32].elemSize * busInfo[32].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.manual_throttleCmd_pwm, flightData + busInfo[33].offset, busInfo[33].elemSize * busInfo[33].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.manual_elevatorCmd_pwm, flightData + busInfo[34].offset, busInfo[34].elemSize * busInfo[34].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.manual_aileronCmd_pwm, flightData + busInfo[35].offset, busInfo[35].elemSize * busInfo[35].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.manual_rudderCmd_pwm, flightData + busInfo[36].offset, busInfo[36].elemSize * busInfo[36].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.throttleCmd_pwm, flightData + busInfo[37].offset, busInfo[37].elemSize * busInfo[37].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.elevatorCmd_pwm, flightData + busInfo[38].offset, busInfo[38].elemSize * busInfo[38].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.aileronCmd_pwm, flightData + busInfo[39].offset, busInfo[39].elemSize * busInfo[39].numElems);
+	(void) memcpy(&_flightDataBUS.int16_data.rudderCmd_pwm, flightData + busInfo[40].offset, busInfo[40].elemSize * busInfo[40].numElems);
+	(void) memcpy(&_flightDataBUS.uint16_data.dummy9, flightData + busInfo[41].offset, busInfo[41].elemSize * busInfo[41].numElems);
+	(void) memcpy(&_flightDataBUS.uint16_data.dummy10, flightData + busInfo[42].offset, busInfo[42].elemSize * busInfo[42].numElems);
+	(void) memcpy(&_flightDataBUS.int8_data.dummy11, flightData + busInfo[43].offset, busInfo[43].elemSize * busInfo[43].numElems);
+	(void) memcpy(&_flightDataBUS.int8_data.dummy12, flightData + busInfo[44].offset, busInfo[44].elemSize * busInfo[44].numElems);
+	(void) memcpy(&_flightDataBUS.uint8_data.gps_fix, flightData + busInfo[45].offset, busInfo[45].elemSize * busInfo[45].numElems);
+	(void) memcpy(&_flightDataBUS.uint8_data.dummy12, flightData + busInfo[46].offset, busInfo[46].elemSize * busInfo[46].numElems);
+	(void) memcpy(&_flightDataBUS.bool_data.dummy15, flightData + busInfo[47].offset, busInfo[47].elemSize * busInfo[47].numElems);
+	(void) memcpy(&_flightDataBUS.bool_data.dummy16, flightData + busInfo[48].offset, busInfo[48].elemSize * busInfo[48].numElems);
 
     Signal_Logger_sfun_Outputs_wrapper(&_flightDataBUS, sec_flag);
 

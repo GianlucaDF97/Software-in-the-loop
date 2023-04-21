@@ -52,11 +52,9 @@ extern "C" void Servo_timone_sfun_Outputs_wrapper(const int16_T *tau,
 			const real_T *xD)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
-if (xD[0]==1){
-    #ifndef MATLAB_MEX_FILE
+#ifndef MATLAB_MEX_FILE
     myservo3.writeMicroseconds(tau[0]);
     #endif
-}
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
  

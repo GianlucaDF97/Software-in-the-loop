@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.172
+// Model version                  : 1.176
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May  2 16:43:48 2023
+// C/C++ source code generated on : Wed May  3 17:31:40 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -3416,7 +3416,7 @@ void Aenea_model_step(void)
   //   Sum: '<S592>/Sum2'
 
   Aenea_model_B.Sum5 = (static_cast<real_T>(Aenea_model_B.manual_throttleCmd_pwm)
-                        - 1099.0) / Aenea_model_ConstB.Sum3;
+                        - 1165.0) / Aenea_model_ConstB.Sum3;
 
   // Gain: '<S29>/Gain2'
   Aenea_model_B.Gain_h = 100.0 * Aenea_model_B.Sum5;
@@ -3623,8 +3623,8 @@ void Aenea_model_step(void)
   //   Sum: '<S589>/Sum2'
 
   Aenea_model_B.Sum3 = (static_cast<real_T>(Aenea_model_B.manual_elevatorCmd_pwm)
-                        - 952.0) / Aenea_model_ConstB.Sum1 * 0.87266462599716477
-    + -0.55850536063818546;
+                        - 1227.0) / Aenea_model_ConstB.Sum1 *
+    0.87266462599716477 + -0.55850536063818546;
 
   // MATLAB Function: '<S38>/MATLAB Function'
   if (Aenea_model_B.modo == 3.0) {
@@ -4067,7 +4067,7 @@ void Aenea_model_step(void)
   //   Sum: '<S587>/Sum2'
 
   Aenea_model_B.Sum3_h = (static_cast<real_T>
-    (Aenea_model_B.manual_aileronCmd_pwm) - 1104.0) / Aenea_model_ConstB.Sum1_o *
+    (Aenea_model_B.manual_aileronCmd_pwm) - 1191.0) / Aenea_model_ConstB.Sum1_o *
     0.87266462599716477 + -0.4014257279586958;
 
   // Gain: '<S588>/Gain' incorporates:
@@ -4082,7 +4082,7 @@ void Aenea_model_step(void)
   //   Sum: '<S588>/Sum3'
 
   Aenea_model_B.Ato_selector = -((static_cast<real_T>
-    (Aenea_model_B.manual_aileronCmd_pwm) - 1104.0) / Aenea_model_ConstB.Sum1_i *
+    (Aenea_model_B.manual_aileronCmd_pwm) - 1191.0) / Aenea_model_ConstB.Sum1_i *
     1.0471975511965976 + -0.52359877559829882);
 
   // Saturate: '<S588>/Saturation'
@@ -4208,7 +4208,7 @@ void Aenea_model_step(void)
 
   if (static_cast<int32_T>(Aenea_model_B.switch_timone) == 0) {
     Aenea_model_B.Sum2_k2 = (static_cast<real_T>
-      (Aenea_model_B.manual_rudderCmd_pwm) - 1233.0) / Aenea_model_ConstB.Sum2 *
+      (Aenea_model_B.manual_rudderCmd_pwm) - 1235.0) / Aenea_model_ConstB.Sum2 *
       1.0471975511965976 + -0.52359877559829882;
   } else {
     if (static_cast<int32_T>(Aenea_model_B.switch_timone) == 0) {
@@ -4224,7 +4224,7 @@ void Aenea_model_step(void)
       //   Sum: '<S591>/Sum4'
 
       Aenea_model_B.Sum2_k2 = (static_cast<real_T>
-        (Aenea_model_B.manual_rudderCmd_pwm) - 1233.0) / Aenea_model_ConstB.Sum2
+        (Aenea_model_B.manual_rudderCmd_pwm) - 1235.0) / Aenea_model_ConstB.Sum2
         * 1.0471975511965976 + -0.52359877559829882;
     } else {
       // MultiPortSwitch: '<S37>/Switch Bumpless 4' incorporates:
@@ -6385,7 +6385,7 @@ void Aenea_model_step(void)
   Aenea_model_B.Sum = static_cast<int16_T>((Aenea_model_B.a_b < 0.0 ?
     static_cast<int32_T>(static_cast<int16_T>(-static_cast<int16_T>(static_cast<
     uint16_T>(-Aenea_model_B.a_b)))) : static_cast<int32_T>(static_cast<int16_T>
-    (static_cast<uint16_T>(Aenea_model_B.a_b)))) + 1099);
+    (static_cast<uint16_T>(Aenea_model_B.a_b)))) + 1165);
 
   // S-Function (Servo_manetta_sfun): '<S10>/S-Function Builder'
   Servo_manetta_sfun_Outputs_wrapper(&Aenea_model_B.Sum,
@@ -6402,7 +6402,7 @@ void Aenea_model_step(void)
   //   Sum: '<S596>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum3 - -0.55850536063818546) /
-    0.87266462599716477 * Aenea_model_ConstB.Sum2_d + 952.0);
+    0.87266462599716477 * Aenea_model_ConstB.Sum2_d + 1227.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6430,7 +6430,7 @@ void Aenea_model_step(void)
   //   Sum: '<S593>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum3_k - -0.4014257279586958) /
-    0.87266462599716477 * Aenea_model_ConstB.Sum2_a + 1104.0);
+    0.87266462599716477 * Aenea_model_ConstB.Sum2_a + 1191.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6458,7 +6458,7 @@ void Aenea_model_step(void)
   //   Sum: '<S594>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum2_k2 - -0.52359877559829882) /
-    1.0471975511965976 * Aenea_model_ConstB.Sum2_g + 1233.0);
+    1.0471975511965976 * Aenea_model_ConstB.Sum2_g + 1235.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6740,14 +6740,13 @@ void Aenea_model_step(void)
   //   BusCreator: '<S599>/Bus Creator11'
   //   BusCreator: '<S607>/Bus Creator10'
   //   Constant: '<S599>/Constant24'
-  //   Constant: '<S607>/Constant15'
   //   DataTypeConversion: '<S607>/Data Type Conversion'
 
   Aenea_model_B.BusCreator1.uint8_data.gps_fix = static_cast<uint8_T>
     (Aenea_model_B.Sum3 < 0.0 ? static_cast<int32_T>(static_cast<uint8_T>(-
        static_cast<int8_T>(static_cast<uint8_T>(-Aenea_model_B.Sum3)))) :
      static_cast<int32_T>(static_cast<uint8_T>(Aenea_model_B.Sum3)));
-  Aenea_model_B.BusCreator1.uint8_data.dummy12 = 111U;
+  Aenea_model_B.BusCreator1.uint8_data.dummy12 = Aenea_model_B.SFunction_o6;
   Aenea_model_B.BusCreator1.bool_data.dummy15 = true;
   Aenea_model_B.BusCreator1.bool_data.dummy16 = Aenea_model_B.Compare_i;
 
@@ -7268,6 +7267,11 @@ void Aenea_model_terminate(void)
   MavLink_Send_sfun_Terminate_wrapper();
 
   // End of Terminate for SubSystem: '<S4>/Subsystem'
+
+  // Terminate for S-Function (Signal_Logger_sfun): '<S2>/S-Function Builder'
+
+  // S-Function Block: <S2>/S-Function Builder
+  Signal_Logger_sfun_Terminate_wrapper();
 }
 
 //

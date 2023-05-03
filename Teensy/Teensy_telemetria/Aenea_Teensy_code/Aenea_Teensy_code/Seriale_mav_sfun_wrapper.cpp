@@ -37,6 +37,7 @@ extern "C" void Seriale_mav_sfun_Start_wrapper(void)
 {
 /* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */
 #ifndef MATLAB_MEX_FILE
+    Serial.begin(9600);
     Serial1.begin(57600) ;
     Serial1.addMemoryForRead(Serial1RX_buffer, sizeof(Serial1RX_buffer));
     #endif
@@ -55,7 +56,8 @@ extern "C" void Seriale_mav_sfun_Outputs_wrapper(uint8_T *Messaggio,
     
     for(int j=0; j<100;j++)
         Messaggio[j] = 0;
-    
+    Serial.println("Serial available antenna");
+    Serial.println(Serial1.available());
     serial_available[0] = Serial1.available();
     
     int i = 0;

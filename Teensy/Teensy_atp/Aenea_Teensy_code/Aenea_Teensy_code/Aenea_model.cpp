@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.172
+// Model version                  : 1.178
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May  2 16:43:48 2023
+// C/C++ source code generated on : Wed May  3 18:07:54 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -3416,7 +3416,7 @@ void Aenea_model_step(void)
   //   Sum: '<S592>/Sum2'
 
   Aenea_model_B.Sum5 = (static_cast<real_T>(Aenea_model_B.manual_throttleCmd_pwm)
-                        - 1099.0) / Aenea_model_ConstB.Sum3;
+                        - 1165.0) / Aenea_model_ConstB.Sum3;
 
   // Gain: '<S29>/Gain2'
   Aenea_model_B.Gain_h = 100.0 * Aenea_model_B.Sum5;
@@ -3623,8 +3623,8 @@ void Aenea_model_step(void)
   //   Sum: '<S589>/Sum2'
 
   Aenea_model_B.Sum3 = (static_cast<real_T>(Aenea_model_B.manual_elevatorCmd_pwm)
-                        - 952.0) / Aenea_model_ConstB.Sum1 * 0.87266462599716477
-    + -0.55850536063818546;
+                        - 1227.0) / Aenea_model_ConstB.Sum1 *
+    0.87266462599716477 + -0.55850536063818546;
 
   // MATLAB Function: '<S38>/MATLAB Function'
   if (Aenea_model_B.modo == 3.0) {
@@ -4067,7 +4067,7 @@ void Aenea_model_step(void)
   //   Sum: '<S587>/Sum2'
 
   Aenea_model_B.Sum3_h = (static_cast<real_T>
-    (Aenea_model_B.manual_aileronCmd_pwm) - 1104.0) / Aenea_model_ConstB.Sum1_o *
+    (Aenea_model_B.manual_aileronCmd_pwm) - 1191.0) / Aenea_model_ConstB.Sum1_o *
     0.87266462599716477 + -0.4014257279586958;
 
   // Gain: '<S588>/Gain' incorporates:
@@ -4082,7 +4082,7 @@ void Aenea_model_step(void)
   //   Sum: '<S588>/Sum3'
 
   Aenea_model_B.Ato_selector = -((static_cast<real_T>
-    (Aenea_model_B.manual_aileronCmd_pwm) - 1104.0) / Aenea_model_ConstB.Sum1_i *
+    (Aenea_model_B.manual_aileronCmd_pwm) - 1191.0) / Aenea_model_ConstB.Sum1_i *
     1.0471975511965976 + -0.52359877559829882);
 
   // Saturate: '<S588>/Saturation'
@@ -4208,7 +4208,7 @@ void Aenea_model_step(void)
 
   if (static_cast<int32_T>(Aenea_model_B.switch_timone) == 0) {
     Aenea_model_B.Sum2_k2 = (static_cast<real_T>
-      (Aenea_model_B.manual_rudderCmd_pwm) - 1233.0) / Aenea_model_ConstB.Sum2 *
+      (Aenea_model_B.manual_rudderCmd_pwm) - 1235.0) / Aenea_model_ConstB.Sum2 *
       1.0471975511965976 + -0.52359877559829882;
   } else {
     if (static_cast<int32_T>(Aenea_model_B.switch_timone) == 0) {
@@ -4224,7 +4224,7 @@ void Aenea_model_step(void)
       //   Sum: '<S591>/Sum4'
 
       Aenea_model_B.Sum2_k2 = (static_cast<real_T>
-        (Aenea_model_B.manual_rudderCmd_pwm) - 1233.0) / Aenea_model_ConstB.Sum2
+        (Aenea_model_B.manual_rudderCmd_pwm) - 1235.0) / Aenea_model_ConstB.Sum2
         * 1.0471975511965976 + -0.52359877559829882;
     } else {
       // MultiPortSwitch: '<S37>/Switch Bumpless 4' incorporates:
@@ -6385,7 +6385,7 @@ void Aenea_model_step(void)
   Aenea_model_B.Sum = static_cast<int16_T>((Aenea_model_B.a_b < 0.0 ?
     static_cast<int32_T>(static_cast<int16_T>(-static_cast<int16_T>(static_cast<
     uint16_T>(-Aenea_model_B.a_b)))) : static_cast<int32_T>(static_cast<int16_T>
-    (static_cast<uint16_T>(Aenea_model_B.a_b)))) + 1099);
+    (static_cast<uint16_T>(Aenea_model_B.a_b)))) + 1165);
 
   // S-Function (Servo_manetta_sfun): '<S10>/S-Function Builder'
   Servo_manetta_sfun_Outputs_wrapper(&Aenea_model_B.Sum,
@@ -6402,7 +6402,7 @@ void Aenea_model_step(void)
   //   Sum: '<S596>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum3 - -0.55850536063818546) /
-    0.87266462599716477 * Aenea_model_ConstB.Sum2_d + 952.0);
+    0.87266462599716477 * Aenea_model_ConstB.Sum2_d + 1227.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6430,7 +6430,7 @@ void Aenea_model_step(void)
   //   Sum: '<S593>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum3_k - -0.4014257279586958) /
-    0.87266462599716477 * Aenea_model_ConstB.Sum2_a + 1104.0);
+    0.87266462599716477 * Aenea_model_ConstB.Sum2_a + 1191.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6458,7 +6458,7 @@ void Aenea_model_step(void)
   //   Sum: '<S594>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum2_k2 - -0.52359877559829882) /
-    1.0471975511965976 * Aenea_model_ConstB.Sum2_g + 1233.0);
+    1.0471975511965976 * Aenea_model_ConstB.Sum2_g + 1235.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6599,7 +6599,7 @@ void Aenea_model_step(void)
 
   Aenea_model_B.Compare_i = (Aenea_model_DW.Output_DSTATE_k == 50);
 
-  // BusCreator: '<S2>/Bus Creator1' incorporates:
+  // BusCreator generated from: '<S2>/S-Function Builder' incorporates:
   //   BusCreator: '<S600>/Bus Creator3'
   //   BusCreator: '<S601>/Bus Creator7'
   //   BusCreator: '<S602>/Bus Creator5'
@@ -6644,89 +6644,92 @@ void Aenea_model_step(void)
   //   UnitDelay: '<S574>/Unit Delay'
   //   UnitDelay: '<S612>/Unit Delay'
 
-  Aenea_model_B.BusCreator1.double_data.time_frame =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.time_frame =
     Aenea_model_DW.UnitDelay_DSTATE_n;
-  Aenea_model_B.BusCreator1.double_data.Lat_raw =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.Lat_raw =
     Aenea_model_DW.UnitDelay_DSTATE_h[0];
-  Aenea_model_B.BusCreator1.double_data.Long_raw =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.Long_raw =
     Aenea_model_DW.UnitDelay_DSTATE_h[1];
-  Aenea_model_B.BusCreator1.double_data.Lat = 57.295779513082323 *
-    Aenea_model_B.Lat_K;
-  Aenea_model_B.BusCreator1.double_data.Long = 57.295779513082323 *
-    Aenea_model_B.Long_K;
-  Aenea_model_B.BusCreator1.single_data.v_gps_raw = static_cast<real32_T>
-    (Aenea_model_DW.UnitDelay_DSTATE_h[2]);
-  Aenea_model_B.BusCreator1.single_data.h_gps_raw = static_cast<real32_T>
-    (Aenea_model_DW.UnitDelay_DSTATE_h[3]);
-  Aenea_model_B.BusCreator1.single_data.heading_raw = static_cast<real32_T>
-    (Aenea_model_DW.UnitDelay_DSTATE_h[4]);
-  Aenea_model_B.BusCreator1.single_data.acc_x_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[0]);
-  Aenea_model_B.BusCreator1.single_data.acc_y_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[1]);
-  Aenea_model_B.BusCreator1.single_data.acc_z_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[2]);
-  Aenea_model_B.BusCreator1.single_data.p_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[3]);
-  Aenea_model_B.BusCreator1.single_data.q_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[4]);
-  Aenea_model_B.BusCreator1.single_data.r_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[5]);
-  Aenea_model_B.BusCreator1.single_data.phi_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[6]);
-  Aenea_model_B.BusCreator1.single_data.theta_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[7]);
-  Aenea_model_B.BusCreator1.single_data.psi_raw = static_cast<real32_T>
-    (Aenea_model_B.DataTypeConversion1_c[8]);
-  Aenea_model_B.BusCreator1.single_data.v_pitot_raw = static_cast<real32_T>
-    (Aenea_model_B.SFunctionBuilder_o1);
-  Aenea_model_B.BusCreator1.single_data.dist_lidar_raw = 0.0F;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.Lat =
+    57.295779513082323 * Aenea_model_B.Lat_K;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.Long =
+    57.295779513082323 * Aenea_model_B.Long_K;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.v_gps_raw =
+    static_cast<real32_T>(Aenea_model_DW.UnitDelay_DSTATE_h[2]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.h_gps_raw =
+    static_cast<real32_T>(Aenea_model_DW.UnitDelay_DSTATE_h[3]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.heading_raw =
+    static_cast<real32_T>(Aenea_model_DW.UnitDelay_DSTATE_h[4]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.acc_x_raw =
+    static_cast<real32_T>(Aenea_model_B.DataTypeConversion1_c[0]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.acc_y_raw =
+    static_cast<real32_T>(Aenea_model_B.DataTypeConversion1_c[1]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.acc_z_raw =
+    static_cast<real32_T>(Aenea_model_B.DataTypeConversion1_c[2]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.p_raw = static_cast<
+    real32_T>(Aenea_model_B.DataTypeConversion1_c[3]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.q_raw = static_cast<
+    real32_T>(Aenea_model_B.DataTypeConversion1_c[4]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.r_raw = static_cast<
+    real32_T>(Aenea_model_B.DataTypeConversion1_c[5]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.phi_raw =
+    static_cast<real32_T>(Aenea_model_B.DataTypeConversion1_c[6]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.theta_raw =
+    static_cast<real32_T>(Aenea_model_B.DataTypeConversion1_c[7]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.psi_raw =
+    static_cast<real32_T>(Aenea_model_B.DataTypeConversion1_c[8]);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.v_pitot_raw =
+    static_cast<real32_T>(Aenea_model_B.SFunctionBuilder_o1);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.dist_lidar_raw =
+    0.0F;
 
   // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
-  Aenea_model_B.BusCreator1.single_data.h_baro_raw =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.h_baro_raw =
     Aenea_model_B.SFunctionBuilder_o3_h;
-  Aenea_model_B.BusCreator1.single_data.press_raw =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.press_raw =
     Aenea_model_B.SFunctionBuilder_o2_p;
-  Aenea_model_B.BusCreator1.single_data.temp_raw =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.temp_raw =
     Aenea_model_B.SFunctionBuilder_o1_g;
 
   // End of Outputs for SubSystem: '<S571>/Execution_loop'
-  Aenea_model_B.BusCreator1.single_data.h_baro_filt = static_cast<real32_T>
-    (Aenea_model_B.Alt);
-  Aenea_model_B.BusCreator1.single_data.ias_filt = static_cast<real32_T>
-    (Aenea_model_B.olddi);
-  Aenea_model_B.BusCreator1.single_data.RC_filt = static_cast<real32_T>
-    (Aenea_model_B.vd_K);
-  Aenea_model_B.BusCreator1.single_data.groundspeed_filt = static_cast<real32_T>
-    (Aenea_model_B.v_K);
-  Aenea_model_B.BusCreator1.single_data.heading_filt = static_cast<real32_T>
-    (Aenea_model_B.imbardata);
-  Aenea_model_B.BusCreator1.single_data.dist_lidar_filt = 0.0F;
-  Aenea_model_B.BusCreator1.single_data.dp_raw = static_cast<real32_T>
-    (Aenea_model_B.SFunctionBuilder_o3);
-  Aenea_model_B.BusCreator1.int32_data.dummy3 = 528;
-  Aenea_model_B.BusCreator1.int32_data.dummy4 = -15;
-  Aenea_model_B.BusCreator1.uint32_data.dummy5 = 15U;
-  Aenea_model_B.BusCreator1.uint32_data.dummy6 = 1078U;
-  Aenea_model_B.BusCreator1.int16_data.manual_throttleCmd_pwm =
-    Aenea_model_B.manual_throttleCmd_pwm;
-  Aenea_model_B.BusCreator1.int16_data.manual_elevatorCmd_pwm =
-    Aenea_model_B.manual_elevatorCmd_pwm;
-  Aenea_model_B.BusCreator1.int16_data.manual_aileronCmd_pwm =
-    Aenea_model_B.manual_aileronCmd_pwm;
-  Aenea_model_B.BusCreator1.int16_data.manual_rudderCmd_pwm =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.h_baro_filt =
+    static_cast<real32_T>(Aenea_model_B.Alt);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.ias_filt =
+    static_cast<real32_T>(Aenea_model_B.olddi);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.RC_filt =
+    static_cast<real32_T>(Aenea_model_B.vd_K);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.groundspeed_filt =
+    static_cast<real32_T>(Aenea_model_B.v_K);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.heading_filt =
+    static_cast<real32_T>(Aenea_model_B.imbardata);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.dist_lidar_filt =
+    0.0F;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.dp_raw =
+    static_cast<real32_T>(Aenea_model_B.SFunctionBuilder_o3);
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int32_data.dummy3 = 528;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int32_data.dummy4 = -15;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.uint32_data.dummy5 = 15U;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.uint32_data.dummy6 = 1078U;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.manual_throttleCmd_pwm
+    = Aenea_model_B.manual_throttleCmd_pwm;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.manual_elevatorCmd_pwm
+    = Aenea_model_B.manual_elevatorCmd_pwm;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.manual_aileronCmd_pwm
+    = Aenea_model_B.manual_aileronCmd_pwm;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.manual_rudderCmd_pwm =
     Aenea_model_B.manual_rudderCmd_pwm;
-  Aenea_model_B.BusCreator1.int16_data.throttleCmd_pwm = Aenea_model_B.Sum;
-  Aenea_model_B.BusCreator1.int16_data.elevatorCmd_pwm =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.throttleCmd_pwm =
+    Aenea_model_B.Sum;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.elevatorCmd_pwm =
     Aenea_model_B.elevatorCmd_pwm;
-  Aenea_model_B.BusCreator1.int16_data.aileronCmd_pwm =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.aileronCmd_pwm =
     Aenea_model_B.aileronCmd_pwm;
-  Aenea_model_B.BusCreator1.int16_data.rudderCmd_pwm =
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.rudderCmd_pwm =
     Aenea_model_B.rudderCmd_pwm;
-  Aenea_model_B.BusCreator1.uint16_data.dummy9 = 20U;
-  Aenea_model_B.BusCreator1.uint16_data.dummy10 = 20U;
-  Aenea_model_B.BusCreator1.int8_data.dummy11 = -5;
-  Aenea_model_B.BusCreator1.int8_data.dummy12 = 120;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.uint16_data.dummy9 = 20U;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.uint16_data.dummy10 = 20U;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int8_data.dummy11 = -5;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int8_data.dummy12 = 120;
 
   // DataTypeConversion: '<S607>/Data Type Conversion'
   Aenea_model_B.Sum3 = std::floor(Aenea_model_B.SFunctionBuilder_o6);
@@ -6736,24 +6739,27 @@ void Aenea_model_step(void)
     Aenea_model_B.Sum3 = std::fmod(Aenea_model_B.Sum3, 256.0);
   }
 
-  // BusCreator: '<S2>/Bus Creator1' incorporates:
+  // BusCreator generated from: '<S2>/S-Function Builder' incorporates:
   //   BusCreator: '<S599>/Bus Creator11'
-  //   BusCreator: '<S607>/Bus Creator10'
   //   Constant: '<S599>/Constant24'
   //   Constant: '<S607>/Constant15'
   //   DataTypeConversion: '<S607>/Data Type Conversion'
 
-  Aenea_model_B.BusCreator1.uint8_data.gps_fix = static_cast<uint8_T>
-    (Aenea_model_B.Sum3 < 0.0 ? static_cast<int32_T>(static_cast<uint8_T>(-
-       static_cast<int8_T>(static_cast<uint8_T>(-Aenea_model_B.Sum3)))) :
-     static_cast<int32_T>(static_cast<uint8_T>(Aenea_model_B.Sum3)));
-  Aenea_model_B.BusCreator1.uint8_data.dummy12 = 111U;
-  Aenea_model_B.BusCreator1.bool_data.dummy15 = true;
-  Aenea_model_B.BusCreator1.bool_data.dummy16 = Aenea_model_B.Compare_i;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.uint8_data.gps_fix =
+    static_cast<uint8_T>(Aenea_model_B.Sum3 < 0.0 ? static_cast<int32_T>(
+    static_cast<uint8_T>(-static_cast<int8_T>(static_cast<uint8_T>
+    (-Aenea_model_B.Sum3)))) : static_cast<int32_T>(static_cast<uint8_T>
+    (Aenea_model_B.Sum3)));
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.uint8_data.dummy12 = 111U;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.uint8_data.Base_mode =
+    Aenea_model_B.SFunction_o6;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.bool_data.dummy15 = true;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.bool_data.dummy16 =
+    Aenea_model_B.Compare_i;
 
   // S-Function (Signal_Logger_sfun): '<S2>/S-Function Builder'
-  Signal_Logger_sfun_Outputs_wrapper(&Aenea_model_B.BusCreator1,
-    &Aenea_model_B.Compare_i);
+  Signal_Logger_sfun_Outputs_wrapper
+    (&Aenea_model_B.BusConversion_InsertedFor_SFunc, &Aenea_model_B.Compare_i);
 
   // Switch: '<S609>/FixPt Switch' incorporates:
   //   Constant: '<S608>/FixPt Constant'

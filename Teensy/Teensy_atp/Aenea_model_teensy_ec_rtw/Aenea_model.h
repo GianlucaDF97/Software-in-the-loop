@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.172
+// Model version                  : 1.178
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May  2 16:43:48 2023
+// C/C++ source code generated on : Wed May  3 18:07:54 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -61,7 +61,7 @@ typedef struct {
   real_T b_A[121];
   real_T DataTypeConversion4[42];      // '<S442>/Data Type Conversion4'
   uint8_T buffer[300];                 // '<S3>/MATLAB Function2'
-  BUS_log_t BusCreator1;               // '<S2>/Bus Creator1'
+  BUS_log_t BusConversion_InsertedFor_SFunc;
   real_T In[21];                       // '<S567>/In'
   real_T y[21];                        // '<S560>/MATLAB Function2'
   real_T x_est[18];
@@ -757,6 +757,7 @@ extern "C" {
 //  Block '<S10>/Data Type Conversion7' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion8' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion9' : Eliminate redundant data type conversion
+//  Block '<S607>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S7>/Constant1' : Unused code path elimination
 //  Block '<S7>/Constant2' : Unused code path elimination
 

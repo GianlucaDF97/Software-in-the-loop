@@ -153,4 +153,14 @@ extern "C" void Signal_Logger_sfun_Outputs_wrapper(const BUS_log_t *flightData,
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
  
+/*
+ * Terminate function
+ *
+ */
+extern "C" void Signal_Logger_sfun_Terminate_wrapper(void)
+{
+/* %%%-SFUNWIZ_wrapper_Terminate_Changes_BEGIN --- EDIT HERE TO _END */
+ 
+/* %%%-SFUNWIZ_wrapper_Terminate_Changes_END --- EDIT HERE TO _BEGIN */
+}
  

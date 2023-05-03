@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Wed Apr 19 16:32:48 2023
+ * Created: Wed May 03 18:06:02 2023
  */
 
 #define S_FUNCTION_LEVEL 2
@@ -286,7 +286,7 @@ static void mdlStart(SimStruct *S)
 	DTypeId BUS_uint32_log_tId = ssGetDataTypeId(S, "BUS_uint32_log_t");
 	DTypeId BUS_uint8_log_tId = ssGetDataTypeId(S, "BUS_uint8_log_t");
 
-	busInfoStruct *busInfo = (busInfoStruct *)malloc(98*sizeof(busInfoStruct));
+	busInfoStruct *busInfo = (busInfoStruct *)malloc(100*sizeof(busInfoStruct));
 	if(busInfo==NULL) {
         ssSetErrorStatus(S, "Memory allocation failure");
         return;
@@ -482,14 +482,18 @@ static void mdlStart(SimStruct *S)
 							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint8_log_tId, 1);
 	busInfo[46].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint8"));
 	busInfo[46].numElems = 1;
-	busInfo[47].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 8) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 0);
-	busInfo[47].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "boolean"));
+	busInfo[47].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 7) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_uint8_log_tId, 2);
+	busInfo[47].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "uint8"));
 	busInfo[47].numElems = 1;
 	busInfo[48].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 8) + \
-							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 1);
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 0);
 	busInfo[48].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "boolean"));
 	busInfo[48].numElems = 1;
+	busInfo[49].offset   = dtaGetDataTypeElementOffset(dta, bpath, BUS_log_tId, 8) + \
+							dtaGetDataTypeElementOffset(dta, bpath, BUS_bool_log_tId, 1);
+	busInfo[49].elemSize = dtaGetDataTypeSize(dta, bpath, ssGetDataTypeId(S, "boolean"));
+	busInfo[49].numElems = 1;
 	ssSetUserData(S, busInfo);
 
     Signal_Logger_sfun_Start_wrapper();
@@ -557,8 +561,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 	(void) memcpy(&_flightDataBUS.int8_data.dummy12, flightData + busInfo[44].offset, busInfo[44].elemSize * busInfo[44].numElems);
 	(void) memcpy(&_flightDataBUS.uint8_data.gps_fix, flightData + busInfo[45].offset, busInfo[45].elemSize * busInfo[45].numElems);
 	(void) memcpy(&_flightDataBUS.uint8_data.dummy12, flightData + busInfo[46].offset, busInfo[46].elemSize * busInfo[46].numElems);
-	(void) memcpy(&_flightDataBUS.bool_data.dummy15, flightData + busInfo[47].offset, busInfo[47].elemSize * busInfo[47].numElems);
-	(void) memcpy(&_flightDataBUS.bool_data.dummy16, flightData + busInfo[48].offset, busInfo[48].elemSize * busInfo[48].numElems);
+	(void) memcpy(&_flightDataBUS.uint8_data.Base_mode, flightData + busInfo[47].offset, busInfo[47].elemSize * busInfo[47].numElems);
+	(void) memcpy(&_flightDataBUS.bool_data.dummy15, flightData + busInfo[48].offset, busInfo[48].elemSize * busInfo[48].numElems);
+	(void) memcpy(&_flightDataBUS.bool_data.dummy16, flightData + busInfo[49].offset, busInfo[49].elemSize * busInfo[49].numElems);
 
     Signal_Logger_sfun_Outputs_wrapper(&_flightDataBUS, sec_flag);
 

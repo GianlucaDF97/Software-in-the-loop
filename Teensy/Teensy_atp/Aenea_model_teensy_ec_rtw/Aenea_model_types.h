@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.172
+// Model version                  : 1.178
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May  2 16:43:48 2023
+// C/C++ source code generated on : Wed May  3 18:07:54 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -21,6 +21,17 @@
 #include "rtwtypes.h"
 
 // Model Code Variants
+#ifndef DEFINED_TYPEDEF_FOR_BUS_bool_log_t_
+#define DEFINED_TYPEDEF_FOR_BUS_bool_log_t_
+
+// double data Log bus structure
+typedef struct {
+  boolean_T dummy15;
+  boolean_T dummy16;
+} BUS_bool_log_t;
+
+#endif
+
 #ifndef DEFINED_TYPEDEF_FOR_BUS_double_log_t_
 #define DEFINED_TYPEDEF_FOR_BUS_double_log_t_
 
@@ -32,6 +43,45 @@ typedef struct {
   real_T Lat;
   real_T Long;
 } BUS_double_log_t;
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_BUS_int16_log_t_
+#define DEFINED_TYPEDEF_FOR_BUS_int16_log_t_
+
+// double data Log bus structure
+typedef struct {
+  int16_T manual_throttleCmd_pwm;
+  int16_T manual_elevatorCmd_pwm;
+  int16_T manual_aileronCmd_pwm;
+  int16_T manual_rudderCmd_pwm;
+  int16_T throttleCmd_pwm;
+  int16_T elevatorCmd_pwm;
+  int16_T aileronCmd_pwm;
+  int16_T rudderCmd_pwm;
+} BUS_int16_log_t;
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_BUS_int32_log_t_
+#define DEFINED_TYPEDEF_FOR_BUS_int32_log_t_
+
+// double data Log bus structure
+typedef struct {
+  int32_T dummy3;
+  int32_T dummy4;
+} BUS_int32_log_t;
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_BUS_int8_log_t_
+#define DEFINED_TYPEDEF_FOR_BUS_int8_log_t_
+
+// double data Log bus structure
+typedef struct {
+  int8_T dummy11;
+  int8_T dummy12;
+} BUS_int8_log_t;
 
 #endif
 
@@ -68,14 +118,14 @@ typedef struct {
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_BUS_int32_log_t_
-#define DEFINED_TYPEDEF_FOR_BUS_int32_log_t_
+#ifndef DEFINED_TYPEDEF_FOR_BUS_uint16_log_t_
+#define DEFINED_TYPEDEF_FOR_BUS_uint16_log_t_
 
 // double data Log bus structure
 typedef struct {
-  int32_T dummy3;
-  int32_T dummy4;
-} BUS_int32_log_t;
+  uint16_T dummy9;
+  uint16_T dummy10;
+} BUS_uint16_log_t;
 
 #endif
 
@@ -90,45 +140,6 @@ typedef struct {
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_BUS_int16_log_t_
-#define DEFINED_TYPEDEF_FOR_BUS_int16_log_t_
-
-// double data Log bus structure
-typedef struct {
-  int16_T manual_throttleCmd_pwm;
-  int16_T manual_elevatorCmd_pwm;
-  int16_T manual_aileronCmd_pwm;
-  int16_T manual_rudderCmd_pwm;
-  int16_T throttleCmd_pwm;
-  int16_T elevatorCmd_pwm;
-  int16_T aileronCmd_pwm;
-  int16_T rudderCmd_pwm;
-} BUS_int16_log_t;
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_BUS_uint16_log_t_
-#define DEFINED_TYPEDEF_FOR_BUS_uint16_log_t_
-
-// double data Log bus structure
-typedef struct {
-  uint16_T dummy9;
-  uint16_T dummy10;
-} BUS_uint16_log_t;
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_BUS_int8_log_t_
-#define DEFINED_TYPEDEF_FOR_BUS_int8_log_t_
-
-// double data Log bus structure
-typedef struct {
-  int8_T dummy11;
-  int8_T dummy12;
-} BUS_int8_log_t;
-
-#endif
-
 #ifndef DEFINED_TYPEDEF_FOR_BUS_uint8_log_t_
 #define DEFINED_TYPEDEF_FOR_BUS_uint8_log_t_
 
@@ -136,18 +147,8 @@ typedef struct {
 typedef struct {
   uint8_T gps_fix;
   uint8_T dummy12;
+  uint8_T Base_mode;
 } BUS_uint8_log_t;
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_BUS_bool_log_t_
-#define DEFINED_TYPEDEF_FOR_BUS_bool_log_t_
-
-// double data Log bus structure
-typedef struct {
-  boolean_T dummy15;
-  boolean_T dummy16;
-} BUS_bool_log_t;
 
 #endif
 

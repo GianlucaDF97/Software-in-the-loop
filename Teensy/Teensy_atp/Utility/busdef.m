@@ -693,6 +693,19 @@ elems(end).Max = [];
 elems(end).DocUnits = sprintf('round/s');
 elems(end).Description = sprintf('');
 
+elems(end+1) = Simulink.BusElement;
+elems(end).Name = 'Base_mode';
+elems(end).Dimensions = 1;
+elems(end).DimensionsMode = 'Fixed';
+elems(end).DataType = 'uint8';
+elems(end).SampleTime = -1;
+elems(end).Complexity = 'real';
+elems(end).SamplingMode = 'Sample based';
+elems(end).Min = [];
+elems(end).Max = [];
+elems(end).DocUnits = sprintf('round/s');
+elems(end).Description = sprintf('');
+
 BUS_uint8_log_t = Simulink.Bus;
 BUS_uint8_log_t.Description = sprintf('double data Log bus structure');
 %BUS_log_t.HeaderFile = 'busLog_def.h';

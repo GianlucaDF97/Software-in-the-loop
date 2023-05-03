@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.170
+// Model version                  : 1.172
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed Apr 19 17:44:02 2023
+// C/C++ source code generated on : Tue May  2 16:43:48 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -79,11 +79,9 @@ typedef struct {
   real_T aterra_tmp[9];
   char_T b_data[64];
   char_T sfull[64];
-  int32_T ipiv[11];
-  real32_T ByteReversal[9];            // '<S575>/Byte Reversal'
-  real_T x_new[4];
-  real32_T WP_param[7];                // '<S23>/MATLAB Function'
   real32_T Val_out_MAV[16];            // '<S3>/MATLAB Function1'
+  int32_T ipiv[11];
+  real_T x_new[4];
   real_T aterra[3];
   char_T hex_checksum_data[17];
   real_T In_c[2];                      // '<S467>/In'
@@ -159,7 +157,7 @@ typedef struct {
   real_T Gain_h;                       // '<S33>/Gain'
   real_T Sum5;                         // '<S592>/Sum5'
   real_T Sum_fb;                       // '<S351>/Sum'
-  real_T Saturation_o;                 // '<S349>/Saturation'
+  real_T Saturation;                   // '<S349>/Saturation'
   real_T SwitchBumpless2;              // '<S304>/Switch Bumpless 2'
   real_T Sum3;                         // '<S589>/Sum3'
   real_T Sum3_k;                       // '<S593>/Sum3'
@@ -171,7 +169,6 @@ typedef struct {
   real_T Alt;                          // '<S6>/Switch'
   real_T Sum_fj;                       // '<S438>/Sum'
   real_T V_nord;                       // '<S6>/Multiply2'
-  real_T V_est;                        // '<S6>/Multiply3'
   real_T Sum2_k2;                      // '<S305>/Sum2'
   real_T Switch_j;                     // '<S536>/Switch'
   real_T Abs1_l;                       // '<S527>/Abs1'
@@ -212,14 +209,12 @@ typedef struct {
   real32_T SFunctionBuilder_o1_g;      // '<S578>/S-Function Builder'
   real32_T SFunctionBuilder_o2_p;      // '<S578>/S-Function Builder'
   real32_T SFunctionBuilder_o3_h;      // '<S578>/S-Function Builder'
+  real32_T WP_param[7];                // '<S23>/MATLAB Function'
   real32_T f;
   int32_T SFunctionBuilder_o2_a;       // '<S3>/S-Function Builder'
   int32_T Add;                         // '<S3>/Add'
   int32_T DataTypeConversion_g[4];     // '<S15>/Data Type Conversion'
   uint16_T Memory[8];                  // '<S3>/Memory'
-  uint16_T SFunction_o9[6];            // '<S3>/S-Function'
-  uint16_T SFunction_o11[8];           // '<S3>/S-Function'
-  uint16_T LVDE[8];                    // '<S21>/Data Type Conversion2'
   int32_T srem;
   int32_T b_k;
   int32_T npad;
@@ -237,9 +232,13 @@ typedef struct {
   uint32_T SFunction_o2;               // '<S3>/S-Function'
   uint32_T DataTypeConversion3;        // '<S18>/Data Type Conversion3'
   real32_T ByteUnpack_o2[9];           // '<S575>/Byte Unpack'
+  real32_T ByteReversal[9];            // '<S575>/Byte Reversal'
   uint32_T qY;
   ZCEventType zcEvent;
   uint16_T SFunction_o7[2];            // '<S3>/S-Function'
+  uint16_T SFunction_o9[6];            // '<S3>/S-Function'
+  uint16_T SFunction_o11[8];           // '<S3>/S-Function'
+  uint16_T LVDE[8];                    // '<S21>/Data Type Conversion2'
   uint16_T DataTypeConversion2_p;      // '<S15>/Data Type Conversion2'
   uint16_T Heading[9];                 // '<S19>/Data Type Conversion1'
   uint16_T Memory_o;                   // '<S4>/Memory'
@@ -415,9 +414,8 @@ typedef const struct tag_ConstB_Aenea_model_T {
   real_T USCITAPERCENTUALE;            // '<S22>/USCITA PERCENTUALE'
   real_T Sum3;                         // '<S592>/Sum3'
   real_T Sum1;                         // '<S589>/Sum1'
-  real_T Sum1_i;                       // '<S590>/Sum1'
   real_T Sum1_o;                       // '<S587>/Sum1'
-  real_T Sum1_ie;                      // '<S588>/Sum1'
+  real_T Sum1_i;                       // '<S588>/Sum1'
   real_T Sum2;                         // '<S591>/Sum2'
   real_T Sum1_j;                       // '<S595>/Sum1'
   real_T Sum2_d;                       // '<S596>/Sum2'
@@ -708,6 +706,19 @@ extern "C" {
 //  Block '<S8>/Kp AP rotta' : Unused code path elimination
 //  Block '<S8>/Saturation' : Unused code path elimination
 //  Block '<S8>/n-D Lookup Table' : Unused code path elimination
+//  Block '<S9>/Data Type Conversion16' : Unused code path elimination
+//  Block '<S9>/Data Type Conversion18' : Unused code path elimination
+//  Block '<S9>/Data Type Conversion19' : Unused code path elimination
+//  Block '<S590>/Constant8' : Unused code path elimination
+//  Block '<S590>/Constant9' : Unused code path elimination
+//  Block '<S590>/Divide' : Unused code path elimination
+//  Block '<S590>/Gain' : Unused code path elimination
+//  Block '<S590>/Multiply' : Unused code path elimination
+//  Block '<S590>/Saturation' : Unused code path elimination
+//  Block '<S590>/Sum' : Unused code path elimination
+//  Block '<S590>/Sum1' : Unused code path elimination
+//  Block '<S590>/Sum2' : Unused code path elimination
+//  Block '<S590>/Sum3' : Unused code path elimination
 //  Block '<S598>/Data Type Propagation' : Unused code path elimination
 //  Block '<S608>/FixPt Data Type Duplicate' : Unused code path elimination
 //  Block '<S609>/FixPt Data Type Duplicate1' : Unused code path elimination
@@ -730,8 +741,6 @@ extern "C" {
 //  Block '<S9>/Data Type Conversion10' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion11' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion12' : Eliminate redundant data type conversion
-//  Block '<S9>/Data Type Conversion18' : Eliminate redundant data type conversion
-//  Block '<S9>/Data Type Conversion19' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion20' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion21' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion4' : Eliminate redundant data type conversion
@@ -739,7 +748,6 @@ extern "C" {
 //  Block '<S9>/Data Type Conversion7' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion8' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion9' : Eliminate redundant data type conversion
-//  Block '<S590>/Gain' : Eliminated nontunable gain of 1
 //  Block '<S10>/Data Type Conversion10' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion11' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion3' : Eliminate redundant data type conversion

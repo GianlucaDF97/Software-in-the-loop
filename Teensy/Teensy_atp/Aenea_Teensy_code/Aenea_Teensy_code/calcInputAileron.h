@@ -10,7 +10,7 @@
 #define AILERON_SIGNAL_IN 36 // INTERRUPT 2 = DIGITAL PIN 21 - use the interrupt number in attachInterrupt
 #define AILERON_SIGNAL_IN_PIN 36 // INTERRUPT 2 = DIGITAL PIN 21 - use the PIN number in digitalRead
 #define NEUTRAL_AILERON 1500 // this is the duration in microseconds of neutral throttle on an elect1ric RC Car
-//Le ali hanno il canale 2
+//Le ali hanno il canale 1 e 5
 //L'uscita ha il pin 3
 
 

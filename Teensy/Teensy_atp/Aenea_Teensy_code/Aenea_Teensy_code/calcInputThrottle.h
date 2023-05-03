@@ -10,7 +10,7 @@
 #define THROTTLE_SIGNAL_IN 23 // INTERRUPT 0 = DIGITAL PIN 2 - use the interrupt number in attachInterrupt
 #define THROTTLE_SIGNAL_IN_PIN 23 // INTERRUPT 0 = DIGITAL PIN 2 - use the PIN number in digitalRead
 #define NEUTRAL_THROTTLE 1500 // this is the duration in microseconds of neutral throttle on an elect1ric RC Car
-//Throttle ha il canale 1 (SStat1, ISF1, Out1)
+//Throttle ha il canale 3 (SStat1, ISF1, Out1)
 //L'uscita (out1) ha come uscita il pin 2
 
 extern volatile uint32_t ulStartThrottle; 

@@ -10,7 +10,7 @@
 #define RUDDER_SIGNAL_IN 22 // INTERRUPT 3 = DIGITAL PIN 20 - use the interrupt number in attachInterrupt
 #define RUDDER_SIGNAL_IN_PIN 22 // INTERRUPT 3 = DIGITAL PIN 20 - use the PIN number in digitalRead
 #define NEUTRAL_RUDDER 1500 // this is the duration in microseconds of neutral throttle on an elect1ric RC Car
-//Timone ha il canale 3
+//Timone ha il canale 4
 //L'uscita ha il pin 4
 
 extern volatile uint32_t ulStartRudder; 

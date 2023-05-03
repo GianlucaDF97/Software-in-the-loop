@@ -10,7 +10,7 @@
 #define ELEVATOR_SIGNAL_IN 37 // INTERRUPT 1 = DIGITAL PIN 3 - use the interrupt number in attachInterrupt
 #define ELEVATOR_SIGNAL_IN_PIN 37 // INTERRUPT 1 = DIGITAL PIN 3 - use the PIN number in digitalRead
 #define NEUTRAL_ELEVATOR 1500 // this is the duration in microseconds of neutral throttle on an elect1ric RC Car
-//Equilibratore ha il canale 4 (ISF4, SStat4, Out4)
+//Equilibratore ha il canale 2 
 //L'uscita ha il pin 5
 
 extern volatile uint32_t ulStartElevator; 

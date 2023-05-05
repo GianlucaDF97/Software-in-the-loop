@@ -25,6 +25,7 @@ typedef struct {
 typedef struct {
   uint8_T gps_fix;
   uint8_T dummy12;
+  uint8_T Base_mode;
 } BUS_uint8_log_t;
 #endif
 

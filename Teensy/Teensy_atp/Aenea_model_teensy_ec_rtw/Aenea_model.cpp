@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.178
+// Model version                  : 1.180
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed May  3 18:07:54 2023
+// C/C++ source code generated on : Thu May  4 17:03:13 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -2634,14 +2634,14 @@ void Aenea_model_step(void)
   Aenea_model_B.aterra_tmp[5] = Aenea_model_B.Saturation *
     Aenea_model_B.SwitchBumpless2;
   Aenea_model_B.aterra_tmp[8] = Aenea_model_B.Sum_fb * Aenea_model_B.Saturation;
-  Aenea_model_B.e = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[8];
-  Aenea_model_B.Alettoni = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[9];
-  Aenea_model_B.Sum3_k = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[10];
+  Aenea_model_B.Alettoni = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[8];
+  Aenea_model_B.Sum3_k = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[9];
+  Aenea_model_B.Sum2_k2 = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[10];
   for (Aenea_model_B.npad = 0; Aenea_model_B.npad < 3; Aenea_model_B.npad++) {
     Aenea_model_B.aterra[Aenea_model_B.npad] =
-      Aenea_model_B.aterra_tmp[Aenea_model_B.npad + 6] * Aenea_model_B.Sum3_k +
-      (Aenea_model_B.aterra_tmp[Aenea_model_B.npad + 3] * Aenea_model_B.Alettoni
-       + Aenea_model_B.aterra_tmp[Aenea_model_B.npad] * Aenea_model_B.e);
+      Aenea_model_B.aterra_tmp[Aenea_model_B.npad + 6] * Aenea_model_B.Sum2_k2 +
+      (Aenea_model_B.aterra_tmp[Aenea_model_B.npad + 3] * Aenea_model_B.Sum3_k +
+       Aenea_model_B.aterra_tmp[Aenea_model_B.npad] * Aenea_model_B.Alettoni);
   }
 
   Aenea_model_B.y[0] = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[0];
@@ -2725,19 +2725,19 @@ void Aenea_model_step(void)
       Aenea_model_B.Saturation_a) * 0.0 + (Aenea_model_B.Sum_fb *
       Aenea_model_B.Saturation_a - Aenea_model_B.Alt *
       Aenea_model_B.SwitchBumpless2 * Aenea_model_B.Ato_selector) * 0.0;
-    Aenea_model_B.e = 0.0 * Aenea_model_B.Alt * Aenea_model_B.Saturation;
-    Aenea_model_B.Alettoni = std::cos
+    Aenea_model_B.Alettoni = 0.0 * Aenea_model_B.Alt * Aenea_model_B.Saturation;
+    Aenea_model_B.Sum3_k = std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]) + std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
-    Aenea_model_B.H[113] = Aenea_model_B.e - Aenea_model_B.Alettoni * 0.0;
+    Aenea_model_B.H[113] = Aenea_model_B.Alettoni - Aenea_model_B.Sum3_k * 0.0;
     Aenea_model_B.H[124] = (Aenea_model_B.Sum5 - std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6])) * -0.0 -
-      Aenea_model_B.e;
+      Aenea_model_B.Alettoni;
     Aenea_model_B.H[135] = 0.0;
     Aenea_model_B.H[146] = 0.0;
     Aenea_model_B.H[157] = 0.0;
@@ -2756,18 +2756,18 @@ void Aenea_model_step(void)
     Aenea_model_B.H[103] = (Aenea_model_B.Sum3 - Aenea_model_B.Sum5 *
       Aenea_model_B.Ato_selector) * -0.0 - (Aenea_model_B.Sum3_h *
       Aenea_model_B.Ato_selector + Aenea_model_B.Sum5) * 0.0;
-    Aenea_model_B.e = 0.0 * Aenea_model_B.Saturation *
+    Aenea_model_B.Alettoni = 0.0 * Aenea_model_B.Saturation *
       Aenea_model_B.Saturation_a;
     Aenea_model_B.H[114] = (Aenea_model_B.Sum3 - std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6])) * 0.0 +
-      Aenea_model_B.e;
+      Aenea_model_B.Alettoni;
     Aenea_model_B.H[125] = (std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]) + Aenea_model_B.Sum5) *
-      0.0 - Aenea_model_B.e;
+      0.0 - Aenea_model_B.Alettoni;
     Aenea_model_B.H[136] = 0.0;
     Aenea_model_B.H[147] = 0.0;
     Aenea_model_B.H[158] = 0.0;
@@ -2785,8 +2785,9 @@ void Aenea_model_step(void)
     Aenea_model_B.H[93] = -Aenea_model_B.Ato_selector;
     Aenea_model_B.H[104] = Aenea_model_DW.x_prd[10] * 0.0 +
       Aenea_model_DW.x_prd[11] * 0.0;
-    Aenea_model_B.e = 2.0 * Aenea_model_DW.x_prd[10] * 0.0;
-    Aenea_model_B.H[115] = Aenea_model_DW.x_prd[9] * 0.0 - Aenea_model_B.e;
+    Aenea_model_B.Alettoni = 2.0 * Aenea_model_DW.x_prd[10] * 0.0;
+    Aenea_model_B.H[115] = Aenea_model_DW.x_prd[9] * 0.0 -
+      Aenea_model_B.Alettoni;
     Aenea_model_B.Alt = 2.0 * Aenea_model_DW.x_prd[11] * 0.0;
     Aenea_model_B.H[126] = Aenea_model_DW.x_prd[9] * 0.0 - Aenea_model_B.Alt;
     Aenea_model_B.H[137] = 1.0;
@@ -2833,7 +2834,7 @@ void Aenea_model_step(void)
     Aenea_model_B.H[40] = 0.0;
     Aenea_model_B.H[51] = 0.0;
     Aenea_model_B.H[62] = 0.0;
-    Aenea_model_B.H[73] = Aenea_model_B.Alettoni;
+    Aenea_model_B.H[73] = Aenea_model_B.Sum3_k;
     Aenea_model_B.H[84] = std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
@@ -2843,7 +2844,8 @@ void Aenea_model_step(void)
     Aenea_model_B.H[95] = Aenea_model_B.Sum_fb * Aenea_model_B.Saturation;
     Aenea_model_B.H[106] = Aenea_model_DW.x_prd[11] * 0.0 -
       Aenea_model_B.SwitchBumpless2;
-    Aenea_model_B.H[117] = Aenea_model_DW.x_prd[11] * 0.0 - Aenea_model_B.e;
+    Aenea_model_B.H[117] = Aenea_model_DW.x_prd[11] * 0.0 -
+      Aenea_model_B.Alettoni;
     Aenea_model_B.H[128] = Aenea_model_DW.x_prd[9] * 0.0 + Aenea_model_DW.x_prd
       [10] * 0.0;
     Aenea_model_B.H[139] = 0.0;
@@ -4070,35 +4072,6 @@ void Aenea_model_step(void)
     (Aenea_model_B.manual_aileronCmd_pwm) - 1191.0) / Aenea_model_ConstB.Sum1_o *
     0.87266462599716477 + -0.4014257279586958;
 
-  // Gain: '<S588>/Gain' incorporates:
-  //   Constant: '<S588>/Constant8'
-  //   Constant: '<S588>/Constant9'
-  //   Constant: '<S7>/Constant10'
-  //   DataTypeConversion: '<S9>/Data Type Conversion17'
-  //   Product: '<S588>/Divide'
-  //   Product: '<S588>/Multiply'
-  //   Sum: '<S588>/Sum'
-  //   Sum: '<S588>/Sum2'
-  //   Sum: '<S588>/Sum3'
-
-  Aenea_model_B.Ato_selector = -((static_cast<real_T>
-    (Aenea_model_B.manual_aileronCmd_pwm) - 1191.0) / Aenea_model_ConstB.Sum1_i *
-    1.0471975511965976 + -0.52359877559829882);
-
-  // Saturate: '<S588>/Saturation'
-  if (Aenea_model_B.Ato_selector > 0.52359877559829882) {
-    Aenea_model_B.Ato_selector = 0.52359877559829882;
-  } else {
-    if (Aenea_model_B.Ato_selector < -0.52359877559829882) {
-      Aenea_model_B.Ato_selector = -0.52359877559829882;
-    }
-  }
-
-  // End of Saturate: '<S588>/Saturation'
-
-  // Sum: '<S37>/Sum5'
-  Aenea_model_B.e = Aenea_model_B.Ato_selector - Aenea_model_B.checksum;
-
   // DiscreteIntegrator: '<S392>/Integrator' incorporates:
   //   Constant: '<S305>/Constant3'
   //   Sum: '<S305>/Sum'
@@ -4109,11 +4082,13 @@ void Aenea_model_step(void)
   }
 
   // Sum: '<S401>/Sum' incorporates:
+  //   Constant: '<S37>/Constant1'
   //   DiscreteIntegrator: '<S392>/Integrator'
   //   Product: '<S397>/PProd Out'
+  //   Sum: '<S37>/Sum5'
 
-  Aenea_model_B.Ato_selector = Aenea_model_B.e * 1.1000000238418579 +
-    Aenea_model_DW.Integrator_DSTATE_l;
+  Aenea_model_B.Ato_selector = (0.0 - Aenea_model_B.checksum) *
+    1.1000000238418579 + Aenea_model_DW.Integrator_DSTATE_l;
 
   // Saturate: '<S399>/Saturation'
   if (Aenea_model_B.Ato_selector > 0.47123889803846897) {
@@ -6551,8 +6526,11 @@ void Aenea_model_step(void)
   Aenea_model_B.Gain_dt = Aenea_model_B.Gain_h * 0.00800000037997961 +
     (Aenea_model_B.Abs1_l - Aenea_model_B.Vec_selector);
 
-  // Product: '<S389>/IProd Out'
-  Aenea_model_B.Gain_h = Aenea_model_B.e * 0.25;
+  // Product: '<S389>/IProd Out' incorporates:
+  //   Constant: '<S37>/Constant1'
+  //   Sum: '<S37>/Sum5'
+
+  Aenea_model_B.Gain_h = (0.0 - Aenea_model_B.checksum) * 0.25;
 
   // Sum: '<S404>/SumI1' incorporates:
   //   Sum: '<S403>/SumI3'

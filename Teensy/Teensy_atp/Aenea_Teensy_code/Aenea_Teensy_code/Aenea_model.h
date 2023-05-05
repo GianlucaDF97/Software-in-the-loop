@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.178
+// Model version                  : 1.180
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Wed May  3 18:07:54 2023
+// C/C++ source code generated on : Thu May  4 17:03:13 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -62,7 +62,6 @@ typedef struct {
   real_T DataTypeConversion4[42];      // '<S442>/Data Type Conversion4'
   uint8_T buffer[300];                 // '<S3>/MATLAB Function2'
   BUS_log_t BusConversion_InsertedFor_SFunc;
-  real_T In[21];                       // '<S567>/In'
   real_T y[21];                        // '<S560>/MATLAB Function2'
   real_T x_est[18];
   real_T klm_gain_c[18];
@@ -84,7 +83,6 @@ typedef struct {
   real_T x_new[4];
   real_T aterra[3];
   char_T hex_checksum_data[17];
-  real_T In_c[2];                      // '<S467>/In'
   boolean_T NOT[14];                   // '<S565>/NOT'
   uint16_T WP_info_in[6];
   real_T Lat;                          // '<S574>/S-Function Builder'
@@ -98,6 +96,7 @@ typedef struct {
   real_T SFunctionBuilder_o3;          // '<S576>/S-Function Builder'
   real_T Switch;                       // '<S585>/Switch'
   real_T T;                            // '<S582>/T'
+  real_T In[21];                       // '<S567>/In'
   real_T Lat_K;                        // '<S559>/DEFINITIVA'
   real_T Long_K;                       // '<S559>/DEFINITIVA'
   real_T h_K;                          // '<S559>/DEFINITIVA'
@@ -112,6 +111,7 @@ typedef struct {
   real_T Gain_o;                       // '<S461>/Gain'
   real_T velocita; // '<S442>/Switch di selezione  Task - Waypoint navigation5'
   real_T QUOTA_e;  // '<S442>/Switch di selezione  Task - Waypoint navigation4'
+  real_T In_c[2];                      // '<S467>/In'
   real_T Constant1;                    // '<S457>/Constant1'
   real_T Sum2;                         // '<S457>/Sum2'
   real_T maneuver_selector;            // '<S442>/Chart1'
@@ -161,7 +161,6 @@ typedef struct {
   real_T SwitchBumpless2;              // '<S304>/Switch Bumpless 2'
   real_T Sum3;                         // '<S589>/Sum3'
   real_T Sum3_k;                       // '<S593>/Sum3'
-  real_T e;                            // '<S37>/Sum5'
   real_T Saturation_a;                 // '<S399>/Saturation'
   real_T Sum3_h;                       // '<S587>/Sum3'
   real_T Alettoni;                     // '<S37>/saturatore A'
@@ -415,7 +414,6 @@ typedef const struct tag_ConstB_Aenea_model_T {
   real_T Sum3;                         // '<S592>/Sum3'
   real_T Sum1;                         // '<S589>/Sum1'
   real_T Sum1_o;                       // '<S587>/Sum1'
-  real_T Sum1_i;                       // '<S588>/Sum1'
   real_T Sum2;                         // '<S591>/Sum2'
   real_T Sum1_j;                       // '<S595>/Sum1'
   real_T Sum2_d;                       // '<S596>/Sum2'
@@ -706,9 +704,22 @@ extern "C" {
 //  Block '<S8>/Kp AP rotta' : Unused code path elimination
 //  Block '<S8>/Saturation' : Unused code path elimination
 //  Block '<S8>/n-D Lookup Table' : Unused code path elimination
+//  Block '<S588>/Constant8' : Unused code path elimination
+//  Block '<S588>/Constant9' : Unused code path elimination
+//  Block '<S588>/Divide' : Unused code path elimination
+//  Block '<S588>/Gain' : Unused code path elimination
+//  Block '<S588>/Multiply' : Unused code path elimination
+//  Block '<S588>/Saturation' : Unused code path elimination
+//  Block '<S588>/Sum' : Unused code path elimination
+//  Block '<S588>/Sum1' : Unused code path elimination
+//  Block '<S588>/Sum2' : Unused code path elimination
+//  Block '<S588>/Sum3' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion16' : Unused code path elimination
+//  Block '<S9>/Data Type Conversion17' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion18' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion19' : Unused code path elimination
+//  Block '<S9>/Data Type Conversion20' : Unused code path elimination
+//  Block '<S9>/Data Type Conversion21' : Unused code path elimination
 //  Block '<S590>/Constant8' : Unused code path elimination
 //  Block '<S590>/Constant9' : Unused code path elimination
 //  Block '<S590>/Divide' : Unused code path elimination
@@ -741,8 +752,6 @@ extern "C" {
 //  Block '<S9>/Data Type Conversion10' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion11' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion12' : Eliminate redundant data type conversion
-//  Block '<S9>/Data Type Conversion20' : Eliminate redundant data type conversion
-//  Block '<S9>/Data Type Conversion21' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion4' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion6' : Eliminate redundant data type conversion
 //  Block '<S9>/Data Type Conversion7' : Eliminate redundant data type conversion

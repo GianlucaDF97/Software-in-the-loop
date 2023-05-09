@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.180
+// Model version                  : 1.188
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu May  4 17:03:13 2023
+// C/C++ source code generated on : Mon May  8 19:00:36 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -238,36 +238,6 @@ extern "C" {
 
 #endif
 
-  extern void PWMinterrupt_throttle_sfun_Start_wrapper(void);
-  extern void PWMinterrupt_throttle_sfun_Outputs_wrapper(int16_T *out);
-  extern void PWMinterrupt_throttle_sfun_Terminate_wrapper(void);
-
-#ifdef __cplusplus
-
-}
-#endif
-
-#ifdef __cplusplus
-
-extern "C" {
-
-#endif
-
-  extern void PWMinterrupt_goHome_sfun_Start_wrapper(void);
-  extern void PWMinterrupt_goHome_sfun_Outputs_wrapper(int16_T *out);
-  extern void PWMinterrupt_goHome_sfun_Terminate_wrapper(void);
-
-#ifdef __cplusplus
-
-}
-#endif
-
-#ifdef __cplusplus
-
-extern "C" {
-
-#endif
-
   extern void PWMinterrupt_elevator_sfun_Start_wrapper(void);
   extern void PWMinterrupt_elevator_sfun_Outputs_wrapper(int16_T *out);
   extern void PWMinterrupt_elevator_sfun_Terminate_wrapper(void);
@@ -286,6 +256,36 @@ extern "C" {
   extern void PWMinterrupt_aileron_sfun_Start_wrapper(void);
   extern void PWMinterrupt_aileron_sfun_Outputs_wrapper(int16_T *out);
   extern void PWMinterrupt_aileron_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_throttle_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_throttle_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_throttle_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_goHome_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_goHome_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_goHome_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 
@@ -475,6 +475,11 @@ extern void Aenea_ResettableSubsystem_Reset(DW_ResettableSubsystem_Aenea__T
   *localDW);
 extern void Aenea_model_ResettableSubsystem(uint8_T rtu_Reset, real_T *rty_Time,
   DW_ResettableSubsystem_Aenea__T *localDW, ZCE_ResettableSubsystem_Aenea_T
+  *localZCE);
+extern void Aen_ResettableSubsystem_b_Reset(DW_ResettableSubsystem_Aene_c_T
+  *localDW);
+extern void Aenea_mod_ResettableSubsystem_i(real_T rtu_Reset, real_T *rty_Time,
+  DW_ResettableSubsystem_Aene_c_T *localDW, ZCE_ResettableSubsystem_Aen_h_T
   *localZCE);
 
 #endif                                 // RTW_HEADER_Aenea_model_private_h_

@@ -36,13 +36,13 @@ phi_max = deg2rad(30);
 phi_min = deg2rad(-30);
 %% SEGNALI PWM MAX E MIN
 pwm_throttle_max=1940;
-pwm_throttle_min=1165;
-pwm_elevator_max=2026;
-pwm_elevator_min=1227;
-pwm_aileron_max=1863;
-pwm_aileron_min=1191;
-pwm_rudder_max=1865;
-pwm_rudder_min=1235;
+pwm_throttle_min=1160;
+pwm_elevator_max=1939;
+pwm_elevator_min=1099;
+pwm_aileron_max=1940;
+pwm_aileron_min=1099;
+pwm_rudder_max=1971;
+pwm_rudder_min=1130;
 %% INVERSIONE COMANDI
 inv_T = 1;            % inverti motore
 inv_E = 1;            % inverti equilibratore
@@ -51,11 +51,11 @@ inv_R = 1;            % inverti timone
 inv_comp_h = -1;        % inverti compensazione quota
 %% SEZIONE SAFE
 
-interventoA_05 = 6;
-interventoA_1 = 2;
-interventoE_05 = 7.5;
-interventoE_1 = 3.2;
-interventoT = 0.1;
+interventoA_05 = 25; %6
+interventoA_1 = 20; %2
+interventoE_05 = 20; %7.5
+interventoE_1 = 15; %3.2
+interventoT = 0.1; %0.1
 safe_phi = 55;
 safe_V = 40;
 time_alarm_SAFE = 1;

@@ -100,10 +100,22 @@ while a<=100
         plot(dataLog.manual_rudderCmd_pwm,'b-','Linewidth',1)
         hold off
         title('Timone')
-    
-        elseif a==12
+        
+    elseif a==12
         figure(a)
-        plot(dataLog.Base_mode)    
+        plot(dataLog.Base_mode)
+        
+    elseif a==13
+        figure(a)
+        subplot(3,1,1)
+        plot(dataLog.absA,'b-','Linewidth',1)
+        title('absA')
+        subplot(3,1,2)
+        plot(dataLog.absE,'b-','Linewidth',1)
+        title('absE')
+        subplot(3,1,3)
+        plot(dataLog.absT,'b-','Linewidth',1)
+        title('absT')
         
     end
     n=input(' altrografico si 1 no 0');

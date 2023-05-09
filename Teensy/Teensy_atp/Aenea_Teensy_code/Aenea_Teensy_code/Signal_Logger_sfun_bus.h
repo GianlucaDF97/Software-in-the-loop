@@ -120,6 +120,9 @@ typedef struct {
   real_T Long_raw;
   real_T Lat;
   real_T Long;
+  real_T absE;
+  real_T absA;
+  real_T absT;
 } BUS_double_log_t;
 #endif
 

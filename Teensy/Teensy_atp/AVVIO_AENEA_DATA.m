@@ -21,28 +21,28 @@ V_max = 30;
 
 %% SEZIONE ROTAZIONE SUPERFICI MOBILI
 
-attuatore_Amax = deg2rad(27);
-attuatore_Amin = deg2rad(-23);
-attuatore_Emax = deg2rad(18);
-attuatore_Emin = deg2rad(-32);
-attuatore_Rmax = deg2rad(30);
-attuatore_Rmin = deg2rad(-30);
+attuatore_Amax = deg2rad(25);%27
+attuatore_Amin = deg2rad(-22);%-23
+attuatore_Emax = deg2rad(24);%18
+attuatore_Emin = deg2rad(-23);%-32
+attuatore_Rmax = deg2rad(32);%30
+attuatore_Rmin = deg2rad(-21);%-30
 attuatore_Tmax = 1;
 attuatore_Tmin = 0;
 
-theta_max = deg2rad(15);
-theta_min = deg2rad(-15);
-phi_max = deg2rad(30);
-phi_min = deg2rad(-30);
+theta_max = deg2rad(30);%15
+theta_min = deg2rad(-30);%-15
+phi_max = deg2rad(45);%45
+phi_min = deg2rad(-45);%-45
 %% SEGNALI PWM MAX E MIN
 pwm_throttle_max=1940;
 pwm_throttle_min=1160;
-pwm_elevator_max=1939;
-pwm_elevator_min=1099;
-pwm_aileron_max=1940;
-pwm_aileron_min=1099;
-pwm_rudder_max=1971;
-pwm_rudder_min=1130;
+pwm_elevator_max=1816;
+pwm_elevator_min=1018;
+pwm_aileron_max=1856;
+pwm_aileron_min=1184;
+pwm_rudder_max=1805;
+pwm_rudder_min=1175;
 %% INVERSIONE COMANDI
 inv_T = 1;            % inverti motore
 inv_E = 1;            % inverti equilibratore
@@ -51,11 +51,11 @@ inv_R = 1;            % inverti timone
 inv_comp_h = -1;        % inverti compensazione quota
 %% SEZIONE SAFE
 
-interventoA_05 = 25; %6
-interventoA_1 = 20; %2
-interventoE_05 = 20; %7.5
-interventoE_1 = 15; %3.2
-interventoT = 0.1; %0.1
+interventoA_05 = 7.5; %6//25
+interventoA_1 = 2; %2//20
+interventoE_05 = 7.2; %7.5//20
+interventoE_1 = 3.2; %3.2//15
+interventoT = 0.1; %0.1//0.1
 safe_phi = 55;
 safe_V = 40;
 time_alarm_SAFE = 1;

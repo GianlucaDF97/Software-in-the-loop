@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.188
+// Model version                  : 1.191
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Mon May  8 19:00:36 2023
+// C/C++ source code generated on : Tue May  9 15:16:36 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -2351,8 +2351,8 @@ void Aenea_model_step(void)
   //   Sum: '<S589>/Sum2'
 
   Aenea_model_B.Sum3 = (static_cast<real_T>(Aenea_model_B.manual_elevatorCmd_pwm)
-                        - 1099.0) / Aenea_model_ConstB.Sum1 *
-    0.87266462599716477 + -0.55850536063818546;
+                        - 1018.0) / Aenea_model_ConstB.Sum1 *
+    0.82030474843733492 + -0.4014257279586958;
 
   // Switch: '<S38>/Switch1' incorporates:
   //   Abs: '<S418>/Abs'
@@ -2381,8 +2381,8 @@ void Aenea_model_step(void)
   //   Sum: '<S587>/Sum2'
 
   Aenea_model_B.Sum3_h = (static_cast<real_T>
-    (Aenea_model_B.manual_aileronCmd_pwm) - 1099.0) / Aenea_model_ConstB.Sum1_o *
-    0.87266462599716477 + -0.4014257279586958;
+    (Aenea_model_B.manual_aileronCmd_pwm) - 1184.0) / Aenea_model_ConstB.Sum1_o *
+    0.82030474843733492 + -0.38397243543875248;
 
   // Gain: '<S416>/Gain' incorporates:
   //   Abs: '<S418>/Abs1'
@@ -2419,19 +2419,19 @@ void Aenea_model_step(void)
   }
 
   if (Aenea_model_DW.Memory2_PreviousInput_d[1] == 1) {
-    if ((Aenea_model_B.Switch1 > 15.0) && (Aenea_model_B.Switch1 < 20.0)) {
+    if ((Aenea_model_B.Switch1 > 3.2) && (Aenea_model_B.Switch1 < 7.2)) {
       Aenea_model_B.idx = 1;
       Aenea_model_B.b_k = 0;
       Aenea_model_B.npad = 1;
-    } else if (Aenea_model_B.Switch1 > 20.0) {
+    } else if (Aenea_model_B.Switch1 > 7.2) {
       Aenea_model_B.idx = 0;
       Aenea_model_B.b_k = 1;
       Aenea_model_B.npad = 0;
-    } else if ((Aenea_model_B.Gain_e > 20.0) && (Aenea_model_B.Gain_e < 25.0)) {
+    } else if ((Aenea_model_B.Gain_e > 2.0) && (Aenea_model_B.Gain_e < 7.5)) {
       Aenea_model_B.idx = 1;
       Aenea_model_B.b_k = 0;
       Aenea_model_B.npad = 1;
-    } else if (Aenea_model_B.Gain_e > 25.0) {
+    } else if (Aenea_model_B.Gain_e > 7.5) {
       Aenea_model_B.idx = 0;
       Aenea_model_B.b_k = 1;
       Aenea_model_B.npad = 0;
@@ -3869,10 +3869,10 @@ void Aenea_model_step(void)
     Aenea_model_DW.Integrator_DSTATE;
 
   // Saturate: '<S349>/Saturation'
-  if (Aenea_model_B.Switch_a_p > 0.31415926535897931) {
-    Aenea_model_B.Saturation = 0.31415926535897931;
-  } else if (Aenea_model_B.Switch_a_p < -0.55850536063818546) {
-    Aenea_model_B.Saturation = -0.55850536063818546;
+  if (Aenea_model_B.Switch_a_p > 0.41887902047863912) {
+    Aenea_model_B.Saturation = 0.41887902047863912;
+  } else if (Aenea_model_B.Switch_a_p < -0.4014257279586958) {
+    Aenea_model_B.Saturation = -0.4014257279586958;
   } else {
     Aenea_model_B.Saturation = Aenea_model_B.Switch_a_p;
   }
@@ -4268,11 +4268,11 @@ void Aenea_model_step(void)
       Aenea_model_B.Equilibratore_n) - Aenea_model_B.a_b;
 
     // Saturate: '<S304>/saturatore E2'
-    if (Aenea_model_B.Equilibratore_n > 0.31415926535897931) {
-      Aenea_model_B.Equilibratore_n = 0.31415926535897931;
+    if (Aenea_model_B.Equilibratore_n > 0.41887902047863912) {
+      Aenea_model_B.Equilibratore_n = 0.41887902047863912;
     } else {
-      if (Aenea_model_B.Equilibratore_n < -0.55850536063818546) {
-        Aenea_model_B.Equilibratore_n = -0.55850536063818546;
+      if (Aenea_model_B.Equilibratore_n < -0.4014257279586958) {
+        Aenea_model_B.Equilibratore_n = -0.4014257279586958;
       }
     }
 
@@ -4307,10 +4307,10 @@ void Aenea_model_step(void)
     1.1000000238418579 + Aenea_model_DW.Integrator_DSTATE_l;
 
   // Saturate: '<S399>/Saturation'
-  if (Aenea_model_B.Ato_selector > 0.47123889803846897) {
-    Aenea_model_B.Saturation_a = 0.47123889803846897;
-  } else if (Aenea_model_B.Ato_selector < -0.4014257279586958) {
-    Aenea_model_B.Saturation_a = -0.4014257279586958;
+  if (Aenea_model_B.Ato_selector > 0.43633231299858238) {
+    Aenea_model_B.Saturation_a = 0.43633231299858238;
+  } else if (Aenea_model_B.Ato_selector < -0.38397243543875248) {
+    Aenea_model_B.Saturation_a = -0.38397243543875248;
   } else {
     Aenea_model_B.Saturation_a = Aenea_model_B.Ato_selector;
   }
@@ -4337,12 +4337,12 @@ void Aenea_model_step(void)
 
   if (static_cast<int32_T>(Aenea_model_B.switch_alettoni) == 0) {
     Aenea_model_B.Sum3_k = Aenea_model_B.Sum3_h;
-  } else if (Aenea_model_B.Sum2_k2 > 0.47123889803846897) {
+  } else if (Aenea_model_B.Sum2_k2 > 0.43633231299858238) {
     // Saturate: '<S37>/saturatore A1'
-    Aenea_model_B.Sum3_k = 0.47123889803846897;
-  } else if (Aenea_model_B.Sum2_k2 < -0.4014257279586958) {
+    Aenea_model_B.Sum3_k = 0.43633231299858238;
+  } else if (Aenea_model_B.Sum2_k2 < -0.38397243543875248) {
     // Saturate: '<S37>/saturatore A1'
-    Aenea_model_B.Sum3_k = -0.4014257279586958;
+    Aenea_model_B.Sum3_k = -0.38397243543875248;
   } else {
     // Saturate: '<S37>/saturatore A1'
     Aenea_model_B.Sum3_k = Aenea_model_B.Sum2_k2;
@@ -4351,10 +4351,10 @@ void Aenea_model_step(void)
   // End of MultiPortSwitch: '<S37>/Switch Bumpless 3'
 
   // Saturate: '<S37>/saturatore A'
-  if (Aenea_model_B.Sum3_k > 0.47123889803846897) {
-    Aenea_model_B.Alettoni = 0.47123889803846897;
-  } else if (Aenea_model_B.Sum3_k < -0.4014257279586958) {
-    Aenea_model_B.Alettoni = -0.4014257279586958;
+  if (Aenea_model_B.Sum3_k > 0.43633231299858238) {
+    Aenea_model_B.Alettoni = 0.43633231299858238;
+  } else if (Aenea_model_B.Sum3_k < -0.38397243543875248) {
+    Aenea_model_B.Alettoni = -0.38397243543875248;
   } else {
     Aenea_model_B.Alettoni = Aenea_model_B.Sum3_k;
   }
@@ -4392,8 +4392,8 @@ void Aenea_model_step(void)
   //   Sum: '<S591>/Sum3'
 
   Aenea_model_B.Sum4_b = (static_cast<real_T>(Aenea_model_B.manual_rudderCmd_pwm)
-    - 1130.0) / Aenea_model_ConstB.Sum2 * 1.0471975511965976 +
-    -0.52359877559829882;
+    - 1175.0) / Aenea_model_ConstB.Sum2 * 0.92502450355699462 +
+    -0.36651914291880922;
 
   // DiscreteTransferFcn: '<S306>/Discrete Washout Filter'
   Aenea_model_B.aterra_tmp_tmp = Aenea_model_B.DataTypeConversion1_c[5] - -0.995
@@ -4425,11 +4425,11 @@ void Aenea_model_step(void)
     }
 
     // Saturate: '<S37>/saturatore R'
-    if (Aenea_model_B.Sum2_k2 > 0.52359877559829882) {
-      Aenea_model_B.Sum2_k2 = 0.52359877559829882;
+    if (Aenea_model_B.Sum2_k2 > 0.55850536063818546) {
+      Aenea_model_B.Sum2_k2 = 0.55850536063818546;
     } else {
-      if (Aenea_model_B.Sum2_k2 < -0.52359877559829882) {
-        Aenea_model_B.Sum2_k2 = -0.52359877559829882;
+      if (Aenea_model_B.Sum2_k2 < -0.36651914291880922) {
+        Aenea_model_B.Sum2_k2 = -0.36651914291880922;
       }
     }
 
@@ -6585,8 +6585,8 @@ void Aenea_model_step(void)
   //   Sum: '<S596>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Equilibratore_n -
-    -0.55850536063818546) / 0.87266462599716477 * Aenea_model_ConstB.Sum2_d +
-    1099.0);
+    -0.4014257279586958) / 0.82030474843733492 * Aenea_model_ConstB.Sum2_d +
+    1018.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6613,8 +6613,8 @@ void Aenea_model_step(void)
   //   Sum: '<S593>/Sum1'
   //   Sum: '<S593>/Sum3'
 
-  Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum3_k - -0.4014257279586958) /
-    0.87266462599716477 * Aenea_model_ConstB.Sum2_a + 1099.0);
+  Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum3_k - -0.38397243543875248) /
+    0.82030474843733492 * Aenea_model_ConstB.Sum2_a + 1184.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {
@@ -6641,8 +6641,8 @@ void Aenea_model_step(void)
   //   Sum: '<S594>/Sum1'
   //   Sum: '<S594>/Sum3'
 
-  Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum2_k2 - -0.52359877559829882) /
-    1.0471975511965976 * Aenea_model_ConstB.Sum2_g + 1130.0);
+  Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum2_k2 - -0.36651914291880922) /
+    0.92502450355699462 * Aenea_model_ConstB.Sum2_g + 1175.0);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
     Aenea_model_B.a_b = 0.0;
   } else {

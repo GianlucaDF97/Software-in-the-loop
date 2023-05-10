@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.191
+// Model version                  : 1.200
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May  9 15:16:36 2023
+// C/C++ source code generated on : Tue May  9 18:49:14 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -253,21 +253,6 @@ extern "C" {
 
 #endif
 
-  extern void PWMinterrupt_aileron_sfun_Start_wrapper(void);
-  extern void PWMinterrupt_aileron_sfun_Outputs_wrapper(int16_T *out);
-  extern void PWMinterrupt_aileron_sfun_Terminate_wrapper(void);
-
-#ifdef __cplusplus
-
-}
-#endif
-
-#ifdef __cplusplus
-
-extern "C" {
-
-#endif
-
   extern void PWMinterrupt_throttle_sfun_Start_wrapper(void);
   extern void PWMinterrupt_throttle_sfun_Outputs_wrapper(int16_T *out);
   extern void PWMinterrupt_throttle_sfun_Terminate_wrapper(void);
@@ -283,9 +268,9 @@ extern "C" {
 
 #endif
 
-  extern void PWMinterrupt_goHome_sfun_Start_wrapper(void);
-  extern void PWMinterrupt_goHome_sfun_Outputs_wrapper(int16_T *out);
-  extern void PWMinterrupt_goHome_sfun_Terminate_wrapper(void);
+  extern void PWMinterrupt_aileron_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_aileron_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_aileron_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 
@@ -371,6 +356,21 @@ extern "C" {
   extern void enable_sfun_Outputs_wrapper(const uint8_T *u0,
     uint8_T *y0);
   extern void enable_sfun_Terminate_wrapper(void);
+
+#ifdef __cplusplus
+
+}
+#endif
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
+
+  extern void PWMinterrupt_goHome_sfun_Start_wrapper(void);
+  extern void PWMinterrupt_goHome_sfun_Outputs_wrapper(int16_T *out);
+  extern void PWMinterrupt_goHome_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 
@@ -476,11 +476,19 @@ extern void Aenea_ResettableSubsystem_Reset(DW_ResettableSubsystem_Aenea__T
 extern void Aenea_model_ResettableSubsystem(uint8_T rtu_Reset, real_T *rty_Time,
   DW_ResettableSubsystem_Aenea__T *localDW, ZCE_ResettableSubsystem_Aenea_T
   *localZCE);
+extern void Aenea_model_Enabled_Disable(real_T *rty_Alarm_Int,
+  DW_Enabled_Aenea_model_T *localDW);
+extern void Aenea_model_Enabled(real_T rtu_Enable, real_T rtu_Time, real_T
+  *rty_Alarm_Int, DW_Enabled_Aenea_model_T *localDW);
 extern void Aen_ResettableSubsystem_b_Reset(DW_ResettableSubsystem_Aene_c_T
   *localDW);
 extern void Aenea_mod_ResettableSubsystem_i(real_T rtu_Reset, real_T *rty_Time,
   DW_ResettableSubsystem_Aene_c_T *localDW, ZCE_ResettableSubsystem_Aen_h_T
   *localZCE);
+extern void Aenea_model_Enabled_o_Disable(real_T *rty_Alarm_Int,
+  DW_Enabled_Aenea_model_d_T *localDW);
+extern void Aenea_model_Enabled_o(real_T rtu_Enable, real_T rtu_Time, real_T
+  *rty_Alarm_Int, DW_Enabled_Aenea_model_d_T *localDW);
 
 #endif                                 // RTW_HEADER_Aenea_model_private_h_
 

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.191
+// Model version                  : 1.200
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May  9 15:16:36 2023
+// C/C++ source code generated on : Tue May  9 18:49:14 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -41,7 +41,7 @@
 
 // Block states (default storage) for system '<S410>/Resettable Subsystem'
 typedef struct {
-  real_T Memory_PreviousInput;         // '<S421>/Memory'
+  real_T Memory_PreviousInput;         // '<S422>/Memory'
 } DW_ResettableSubsystem_Aenea__T;
 
 // Zero-crossing (trigger) state for system '<S410>/Resettable Subsystem'
@@ -49,15 +49,25 @@ typedef struct {
   ZCSigState ResettableSubsystem_Reset_ZCE_k;// '<S410>/Resettable Subsystem'
 } ZCE_ResettableSubsystem_Aenea_T;
 
-// Block states (default storage) for system '<S425>/Resettable Subsystem'
+// Block states (default storage) for system '<S426>/Enabled '
 typedef struct {
-  real_T Memory_PreviousInput;         // '<S430>/Memory'
+  boolean_T Enabled_MODE;              // '<S426>/Enabled '
+} DW_Enabled_Aenea_model_T;
+
+// Block states (default storage) for system '<S426>/Resettable Subsystem'
+typedef struct {
+  real_T Memory_PreviousInput;         // '<S431>/Memory'
 } DW_ResettableSubsystem_Aene_c_T;
 
-// Zero-crossing (trigger) state for system '<S425>/Resettable Subsystem'
+// Zero-crossing (trigger) state for system '<S426>/Resettable Subsystem'
 typedef struct {
-  ZCSigState ResettableSubsystem_Reset_ZCE;// '<S425>/Resettable Subsystem'
+  ZCSigState ResettableSubsystem_Reset_ZCE;// '<S426>/Resettable Subsystem'
 } ZCE_ResettableSubsystem_Aen_h_T;
+
+// Block states (default storage) for system '<S427>/Enabled '
+typedef struct {
+  boolean_T Enabled_MODE;              // '<S427>/Enabled '
+} DW_Enabled_Aenea_model_d_T;
 
 // Block signals (default storage)
 typedef struct {
@@ -69,10 +79,10 @@ typedef struct {
   real_T ab[198];
   real_T S[121];
   real_T b_A[121];
-  real_T DataTypeConversion4[42];      // '<S442>/Data Type Conversion4'
+  real_T DataTypeConversion4[42];      // '<S452>/Data Type Conversion4'
   uint8_T buffer[300];                 // '<S3>/MATLAB Function2'
   BUS_log_t BusConversion_InsertedFor_SFunc;
-  real_T y[21];                        // '<S560>/MATLAB Function2'
+  real_T y[21];                        // '<S570>/MATLAB Function2'
   real_T x_est[18];
   real_T klm_gain_c[18];
   real_T a[16];
@@ -81,9 +91,9 @@ typedef struct {
   uint8_T messaggio[100];              // '<S3>/MATLAB Function4'
   uint8_T messaggio_2[100];            // '<S3>/MATLAB Function4'
   boolean_T x[100];
-  real_T residui[11];                  // '<S559>/DEFINITIVA'
+  real_T residui[11];                  // '<S569>/DEFINITIVA'
   real_T dv1[11];
-  real_T UnitDelay[9];                 // '<S575>/Unit Delay'
+  real_T UnitDelay[9];                 // '<S585>/Unit Delay'
   real_T DataTypeConversion1_c[9];     // '<S7>/Data Type Conversion1'
   real_T aterra_tmp[9];
   char_T b_data[64];
@@ -92,63 +102,65 @@ typedef struct {
   real_T x_new[4];
   real_T aterra[3];
   char_T hex_checksum_data[17];
-  boolean_T NOT[14];                   // '<S565>/NOT'
+  boolean_T NOT[14];                   // '<S575>/NOT'
   uint16_T WP_info_in[6];
-  real_T Lat;                          // '<S574>/S-Function Builder'
-  real_T Long;                         // '<S574>/S-Function Builder'
-  real_T V;                            // '<S574>/S-Function Builder'
-  real_T quota;                        // '<S574>/S-Function Builder'
-  real_T heading;                      // '<S574>/S-Function Builder'
-  real_T SFunctionBuilder_o6;          // '<S574>/S-Function Builder'
-  real_T SFunctionBuilder_o1;          // '<S576>/S-Function Builder'
-  real_T SFunctionBuilder_o2;          // '<S576>/S-Function Builder'
-  real_T SFunctionBuilder_o3;          // '<S576>/S-Function Builder'
-  real_T Switch;                       // '<S585>/Switch'
-  real_T T;                            // '<S582>/T'
-  real_T In[21];                       // '<S567>/In'
-  real_T Lat_K;                        // '<S559>/DEFINITIVA'
-  real_T Long_K;                       // '<S559>/DEFINITIVA'
-  real_T h_K;                          // '<S559>/DEFINITIVA'
-  real_T vd_K;                         // '<S559>/DEFINITIVA'
-  real_T v_K;                          // '<S559>/DEFINITIVA'
-  real_T imbardata;                    // '<S559>/DEFINITIVA'
-  real_T V_goHome;                     // '<S444>/GO_HOME'
-  real_T h_goHome;                     // '<S444>/GO_HOME'
-  real_T VELOCITA;                     // '<S443>/saturatore V'
-  real_T QUOTA;                        // '<S443>/WAYPOINTS'
-  real_T Gain;                         // '<S460>/Gain'
-  real_T Gain_o;                       // '<S461>/Gain'
-  real_T velocita; // '<S442>/Switch di selezione  Task - Waypoint navigation5'
-  real_T QUOTA_e;  // '<S442>/Switch di selezione  Task - Waypoint navigation4'
-  real_T In_c[2];                      // '<S467>/In'
-  real_T Constant1;                    // '<S457>/Constant1'
-  real_T Sum2;                         // '<S457>/Sum2'
-  real_T maneuver_selector;            // '<S442>/Chart1'
-  real_T trig_approach;                // '<S442>/Chart1'
-  real_T trig_flare;                   // '<S442>/Chart1'
-  real_T approach_selector;            // '<S442>/Chart1'
-  real_T h_Home;                       // '<S442>/CALIBRATING_HOME_COORDINATES'
-  real_T Multiply;                     // '<S453>/Multiply'
-  real_T Constant1_h;                  // '<S453>/Constant1'
-  real_T x_f_out;                      // '<S453>/MATLAB Function'
-  real_T h_f_out;                      // '<S453>/MATLAB Function'
-  real_T k_x_out;                      // '<S453>/MATLAB Function'
-  real_T h_c_out;                      // '<S453>/MATLAB Function'
-  real_T no_solution;                  // '<S453>/MATLAB Function'
-  real_T V_vett;                       // '<S441>/VETTORIALE'
-  real_T h_vett;                       // '<S441>/VETTORIALE'
-  real_T Fase_ATO;                     // '<S440>/Chart1'
-  real_T manetta_ref;                  // '<S440>/Chart1'
-  real_T eq_rot;                       // '<S440>/Chart1'
-  real_T h_ref;                        // '<S440>/Chart1'
-  real_T Tas_ref;                      // '<S440>/Chart1'
-  real_T psi_ref_selector;             // '<S440>/Chart1'
-  real_T theta_ground_selector;        // '<S440>/Chart1'
-  real_T Switch_e;                     // '<S436>/Switch'
-  real_T Switch_d;                     // '<S431>/Switch'
-  real_T Switch_m;                     // '<S428>/Switch'
-  real_T Switch_a;                     // '<S422>/Switch'
-  real_T Switch_k;                     // '<S419>/Switch'
+  real_T Lat;                          // '<S584>/S-Function Builder'
+  real_T Long;                         // '<S584>/S-Function Builder'
+  real_T V;                            // '<S584>/S-Function Builder'
+  real_T quota;                        // '<S584>/S-Function Builder'
+  real_T heading;                      // '<S584>/S-Function Builder'
+  real_T SFunctionBuilder_o6;          // '<S584>/S-Function Builder'
+  real_T SFunctionBuilder_o1;          // '<S586>/S-Function Builder'
+  real_T SFunctionBuilder_o2;          // '<S586>/S-Function Builder'
+  real_T SFunctionBuilder_o3;          // '<S586>/S-Function Builder'
+  real_T Switch;                       // '<S595>/Switch'
+  real_T T;                            // '<S592>/T'
+  real_T In[21];                       // '<S577>/In'
+  real_T Lat_K;                        // '<S569>/DEFINITIVA'
+  real_T Long_K;                       // '<S569>/DEFINITIVA'
+  real_T h_K;                          // '<S569>/DEFINITIVA'
+  real_T vd_K;                         // '<S569>/DEFINITIVA'
+  real_T v_K;                          // '<S569>/DEFINITIVA'
+  real_T imbardata;                    // '<S569>/DEFINITIVA'
+  real_T V_goHome;                     // '<S454>/GO_HOME'
+  real_T h_goHome;                     // '<S454>/GO_HOME'
+  real_T VELOCITA;                     // '<S453>/saturatore V'
+  real_T QUOTA;                        // '<S453>/WAYPOINTS'
+  real_T Gain;                         // '<S470>/Gain'
+  real_T Gain_o;                       // '<S471>/Gain'
+  real_T velocita; // '<S452>/Switch di selezione  Task - Waypoint navigation5'
+  real_T QUOTA_e;  // '<S452>/Switch di selezione  Task - Waypoint navigation4'
+  real_T In_c[2];                      // '<S477>/In'
+  real_T Constant1;                    // '<S467>/Constant1'
+  real_T Sum2;                         // '<S467>/Sum2'
+  real_T maneuver_selector;            // '<S452>/Chart1'
+  real_T trig_approach;                // '<S452>/Chart1'
+  real_T trig_flare;                   // '<S452>/Chart1'
+  real_T approach_selector;            // '<S452>/Chart1'
+  real_T h_Home;                       // '<S452>/CALIBRATING_HOME_COORDINATES'
+  real_T Multiply;                     // '<S463>/Multiply'
+  real_T Constant1_h;                  // '<S463>/Constant1'
+  real_T x_f_out;                      // '<S463>/MATLAB Function'
+  real_T h_f_out;                      // '<S463>/MATLAB Function'
+  real_T k_x_out;                      // '<S463>/MATLAB Function'
+  real_T h_c_out;                      // '<S463>/MATLAB Function'
+  real_T no_solution;                  // '<S463>/MATLAB Function'
+  real_T V_vett;                       // '<S451>/VETTORIALE'
+  real_T h_vett;                       // '<S451>/VETTORIALE'
+  real_T Fase_ATO;                     // '<S450>/Chart1'
+  real_T manetta_ref;                  // '<S450>/Chart1'
+  real_T eq_rot;                       // '<S450>/Chart1'
+  real_T h_ref;                        // '<S450>/Chart1'
+  real_T Tas_ref;                      // '<S450>/Chart1'
+  real_T psi_ref_selector;             // '<S450>/Chart1'
+  real_T theta_ground_selector;        // '<S450>/Chart1'
+  real_T Switch_n;                     // '<S446>/Switch'
+  real_T Switch_l;                     // '<S443>/Switch'
+  real_T Switch_e;                     // '<S437>/Switch'
+  real_T Switch_d;                     // '<S432>/Switch'
+  real_T Switch_m;                     // '<S429>/Switch'
+  real_T Switch_a;                     // '<S423>/Switch'
+  real_T Switch_k;                     // '<S420>/Switch'
   real_T switch_manetta;               // '<S38>/ STATI'
   real_T switch_equilibratore;         // '<S38>/ STATI'
   real_T switch_alettoni;              // '<S38>/ STATI'
@@ -161,35 +173,35 @@ typedef struct {
   real_T a_b;
   real_T dist;
   real_T dist_fut;
-  real_T Sum_l;                        // '<S561>/Sum'
+  real_T Sum_l;                        // '<S571>/Sum'
   real_T e_d;                          // '<S37>/Sum2'
-  real_T Sum3_h;                       // '<S587>/Sum3'
-  real_T Gain_e;                       // '<S416>/Gain'
-  real_T Sum5;                         // '<S592>/Sum5'
+  real_T Sum5;                         // '<S602>/Sum5'
   real_T abs_ManualThrottle;           // '<S418>/Abs3'
-  real_T Gain1_o;                      // '<S554>/Gain1'
-  real_T Gain1_i;                      // '<S555>/Gain1'
-  real_T Gain1_i0;                     // '<S556>/Gain1'
+  real_T Gain1_o;                      // '<S564>/Gain1'
+  real_T Gain1_i;                      // '<S565>/Gain1'
+  real_T Gain1_i0;                     // '<S566>/Gain1'
   real_T Gain_h;                       // '<S33>/Gain'
-  real_T Saturation;                   // '<S349>/Saturation'
+  real_T Sum3_h;                       // '<S597>/Sum3'
+  real_T Gain_e;                       // '<S416>/Gain'
   real_T SwitchBumpless2;              // '<S304>/Switch Bumpless 2'
-  real_T Sum3;                         // '<S589>/Sum3'
+  real_T Sum3;                         // '<S599>/Sum3'
   real_T Equilibratore_n;              // '<S37>/Switch Bumpless 1'
-  real_T Sum3_k;                       // '<S593>/Sum3'
+  real_T Sum3_k;                       // '<S603>/Sum3'
   real_T Saturation_a;                 // '<S399>/Saturation'
   real_T Alettoni;                     // '<S37>/saturatore A'
-  real_T Sum4_b;                       // '<S591>/Sum4'
-  real_T Product1;                     // '<S561>/Product1'
-  real_T Gain_dt;                      // '<S611>/Gain'
+  real_T Sum4_b;                       // '<S601>/Sum4'
+  real_T Product1;                     // '<S571>/Product1'
+  real_T Gain_dt;                      // '<S621>/Gain'
   real_T Alt;                          // '<S6>/Switch'
   real_T Switch1;                      // '<S38>/Switch1'
   real_T Switch_a_p;                   // '<S412>/Switch'
   real_T V_nord;                       // '<S6>/Multiply2'
+  real_T Switch_d_c;                   // '<S419>/Switch'
   real_T Sum2_k2;                      // '<S305>/Sum2'
-  real_T Switch_j;                     // '<S536>/Switch'
-  real_T Abs1_l;                       // '<S527>/Abs1'
-  real_T Sum_h;                        // '<S524>/Sum'
-  real_T Gain_hh;                      // '<S465>/Gain'
+  real_T Switch_j;                     // '<S546>/Switch'
+  real_T Abs1;                         // '<S543>/Abs1'
+  real_T Abs1_l;                       // '<S537>/Abs1'
+  real_T Gain_hh;                      // '<S475>/Gain'
   real_T Switch1_g;                    // '<S27>/Switch1'
   real_T Ato_selector;
   real_T Al_selector;
@@ -203,16 +215,17 @@ typedef struct {
   real_T psi_ref_tmp;
   real_T temp;
   real_T smax;
-  real_T y_c;
+  real_T y_f;
   real_T Y_tmp;
-  real_T Y_tmp_f;
   real_T Y_tmp_g;
   real_T Y_tmp_g1;
   real_T Y_tmp_m;
   real_T Y_tmp_n;
+  real_T Y_tmp_p;
   int8_T p[4];
-  int8_T ipiv_p[4];
-  real32_T SFunctionBuilder_o3_h;      // '<S578>/S-Function Builder'
+  int8_T ipiv_l[4];
+  real32_T SFunctionBuilder_o2_p;      // '<S588>/S-Function Builder'
+  real32_T SFunctionBuilder_o3_h;      // '<S588>/S-Function Builder'
   real32_T WP_param[7];                // '<S23>/MATLAB Function'
   real32_T Val_out_MAV[16];            // '<S3>/MATLAB Function1'
   real32_T f;
@@ -220,8 +233,10 @@ typedef struct {
   int32_T Add;                         // '<S3>/Add'
   int32_T DataTypeConversion_g[4];     // '<S15>/Data Type Conversion'
   uint16_T Memory[8];                  // '<S3>/Memory'
+  uint16_T SFunction_o9[6];            // '<S3>/S-Function'
   uint16_T SFunction_o11[8];           // '<S3>/S-Function'
   uint16_T LVDE[8];                    // '<S21>/Data Type Conversion2'
+  uint16_T Heading[9];                 // '<S19>/Data Type Conversion1'
   int32_T srem;
   int32_T b_k;
   int32_T npad;
@@ -233,13 +248,13 @@ typedef struct {
   int32_T c_ix;
   int32_T ijA;
   int32_T i;
-  int32_T i_l;
+  int32_T i_j;
   int32_T j;
   int32_T jBcol;
   uint32_T SFunction_o2;               // '<S3>/S-Function'
   uint32_T DataTypeConversion3;        // '<S18>/Data Type Conversion3'
-  real32_T ByteUnpack_o2[9];           // '<S575>/Byte Unpack'
-  real32_T ByteReversal[9];            // '<S575>/Byte Reversal'
+  real32_T ByteUnpack_o2[9];           // '<S585>/Byte Unpack'
+  real32_T ByteReversal[9];            // '<S585>/Byte Reversal'
   real32_T SFunction_o8;               // '<S3>/S-Function'
   real32_T SFunction_o10[7];           // '<S3>/S-Function'
   real32_T SFunction_o13;              // '<S3>/S-Function'
@@ -250,15 +265,12 @@ typedef struct {
   real32_T DataTypeConversion1_m;      // '<S1>/Data Type Conversion1'
   real32_T DataTypeConversion;         // '<S4>/Data Type Conversion'
   real32_T DataTypeConversion1_e;      // '<S4>/Data Type Conversion1'
-  real32_T DataTypeConversion3_p;      // '<S578>/Data Type Conversion3'
-  real32_T SFunctionBuilder_o1_g;      // '<S578>/S-Function Builder'
-  real32_T SFunctionBuilder_o2_p;      // '<S578>/S-Function Builder'
+  real32_T DataTypeConversion3_p;      // '<S588>/Data Type Conversion3'
+  real32_T SFunctionBuilder_o1_g;      // '<S588>/S-Function Builder'
   uint32_T qY;
   ZCEventType zcEvent;
   uint16_T SFunction_o7[2];            // '<S3>/S-Function'
-  uint16_T SFunction_o9[6];            // '<S3>/S-Function'
   uint16_T DataTypeConversion2_p;      // '<S15>/Data Type Conversion2'
-  uint16_T Heading[9];                 // '<S19>/Data Type Conversion1'
   uint16_T Memory_o;                   // '<S4>/Memory'
   uint16_T SFunction_o3;               // '<S4>/S-Function'
   uint16_T SFunction_o4;               // '<S4>/S-Function'
@@ -266,21 +278,21 @@ typedef struct {
   uint16_T new_mex;                    // '<S3>/MATLAB Function3'
   uint16_T GC_info[3];                 // '<S3>/MATLAB Function1'
   int16_T manual_elevatorCmd_pwm;      // '<S9>/S-Function Builder3'
-  int16_T manual_aileronCmd_pwm;       // '<S9>/S-Function Builder1'
   int16_T manual_throttleCmd_pwm;      // '<S9>/S-Function Builder'
   int16_T DataTypeConversion_j[9];     // '<S17>/Data Type Conversion'
   int16_T DataTypeConversion1_j[3];    // '<S15>/Data Type Conversion1'
   int16_T Heading_f;                   // '<S22>/Data Type Conversion1'
-  int16_T SFunctionBuilder4;           // '<S9>/S-Function Builder4'
+  int16_T manual_aileronCmd_pwm;       // '<S9>/S-Function Builder1'
   int16_T manual_rudderCmd_pwm;        // '<S9>/S-Function Builder2'
   int16_T DataTypeConversion2_m;       // '<S4>/Data Type Conversion2'
-  int16_T Sum;                         // '<S595>/Sum'
+  int16_T SFunctionBuilder4;           // '<S9>/S-Function Builder4'
+  int16_T Sum;                         // '<S605>/Sum'
   int16_T elevatorCmd_pwm;             // '<S10>/Data Type Conversion'
   int16_T aileronCmd_pwm;              // '<S10>/Data Type Conversion1'
   int16_T rudderCmd_pwm;               // '<S10>/Data Type Conversion2'
-  uint8_T SFunctionBuilder1[41];       // '<S575>/S-Function Builder1'
-  uint8_T ByteUnpack_o1[4];            // '<S575>/Byte Unpack'
-  uint8_T ByteUnpack_o3;               // '<S575>/Byte Unpack'
+  uint8_T SFunctionBuilder1[41];       // '<S585>/S-Function Builder1'
+  uint8_T ByteUnpack_o1[4];            // '<S585>/Byte Unpack'
+  uint8_T ByteUnpack_o3;               // '<S585>/Byte Unpack'
   uint8_T SFunctionBuilder_o1_a[100];  // '<S3>/S-Function Builder'
   uint8_T Memory1[2];                  // '<S3>/Memory1'
   uint8_T Memory_h[4];                 // '<S1>/Memory'
@@ -298,25 +310,25 @@ typedef struct {
   uint8_T SFunction_o1_i;              // '<S4>/S-Function'
   uint8_T SFunction_o2_h[264];         // '<S4>/S-Function'
   uint8_T SFunctionBuilder;            // '<S4>/S-Function Builder'
-  uint8_T Mex_out[41];                 // '<S575>/MATLAB Function1'
+  uint8_T Mex_out[41];                 // '<S585>/MATLAB Function1'
   uint8_T iflogic;                     // '<S18>/iflogic_function'
   uint8_T mess_out[100];               // '<S3>/MATLAB Function2'
-  boolean_T SFunctionBuilder_o7;       // '<S574>/S-Function Builder'
-  boolean_T Compare;                   // '<S572>/Compare'
+  boolean_T SFunctionBuilder_o7;       // '<S584>/S-Function Builder'
+  boolean_T Compare;                   // '<S582>/Compare'
   boolean_T HitCrossing;               // '<S251>/Hit  Crossing'
-  boolean_T Compare_i;                 // '<S597>/Compare'
+  boolean_T Compare_i;                 // '<S607>/Compare'
 } B_Aenea_model_T;
 
 // Block states (default storage) for system '<Root>'
 typedef struct {
-  real_T UnitDelay_DSTATE[9];          // '<S575>/Unit Delay'
-  real_T UnitDelay1_DSTATE;            // '<S571>/Unit Delay1'
-  real_T UnitDelay_DSTATE_c;           // '<S561>/Unit Delay'
-  real_T UnitDelay_DSTATE_h[5];        // '<S574>/Unit Delay'
+  real_T UnitDelay_DSTATE[9];          // '<S585>/Unit Delay'
+  real_T UnitDelay1_DSTATE;            // '<S581>/Unit Delay1'
+  real_T UnitDelay_DSTATE_c;           // '<S571>/Unit Delay'
+  real_T UnitDelay_DSTATE_h[5];        // '<S584>/Unit Delay'
   real_T Integrator_DSTATE;            // '<S342>/Integrator'
   real_T Integrator_DSTATE_l;          // '<S392>/Integrator'
   real_T DiscreteWashoutFilter_states; // '<S306>/Discrete Washout Filter'
-  real_T DelayInput2_DSTATE;           // '<S577>/Delay Input2'
+  real_T DelayInput2_DSTATE;           // '<S587>/Delay Input2'
   real_T Delay_DSTATE;                 // '<S250>/Delay'
   real_T Integrator_DSTATE_lq;         // '<S285>/Integrator'
   real_T DiscreteTimeIntegrator_DSTATE;// '<S307>/Discrete-Time Integrator'
@@ -324,37 +336,37 @@ typedef struct {
   real_T SFunctionBuilder1_DSTATE;     // '<S10>/S-Function Builder1'
   real_T SFunctionBuilder2_DSTATE;     // '<S10>/S-Function Builder2'
   real_T SFunctionBuilder3_DSTATE;     // '<S10>/S-Function Builder3'
-  real_T UnitDelay_DSTATE_n;           // '<S612>/Unit Delay'
-  real_T DiscreteTimeIntegrator_DSTATE_j;// '<S453>/Discrete-Time Integrator'
+  real_T UnitDelay_DSTATE_n;           // '<S622>/Unit Delay'
+  real_T DiscreteTimeIntegrator_DSTATE_j;// '<S463>/Discrete-Time Integrator'
   volatile real_T RateTransition_Buffer0;// '<S27>/Rate Transition'
   real_T Memory1_PreviousInput;        // '<S27>/Memory1'
   real_T Memory_PreviousInput;         // '<S27>/Memory'
-  real_T Memory_PreviousInput_e[14];   // '<S565>/Memory'
-  real_T Memory_PreviousInput_o[14];   // '<S564>/Memory'
+  real_T Memory_PreviousInput_e[14];   // '<S575>/Memory'
+  real_T Memory_PreviousInput_o[14];   // '<S574>/Memory'
   real_T Memory2_PreviousInput;        // '<S27>/Memory2'
-  real_T P_ref;                        // '<S571>/MATLAB Function'
-  real_T rl_up;                        // '<S571>/MATLAB Function'
-  real_T rl_dw;                        // '<S571>/MATLAB Function'
-  real_T x_prd[18];                    // '<S559>/DEFINITIVA'
-  real_T p_prd[324];                   // '<S559>/DEFINITIVA'
-  real_T flag;                         // '<S444>/GO_HOME'
-  real_T Memory4_PreviousInput;        // '<S443>/Memory4'
-  real_T flag_o;                       // '<S443>/WAYPOINTS'
-  real_T lat1;                         // '<S443>/WAYPOINTS'
-  real_T long1;                        // '<S443>/WAYPOINTS'
-  real_T Memory7_PreviousInput;        // '<S442>/Memory7'
-  real_T Memory5_PreviousInput;        // '<S442>/Memory5'
-  real_T Memory1_PreviousInput_f;      // '<S442>/Memory1'
-  real_T Memory2_PreviousInput_e;      // '<S442>/Memory2'
-  real_T x[4];                         // '<S453>/MATLAB Function'
-  real_T cycle_count;                  // '<S453>/MATLAB Function'
-  real_T eps[4];                       // '<S453>/MATLAB Function'
-  real_T flag_k;                       // '<S442>/ALLINEAMENTO'
-  real_T Memory3_PreviousInput;        // '<S441>/Memory3'
-  real_T V_ref;                        // '<S441>/VETTORIALE'
-  real_T ALT_ref;                      // '<S441>/VETTORIALE'
-  real_T Memory_PreviousInput_p;       // '<S440>/Memory'
-  real_T Memory1_PreviousInput_e;      // '<S440>/Memory1'
+  real_T P_ref;                        // '<S581>/MATLAB Function'
+  real_T rl_up;                        // '<S581>/MATLAB Function'
+  real_T rl_dw;                        // '<S581>/MATLAB Function'
+  real_T x_prd[18];                    // '<S569>/DEFINITIVA'
+  real_T p_prd[324];                   // '<S569>/DEFINITIVA'
+  real_T flag;                         // '<S454>/GO_HOME'
+  real_T Memory4_PreviousInput;        // '<S453>/Memory4'
+  real_T flag_o;                       // '<S453>/WAYPOINTS'
+  real_T lat1;                         // '<S453>/WAYPOINTS'
+  real_T long1;                        // '<S453>/WAYPOINTS'
+  real_T Memory7_PreviousInput;        // '<S452>/Memory7'
+  real_T Memory5_PreviousInput;        // '<S452>/Memory5'
+  real_T Memory1_PreviousInput_f;      // '<S452>/Memory1'
+  real_T Memory2_PreviousInput_e;      // '<S452>/Memory2'
+  real_T x[4];                         // '<S463>/MATLAB Function'
+  real_T cycle_count;                  // '<S463>/MATLAB Function'
+  real_T eps[4];                       // '<S463>/MATLAB Function'
+  real_T flag_k;                       // '<S452>/ALLINEAMENTO'
+  real_T Memory3_PreviousInput;        // '<S451>/Memory3'
+  real_T V_ref;                        // '<S451>/VETTORIALE'
+  real_T ALT_ref;                      // '<S451>/VETTORIALE'
+  real_T Memory_PreviousInput_p;       // '<S450>/Memory'
+  real_T Memory1_PreviousInput_e;      // '<S450>/Memory1'
   real_T alarm;                        // '<S417>/MATLAB Function1'
   real_T Tf;                           // '<S412>/MATLAB Function1'
   real_T mess_len;                     // '<S3>/MATLAB Function4'
@@ -367,25 +379,25 @@ typedef struct {
   uint16_T Memory_PreviousInput_e4;    // '<S4>/Memory'
   uint16_T counter;                    // '<S3>/MATLAB Function3'
   uint16_T WP_dbI[36];                 // '<S3>/MATLAB Function1'
-  uint8_T UnitDelay1_DSTATE_b[41];     // '<S575>/Unit Delay1'
-  uint8_T Output_DSTATE;               // '<S573>/Output'
-  uint8_T Output_DSTATE_k;             // '<S598>/Output'
+  uint8_T UnitDelay1_DSTATE_b[41];     // '<S585>/Unit Delay1'
+  uint8_T Output_DSTATE;               // '<S583>/Output'
+  uint8_T Output_DSTATE_k;             // '<S608>/Output'
   int8_T Integrator_PrevResetState;    // '<S392>/Integrator'
   int8_T DiscreteTimeIntegrator_PrevRese;// '<S307>/Discrete-Time Integrator'
-  int8_T DiscreteTimeIntegrator_PrevRe_o;// '<S453>/Discrete-Time Integrator'
+  int8_T DiscreteTimeIntegrator_PrevRe_o;// '<S463>/Discrete-Time Integrator'
   uint8_T Memory4_PreviousInput_j[300];// '<S3>/Memory4'
   uint8_T Memory5_PreviousInput_b[100];// '<S3>/Memory5'
   uint8_T Memory1_PreviousInput_b[2];  // '<S3>/Memory1'
   uint8_T Memory3_PreviousInput_g;     // '<S3>/Memory3'
   uint8_T Memory2_PreviousInput_d[9];  // '<S3>/Memory2'
-  uint8_T is_active_c10_Aenea_model;   // '<S442>/Chart1'
-  uint8_T is_c10_Aenea_model;          // '<S442>/Chart1'
-  uint8_T Memory1_PreviousInput_k;     // '<S441>/Memory1'
-  uint8_T Memory2_PreviousInput_d2;    // '<S441>/Memory2'
-  uint8_T Memory6_PreviousInput;       // '<S441>/Memory6'
-  uint8_T is_active_c1_Aenea_model;    // '<S440>/Chart1'
-  uint8_T is_c1_Aenea_model;           // '<S440>/Chart1'
-  uint8_T temporalCounter_i1;          // '<S440>/Chart1'
+  uint8_T is_active_c10_Aenea_model;   // '<S452>/Chart1'
+  uint8_T is_c10_Aenea_model;          // '<S452>/Chart1'
+  uint8_T Memory1_PreviousInput_k;     // '<S451>/Memory1'
+  uint8_T Memory2_PreviousInput_d2;    // '<S451>/Memory2'
+  uint8_T Memory6_PreviousInput;       // '<S451>/Memory6'
+  uint8_T is_active_c1_Aenea_model;    // '<S450>/Chart1'
+  uint8_T is_c1_Aenea_model;           // '<S450>/Chart1'
+  uint8_T temporalCounter_i1;          // '<S450>/Chart1'
   uint8_T is_active_c21_Aenea_model;   // '<S39>/Chart'
   uint8_T is_c21_Aenea_model;          // '<S39>/Chart'
   uint8_T is_active_c26_Aenea_model;   // '<S38>/ STATI'
@@ -396,21 +408,25 @@ typedef struct {
   uint8_T is_c23_Aenea_model;      // '<S40>/SELEZIONE MODALITA'  HOLD//SELECT'
   uint8_T message[100];                // '<S3>/MATLAB Function4'
   uint8_T counter_f;                   // '<S3>/MATLAB Function4'
-  boolean_T x_prd_not_empty;           // '<S559>/DEFINITIVA'
-  boolean_T x_not_empty;               // '<S453>/MATLAB Function'
-  boolean_T x_new_not_empty;           // '<S453>/MATLAB Function'
-  boolean_T cycle_count_not_empty;     // '<S453>/MATLAB Function'
-  boolean_T eps_not_empty;             // '<S453>/MATLAB Function'
+  boolean_T x_prd_not_empty;           // '<S569>/DEFINITIVA'
+  boolean_T x_not_empty;               // '<S463>/MATLAB Function'
+  boolean_T x_new_not_empty;           // '<S463>/MATLAB Function'
+  boolean_T cycle_count_not_empty;     // '<S463>/MATLAB Function'
+  boolean_T eps_not_empty;             // '<S463>/MATLAB Function'
   boolean_T Tf_not_empty;              // '<S412>/MATLAB Function1'
   boolean_T Interr_parz;               // '<S3>/MATLAB Function4'
   boolean_T WP_dbP_not_empty;          // '<S3>/MATLAB Function1'
   boolean_T WP_dbP_AL_not_empty;       // '<S3>/MATLAB Function1'
-  boolean_T Enabled_MODE;              // '<S434>/Enabled '
-  boolean_T Enabled_MODE_i;            // '<S426>/Enabled '
-  boolean_T Enabled_MODE_b;            // '<S425>/Enabled '
-  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_p;// '<S434>/Resettable Subsystem' 
-  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_o;// '<S426>/Resettable Subsystem' 
-  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_i;// '<S425>/Resettable Subsystem' 
+  boolean_T Enabled_MODE;              // '<S435>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_p0;// '<S441>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_d_T Enabled_h;// '<S441>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_h;// '<S440>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_T Enabled_n;  // '<S440>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_p;// '<S435>/Resettable Subsystem' 
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_o;// '<S427>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_d_T Enabled_o;// '<S427>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_i;// '<S426>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_T Enabled;    // '<S426>/Enabled '
   DW_ResettableSubsystem_Aenea__T ResettableSubsystem_j;// '<S411>/Resettable Subsystem' 
   DW_ResettableSubsystem_Aenea__T ResettableSubsystem;// '<S410>/Resettable Subsystem' 
 } DW_Aenea_model_T;
@@ -418,13 +434,15 @@ typedef struct {
 // Zero-crossing (trigger) state
 typedef struct {
   ZCSigState HitCrossing_Input_ZCE;    // '<S251>/Hit  Crossing'
-  ZCSigState SampleandHold_Trig_ZCE;   // '<S560>/Sample and Hold'
-  ZCSigState SampleandHold_Trig_ZCE_l; // '<S442>/Sample and Hold'
-  ZCSigState SampleandHold1_Trig_ZCE;  // '<S440>/Sample and Hold1'
-  ZCSigState SampleandHold_Trig_ZCE_a; // '<S440>/Sample and Hold'
-  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_p;// '<S434>/Resettable Subsystem' 
-  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_o;// '<S426>/Resettable Subsystem' 
-  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_i;// '<S425>/Resettable Subsystem' 
+  ZCSigState SampleandHold_Trig_ZCE;   // '<S570>/Sample and Hold'
+  ZCSigState SampleandHold_Trig_ZCE_l; // '<S452>/Sample and Hold'
+  ZCSigState SampleandHold1_Trig_ZCE;  // '<S450>/Sample and Hold1'
+  ZCSigState SampleandHold_Trig_ZCE_a; // '<S450>/Sample and Hold'
+  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_p0;// '<S441>/Resettable Subsystem' 
+  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_h;// '<S440>/Resettable Subsystem' 
+  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_p;// '<S435>/Resettable Subsystem' 
+  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_o;// '<S427>/Resettable Subsystem' 
+  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_i;// '<S426>/Resettable Subsystem' 
   ZCE_ResettableSubsystem_Aenea_T ResettableSubsystem_j;// '<S411>/Resettable Subsystem' 
   ZCE_ResettableSubsystem_Aenea_T ResettableSubsystem;// '<S410>/Resettable Subsystem' 
   ZCSigState EnabledSubsystem_Trig_ZCE;// '<S251>/Enabled Subsystem'
@@ -432,15 +450,15 @@ typedef struct {
 
 // Invariant block signals (default storage)
 typedef const struct tag_ConstB_Aenea_model_T {
-  real_T Sum1;                         // '<S589>/Sum1'
-  real_T Sum1_o;                       // '<S587>/Sum1'
-  real_T Sum3;                         // '<S592>/Sum3'
+  real_T Sum1;                         // '<S599>/Sum1'
+  real_T Sum3;                         // '<S602>/Sum3'
   real_T USCITAPERCENTUALE;            // '<S22>/USCITA PERCENTUALE'
-  real_T Sum2;                         // '<S591>/Sum2'
-  real_T Sum1_j;                       // '<S595>/Sum1'
-  real_T Sum2_d;                       // '<S596>/Sum2'
-  real_T Sum2_a;                       // '<S593>/Sum2'
-  real_T Sum2_g;                       // '<S594>/Sum2'
+  real_T Sum1_o;                       // '<S597>/Sum1'
+  real_T Sum2;                         // '<S601>/Sum2'
+  real_T Sum1_j;                       // '<S605>/Sum1'
+  real_T Sum2_d;                       // '<S606>/Sum2'
+  real_T Sum2_a;                       // '<S603>/Sum2'
+  real_T Sum2_g;                       // '<S604>/Sum2'
   uint32_T DataTypeConversion;         // '<S16>/Data Type Conversion'
   uint16_T Gain;                       // '<S21>/Gain'
   uint16_T Throttle;                   // '<S22>/Data Type Conversion2'
@@ -664,45 +682,45 @@ extern "C" {
 //  Block '<S410>/Display1' : Unused code path elimination
 //  Block '<S38>/Scope1' : Unused code path elimination
 //  Block '<S418>/Abs2' : Unused code path elimination
-//  Block '<S453>/Multiply1' : Unused code path elimination
-//  Block '<S442>/Constant1' : Unused code path elimination
-//  Block '<S442>/Constant7' : Unused code path elimination
-//  Block '<S457>/Exp1' : Unused code path elimination
-//  Block '<S457>/Gain1' : Unused code path elimination
-//  Block '<S457>/Gain2' : Unused code path elimination
-//  Block '<S457>/Multiply2' : Unused code path elimination
-//  Block '<S457>/Multiply3' : Unused code path elimination
-//  Block '<S457>/Multiply4' : Unused code path elimination
-//  Block '<S457>/Sum3' : Unused code path elimination
-//  Block '<S457>/Sum4' : Unused code path elimination
-//  Block '<S458>/Gain1' : Unused code path elimination
-//  Block '<S503>/IProd Out' : Unused code path elimination
-//  Block '<S506>/Integrator' : Unused code path elimination
-//  Block '<S511>/PProd Out' : Unused code path elimination
-//  Block '<S515>/Sum' : Unused code path elimination
-//  Block '<S474>/Gain' : Unused code path elimination
-//  Block '<S458>/Sum3' : Unused code path elimination
-//  Block '<S458>/psi ref gain' : Unused code path elimination
-//  Block '<S458>/psi ref gain1' : Unused code path elimination
-//  Block '<S526>/Sum3' : Unused code path elimination
-//  Block '<S526>/x*sin' : Unused code path elimination
-//  Block '<S526>/y*cos' : Unused code path elimination
-//  Block '<S442>/Relational Operator' : Unused code path elimination
-//  Block '<S442>/Switch' : Unused code path elimination
-//  Block '<S442>/Switch di selezione  Task - Waypoint navigation6' : Unused code path elimination
-//  Block '<S442>/Switch1' : Unused code path elimination
-//  Block '<S443>/saturatore V1' : Unused code path elimination
+//  Block '<S463>/Multiply1' : Unused code path elimination
+//  Block '<S452>/Constant1' : Unused code path elimination
+//  Block '<S452>/Constant7' : Unused code path elimination
+//  Block '<S467>/Exp1' : Unused code path elimination
+//  Block '<S467>/Gain1' : Unused code path elimination
+//  Block '<S467>/Gain2' : Unused code path elimination
+//  Block '<S467>/Multiply2' : Unused code path elimination
+//  Block '<S467>/Multiply3' : Unused code path elimination
+//  Block '<S467>/Multiply4' : Unused code path elimination
+//  Block '<S467>/Sum3' : Unused code path elimination
+//  Block '<S467>/Sum4' : Unused code path elimination
+//  Block '<S468>/Gain1' : Unused code path elimination
+//  Block '<S513>/IProd Out' : Unused code path elimination
+//  Block '<S516>/Integrator' : Unused code path elimination
+//  Block '<S521>/PProd Out' : Unused code path elimination
+//  Block '<S525>/Sum' : Unused code path elimination
+//  Block '<S484>/Gain' : Unused code path elimination
+//  Block '<S468>/Sum3' : Unused code path elimination
+//  Block '<S468>/psi ref gain' : Unused code path elimination
+//  Block '<S468>/psi ref gain1' : Unused code path elimination
+//  Block '<S536>/Sum3' : Unused code path elimination
+//  Block '<S536>/x*sin' : Unused code path elimination
+//  Block '<S536>/y*cos' : Unused code path elimination
+//  Block '<S452>/Relational Operator' : Unused code path elimination
+//  Block '<S452>/Switch' : Unused code path elimination
+//  Block '<S452>/Switch di selezione  Task - Waypoint navigation6' : Unused code path elimination
+//  Block '<S452>/Switch1' : Unused code path elimination
+//  Block '<S453>/saturatore V1' : Unused code path elimination
 //  Block '<S39>/Switch di selezione  Task - Waypoint navigation' : Unused code path elimination
 //  Block '<S39>/Switch di selezione  Task - Waypoint navigation3' : Unused code path elimination
 //  Block '<S6>/Constant2' : Unused code path elimination
-//  Block '<S560>/Memory' : Unused code path elimination
-//  Block '<S577>/FixPt Data Type Duplicate' : Unused code path elimination
-//  Block '<S581>/Data Type Duplicate' : Unused code path elimination
-//  Block '<S581>/Data Type Propagation' : Unused code path elimination
+//  Block '<S570>/Memory' : Unused code path elimination
+//  Block '<S587>/FixPt Data Type Duplicate' : Unused code path elimination
+//  Block '<S591>/Data Type Duplicate' : Unused code path elimination
+//  Block '<S591>/Data Type Propagation' : Unused code path elimination
 //  Block '<S7>/Constant9' : Unused code path elimination
-//  Block '<S573>/Data Type Propagation' : Unused code path elimination
-//  Block '<S583>/FixPt Data Type Duplicate' : Unused code path elimination
-//  Block '<S584>/FixPt Data Type Duplicate1' : Unused code path elimination
+//  Block '<S583>/Data Type Propagation' : Unused code path elimination
+//  Block '<S593>/FixPt Data Type Duplicate' : Unused code path elimination
+//  Block '<S594>/FixPt Data Type Duplicate1' : Unused code path elimination
 //  Block '<S8>/K AntiWindup-Bumpless AP quota' : Unused code path elimination
 //  Block '<S8>/K AntiWindup-Bumpless controllore beccheggio' : Unused code path elimination
 //  Block '<S8>/K AntiWindup-Bumpless controllore imbardata' : Unused code path elimination
@@ -713,35 +731,38 @@ extern "C" {
 //  Block '<S8>/Kp AP rotta' : Unused code path elimination
 //  Block '<S8>/Saturation' : Unused code path elimination
 //  Block '<S8>/n-D Lookup Table' : Unused code path elimination
-//  Block '<S588>/Constant8' : Unused code path elimination
-//  Block '<S588>/Constant9' : Unused code path elimination
-//  Block '<S588>/Divide' : Unused code path elimination
-//  Block '<S588>/Gain' : Unused code path elimination
-//  Block '<S588>/Multiply' : Unused code path elimination
-//  Block '<S588>/Saturation' : Unused code path elimination
-//  Block '<S588>/Sum' : Unused code path elimination
-//  Block '<S588>/Sum1' : Unused code path elimination
-//  Block '<S588>/Sum2' : Unused code path elimination
-//  Block '<S588>/Sum3' : Unused code path elimination
+//  Block '<S598>/Constant8' : Unused code path elimination
+//  Block '<S598>/Constant9' : Unused code path elimination
+//  Block '<S598>/Divide' : Unused code path elimination
+//  Block '<S598>/Gain' : Unused code path elimination
+//  Block '<S598>/Multiply' : Unused code path elimination
+//  Block '<S598>/Saturation' : Unused code path elimination
+//  Block '<S598>/Sum' : Unused code path elimination
+//  Block '<S598>/Sum1' : Unused code path elimination
+//  Block '<S598>/Sum2' : Unused code path elimination
+//  Block '<S598>/Sum3' : Unused code path elimination
+//  Block '<S9>/Constant' : Unused code path elimination
+//  Block '<S9>/Constant1' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion16' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion17' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion18' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion19' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion20' : Unused code path elimination
 //  Block '<S9>/Data Type Conversion21' : Unused code path elimination
-//  Block '<S590>/Constant8' : Unused code path elimination
-//  Block '<S590>/Constant9' : Unused code path elimination
-//  Block '<S590>/Divide' : Unused code path elimination
-//  Block '<S590>/Gain' : Unused code path elimination
-//  Block '<S590>/Multiply' : Unused code path elimination
-//  Block '<S590>/Saturation' : Unused code path elimination
-//  Block '<S590>/Sum' : Unused code path elimination
-//  Block '<S590>/Sum1' : Unused code path elimination
-//  Block '<S590>/Sum2' : Unused code path elimination
-//  Block '<S590>/Sum3' : Unused code path elimination
-//  Block '<S598>/Data Type Propagation' : Unused code path elimination
-//  Block '<S608>/FixPt Data Type Duplicate' : Unused code path elimination
-//  Block '<S609>/FixPt Data Type Duplicate1' : Unused code path elimination
+//  Block '<S600>/Constant8' : Unused code path elimination
+//  Block '<S600>/Constant9' : Unused code path elimination
+//  Block '<S600>/Divide' : Unused code path elimination
+//  Block '<S600>/Gain' : Unused code path elimination
+//  Block '<S600>/Multiply' : Unused code path elimination
+//  Block '<S600>/Saturation' : Unused code path elimination
+//  Block '<S600>/Sum' : Unused code path elimination
+//  Block '<S600>/Sum1' : Unused code path elimination
+//  Block '<S600>/Sum2' : Unused code path elimination
+//  Block '<S600>/Sum3' : Unused code path elimination
+//  Block '<S9>/Switch' : Unused code path elimination
+//  Block '<S608>/Data Type Propagation' : Unused code path elimination
+//  Block '<S618>/FixPt Data Type Duplicate' : Unused code path elimination
+//  Block '<S619>/FixPt Data Type Duplicate1' : Unused code path elimination
 //  Block '<S3>/Data Type Conversion' : Eliminate redundant data type conversion
 //  Block '<S3>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S21>/Data Type Conversion' : Eliminate redundant data type conversion
@@ -753,8 +774,8 @@ extern "C" {
 //  Block '<S37>/Gain' : Eliminated nontunable gain of 1
 //  Block '<S37>/Gain2' : Eliminated nontunable gain of 1
 //  Block '<S6>/Data Type Conversion1' : Eliminate redundant data type conversion
-//  Block '<S571>/Data Type Conversion' : Eliminate redundant data type conversion
-//  Block '<S571>/Data Type Conversion1' : Eliminate redundant data type conversion
+//  Block '<S581>/Data Type Conversion' : Eliminate redundant data type conversion
+//  Block '<S581>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S7>/Manual Switch1' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch2' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch3' : Eliminated due to constant selection input
@@ -779,7 +800,7 @@ extern "C" {
 //  Block '<S10>/Data Type Conversion7' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion8' : Eliminate redundant data type conversion
 //  Block '<S10>/Data Type Conversion9' : Eliminate redundant data type conversion
-//  Block '<S607>/Data Type Conversion1' : Eliminate redundant data type conversion
+//  Block '<S617>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S7>/Constant1' : Unused code path elimination
 //  Block '<S7>/Constant2' : Unused code path elimination
 
@@ -1217,200 +1238,210 @@ extern "C" {
 //  '<S416>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Radians to Degrees2'
 //  '<S417>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager'
 //  '<S418>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/abs comandi manuali'
-//  '<S419>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Intervento/Enabled Subsystem'
-//  '<S420>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Intervento/Resettable Subsystem'
-//  '<S421>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Intervento/Resettable Subsystem/CLOCK'
-//  '<S422>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Safe/Enabled Subsystem'
-//  '<S423>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Safe/Resettable Subsystem'
-//  '<S424>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Safe/Resettable Subsystem/CLOCK'
-//  '<S425>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec'
-//  '<S426>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec'
-//  '<S427>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/MATLAB Function1'
-//  '<S428>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec/Enabled '
-//  '<S429>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec/Resettable Subsystem'
-//  '<S430>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec/Resettable Subsystem/CLOCK'
-//  '<S431>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec/Enabled '
-//  '<S432>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec/Resettable Subsystem'
-//  '<S433>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec/Resettable Subsystem/CLOCK'
-//  '<S434>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing'
-//  '<S435>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/MATLAB Function1'
-//  '<S436>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing/Enabled '
-//  '<S437>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing/Resettable Subsystem'
-//  '<S438>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing/Resettable Subsystem/CLOCK'
-//  '<S439>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Chart'
-//  '<S440>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO'
-//  '<S441>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem'
-//  '<S442>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1'
-//  '<S443>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2'
-//  '<S444>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3'
-//  '<S445>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Chart1'
-//  '<S446>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Radians to Degrees'
-//  '<S447>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Radians to Degrees1'
-//  '<S448>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Sample and Hold'
-//  '<S449>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Sample and Hold1'
-//  '<S450>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem/Radians to Degrees3'
-//  '<S451>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem/VETTORIALE'
-//  '<S452>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/ALLINEAMENTO'
-//  '<S453>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/APPROACH'
-//  '<S454>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CALIBRATING_HOME_COORDINATES'
-//  '<S455>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT '
-//  '<S456>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Chart1'
-//  '<S457>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/FLARE'
-//  '<S458>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA'
-//  '<S459>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth'
-//  '<S460>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees10'
-//  '<S461>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees11'
-//  '<S462>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees16'
-//  '<S463>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees17'
-//  '<S464>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees4'
-//  '<S465>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees5'
-//  '<S466>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees6'
-//  '<S467>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Sample and Hold'
-//  '<S468>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/APPROACH/MATLAB Function'
-//  '<S469>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /AUTOLANDING_WAYPOINTS'
-//  '<S470>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /MATLAB Function'
-//  '<S471>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /Radians to Degrees'
-//  '<S472>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /Radians to Degrees1'
-//  '<S473>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller'
-//  '<S474>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/Radians to Degrees2'
-//  '<S475>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Anti-windup'
-//  '<S476>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/D Gain'
-//  '<S477>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter'
-//  '<S478>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter ICs'
-//  '<S479>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/I Gain'
-//  '<S480>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain'
-//  '<S481>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain Fdbk'
-//  '<S482>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator'
-//  '<S483>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator ICs'
-//  '<S484>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Copy'
-//  '<S485>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Gain'
-//  '<S486>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/P Copy'
-//  '<S487>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Parallel P Gain'
-//  '<S488>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Reset Signal'
-//  '<S489>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation'
-//  '<S490>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation Fdbk'
-//  '<S491>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum'
-//  '<S492>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum Fdbk'
-//  '<S493>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode'
-//  '<S494>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode Sum'
-//  '<S495>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Integral'
-//  '<S496>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Ngain'
-//  '<S497>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/postSat Signal'
-//  '<S498>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/preSat Signal'
-//  '<S499>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Anti-windup/Passthrough'
-//  '<S500>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/D Gain/Disabled'
-//  '<S501>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter/Disabled'
-//  '<S502>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter ICs/Disabled'
-//  '<S503>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/I Gain/External Parameters'
-//  '<S504>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain/Passthrough'
-//  '<S505>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain Fdbk/Disabled'
-//  '<S506>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator/Discrete'
-//  '<S507>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator ICs/Internal IC'
-//  '<S508>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Copy/Disabled wSignal Specification'
-//  '<S509>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Gain/Disabled'
-//  '<S510>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/P Copy/Disabled'
-//  '<S511>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Parallel P Gain/External Parameters'
-//  '<S512>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Reset Signal/Disabled'
-//  '<S513>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation/Passthrough'
-//  '<S514>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation Fdbk/Disabled'
-//  '<S515>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum/Sum_PI'
-//  '<S516>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum Fdbk/Disabled'
-//  '<S517>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode/Disabled'
-//  '<S518>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode Sum/Passthrough'
-//  '<S519>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Integral/Passthrough'
-//  '<S520>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Ngain/Passthrough'
-//  '<S521>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/postSat Signal/Forward_Path'
-//  '<S522>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/preSat Signal/Forward_Path'
-//  '<S523>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Degrees to Radians'
-//  '<S524>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap'
-//  '<S525>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0'
-//  '<S526>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1'
-//  '<S527>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90'
-//  '<S528>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Wrap Longitude'
-//  '<S529>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90/Compare To Constant'
-//  '<S530>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90/Wrap Angle 180'
-//  '<S531>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90/Wrap Angle 180/Compare To Constant'
-//  '<S532>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Wrap Longitude/Compare To Constant'
-//  '<S533>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90'
-//  '<S534>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Wrap Longitude'
-//  '<S535>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90/Compare To Constant'
-//  '<S536>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90/Wrap Angle 180'
-//  '<S537>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90/Wrap Angle 180/Compare To Constant'
-//  '<S538>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Wrap Longitude/Compare To Constant'
-//  '<S539>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem'
-//  '<S540>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/Degrees to Radians'
-//  '<S541>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/Subsystem'
-//  '<S542>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/Subsystem1'
-//  '<S543>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/denom'
-//  '<S544>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees'
-//  '<S545>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees1'
-//  '<S546>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees2'
-//  '<S547>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/WAYPOINTS'
-//  '<S548>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/GO_HOME'
-//  '<S549>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees12'
-//  '<S550>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees13'
-//  '<S551>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees9'
-//  '<S552>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians10'
-//  '<S553>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians11'
-//  '<S554>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians12'
-//  '<S555>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians7'
-//  '<S556>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians8'
-//  '<S557>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians9'
-//  '<S558>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass'
-//  '<S559>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2'
-//  '<S560>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2'
-//  '<S561>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS'
-//  '<S562>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS/MATLAB Function'
-//  '<S563>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2/DEFINITIVA'
-//  '<S564>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1'
-//  '<S565>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti'
-//  '<S566>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/MATLAB Function2'
-//  '<S567>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Sample and Hold'
-//  '<S568>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function'
-//  '<S569>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function1'
-//  '<S570>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti/MATLAB Function'
-//  '<S571>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280'
-//  '<S572>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Compare To Constant'
-//  '<S573>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited'
-//  '<S574>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus'
-//  '<S575>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi'
-//  '<S576>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Pitot_Lidar'
-//  '<S577>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter'
-//  '<S578>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Execution_loop'
-//  '<S579>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/MATLAB Function'
-//  '<S580>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem'
-//  '<S581>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter/Saturation Dynamic'
-//  '<S582>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem/Subsystem1'
-//  '<S583>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Increment Real World'
-//  '<S584>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Wrap To Zero'
-//  '<S585>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus/Subsystem2'
-//  '<S586>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi/MATLAB Function1'
-//  '<S587>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON'
-//  '<S588>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON1'
-//  '<S589>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR'
-//  '<S590>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR1'
-//  '<S591>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/RUDDER'
-//  '<S592>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/THROTTLE'
-//  '<S593>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/AILERON1'
-//  '<S594>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/RUDDER6'
-//  '<S595>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/THROTTLE1'
-//  '<S596>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/elevator'
-//  '<S597>' : 'Aenea_model/LOG_DATA_MODEL/Compare To Constant'
-//  '<S598>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited'
-//  '<S599>' : 'Aenea_model/LOG_DATA_MODEL/LOG_BOOL_SIGNALS'
-//  '<S600>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS'
-//  '<S601>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT16_SIGNALS'
-//  '<S602>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT32_SIGNALS'
-//  '<S603>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT8_SIGNALS'
-//  '<S604>' : 'Aenea_model/LOG_DATA_MODEL/LOG_SINGLE_SIGNALS'
-//  '<S605>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT16_SIGNALS'
-//  '<S606>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT32_SIGNALS'
-//  '<S607>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT8_SIGNALS'
-//  '<S608>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Increment Real World'
-//  '<S609>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Wrap To Zero'
-//  '<S610>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees'
-//  '<S611>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees1'
-//  '<S612>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Subsystem'
+//  '<S419>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1'
+//  '<S420>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Intervento/Enabled Subsystem'
+//  '<S421>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Intervento/Resettable Subsystem'
+//  '<S422>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Intervento/Resettable Subsystem/CLOCK'
+//  '<S423>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Safe/Enabled Subsystem'
+//  '<S424>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Safe/Resettable Subsystem'
+//  '<S425>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Interruttore_Safe/Resettable Subsystem/CLOCK'
+//  '<S426>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec'
+//  '<S427>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec'
+//  '<S428>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/MATLAB Function1'
+//  '<S429>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec/Enabled '
+//  '<S430>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec/Resettable Subsystem'
+//  '<S431>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_0.5sec/Resettable Subsystem/CLOCK'
+//  '<S432>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec/Enabled '
+//  '<S433>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec/Resettable Subsystem'
+//  '<S434>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Intervento Manager/Alarm_Timing_1sec/Resettable Subsystem/CLOCK'
+//  '<S435>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing'
+//  '<S436>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/MATLAB Function1'
+//  '<S437>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing/Enabled '
+//  '<S438>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing/Resettable Subsystem'
+//  '<S439>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/Safe Manager/Alarm_Timing/Resettable Subsystem/CLOCK'
+//  '<S440>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_0.5sec'
+//  '<S441>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_1sec'
+//  '<S442>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/MATLAB Function1'
+//  '<S443>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_0.5sec/Enabled '
+//  '<S444>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_0.5sec/Resettable Subsystem'
+//  '<S445>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_0.5sec/Resettable Subsystem/CLOCK'
+//  '<S446>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_1sec/Enabled '
+//  '<S447>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_1sec/Resettable Subsystem'
+//  '<S448>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/GESTIONE AUTOPILOTI1/go home Manager1/Alarm_Timing_1sec/Resettable Subsystem/CLOCK'
+//  '<S449>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Chart'
+//  '<S450>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO'
+//  '<S451>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem'
+//  '<S452>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1'
+//  '<S453>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2'
+//  '<S454>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3'
+//  '<S455>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Chart1'
+//  '<S456>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Radians to Degrees'
+//  '<S457>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Radians to Degrees1'
+//  '<S458>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Sample and Hold'
+//  '<S459>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/DECOLLO AUTOMATICO/Sample and Hold1'
+//  '<S460>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem/Radians to Degrees3'
+//  '<S461>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem/VETTORIALE'
+//  '<S462>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/ALLINEAMENTO'
+//  '<S463>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/APPROACH'
+//  '<S464>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CALIBRATING_HOME_COORDINATES'
+//  '<S465>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT '
+//  '<S466>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Chart1'
+//  '<S467>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/FLARE'
+//  '<S468>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA'
+//  '<S469>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth'
+//  '<S470>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees10'
+//  '<S471>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees11'
+//  '<S472>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees16'
+//  '<S473>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees17'
+//  '<S474>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees4'
+//  '<S475>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees5'
+//  '<S476>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Radians to Degrees6'
+//  '<S477>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/Sample and Hold'
+//  '<S478>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/APPROACH/MATLAB Function'
+//  '<S479>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /AUTOLANDING_WAYPOINTS'
+//  '<S480>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /MATLAB Function'
+//  '<S481>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /Radians to Degrees'
+//  '<S482>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/CREAZIONE_WAYPOINT /Radians to Degrees1'
+//  '<S483>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller'
+//  '<S484>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/Radians to Degrees2'
+//  '<S485>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Anti-windup'
+//  '<S486>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/D Gain'
+//  '<S487>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter'
+//  '<S488>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter ICs'
+//  '<S489>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/I Gain'
+//  '<S490>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain'
+//  '<S491>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain Fdbk'
+//  '<S492>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator'
+//  '<S493>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator ICs'
+//  '<S494>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Copy'
+//  '<S495>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Gain'
+//  '<S496>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/P Copy'
+//  '<S497>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Parallel P Gain'
+//  '<S498>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Reset Signal'
+//  '<S499>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation'
+//  '<S500>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation Fdbk'
+//  '<S501>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum'
+//  '<S502>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum Fdbk'
+//  '<S503>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode'
+//  '<S504>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode Sum'
+//  '<S505>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Integral'
+//  '<S506>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Ngain'
+//  '<S507>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/postSat Signal'
+//  '<S508>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/preSat Signal'
+//  '<S509>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Anti-windup/Passthrough'
+//  '<S510>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/D Gain/Disabled'
+//  '<S511>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter/Disabled'
+//  '<S512>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Filter ICs/Disabled'
+//  '<S513>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/I Gain/External Parameters'
+//  '<S514>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain/Passthrough'
+//  '<S515>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Ideal P Gain Fdbk/Disabled'
+//  '<S516>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator/Discrete'
+//  '<S517>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Integrator ICs/Internal IC'
+//  '<S518>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Copy/Disabled wSignal Specification'
+//  '<S519>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/N Gain/Disabled'
+//  '<S520>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/P Copy/Disabled'
+//  '<S521>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Parallel P Gain/External Parameters'
+//  '<S522>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Reset Signal/Disabled'
+//  '<S523>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation/Passthrough'
+//  '<S524>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Saturation Fdbk/Disabled'
+//  '<S525>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum/Sum_PI'
+//  '<S526>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Sum Fdbk/Disabled'
+//  '<S527>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode/Disabled'
+//  '<S528>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tracking Mode Sum/Passthrough'
+//  '<S529>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Integral/Passthrough'
+//  '<S530>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/Tsamp - Ngain/Passthrough'
+//  '<S531>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/postSat Signal/Forward_Path'
+//  '<S532>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/INSEGUIMENTO CENTRO PISTA/PID Controller/preSat Signal/Forward_Path'
+//  '<S533>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Degrees to Radians'
+//  '<S534>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap'
+//  '<S535>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0'
+//  '<S536>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1'
+//  '<S537>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90'
+//  '<S538>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Wrap Longitude'
+//  '<S539>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90/Compare To Constant'
+//  '<S540>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90/Wrap Angle 180'
+//  '<S541>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Latitude Wrap 90/Wrap Angle 180/Compare To Constant'
+//  '<S542>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap/Wrap Longitude/Compare To Constant'
+//  '<S543>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90'
+//  '<S544>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Wrap Longitude'
+//  '<S545>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90/Compare To Constant'
+//  '<S546>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90/Wrap Angle 180'
+//  '<S547>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Latitude Wrap 90/Wrap Angle 180/Compare To Constant'
+//  '<S548>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/LatLong wrap LL0/Wrap Longitude/Compare To Constant'
+//  '<S549>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem'
+//  '<S550>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/Degrees to Radians'
+//  '<S551>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/Subsystem'
+//  '<S552>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/Subsystem1'
+//  '<S553>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem1/LLA to Flat Earth/Subsystem1/Subsystem/denom'
+//  '<S554>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees'
+//  '<S555>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees1'
+//  '<S556>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/Radians to Degrees2'
+//  '<S557>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem2/WAYPOINTS'
+//  '<S558>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/GO_HOME'
+//  '<S559>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees12'
+//  '<S560>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees13'
+//  '<S561>' : 'Aenea_model/AUTOPILOT_MODEL/AUTOPILOTA/Subsystem1/Subsystem3/Radians to Degrees9'
+//  '<S562>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians10'
+//  '<S563>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians11'
+//  '<S564>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians12'
+//  '<S565>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians7'
+//  '<S566>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians8'
+//  '<S567>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Degrees to Radians9'
+//  '<S568>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass'
+//  '<S569>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2'
+//  '<S570>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2'
+//  '<S571>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS'
+//  '<S572>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Discrete Varying Lowpass/FOS/MATLAB Function'
+//  '<S573>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/Filter2/DEFINITIVA'
+//  '<S574>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1'
+//  '<S575>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti'
+//  '<S576>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/MATLAB Function2'
+//  '<S577>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Sample and Hold'
+//  '<S578>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function'
+//  '<S579>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock GPS1/MATLAB Function1'
+//  '<S580>' : 'Aenea_model/AUTOPILOT_MODEL/MISURE DA SENSORI  FILTRATE/initializer//Clk_generator 2/Clock Mti/MATLAB Function'
+//  '<S581>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280'
+//  '<S582>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Compare To Constant'
+//  '<S583>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited'
+//  '<S584>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus'
+//  '<S585>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi'
+//  '<S586>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Pitot_Lidar'
+//  '<S587>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter'
+//  '<S588>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Execution_loop'
+//  '<S589>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/MATLAB Function'
+//  '<S590>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem'
+//  '<S591>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Dynamic rate limiter/Saturation Dynamic'
+//  '<S592>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/BMP_280/Subsystem/Subsystem1'
+//  '<S593>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Increment Real World'
+//  '<S594>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/Counter Limited/Wrap To Zero'
+//  '<S595>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/GPS_Venus/Subsystem2'
+//  '<S596>' : 'Aenea_model/AUTOPILOT_MODEL/Misure Sensori/MTi/MATLAB Function1'
+//  '<S597>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON'
+//  '<S598>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/AILERON1'
+//  '<S599>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR'
+//  '<S600>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/ELEVATOR1'
+//  '<S601>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/RUDDER'
+//  '<S602>' : 'Aenea_model/AUTOPILOT_MODEL/RADIOCOMANDO/THROTTLE'
+//  '<S603>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/AILERON1'
+//  '<S604>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/RUDDER6'
+//  '<S605>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/THROTTLE1'
+//  '<S606>' : 'Aenea_model/AUTOPILOT_MODEL/Servi/elevator'
+//  '<S607>' : 'Aenea_model/LOG_DATA_MODEL/Compare To Constant'
+//  '<S608>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited'
+//  '<S609>' : 'Aenea_model/LOG_DATA_MODEL/LOG_BOOL_SIGNALS'
+//  '<S610>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS'
+//  '<S611>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT16_SIGNALS'
+//  '<S612>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT32_SIGNALS'
+//  '<S613>' : 'Aenea_model/LOG_DATA_MODEL/LOG_INT8_SIGNALS'
+//  '<S614>' : 'Aenea_model/LOG_DATA_MODEL/LOG_SINGLE_SIGNALS'
+//  '<S615>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT16_SIGNALS'
+//  '<S616>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT32_SIGNALS'
+//  '<S617>' : 'Aenea_model/LOG_DATA_MODEL/LOG_UINT8_SIGNALS'
+//  '<S618>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Increment Real World'
+//  '<S619>' : 'Aenea_model/LOG_DATA_MODEL/Counter Limited/Wrap To Zero'
+//  '<S620>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees'
+//  '<S621>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Radians to Degrees1'
+//  '<S622>' : 'Aenea_model/LOG_DATA_MODEL/LOG_DOUBLE_SIGNALS/Subsystem'
 
 #endif                                 // RTW_HEADER_Aenea_model_h_
 

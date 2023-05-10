@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.191
+// Model version                  : 1.200
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May  9 15:16:36 2023
+// C/C++ source code generated on : Tue May  9 18:49:14 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -45,14 +45,14 @@ const uint8_T Aenea_model_IN_In = 4U;
 const uint8_T Aenea_model_IN_Vettoriale = 5U;
 const uint8_T Aenea_model_IN_Waypoint = 6U;
 
-// Named constants for Chart: '<S440>/Chart1'
+// Named constants for Chart: '<S450>/Chart1'
 const uint8_T Aenea_model_IN_Fase_0_ATO = 1U;
 const uint8_T Aenea_model_IN_Fase_1_ATO = 2U;
 const uint8_T Aenea_model_IN_Fase_2_ATO = 3U;
 const uint8_T Aenea_model_IN_Fase_3_ATO = 4U;
 const uint8_T Aenea_model_IN_Fase_4_ATO = 5U;
 
-// Named constants for Chart: '<S442>/Chart1'
+// Named constants for Chart: '<S452>/Chart1'
 const uint8_T Aenea_model_IN_Abort = 1U;
 const uint8_T Aenea_model_IN_Allignment = 2U;
 const uint8_T Aenea_model_IN_Allignment1 = 3U;
@@ -124,10 +124,10 @@ void Aenea_model_EnabledSubsystem(uint8_T rtu_Enable, real_T rtu_Time, real_T
   *rty_u0)
 {
   // Outputs for Enabled SubSystem: '<S410>/Enabled Subsystem' incorporates:
-  //   EnablePort: '<S419>/Enable'
+  //   EnablePort: '<S420>/Enable'
 
   if (rtu_Enable > 0) {
-    // Switch: '<S419>/Switch'
+    // Switch: '<S420>/Switch'
     *rty_u0 = !(rtu_Time > 2.0);
   }
 
@@ -141,7 +141,7 @@ void Aenea_model_EnabledSubsystem(uint8_T rtu_Enable, real_T rtu_Time, real_T
 //
 void Aenea_ResettableSubsystem_Reset(DW_ResettableSubsystem_Aenea__T *localDW)
 {
-  // InitializeConditions for Memory: '<S421>/Memory'
+  // InitializeConditions for Memory: '<S422>/Memory'
   localDW->Memory_PreviousInput = 0.0;
 }
 
@@ -155,7 +155,7 @@ void Aenea_model_ResettableSubsystem(uint8_T rtu_Reset, real_T *rty_Time,
   *localZCE)
 {
   // Outputs for Resettable SubSystem: '<S410>/Resettable Subsystem' incorporates:
-  //   ResetPort: '<S420>/Reset'
+  //   ResetPort: '<S421>/Reset'
 
   if ((rtu_Reset > 0) && (localZCE->ResettableSubsystem_Reset_ZCE_k != POS_ZCSIG))
   {
@@ -164,58 +164,148 @@ void Aenea_model_ResettableSubsystem(uint8_T rtu_Reset, real_T *rty_Time,
 
   localZCE->ResettableSubsystem_Reset_ZCE_k = (rtu_Reset > 0);
 
-  // Sum: '<S421>/Sum' incorporates:
-  //   Constant: '<S421>/Constant4'
-  //   Memory: '<S421>/Memory'
+  // Sum: '<S422>/Sum' incorporates:
+  //   Constant: '<S422>/Constant4'
+  //   Memory: '<S422>/Memory'
 
   *rty_Time = localDW->Memory_PreviousInput + 0.02;
 
-  // Update for Memory: '<S421>/Memory'
+  // Update for Memory: '<S422>/Memory'
   localDW->Memory_PreviousInput = *rty_Time;
 
   // End of Outputs for SubSystem: '<S410>/Resettable Subsystem'
 }
 
 //
+// Disable for enable system:
+//    '<S426>/Enabled '
+//    '<S440>/Enabled '
+//
+void Aenea_model_Enabled_Disable(real_T *rty_Alarm_Int, DW_Enabled_Aenea_model_T
+  *localDW)
+{
+  // Outputs for Enabled SubSystem: '<S426>/Enabled ' incorporates:
+  //   EnablePort: '<S429>/Enable'
+
+  // Disable for Outport: '<S429>/Alarm_Int'
+  *rty_Alarm_Int = 0.0;
+
+  // End of Outputs for SubSystem: '<S426>/Enabled '
+  localDW->Enabled_MODE = false;
+}
+
+//
+// Output and update for enable system:
+//    '<S426>/Enabled '
+//    '<S440>/Enabled '
+//
+void Aenea_model_Enabled(real_T rtu_Enable, real_T rtu_Time, real_T
+  *rty_Alarm_Int, DW_Enabled_Aenea_model_T *localDW)
+{
+  // Outputs for Enabled SubSystem: '<S426>/Enabled ' incorporates:
+  //   EnablePort: '<S429>/Enable'
+
+  if (rtu_Enable > 0.0) {
+    localDW->Enabled_MODE = true;
+
+    // Switch: '<S429>/Switch'
+    *rty_Alarm_Int = (rtu_Time > 0.5);
+  } else {
+    if (localDW->Enabled_MODE) {
+      Aenea_model_Enabled_Disable(rty_Alarm_Int, localDW);
+    }
+  }
+
+  // End of Outputs for SubSystem: '<S426>/Enabled '
+}
+
+//
 // System reset for atomic system:
-//    '<S425>/Resettable Subsystem'
 //    '<S426>/Resettable Subsystem'
-//    '<S434>/Resettable Subsystem'
+//    '<S427>/Resettable Subsystem'
+//    '<S435>/Resettable Subsystem'
+//    '<S440>/Resettable Subsystem'
+//    '<S441>/Resettable Subsystem'
 //
 void Aen_ResettableSubsystem_b_Reset(DW_ResettableSubsystem_Aene_c_T *localDW)
 {
-  // InitializeConditions for Memory: '<S430>/Memory'
+  // InitializeConditions for Memory: '<S431>/Memory'
   localDW->Memory_PreviousInput = 0.0;
 }
 
 //
 // Output and update for atomic system:
-//    '<S425>/Resettable Subsystem'
 //    '<S426>/Resettable Subsystem'
-//    '<S434>/Resettable Subsystem'
+//    '<S427>/Resettable Subsystem'
+//    '<S435>/Resettable Subsystem'
+//    '<S440>/Resettable Subsystem'
+//    '<S441>/Resettable Subsystem'
 //
 void Aenea_mod_ResettableSubsystem_i(real_T rtu_Reset, real_T *rty_Time,
   DW_ResettableSubsystem_Aene_c_T *localDW, ZCE_ResettableSubsystem_Aen_h_T
   *localZCE)
 {
-  // Outputs for Resettable SubSystem: '<S425>/Resettable Subsystem' incorporates:
-  //   ResetPort: '<S429>/Reset'
+  // Outputs for Resettable SubSystem: '<S426>/Resettable Subsystem' incorporates:
+  //   ResetPort: '<S430>/Reset'
 
   if (rt_ZCFcn(RISING_ZERO_CROSSING,&localZCE->ResettableSubsystem_Reset_ZCE,
                (rtu_Reset)) != NO_ZCEVENT) {
     Aen_ResettableSubsystem_b_Reset(localDW);
   }
 
-  // Sum: '<S430>/Sum' incorporates:
-  //   Constant: '<S430>/Constant4'
-  //   Memory: '<S430>/Memory'
+  // Sum: '<S431>/Sum' incorporates:
+  //   Constant: '<S431>/Constant4'
+  //   Memory: '<S431>/Memory'
 
   *rty_Time = localDW->Memory_PreviousInput + 0.02;
 
-  // Update for Memory: '<S430>/Memory'
+  // Update for Memory: '<S431>/Memory'
   localDW->Memory_PreviousInput = *rty_Time;
 
-  // End of Outputs for SubSystem: '<S425>/Resettable Subsystem'
+  // End of Outputs for SubSystem: '<S426>/Resettable Subsystem'
+}
+
+//
+// Disable for enable system:
+//    '<S427>/Enabled '
+//    '<S441>/Enabled '
+//
+void Aenea_model_Enabled_o_Disable(real_T *rty_Alarm_Int,
+  DW_Enabled_Aenea_model_d_T *localDW)
+{
+  // Outputs for Enabled SubSystem: '<S427>/Enabled ' incorporates:
+  //   EnablePort: '<S432>/Enable'
+
+  // Disable for Outport: '<S432>/Alarm_Int'
+  *rty_Alarm_Int = 0.0;
+
+  // End of Outputs for SubSystem: '<S427>/Enabled '
+  localDW->Enabled_MODE = false;
+}
+
+//
+// Output and update for enable system:
+//    '<S427>/Enabled '
+//    '<S441>/Enabled '
+//
+void Aenea_model_Enabled_o(real_T rtu_Enable, real_T rtu_Time, real_T
+  *rty_Alarm_Int, DW_Enabled_Aenea_model_d_T *localDW)
+{
+  // Outputs for Enabled SubSystem: '<S427>/Enabled ' incorporates:
+  //   EnablePort: '<S432>/Enable'
+
+  if (rtu_Enable > 0.0) {
+    localDW->Enabled_MODE = true;
+
+    // Switch: '<S432>/Switch'
+    *rty_Alarm_Int = (rtu_Time > 1.0);
+  } else {
+    if (localDW->Enabled_MODE) {
+      Aenea_model_Enabled_o_Disable(rty_Alarm_Int, localDW);
+    }
+  }
+
+  // End of Outputs for SubSystem: '<S427>/Enabled '
 }
 
 // Function for MATLAB Function: '<S3>/MATLAB Function4'
@@ -315,7 +405,7 @@ real32_T rt_roundf_snf(real32_T u)
   return y;
 }
 
-// Function for MATLAB Function: '<S559>/DEFINITIVA'
+// Function for MATLAB Function: '<S569>/DEFINITIVA'
 static void Aenea_model_xgetrf(real_T A[121], int32_T ipiv[11], int32_T *info)
 {
   int32_T c;
@@ -338,10 +428,10 @@ static void Aenea_model_xgetrf(real_T A[121], int32_T ipiv[11], int32_T *info)
     Aenea_model_B.smax = std::abs(A[c]);
     for (iy = 2; iy <= 11 - j; iy++) {
       ix++;
-      Aenea_model_B.y_c = std::abs(A[ix]);
-      if (Aenea_model_B.y_c > Aenea_model_B.smax) {
+      Aenea_model_B.y_f = std::abs(A[ix]);
+      if (Aenea_model_B.y_f > Aenea_model_B.smax) {
         jA = iy - 1;
-        Aenea_model_B.smax = Aenea_model_B.y_c;
+        Aenea_model_B.smax = Aenea_model_B.y_f;
       }
     }
 
@@ -390,7 +480,7 @@ static void Aenea_model_xgetrf(real_T A[121], int32_T ipiv[11], int32_T *info)
   }
 }
 
-// Function for MATLAB Function: '<S559>/DEFINITIVA'
+// Function for MATLAB Function: '<S569>/DEFINITIVA'
 static int32_T Aenea_model_xgetrfs(real_T A[121], real_T B[198])
 {
   int32_T b_i;
@@ -399,11 +489,11 @@ static int32_T Aenea_model_xgetrfs(real_T A[121], real_T B[198])
   int32_T kAcol;
   int32_T tmp;
   Aenea_model_xgetrf(A, Aenea_model_B.ipiv, &info);
-  for (Aenea_model_B.i_l = 0; Aenea_model_B.i_l < 10; Aenea_model_B.i_l++) {
-    ipiv = Aenea_model_B.ipiv[Aenea_model_B.i_l];
-    if (Aenea_model_B.i_l + 1 != ipiv) {
+  for (Aenea_model_B.i_j = 0; Aenea_model_B.i_j < 10; Aenea_model_B.i_j++) {
+    ipiv = Aenea_model_B.ipiv[Aenea_model_B.i_j];
+    if (Aenea_model_B.i_j + 1 != ipiv) {
       for (Aenea_model_B.j = 0; Aenea_model_B.j < 18; Aenea_model_B.j++) {
-        Aenea_model_B.jBcol = 11 * Aenea_model_B.j + Aenea_model_B.i_l;
+        Aenea_model_B.jBcol = 11 * Aenea_model_B.j + Aenea_model_B.i_j;
         Aenea_model_B.temp = B[Aenea_model_B.jBcol];
         tmp = (ipiv + 11 * Aenea_model_B.j) - 1;
         B[Aenea_model_B.jBcol] = B[tmp];
@@ -419,8 +509,8 @@ static int32_T Aenea_model_xgetrfs(real_T A[121], real_T B[198])
       tmp = ipiv + Aenea_model_B.jBcol;
       if (B[tmp] != 0.0) {
         for (b_i = ipiv + 2; b_i < 12; b_i++) {
-          Aenea_model_B.i_l = (b_i + Aenea_model_B.jBcol) - 1;
-          B[Aenea_model_B.i_l] -= A[(b_i + kAcol) - 1] * B[tmp];
+          Aenea_model_B.i_j = (b_i + Aenea_model_B.jBcol) - 1;
+          B[Aenea_model_B.i_j] -= A[(b_i + kAcol) - 1] * B[tmp];
         }
       }
     }
@@ -435,8 +525,8 @@ static int32_T Aenea_model_xgetrfs(real_T A[121], real_T B[198])
       if (Aenea_model_B.temp != 0.0) {
         B[tmp] = Aenea_model_B.temp / A[ipiv + kAcol];
         for (b_i = 0; b_i < ipiv; b_i++) {
-          Aenea_model_B.i_l = b_i + Aenea_model_B.jBcol;
-          B[Aenea_model_B.i_l] -= B[tmp] * A[b_i + kAcol];
+          Aenea_model_B.i_j = b_i + Aenea_model_B.jBcol;
+          B[Aenea_model_B.i_j] -= B[tmp] * A[b_i + kAcol];
         }
       }
     }
@@ -445,7 +535,7 @@ static int32_T Aenea_model_xgetrfs(real_T A[121], real_T B[198])
   return info;
 }
 
-// Function for MATLAB Function: '<S559>/DEFINITIVA'
+// Function for MATLAB Function: '<S569>/DEFINITIVA'
 static void Aenea_model_mldivide(const real_T A[121], const real_T B[198],
   real_T Y[198])
 {
@@ -454,7 +544,7 @@ static void Aenea_model_mldivide(const real_T A[121], const real_T B[198],
   Aenea_model_xgetrfs(Aenea_model_B.b_A, Y);
 }
 
-// Function for MATLAB Function: '<S559>/DEFINITIVA'
+// Function for MATLAB Function: '<S569>/DEFINITIVA'
 static void Aenea_model_measure_F1B(const real_T stato[18], const real_T EULERO
   [3], real_T rx, real_T ry, real_T rz, real_T g, real_T Y[11])
 {
@@ -468,48 +558,49 @@ static void Aenea_model_measure_F1B(const real_T stato[18], const real_T EULERO
   Y[1] = stato[1];
   Y[2] = stato[2];
   Aenea_model_B.Y_tmp = std::cos(EULERO[0]);
-  Aenea_model_B.Y_tmp_f = std::sin(EULERO[2]);
-  Aenea_model_B.Y_tmp_g = std::cos(EULERO[2]);
-  Aenea_model_B.Y_tmp_g1 = std::sin(EULERO[0]);
-  Aenea_model_B.Y_tmp_m = std::sin(EULERO[1]);
-  Aenea_model_B.Y_tmp_n = std::cos(EULERO[1]);
+  Aenea_model_B.Y_tmp_g = std::sin(EULERO[2]);
+  Aenea_model_B.Y_tmp_g1 = std::cos(EULERO[2]);
+  Aenea_model_B.Y_tmp_m = std::sin(EULERO[0]);
+  Aenea_model_B.Y_tmp_n = std::sin(EULERO[1]);
+  Aenea_model_B.Y_tmp_p = std::cos(EULERO[1]);
   Y_tmp = stato[9] * ry - stato[10] * rx;
   Y_tmp_1 = stato[9] * rz - stato[11] * rx;
   Y_tmp_2 = stato[10] * rz - stato[11] * ry;
-  Y[3] = (((Aenea_model_B.Y_tmp * Aenea_model_B.Y_tmp_g * Aenea_model_B.Y_tmp_m
-            + Aenea_model_B.Y_tmp_g1 * Aenea_model_B.Y_tmp_f) * Y_tmp + stato[3])
-          + (Aenea_model_B.Y_tmp * Aenea_model_B.Y_tmp_f - Aenea_model_B.Y_tmp_g
-             * Aenea_model_B.Y_tmp_g1 * Aenea_model_B.Y_tmp_m) * Y_tmp_1) +
-    Y_tmp_2 * (Aenea_model_B.Y_tmp_g * Aenea_model_B.Y_tmp_n);
+  Y[3] = (((Aenea_model_B.Y_tmp * Aenea_model_B.Y_tmp_g1 * Aenea_model_B.Y_tmp_n
+            + Aenea_model_B.Y_tmp_m * Aenea_model_B.Y_tmp_g) * Y_tmp + stato[3])
+          + (Aenea_model_B.Y_tmp * Aenea_model_B.Y_tmp_g -
+             Aenea_model_B.Y_tmp_g1 * Aenea_model_B.Y_tmp_m *
+             Aenea_model_B.Y_tmp_n) * Y_tmp_1) + Y_tmp_2 *
+    (Aenea_model_B.Y_tmp_g1 * Aenea_model_B.Y_tmp_p);
   Y_tmp_0 = std::cos(EULERO[0]) * std::sin(EULERO[2]);
   Y_tmp_4 = std::cos(EULERO[2]) * std::sin(EULERO[0]);
-  Y[4] = ((stato[4] - (Y_tmp_4 - Y_tmp_0 * Aenea_model_B.Y_tmp_m) * Y_tmp) -
-          (std::sin(EULERO[0]) * std::sin(EULERO[2]) * Aenea_model_B.Y_tmp_m +
-           Y_tmp_0) * Y_tmp_1) + Y_tmp_2 * (Aenea_model_B.Y_tmp_n *
-    Aenea_model_B.Y_tmp_f);
+  Y[4] = ((stato[4] - (Y_tmp_4 - Y_tmp_0 * Aenea_model_B.Y_tmp_n) * Y_tmp) -
+          (std::sin(EULERO[0]) * std::sin(EULERO[2]) * Aenea_model_B.Y_tmp_n +
+           Y_tmp_0) * Y_tmp_1) + Y_tmp_2 * (Aenea_model_B.Y_tmp_p *
+    Aenea_model_B.Y_tmp_g);
   Y_tmp_3 = stato[8] - g;
-  Y[5] = ((((stato[6] * Aenea_model_B.Y_tmp_n * Aenea_model_B.Y_tmp_g + stato[12])
-            + stato[7] * Aenea_model_B.Y_tmp_n * Aenea_model_B.Y_tmp_f) -
-           Y_tmp_3 * Aenea_model_B.Y_tmp_m) + Y_tmp * stato[10]) + Y_tmp_1 *
+  Y[5] = ((((stato[6] * Aenea_model_B.Y_tmp_p * Aenea_model_B.Y_tmp_g1 + stato
+             [12]) + stato[7] * Aenea_model_B.Y_tmp_p * Aenea_model_B.Y_tmp_g) -
+           Y_tmp_3 * Aenea_model_B.Y_tmp_n) + Y_tmp * stato[10]) + Y_tmp_1 *
     stato[11];
   Y[6] = (((((std::cos(EULERO[2]) * std::sin(EULERO[0]) * std::sin(EULERO[1]) -
               Y_tmp_0) * stato[6] + stato[13]) + (std::sin(EULERO[0]) * std::sin
              (EULERO[2]) * std::sin(EULERO[1]) + std::cos(EULERO[0]) * std::cos
-             (EULERO[2])) * stato[7]) + Aenea_model_B.Y_tmp_n *
-           Aenea_model_B.Y_tmp_g1 * Y_tmp_3) - Y_tmp * stato[9]) + Y_tmp_2 *
+             (EULERO[2])) * stato[7]) + Aenea_model_B.Y_tmp_p *
+           Aenea_model_B.Y_tmp_m * Y_tmp_3) - Y_tmp * stato[9]) + Y_tmp_2 *
     stato[11];
   Y[7] = (((((std::cos(EULERO[0]) * std::cos(EULERO[2]) * std::sin(EULERO[1]) +
               std::sin(EULERO[0]) * std::sin(EULERO[2])) * stato[6] + stato[14])
             + (std::cos(EULERO[0]) * std::sin(EULERO[2]) * std::sin(EULERO[1]) -
                Y_tmp_4) * stato[7]) + Aenea_model_B.Y_tmp *
-           Aenea_model_B.Y_tmp_n * Y_tmp_3) - Y_tmp_1 * stato[9]) - Y_tmp_2 *
+           Aenea_model_B.Y_tmp_p * Y_tmp_3) - Y_tmp_1 * stato[9]) - Y_tmp_2 *
     stato[10];
   Y[8] = stato[15] + stato[9];
   Y[9] = stato[16] + stato[10];
   Y[10] = stato[17] + stato[11];
 }
 
-// Function for MATLAB Function: '<S559>/DEFINITIVA'
+// Function for MATLAB Function: '<S569>/DEFINITIVA'
 static void Aenea_model_f_pred_F1B(const real_T prediction[18], real_T a, real_T
   dt, real_T f[18])
 {
@@ -774,16 +865,16 @@ void Aenea_model_step(void)
   boolean_T tmp;
   boolean_T tmp_0;
 
-  // UnitDelay: '<S575>/Unit Delay'
+  // UnitDelay: '<S585>/Unit Delay'
   std::memcpy(&Aenea_model_B.UnitDelay[0], &Aenea_model_DW.UnitDelay_DSTATE[0],
               9U * sizeof(real_T));
 
-  // S-Function (Mti_sfun): '<S575>/S-Function Builder1'
+  // S-Function (Mti_sfun): '<S585>/S-Function Builder1'
   Mti_sfun_Outputs_wrapper(&Aenea_model_B.UnitDelay[0],
     &Aenea_model_B.SFunctionBuilder1[0]);
 
-  // MATLAB Function: '<S575>/MATLAB Function1' incorporates:
-  //   UnitDelay: '<S575>/Unit Delay1'
+  // MATLAB Function: '<S585>/MATLAB Function1' incorporates:
+  //   UnitDelay: '<S585>/Unit Delay1'
 
   Aenea_model_B.checksum = Aenea_model_B.SFunctionBuilder1[1];
   for (Aenea_model_B.b_k = 0; Aenea_model_B.b_k < 39; Aenea_model_B.b_k++) {
@@ -932,11 +1023,11 @@ void Aenea_model_step(void)
     }
   }
 
-  // End of MATLAB Function: '<S575>/MATLAB Function1'
+  // End of MATLAB Function: '<S585>/MATLAB Function1'
 
-  // S-Function (byte2any_svd): '<S575>/Byte Unpack'
+  // S-Function (byte2any_svd): '<S585>/Byte Unpack'
 
-  // Unpack: <S575>/Byte Unpack
+  // Unpack: <S585>/Byte Unpack
   {
     uint32_T MW_inputPortOffset = 0;
     uint32_T MW_outputPortWidth = 0;
@@ -986,9 +1077,9 @@ void Aenea_model_step(void)
     }
   }
 
-  // S-Function (reverseendian_svd): '<S575>/Byte Reversal'
+  // S-Function (reverseendian_svd): '<S585>/Byte Reversal'
 
-  // ReverseEndian: <S575>/Byte Reversal
+  // ReverseEndian: <S585>/Byte Reversal
 
   // 4 byte-wide input datatypes
   {
@@ -2126,14 +2217,13 @@ void Aenea_model_step(void)
   //   Memory: '<S27>/Memory'
   //   Sum: '<S27>/Add'
 
-  Aenea_model_B.Saturation = (Aenea_model_DW.Memory_PreviousInput + 0.02) *
-    100.0;
+  Aenea_model_B.Sum3_h = (Aenea_model_DW.Memory_PreviousInput + 0.02) * 100.0;
 
   // DataTypeConversion: '<S18>/Data Type Conversion3'
-  if (Aenea_model_B.Saturation < 0.0) {
-    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+  if (Aenea_model_B.Sum3_h < 0.0) {
+    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
   } else {
-    Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+    Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
   }
 
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -2198,48 +2288,48 @@ void Aenea_model_step(void)
 
   // Outputs for Resettable SubSystem: '<S411>/Resettable Subsystem'
   Aenea_model_ResettableSubsystem(Aenea_model_B.SFunction_o4_a[0],
-    &Aenea_model_B.Gain_h, &Aenea_model_DW.ResettableSubsystem_j,
+    &Aenea_model_B.Abs1, &Aenea_model_DW.ResettableSubsystem_j,
     &Aenea_model_PrevZCX.ResettableSubsystem_j);
 
   // End of Outputs for SubSystem: '<S411>/Resettable Subsystem'
 
   // Outputs for Enabled SubSystem: '<S411>/Enabled Subsystem'
   Aenea_model_EnabledSubsystem(Aenea_model_B.SFunction_o4_a[0],
-    Aenea_model_B.Gain_h, &Aenea_model_B.Switch_a);
+    Aenea_model_B.Abs1, &Aenea_model_B.Switch_a);
 
   // End of Outputs for SubSystem: '<S411>/Enabled Subsystem'
 
-  // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
-  // DataTypeConversion: '<S578>/Data Type Conversion3' incorporates:
-  //   UnitDelay: '<S571>/Unit Delay1'
+  // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
+  // DataTypeConversion: '<S588>/Data Type Conversion3' incorporates:
+  //   UnitDelay: '<S581>/Unit Delay1'
 
   Aenea_model_B.DataTypeConversion3_p = static_cast<real32_T>
     (Aenea_model_DW.UnitDelay1_DSTATE);
 
-  // S-Function (BMP280_sfun): '<S578>/S-Function Builder'
+  // S-Function (BMP280_sfun): '<S588>/S-Function Builder'
   BMP280_sfun_Outputs_wrapper(&Aenea_model_B.DataTypeConversion3_p,
     &Aenea_model_B.SFunctionBuilder_o1_g, &Aenea_model_B.SFunctionBuilder_o2_p,
     &Aenea_model_B.SFunctionBuilder_o3_h);
 
-  // End of Outputs for SubSystem: '<S571>/Execution_loop'
+  // End of Outputs for SubSystem: '<S581>/Execution_loop'
 
-  // S-Function (GPS_sfun): '<S574>/S-Function Builder'
+  // S-Function (GPS_sfun): '<S584>/S-Function Builder'
   GPS_sfun_Outputs_wrapper(&Aenea_model_B.Lat, &Aenea_model_B.Long,
     &Aenea_model_B.V, &Aenea_model_B.quota, &Aenea_model_B.heading,
     &Aenea_model_B.SFunctionBuilder_o6, &Aenea_model_B.SFunctionBuilder_o7);
 
-  // S-Function (pitot_lidar_sfun): '<S576>/S-Function Builder'
+  // S-Function (pitot_lidar_sfun): '<S586>/S-Function Builder'
   pitot_lidar_sfun_Outputs_wrapper(&Aenea_model_B.SFunctionBuilder_o1,
     &Aenea_model_B.SFunctionBuilder_o2, &Aenea_model_B.SFunctionBuilder_o3);
 
-  // Sum: '<S561>/Sum' incorporates:
-  //   UnitDelay: '<S561>/Unit Delay'
+  // Sum: '<S571>/Sum' incorporates:
+  //   UnitDelay: '<S571>/Unit Delay'
 
   Aenea_model_B.Sum_l = Aenea_model_B.SFunctionBuilder_o1 +
     Aenea_model_DW.UnitDelay_DSTATE_c;
 
-  // Product: '<S561>/Product1' incorporates:
-  //   MATLAB Function: '<S561>/MATLAB Function'
+  // Product: '<S571>/Product1' incorporates:
+  //   MATLAB Function: '<S571>/MATLAB Function'
 
   Aenea_model_B.Product1 = 0.38271604938271603 * Aenea_model_B.Sum_l;
 
@@ -2251,7 +2341,7 @@ void Aenea_model_step(void)
 
   // End of DataTypeConversion: '<S7>/Data Type Conversion1'
 
-  // Gain: '<S552>/Gain1'
+  // Gain: '<S562>/Gain1'
   Aenea_model_B.checksum = 0.017453292519943295 *
     Aenea_model_B.DataTypeConversion1_c[6];
 
@@ -2285,25 +2375,25 @@ void Aenea_model_step(void)
     }
   }
 
-  // Outputs for Resettable SubSystem: '<S434>/Resettable Subsystem'
-  Aenea_mod_ResettableSubsystem_i(Aenea_model_DW.alarm, &Aenea_model_B.Gain_h,
+  // Outputs for Resettable SubSystem: '<S435>/Resettable Subsystem'
+  Aenea_mod_ResettableSubsystem_i(Aenea_model_DW.alarm, &Aenea_model_B.Abs1,
     &Aenea_model_DW.ResettableSubsystem_p,
     &Aenea_model_PrevZCX.ResettableSubsystem_p);
 
-  // End of Outputs for SubSystem: '<S434>/Resettable Subsystem'
+  // End of Outputs for SubSystem: '<S435>/Resettable Subsystem'
 
-  // Outputs for Enabled SubSystem: '<S434>/Enabled ' incorporates:
-  //   EnablePort: '<S436>/Enable'
+  // Outputs for Enabled SubSystem: '<S435>/Enabled ' incorporates:
+  //   EnablePort: '<S437>/Enable'
 
   if (Aenea_model_DW.alarm > 0.0) {
     Aenea_model_DW.Enabled_MODE = true;
 
-    // Switch: '<S436>/Switch'
-    Aenea_model_B.Switch_e = (Aenea_model_B.Gain_h > 1.0);
+    // Switch: '<S437>/Switch'
+    Aenea_model_B.Switch_e = (Aenea_model_B.Abs1 > 1.0);
   } else {
     if (Aenea_model_DW.Enabled_MODE) {
-      // Disable for Switch: '<S436>/Switch' incorporates:
-      //   Outport: '<S436>/Alarm Safe'
+      // Disable for Switch: '<S437>/Switch' incorporates:
+      //   Outport: '<S437>/Alarm Safe'
 
       Aenea_model_B.Switch_e = 0.0;
       Aenea_model_DW.Enabled_MODE = false;
@@ -2311,24 +2401,24 @@ void Aenea_model_step(void)
   }
 
   // End of MATLAB Function: '<S417>/MATLAB Function1'
-  // End of Outputs for SubSystem: '<S434>/Enabled '
+  // End of Outputs for SubSystem: '<S435>/Enabled '
 
   // Outputs for Resettable SubSystem: '<S410>/Resettable Subsystem'
   Aenea_model_ResettableSubsystem(Aenea_model_B.SFunction_o4_a[1],
-    &Aenea_model_B.Gain_h, &Aenea_model_DW.ResettableSubsystem,
+    &Aenea_model_B.Abs1, &Aenea_model_DW.ResettableSubsystem,
     &Aenea_model_PrevZCX.ResettableSubsystem);
 
   // End of Outputs for SubSystem: '<S410>/Resettable Subsystem'
 
   // Outputs for Enabled SubSystem: '<S410>/Enabled Subsystem'
   Aenea_model_EnabledSubsystem(Aenea_model_B.SFunction_o4_a[1],
-    Aenea_model_B.Gain_h, &Aenea_model_B.Switch_k);
+    Aenea_model_B.Abs1, &Aenea_model_B.Switch_k);
 
   // End of Outputs for SubSystem: '<S410>/Enabled Subsystem'
   if (Aenea_model_M->Timing.TaskCounters.TID[2] == 0) {
-    // RelationalOperator: '<S572>/Compare' incorporates:
-    //   Constant: '<S572>/Constant'
-    //   UnitDelay: '<S573>/Output'
+    // RelationalOperator: '<S582>/Compare' incorporates:
+    //   Constant: '<S582>/Constant'
+    //   UnitDelay: '<S583>/Output'
 
     Aenea_model_B.Compare = (Aenea_model_DW.Output_DSTATE == 1);
 
@@ -2340,15 +2430,15 @@ void Aenea_model_step(void)
   PWMinterrupt_elevator_sfun_Outputs_wrapper
     (&Aenea_model_B.manual_elevatorCmd_pwm);
 
-  // Sum: '<S589>/Sum3' incorporates:
-  //   Constant: '<S589>/Constant8'
-  //   Constant: '<S589>/Constant9'
+  // Sum: '<S599>/Sum3' incorporates:
+  //   Constant: '<S599>/Constant8'
+  //   Constant: '<S599>/Constant9'
   //   Constant: '<S7>/Constant7'
   //   DataTypeConversion: '<S9>/Data Type Conversion13'
-  //   Product: '<S589>/Divide'
-  //   Product: '<S589>/Multiply'
-  //   Sum: '<S589>/Sum'
-  //   Sum: '<S589>/Sum2'
+  //   Product: '<S599>/Divide'
+  //   Product: '<S599>/Multiply'
+  //   Sum: '<S599>/Sum'
+  //   Sum: '<S599>/Sum2'
 
   Aenea_model_B.Sum3 = (static_cast<real_T>(Aenea_model_B.manual_elevatorCmd_pwm)
                         - 1018.0) / Aenea_model_ConstB.Sum1 *
@@ -2367,37 +2457,15 @@ void Aenea_model_step(void)
 
   // End of Switch: '<S38>/Switch1'
 
-  // S-Function (PWMinterrupt_aileron_sfun): '<S9>/S-Function Builder1'
-  PWMinterrupt_aileron_sfun_Outputs_wrapper(&Aenea_model_B.manual_aileronCmd_pwm);
-
-  // Sum: '<S587>/Sum3' incorporates:
-  //   Constant: '<S587>/Constant8'
-  //   Constant: '<S587>/Constant9'
-  //   Constant: '<S7>/Constant10'
-  //   DataTypeConversion: '<S9>/Data Type Conversion14'
-  //   Product: '<S587>/Divide'
-  //   Product: '<S587>/Multiply'
-  //   Sum: '<S587>/Sum'
-  //   Sum: '<S587>/Sum2'
-
-  Aenea_model_B.Sum3_h = (static_cast<real_T>
-    (Aenea_model_B.manual_aileronCmd_pwm) - 1184.0) / Aenea_model_ConstB.Sum1_o *
-    0.82030474843733492 + -0.38397243543875248;
-
-  // Gain: '<S416>/Gain' incorporates:
-  //   Abs: '<S418>/Abs1'
-
-  Aenea_model_B.Gain_e = 57.295779513082323 * std::abs(Aenea_model_B.Sum3_h);
-
   // S-Function (PWMinterrupt_throttle_sfun): '<S9>/S-Function Builder'
   PWMinterrupt_throttle_sfun_Outputs_wrapper
     (&Aenea_model_B.manual_throttleCmd_pwm);
 
-  // Sum: '<S592>/Sum5' incorporates:
+  // Sum: '<S602>/Sum5' incorporates:
   //   Constant: '<S7>/Constant6'
   //   DataTypeConversion: '<S9>/Data Type Conversion5'
-  //   Product: '<S592>/Divide2'
-  //   Sum: '<S592>/Sum2'
+  //   Product: '<S602>/Divide2'
+  //   Sum: '<S602>/Sum2'
 
   Aenea_model_B.Sum5 = (static_cast<real_T>(Aenea_model_B.manual_throttleCmd_pwm)
                         - 1160.0) / Aenea_model_ConstB.Sum3;
@@ -2409,8 +2477,6 @@ void Aenea_model_step(void)
   //   Constant: '<S412>/Constant'
   //   Constant: '<S412>/Constant1'
   //   Constant: '<S412>/Constant2'
-  //   Constant: '<S412>/Constant3'
-  //   Constant: '<S412>/Constant4'
 
   if ((!Aenea_model_DW.Tf_not_empty) || (Aenea_model_DW.Memory2_PreviousInput_d
        [0] == 1) || (Aenea_model_DW.Memory2_PreviousInput_d[1] == 0)) {
@@ -2424,14 +2490,6 @@ void Aenea_model_step(void)
       Aenea_model_B.b_k = 0;
       Aenea_model_B.npad = 1;
     } else if (Aenea_model_B.Switch1 > 7.2) {
-      Aenea_model_B.idx = 0;
-      Aenea_model_B.b_k = 1;
-      Aenea_model_B.npad = 0;
-    } else if ((Aenea_model_B.Gain_e > 2.0) && (Aenea_model_B.Gain_e < 7.5)) {
-      Aenea_model_B.idx = 1;
-      Aenea_model_B.b_k = 0;
-      Aenea_model_B.npad = 1;
-    } else if (Aenea_model_B.Gain_e > 7.5) {
       Aenea_model_B.idx = 0;
       Aenea_model_B.b_k = 1;
       Aenea_model_B.npad = 0;
@@ -2453,59 +2511,32 @@ void Aenea_model_step(void)
 
   // End of MATLAB Function: '<S412>/MATLAB Function1'
 
-  // Outputs for Resettable SubSystem: '<S426>/Resettable Subsystem'
+  // Outputs for Resettable SubSystem: '<S427>/Resettable Subsystem'
   Aenea_mod_ResettableSubsystem_i(static_cast<real_T>(Aenea_model_B.idx),
-    &Aenea_model_B.Gain_h, &Aenea_model_DW.ResettableSubsystem_o,
+    &Aenea_model_B.Abs1, &Aenea_model_DW.ResettableSubsystem_o,
     &Aenea_model_PrevZCX.ResettableSubsystem_o);
+
+  // End of Outputs for SubSystem: '<S427>/Resettable Subsystem'
+
+  // Outputs for Enabled SubSystem: '<S427>/Enabled '
+  Aenea_model_Enabled_o(static_cast<real_T>(Aenea_model_B.idx),
+                        Aenea_model_B.Abs1, &Aenea_model_B.Switch_d,
+                        &Aenea_model_DW.Enabled_o);
+
+  // End of Outputs for SubSystem: '<S427>/Enabled '
+
+  // Outputs for Resettable SubSystem: '<S426>/Resettable Subsystem'
+  Aenea_mod_ResettableSubsystem_i(static_cast<real_T>(Aenea_model_B.b_k),
+    &Aenea_model_B.Abs1, &Aenea_model_DW.ResettableSubsystem_i,
+    &Aenea_model_PrevZCX.ResettableSubsystem_i);
 
   // End of Outputs for SubSystem: '<S426>/Resettable Subsystem'
 
-  // Outputs for Enabled SubSystem: '<S426>/Enabled ' incorporates:
-  //   EnablePort: '<S431>/Enable'
-
-  if (Aenea_model_B.idx > 0) {
-    Aenea_model_DW.Enabled_MODE_i = true;
-
-    // Switch: '<S431>/Switch'
-    Aenea_model_B.Switch_d = (Aenea_model_B.Gain_h > 1.0);
-  } else {
-    if (Aenea_model_DW.Enabled_MODE_i) {
-      // Disable for Switch: '<S431>/Switch' incorporates:
-      //   Outport: '<S431>/Alarm_Int'
-
-      Aenea_model_B.Switch_d = 0.0;
-      Aenea_model_DW.Enabled_MODE_i = false;
-    }
-  }
+  // Outputs for Enabled SubSystem: '<S426>/Enabled '
+  Aenea_model_Enabled(static_cast<real_T>(Aenea_model_B.b_k), Aenea_model_B.Abs1,
+                      &Aenea_model_B.Switch_m, &Aenea_model_DW.Enabled);
 
   // End of Outputs for SubSystem: '<S426>/Enabled '
-
-  // Outputs for Resettable SubSystem: '<S425>/Resettable Subsystem'
-  Aenea_mod_ResettableSubsystem_i(static_cast<real_T>(Aenea_model_B.b_k),
-    &Aenea_model_B.Gain_h, &Aenea_model_DW.ResettableSubsystem_i,
-    &Aenea_model_PrevZCX.ResettableSubsystem_i);
-
-  // End of Outputs for SubSystem: '<S425>/Resettable Subsystem'
-
-  // Outputs for Enabled SubSystem: '<S425>/Enabled ' incorporates:
-  //   EnablePort: '<S428>/Enable'
-
-  if (Aenea_model_B.b_k > 0) {
-    Aenea_model_DW.Enabled_MODE_b = true;
-
-    // Switch: '<S428>/Switch'
-    Aenea_model_B.Switch_m = (Aenea_model_B.Gain_h > 0.5);
-  } else {
-    if (Aenea_model_DW.Enabled_MODE_b) {
-      // Disable for Switch: '<S428>/Switch' incorporates:
-      //   Outport: '<S428>/Alarm_Int'
-
-      Aenea_model_B.Switch_m = 0.0;
-      Aenea_model_DW.Enabled_MODE_b = false;
-    }
-  }
-
-  // End of Outputs for SubSystem: '<S425>/Enabled '
 
   // Switch: '<S412>/Switch'
   if (Aenea_model_B.npad != 0) {
@@ -2597,14 +2628,14 @@ void Aenea_model_step(void)
   Aenea_model_B.DataTypeConversion1_f[1] = 0U;
   for (Aenea_model_B.i = 0; Aenea_model_B.i < 6; Aenea_model_B.i++) {
     // Gain: '<S17>/Gain'
-    Aenea_model_B.Saturation = 1000.0 *
+    Aenea_model_B.Sum3_h = 1000.0 *
       Aenea_model_B.DataTypeConversion1_c[Aenea_model_B.i];
 
     // DataTypeConversion: '<S17>/Data Type Conversion'
-    if (Aenea_model_B.Saturation < 0.0) {
-      Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+    if (Aenea_model_B.Sum3_h < 0.0) {
+      Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
     } else {
-      Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+      Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
     }
 
     if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -2631,11 +2662,11 @@ void Aenea_model_step(void)
   Aenea_model_B.DataTypeConversion_j[7] = 0;
   Aenea_model_B.DataTypeConversion_j[8] = 0;
 
-  // Gain: '<S553>/Gain1'
+  // Gain: '<S563>/Gain1'
   Aenea_model_B.olddi = 0.017453292519943295 *
     Aenea_model_B.DataTypeConversion1_c[7];
 
-  // Gain: '<S554>/Gain1'
+  // Gain: '<S564>/Gain1'
   Aenea_model_B.Gain1_o = 0.017453292519943295 *
     Aenea_model_B.DataTypeConversion1_c[8];
 
@@ -2653,24 +2684,24 @@ void Aenea_model_step(void)
   Aenea_model_B.DataTypeConversion1[5] = static_cast<real32_T>
     (Aenea_model_B.DataTypeConversion1_c[5]);
 
-  // Outputs for Enabled SubSystem: '<S574>/Subsystem2' incorporates:
-  //   EnablePort: '<S585>/Enable'
+  // Outputs for Enabled SubSystem: '<S584>/Subsystem2' incorporates:
+  //   EnablePort: '<S595>/Enable'
 
   if (Aenea_model_B.SFunction_o14 > 0) {
-    // Switch: '<S585>/Switch' incorporates:
-    //   Constant: '<S585>/Constant'
-    //   Constant: '<S585>/Constant1'
-    //   Constant: '<S585>/Constant3'
-    //   Constant: '<S585>/Constant4'
-    //   Constant: '<S585>/Constant5'
-    //   Constant: '<S585>/Constant6'
-    //   Logic: '<S585>/OR'
-    //   RelationalOperator: '<S585>/Equal'
-    //   RelationalOperator: '<S585>/Equal1'
-    //   RelationalOperator: '<S585>/Equal2'
-    //   RelationalOperator: '<S585>/Equal3'
-    //   RelationalOperator: '<S585>/Equal4'
-    //   RelationalOperator: '<S585>/Equal5'
+    // Switch: '<S595>/Switch' incorporates:
+    //   Constant: '<S595>/Constant'
+    //   Constant: '<S595>/Constant1'
+    //   Constant: '<S595>/Constant3'
+    //   Constant: '<S595>/Constant4'
+    //   Constant: '<S595>/Constant5'
+    //   Constant: '<S595>/Constant6'
+    //   Logic: '<S595>/OR'
+    //   RelationalOperator: '<S595>/Equal'
+    //   RelationalOperator: '<S595>/Equal1'
+    //   RelationalOperator: '<S595>/Equal2'
+    //   RelationalOperator: '<S595>/Equal3'
+    //   RelationalOperator: '<S595>/Equal4'
+    //   RelationalOperator: '<S595>/Equal5'
 
     if ((Aenea_model_B.SFunctionBuilder_o6 == 1.0) ||
         (Aenea_model_B.SFunctionBuilder_o6 == 2.0) ||
@@ -2678,25 +2709,25 @@ void Aenea_model_step(void)
         (Aenea_model_B.SFunctionBuilder_o6 == 4.0) ||
         (Aenea_model_B.SFunctionBuilder_o6 == 5.0) ||
         (Aenea_model_B.SFunctionBuilder_o6 == 6.0)) {
-      // Switch: '<S585>/Switch'
+      // Switch: '<S595>/Switch'
       Aenea_model_B.Switch = Aenea_model_B.quota;
     } else {
-      // Switch: '<S585>/Switch' incorporates:
-      //   Constant: '<S585>/Constant2'
+      // Switch: '<S595>/Switch' incorporates:
+      //   Constant: '<S595>/Constant2'
 
       Aenea_model_B.Switch = 0.0;
     }
 
-    // End of Switch: '<S585>/Switch'
+    // End of Switch: '<S595>/Switch'
   }
 
-  // End of Outputs for SubSystem: '<S574>/Subsystem2'
+  // End of Outputs for SubSystem: '<S584>/Subsystem2'
 
-  // Switch: '<S574>/Switch' incorporates:
-  //   Logic: '<S574>/AND'
-  //   Sum: '<S574>/Sum1'
-  //   Switch: '<S574>/Switch1'
-  //   UnitDelay: '<S574>/Unit Delay'
+  // Switch: '<S584>/Switch' incorporates:
+  //   Logic: '<S584>/AND'
+  //   Sum: '<S584>/Sum1'
+  //   Switch: '<S584>/Switch1'
+  //   UnitDelay: '<S584>/Unit Delay'
 
   if (Aenea_model_B.SFunctionBuilder_o7 && (Aenea_model_B.SFunctionBuilder_o6 >
        2.0)) {
@@ -2708,28 +2739,28 @@ void Aenea_model_step(void)
     Aenea_model_DW.UnitDelay_DSTATE_h[4] = Aenea_model_B.heading;
   }
 
-  // End of Switch: '<S574>/Switch'
+  // End of Switch: '<S584>/Switch'
 
-  // Gain: '<S555>/Gain1' incorporates:
-  //   UnitDelay: '<S574>/Unit Delay'
+  // Gain: '<S565>/Gain1' incorporates:
+  //   UnitDelay: '<S584>/Unit Delay'
 
   Aenea_model_B.Gain1_i = 0.017453292519943295 *
     Aenea_model_DW.UnitDelay_DSTATE_h[0];
 
-  // Gain: '<S556>/Gain1' incorporates:
-  //   UnitDelay: '<S574>/Unit Delay'
+  // Gain: '<S566>/Gain1' incorporates:
+  //   UnitDelay: '<S584>/Unit Delay'
 
   Aenea_model_B.Gain1_i0 = 0.017453292519943295 *
     Aenea_model_DW.UnitDelay_DSTATE_h[1];
 
-  // Gain: '<S557>/Gain1' incorporates:
-  //   UnitDelay: '<S574>/Unit Delay'
+  // Gain: '<S567>/Gain1' incorporates:
+  //   UnitDelay: '<S584>/Unit Delay'
 
   Aenea_model_B.e_d = 0.017453292519943295 * Aenea_model_DW.UnitDelay_DSTATE_h[4];
 
   // Product: '<S6>/Multiply2' incorporates:
   //   Trigonometry: '<S6>/Cos2'
-  //   UnitDelay: '<S574>/Unit Delay'
+  //   UnitDelay: '<S584>/Unit Delay'
 
   Aenea_model_B.V_nord = std::cos(Aenea_model_B.e_d) *
     Aenea_model_DW.UnitDelay_DSTATE_h[2];
@@ -2738,13 +2769,13 @@ void Aenea_model_step(void)
   Aenea_model_B.e_d = std::sin(Aenea_model_B.e_d);
 
   // Product: '<S6>/Multiply3' incorporates:
-  //   UnitDelay: '<S574>/Unit Delay'
+  //   UnitDelay: '<S584>/Unit Delay'
 
   Aenea_model_B.e_d *= Aenea_model_DW.UnitDelay_DSTATE_h[2];
 
-  // Logic: '<S565>/NOT' incorporates:
-  //   Memory: '<S565>/Memory'
-  //   RelationalOperator: '<S565>/Equal'
+  // Logic: '<S575>/NOT' incorporates:
+  //   Memory: '<S575>/Memory'
+  //   RelationalOperator: '<S575>/Equal'
 
   Aenea_model_B.NOT[5] = !(Aenea_model_B.checksum ==
     Aenea_model_DW.Memory_PreviousInput_e[5]);
@@ -2758,143 +2789,143 @@ void Aenea_model_step(void)
         Aenea_model_B.DataTypeConversion1_c[Aenea_model_B.i]);
   }
 
-  // End of Logic: '<S565>/NOT'
+  // End of Logic: '<S575>/NOT'
 
-  // MATLAB Function: '<S565>/MATLAB Function'
+  // MATLAB Function: '<S575>/MATLAB Function'
   rtb_y_n = (Aenea_model_B.NOT[5] || (Aenea_model_B.NOT[6] ||
               (Aenea_model_B.NOT[7] || (Aenea_model_B.NOT[8] ||
     (Aenea_model_B.NOT[9] || (Aenea_model_B.NOT[10] || (Aenea_model_B.NOT[11] ||
     Aenea_model_B.NOT[12])))))));
 
-  // Logic: '<S564>/NOT' incorporates:
-  //   Memory: '<S564>/Memory'
-  //   RelationalOperator: '<S564>/Equal1'
+  // Logic: '<S574>/NOT' incorporates:
+  //   Memory: '<S574>/Memory'
+  //   RelationalOperator: '<S574>/Equal1'
 
   Aenea_model_B.NOT[3] = !(Aenea_model_B.V_nord ==
     Aenea_model_DW.Memory_PreviousInput_o[3]);
   Aenea_model_B.NOT[4] = !(Aenea_model_B.e_d ==
     Aenea_model_DW.Memory_PreviousInput_o[4]);
 
-  // MATLAB Function: '<S564>/MATLAB Function1' incorporates:
-  //   Logic: '<S564>/NOT'
-  //   Memory: '<S564>/Memory'
-  //   RelationalOperator: '<S564>/Equal1'
+  // MATLAB Function: '<S574>/MATLAB Function1' incorporates:
+  //   Logic: '<S574>/NOT'
+  //   Memory: '<S574>/Memory'
+  //   RelationalOperator: '<S574>/Equal1'
 
   rtb_y_c = ((!(Aenea_model_B.Gain1_i == Aenea_model_DW.Memory_PreviousInput_o[0]))
              || (!(Aenea_model_B.Gain1_i0 ==
                    Aenea_model_DW.Memory_PreviousInput_o[1])));
 
-  // Switch: '<S560>/Switch1'
+  // Switch: '<S570>/Switch1'
   Aenea_model_B.idx = (Aenea_model_B.SFunctionBuilder_o6 > 2.0);
 
   // Outputs for Enabled SubSystem: '<S6>/Filter2' incorporates:
-  //   EnablePort: '<S559>/Enable'
+  //   EnablePort: '<S569>/Enable'
 
-  // SignalConversion generated from: '<S566>/ SFunction ' incorporates:
-  //   DataTypeConversion: '<S578>/Data Type Conversion2'
-  //   Inport: '<S559>/Misure'
-  //   MATLAB Function: '<S560>/MATLAB Function2'
+  // SignalConversion generated from: '<S576>/ SFunction ' incorporates:
+  //   DataTypeConversion: '<S588>/Data Type Conversion2'
+  //   Inport: '<S569>/Misure'
+  //   MATLAB Function: '<S570>/MATLAB Function2'
 
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[0] = Aenea_model_B.Gain1_i;
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[1] = Aenea_model_B.Gain1_i0;
 
-  // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+  // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[2] =
     Aenea_model_B.SFunctionBuilder_o3_h;
 
-  // End of Outputs for SubSystem: '<S571>/Execution_loop'
+  // End of Outputs for SubSystem: '<S581>/Execution_loop'
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[3] = Aenea_model_B.V_nord;
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[4] = Aenea_model_B.e_d;
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5] = Aenea_model_B.checksum;
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6] = Aenea_model_B.olddi;
   Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7] = Aenea_model_B.Gain1_o;
   for (Aenea_model_B.i = 0; Aenea_model_B.i < 6; Aenea_model_B.i++) {
-    // RelationalOperator: '<S564>/Equal1'
+    // RelationalOperator: '<S574>/Equal1'
     Aenea_model_B.Alt = Aenea_model_B.DataTypeConversion1_c[Aenea_model_B.i];
 
-    // Logic: '<S564>/NOT' incorporates:
-    //   Memory: '<S564>/Memory'
-    //   RelationalOperator: '<S564>/Equal1'
+    // Logic: '<S574>/NOT' incorporates:
+    //   Memory: '<S574>/Memory'
+    //   RelationalOperator: '<S574>/Equal1'
 
     Aenea_model_B.NOT[Aenea_model_B.i + 8] =
       !(Aenea_model_DW.Memory_PreviousInput_o[Aenea_model_B.i + 8] ==
         Aenea_model_B.Alt);
 
-    // SignalConversion generated from: '<S566>/ SFunction ' incorporates:
-    //   Inport: '<S559>/Misure'
-    //   MATLAB Function: '<S560>/MATLAB Function2'
+    // SignalConversion generated from: '<S576>/ SFunction ' incorporates:
+    //   Inport: '<S569>/Misure'
+    //   MATLAB Function: '<S570>/MATLAB Function2'
 
     Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[Aenea_model_B.i + 8] =
       Aenea_model_B.Alt;
   }
 
-  // MATLAB Function: '<S560>/MATLAB Function2' incorporates:
-  //   Constant: '<S560>/Constant'
-  //   MATLAB Function: '<S559>/DEFINITIVA'
-  //   SignalConversion generated from: '<S566>/ SFunction '
+  // MATLAB Function: '<S570>/MATLAB Function2' incorporates:
+  //   Constant: '<S570>/Constant'
+  //   MATLAB Function: '<S569>/DEFINITIVA'
+  //   SignalConversion generated from: '<S576>/ SFunction '
 
-  Aenea_model_B.Ato_selector = std::cos
+  Aenea_model_B.Switch_d_c = std::cos
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
   Aenea_model_B.Alt = std::cos(Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]);
-  Aenea_model_B.Saturation_a = std::sin
-    (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]);
   Aenea_model_B.SwitchBumpless2 = std::sin
-    (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]);
-  Aenea_model_B.Alettoni = std::sin
-    (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
-  Aenea_model_B.Saturation = std::cos
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]);
+  Aenea_model_B.Gain_e = std::sin(Aenea_model_B.rtb_TmpSignalConversionAtSFun_k
+    [5]);
+  Aenea_model_B.Ato_selector = std::sin
+    (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
+  Aenea_model_B.Sum3_h = std::cos(Aenea_model_B.rtb_TmpSignalConversionAtSFun_k
+    [6]);
 
   // End of Outputs for SubSystem: '<S6>/Filter2'
-  Aenea_model_B.aterra_tmp[0] = Aenea_model_B.Ato_selector *
-    Aenea_model_B.Saturation;
-  Aenea_model_B.aterra_tmp[3] = Aenea_model_B.Ato_selector *
-    Aenea_model_B.SwitchBumpless2 * Aenea_model_B.Saturation_a -
-    Aenea_model_B.Alt * Aenea_model_B.Alettoni;
-  Aenea_model_B.aterra_tmp[6] = Aenea_model_B.Alt * Aenea_model_B.Ato_selector *
-    Aenea_model_B.Saturation_a + Aenea_model_B.SwitchBumpless2 *
-    Aenea_model_B.Alettoni;
-  Aenea_model_B.aterra_tmp[1] = Aenea_model_B.Alettoni *
-    Aenea_model_B.Saturation;
+  Aenea_model_B.aterra_tmp[0] = Aenea_model_B.Switch_d_c * Aenea_model_B.Sum3_h;
+  Aenea_model_B.aterra_tmp[3] = Aenea_model_B.Switch_d_c * Aenea_model_B.Gain_e *
+    Aenea_model_B.SwitchBumpless2 - Aenea_model_B.Alt *
+    Aenea_model_B.Ato_selector;
+  Aenea_model_B.aterra_tmp[6] = Aenea_model_B.Alt * Aenea_model_B.Switch_d_c *
+    Aenea_model_B.SwitchBumpless2 + Aenea_model_B.Gain_e *
+    Aenea_model_B.Ato_selector;
+  Aenea_model_B.aterra_tmp[1] = Aenea_model_B.Ato_selector *
+    Aenea_model_B.Sum3_h;
 
   // Outputs for Enabled SubSystem: '<S6>/Filter2' incorporates:
-  //   EnablePort: '<S559>/Enable'
+  //   EnablePort: '<S569>/Enable'
 
-  Aenea_model_B.aterra_tmp_tmp = std::sin
+  Aenea_model_B.Saturation_a = std::sin
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
 
   // End of Outputs for SubSystem: '<S6>/Filter2'
-  Aenea_model_B.aterra_tmp[4] = Aenea_model_B.aterra_tmp_tmp *
-    Aenea_model_B.Saturation_a + std::cos
+  Aenea_model_B.aterra_tmp[4] = Aenea_model_B.Saturation_a *
+    Aenea_model_B.SwitchBumpless2 + std::cos
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::cos
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
 
   // Outputs for Enabled SubSystem: '<S6>/Filter2' incorporates:
-  //   EnablePort: '<S559>/Enable'
+  //   EnablePort: '<S569>/Enable'
 
-  Aenea_model_B.Sum4_b = std::cos(Aenea_model_B.rtb_TmpSignalConversionAtSFun_k
-    [5]) * std::sin(Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
-  Aenea_model_B.Equilibratore_n = std::cos
+  Aenea_model_B.Alettoni = std::cos
+    (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
+    (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
+  Aenea_model_B.aterra_tmp_tmp = std::cos
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
     (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]);
 
   // End of Outputs for SubSystem: '<S6>/Filter2'
-  Aenea_model_B.aterra_tmp[7] = Aenea_model_B.Sum4_b *
-    Aenea_model_B.Saturation_a - Aenea_model_B.Equilibratore_n;
-  Aenea_model_B.aterra_tmp[2] = -Aenea_model_B.Saturation_a;
-  Aenea_model_B.aterra_tmp[5] = Aenea_model_B.Saturation *
-    Aenea_model_B.SwitchBumpless2;
-  Aenea_model_B.aterra_tmp[8] = Aenea_model_B.Alt * Aenea_model_B.Saturation;
-  Aenea_model_B.Sum3_k = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[8];
-  Aenea_model_B.Sum2_k2 = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[9];
-  Aenea_model_B.Vec_selector = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[10];
+  Aenea_model_B.aterra_tmp[7] = Aenea_model_B.Alettoni *
+    Aenea_model_B.SwitchBumpless2 - Aenea_model_B.aterra_tmp_tmp;
+  Aenea_model_B.aterra_tmp[2] = -Aenea_model_B.SwitchBumpless2;
+  Aenea_model_B.aterra_tmp[5] = Aenea_model_B.Sum3_h * Aenea_model_B.Gain_e;
+  Aenea_model_B.aterra_tmp[8] = Aenea_model_B.Alt * Aenea_model_B.Sum3_h;
+  Aenea_model_B.Sum4_b = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[8];
+  Aenea_model_B.Equilibratore_n = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k
+    [9];
+  Aenea_model_B.Sum3_k = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[10];
   for (Aenea_model_B.npad = 0; Aenea_model_B.npad < 3; Aenea_model_B.npad++) {
     Aenea_model_B.aterra[Aenea_model_B.npad] =
-      Aenea_model_B.aterra_tmp[Aenea_model_B.npad + 6] *
-      Aenea_model_B.Vec_selector + (Aenea_model_B.aterra_tmp[Aenea_model_B.npad
-      + 3] * Aenea_model_B.Sum2_k2 + Aenea_model_B.aterra_tmp[Aenea_model_B.npad]
-      * Aenea_model_B.Sum3_k);
+      Aenea_model_B.aterra_tmp[Aenea_model_B.npad + 6] * Aenea_model_B.Sum3_k +
+      (Aenea_model_B.aterra_tmp[Aenea_model_B.npad + 3] *
+       Aenea_model_B.Equilibratore_n +
+       Aenea_model_B.aterra_tmp[Aenea_model_B.npad] * Aenea_model_B.Sum4_b);
   }
 
   Aenea_model_B.y[0] = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[0];
@@ -2919,30 +2950,30 @@ void Aenea_model_step(void)
   Aenea_model_B.y[19] = 2.9671E-5;
   Aenea_model_B.y[20] = 5.4105E-5;
 
-  // Outputs for Triggered SubSystem: '<S560>/Sample and Hold' incorporates:
-  //   TriggerPort: '<S567>/Trigger'
+  // Outputs for Triggered SubSystem: '<S570>/Sample and Hold' incorporates:
+  //   TriggerPort: '<S577>/Trigger'
 
   Aenea_model_B.zcEvent = rt_ZCFcn(RISING_ZERO_CROSSING,
     &Aenea_model_PrevZCX.SampleandHold_Trig_ZCE,
     (static_cast<real_T>(Aenea_model_B.idx)));
   if (Aenea_model_B.zcEvent != NO_ZCEVENT) {
-    // Inport: '<S567>/In'
+    // Inport: '<S577>/In'
     std::memcpy(&Aenea_model_B.In[0], &Aenea_model_B.y[0], 21U * sizeof(real_T));
   }
 
-  // End of Outputs for SubSystem: '<S560>/Sample and Hold'
+  // End of Outputs for SubSystem: '<S570>/Sample and Hold'
 
-  // MATLAB Function: '<S564>/MATLAB Function'
+  // MATLAB Function: '<S574>/MATLAB Function'
   rtb_y_e = (Aenea_model_B.NOT[3] || Aenea_model_B.NOT[4]);
 
   // Outputs for Enabled SubSystem: '<S6>/Filter2' incorporates:
-  //   EnablePort: '<S559>/Enable'
+  //   EnablePort: '<S569>/Enable'
 
   if (Aenea_model_B.idx > 0) {
-    // MATLAB Function: '<S559>/DEFINITIVA' incorporates:
+    // MATLAB Function: '<S569>/DEFINITIVA' incorporates:
     //   Constant: '<S6>/Constant13'
     //   Constant: '<S6>/Constant16'
-    //   Inport: '<S559>/Misure'
+    //   Inport: '<S569>/Misure'
 
     Aenea_model_B.aterra[0] = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5];
     Aenea_model_B.aterra[1] = Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6];
@@ -2973,25 +3004,25 @@ void Aenea_model_step(void)
     Aenea_model_B.H[69] = 0.0;
     Aenea_model_B.H[80] = 0.0;
     Aenea_model_B.H[91] = 0.0;
-    Aenea_model_B.H[102] = (Aenea_model_B.Alt * Aenea_model_B.Ato_selector *
-      Aenea_model_B.Saturation_a + Aenea_model_B.SwitchBumpless2 *
-      Aenea_model_B.Alettoni) * 0.0 + (Aenea_model_B.Alt *
-      Aenea_model_B.Alettoni - Aenea_model_B.Ato_selector *
-      Aenea_model_B.SwitchBumpless2 * Aenea_model_B.Saturation_a) * 0.0;
-    Aenea_model_B.Sum3_k = 0.0 * Aenea_model_B.Ato_selector *
-      Aenea_model_B.Saturation;
-    Aenea_model_B.Sum2_k2 = std::cos
+    Aenea_model_B.H[102] = (Aenea_model_B.Alt * Aenea_model_B.Switch_d_c *
+      Aenea_model_B.SwitchBumpless2 + Aenea_model_B.Gain_e *
+      Aenea_model_B.Ato_selector) * 0.0 + (Aenea_model_B.Alt *
+      Aenea_model_B.Ato_selector - Aenea_model_B.Switch_d_c *
+      Aenea_model_B.Gain_e * Aenea_model_B.SwitchBumpless2) * 0.0;
+    Aenea_model_B.Sum4_b = 0.0 * Aenea_model_B.Switch_d_c * Aenea_model_B.Sum3_h;
+    Aenea_model_B.Equilibratore_n = std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]) + std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
-    Aenea_model_B.H[113] = Aenea_model_B.Sum3_k - Aenea_model_B.Sum2_k2 * 0.0;
-    Aenea_model_B.H[124] = (Aenea_model_B.Sum4_b - std::cos
+    Aenea_model_B.H[113] = Aenea_model_B.Sum4_b - Aenea_model_B.Equilibratore_n *
+      0.0;
+    Aenea_model_B.H[124] = (Aenea_model_B.Alettoni - std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6])) * -0.0 -
-      Aenea_model_B.Sum3_k;
+      Aenea_model_B.Sum4_b;
     Aenea_model_B.H[135] = 0.0;
     Aenea_model_B.H[146] = 0.0;
     Aenea_model_B.H[157] = 0.0;
@@ -3007,21 +3038,22 @@ void Aenea_model_step(void)
     Aenea_model_B.H[70] = 0.0;
     Aenea_model_B.H[81] = 0.0;
     Aenea_model_B.H[92] = 0.0;
-    Aenea_model_B.H[103] = (Aenea_model_B.Equilibratore_n - Aenea_model_B.Sum4_b
-      * Aenea_model_B.Saturation_a) * -0.0 - (Aenea_model_B.aterra_tmp_tmp *
-      Aenea_model_B.Saturation_a + Aenea_model_B.Sum4_b) * 0.0;
-    Aenea_model_B.Sum3_k = 0.0 * Aenea_model_B.Saturation *
-      Aenea_model_B.Alettoni;
-    Aenea_model_B.H[114] = (Aenea_model_B.Equilibratore_n - std::cos
+    Aenea_model_B.H[103] = (Aenea_model_B.aterra_tmp_tmp -
+      Aenea_model_B.Alettoni * Aenea_model_B.SwitchBumpless2) * -0.0 -
+      (Aenea_model_B.Saturation_a * Aenea_model_B.SwitchBumpless2 +
+       Aenea_model_B.Alettoni) * 0.0;
+    Aenea_model_B.Sum4_b = 0.0 * Aenea_model_B.Sum3_h *
+      Aenea_model_B.Ato_selector;
+    Aenea_model_B.H[114] = (Aenea_model_B.aterra_tmp_tmp - std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6])) * 0.0 +
-      Aenea_model_B.Sum3_k;
+      Aenea_model_B.Sum4_b;
     Aenea_model_B.H[125] = (std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
-      (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]) + Aenea_model_B.Sum4_b)
-      * 0.0 - Aenea_model_B.Sum3_k;
+      (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]) +
+      Aenea_model_B.Alettoni) * 0.0 - Aenea_model_B.Sum4_b;
     Aenea_model_B.H[136] = 0.0;
     Aenea_model_B.H[147] = 0.0;
     Aenea_model_B.H[158] = 0.0;
@@ -3034,16 +3066,16 @@ void Aenea_model_step(void)
     Aenea_model_B.H[38] = 0.0;
     Aenea_model_B.H[49] = 0.0;
     Aenea_model_B.H[60] = 0.0;
-    Aenea_model_B.H[71] = Aenea_model_B.Ato_selector * Aenea_model_B.Saturation;
-    Aenea_model_B.H[82] = Aenea_model_B.Saturation * Aenea_model_B.Alettoni;
-    Aenea_model_B.H[93] = -Aenea_model_B.Saturation_a;
+    Aenea_model_B.H[71] = Aenea_model_B.Switch_d_c * Aenea_model_B.Sum3_h;
+    Aenea_model_B.H[82] = Aenea_model_B.Sum3_h * Aenea_model_B.Ato_selector;
+    Aenea_model_B.H[93] = -Aenea_model_B.SwitchBumpless2;
     Aenea_model_B.H[104] = Aenea_model_DW.x_prd[10] * 0.0 +
       Aenea_model_DW.x_prd[11] * 0.0;
-    Aenea_model_B.Sum3_k = 2.0 * Aenea_model_DW.x_prd[10] * 0.0;
-    Aenea_model_B.H[115] = Aenea_model_DW.x_prd[9] * 0.0 - Aenea_model_B.Sum3_k;
-    Aenea_model_B.Ato_selector = 2.0 * Aenea_model_DW.x_prd[11] * 0.0;
+    Aenea_model_B.Sum4_b = 2.0 * Aenea_model_DW.x_prd[10] * 0.0;
+    Aenea_model_B.H[115] = Aenea_model_DW.x_prd[9] * 0.0 - Aenea_model_B.Sum4_b;
+    Aenea_model_B.Switch_d_c = 2.0 * Aenea_model_DW.x_prd[11] * 0.0;
     Aenea_model_B.H[126] = Aenea_model_DW.x_prd[9] * 0.0 -
-      Aenea_model_B.Ato_selector;
+      Aenea_model_B.Switch_d_c;
     Aenea_model_B.H[137] = 1.0;
     Aenea_model_B.H[148] = 0.0;
     Aenea_model_B.H[159] = 0.0;
@@ -3068,15 +3100,13 @@ void Aenea_model_step(void)
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]) + std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]);
-    Aenea_model_B.H[94] = Aenea_model_B.Saturation *
-      Aenea_model_B.SwitchBumpless2;
-    Aenea_model_B.SwitchBumpless2 = 2.0 * Aenea_model_DW.x_prd[9] * 0.0;
-    Aenea_model_B.H[105] = Aenea_model_DW.x_prd[10] * 0.0 -
-      Aenea_model_B.SwitchBumpless2;
+    Aenea_model_B.H[94] = Aenea_model_B.Sum3_h * Aenea_model_B.Gain_e;
+    Aenea_model_B.Gain_e = 2.0 * Aenea_model_DW.x_prd[9] * 0.0;
+    Aenea_model_B.H[105] = Aenea_model_DW.x_prd[10] * 0.0 - Aenea_model_B.Gain_e;
     Aenea_model_B.H[116] = Aenea_model_DW.x_prd[9] * 0.0 + Aenea_model_DW.x_prd
       [11] * 0.0;
     Aenea_model_B.H[127] = Aenea_model_DW.x_prd[10] * 0.0 -
-      Aenea_model_B.Ato_selector;
+      Aenea_model_B.Switch_d_c;
     Aenea_model_B.H[138] = 0.0;
     Aenea_model_B.H[149] = 1.0;
     Aenea_model_B.H[160] = 0.0;
@@ -3089,17 +3119,16 @@ void Aenea_model_step(void)
     Aenea_model_B.H[40] = 0.0;
     Aenea_model_B.H[51] = 0.0;
     Aenea_model_B.H[62] = 0.0;
-    Aenea_model_B.H[73] = Aenea_model_B.Sum2_k2;
+    Aenea_model_B.H[73] = Aenea_model_B.Equilibratore_n;
     Aenea_model_B.H[84] = std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[6]) - std::cos
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[7]) * std::sin
       (Aenea_model_B.rtb_TmpSignalConversionAtSFun_k[5]);
-    Aenea_model_B.H[95] = Aenea_model_B.Alt * Aenea_model_B.Saturation;
-    Aenea_model_B.H[106] = Aenea_model_DW.x_prd[11] * 0.0 -
-      Aenea_model_B.SwitchBumpless2;
-    Aenea_model_B.H[117] = Aenea_model_DW.x_prd[11] * 0.0 - Aenea_model_B.Sum3_k;
+    Aenea_model_B.H[95] = Aenea_model_B.Alt * Aenea_model_B.Sum3_h;
+    Aenea_model_B.H[106] = Aenea_model_DW.x_prd[11] * 0.0 - Aenea_model_B.Gain_e;
+    Aenea_model_B.H[117] = Aenea_model_DW.x_prd[11] * 0.0 - Aenea_model_B.Sum4_b;
     Aenea_model_B.H[128] = Aenea_model_DW.x_prd[9] * 0.0 + Aenea_model_DW.x_prd
       [10] * 0.0;
     Aenea_model_B.H[139] = 0.0;
@@ -3453,15 +3482,15 @@ void Aenea_model_step(void)
   // End of Outputs for SubSystem: '<S6>/Filter2'
 
   // Switch: '<S6>/Switch' incorporates:
-  //   DataTypeConversion: '<S578>/Data Type Conversion2'
+  //   DataTypeConversion: '<S588>/Data Type Conversion2'
 
   if (Aenea_model_B.SFunctionBuilder_o6 > 2.0) {
     Aenea_model_B.Alt = Aenea_model_B.h_K;
   } else {
-    // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+    // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
     Aenea_model_B.Alt = Aenea_model_B.SFunctionBuilder_o3_h;
 
-    // End of Outputs for SubSystem: '<S571>/Execution_loop'
+    // End of Outputs for SubSystem: '<S581>/Execution_loop'
   }
 
   // End of Switch: '<S6>/Switch'
@@ -3469,13 +3498,13 @@ void Aenea_model_step(void)
   // Gain: '<S15>/Gain' incorporates:
   //   Gain: '<S24>/Gain'
 
-  Aenea_model_B.Saturation = 57.295779513082323 * Aenea_model_B.Lat_K * 1.0E+7;
+  Aenea_model_B.Sum3_h = 57.295779513082323 * Aenea_model_B.Lat_K * 1.0E+7;
 
   // DataTypeConversion: '<S15>/Data Type Conversion'
-  if (Aenea_model_B.Saturation < 0.0) {
-    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+  if (Aenea_model_B.Sum3_h < 0.0) {
+    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
   } else {
-    Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+    Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
   }
 
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -3492,13 +3521,13 @@ void Aenea_model_step(void)
   // Gain: '<S15>/Gain' incorporates:
   //   Gain: '<S25>/Gain'
 
-  Aenea_model_B.Saturation = 57.295779513082323 * Aenea_model_B.Long_K * 1.0E+7;
+  Aenea_model_B.Sum3_h = 57.295779513082323 * Aenea_model_B.Long_K * 1.0E+7;
 
   // DataTypeConversion: '<S15>/Data Type Conversion'
-  if (Aenea_model_B.Saturation < 0.0) {
-    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+  if (Aenea_model_B.Sum3_h < 0.0) {
+    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
   } else {
-    Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+    Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
   }
 
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -3513,13 +3542,13 @@ void Aenea_model_step(void)
     static_cast<int32_T>(static_cast<uint32_T>(Aenea_model_B.a_b));
 
   // Gain: '<S15>/Gain'
-  Aenea_model_B.Saturation = 1000.0 * Aenea_model_B.Alt;
+  Aenea_model_B.Sum3_h = 1000.0 * Aenea_model_B.Alt;
 
   // DataTypeConversion: '<S15>/Data Type Conversion'
-  if (Aenea_model_B.Saturation < 0.0) {
-    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+  if (Aenea_model_B.Sum3_h < 0.0) {
+    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
   } else {
-    Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+    Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
   }
 
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -3538,13 +3567,13 @@ void Aenea_model_step(void)
   Aenea_model_B.DataTypeConversion_g[3] = 0;
 
   // Gain: '<S15>/Gain1'
-  Aenea_model_B.Saturation = 1000.0 * Aenea_model_B.v_K;
+  Aenea_model_B.Sum3_h = 1000.0 * Aenea_model_B.v_K;
 
   // DataTypeConversion: '<S15>/Data Type Conversion1'
-  if (Aenea_model_B.Saturation < 0.0) {
-    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+  if (Aenea_model_B.Sum3_h < 0.0) {
+    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
   } else {
-    Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+    Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
   }
 
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -3565,13 +3594,13 @@ void Aenea_model_step(void)
   Aenea_model_B.DataTypeConversion1_j[1] = 0;
 
   // Gain: '<S15>/Gain1'
-  Aenea_model_B.Saturation = 1000.0 * Aenea_model_B.vd_K;
+  Aenea_model_B.Sum3_h = 1000.0 * Aenea_model_B.vd_K;
 
   // DataTypeConversion: '<S15>/Data Type Conversion1'
-  if (Aenea_model_B.Saturation < 0.0) {
-    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+  if (Aenea_model_B.Sum3_h < 0.0) {
+    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
   } else {
-    Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+    Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
   }
 
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -3588,13 +3617,13 @@ void Aenea_model_step(void)
        (Aenea_model_B.a_b))));
 
   // Gain: '<S15>/Gain2'
-  Aenea_model_B.Saturation = 100.0 * Aenea_model_B.imbardata;
+  Aenea_model_B.Sum3_h = 100.0 * Aenea_model_B.imbardata;
 
   // DataTypeConversion: '<S15>/Data Type Conversion2'
-  if (Aenea_model_B.Saturation < 0.0) {
-    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Saturation);
+  if (Aenea_model_B.Sum3_h < 0.0) {
+    Aenea_model_B.a_b = std::ceil(Aenea_model_B.Sum3_h);
   } else {
-    Aenea_model_B.a_b = std::floor(Aenea_model_B.Saturation);
+    Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum3_h);
   }
 
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -3653,8 +3682,89 @@ void Aenea_model_step(void)
   // Gain: '<S29>/Gain2'
   Aenea_model_B.Gain_h = 100.0 * Aenea_model_B.Sum5;
 
-  // S-Function (PWMinterrupt_goHome_sfun): '<S9>/S-Function Builder4'
-  PWMinterrupt_goHome_sfun_Outputs_wrapper(&Aenea_model_B.SFunctionBuilder4);
+  // S-Function (PWMinterrupt_aileron_sfun): '<S9>/S-Function Builder1'
+  PWMinterrupt_aileron_sfun_Outputs_wrapper(&Aenea_model_B.manual_aileronCmd_pwm);
+
+  // Sum: '<S597>/Sum3' incorporates:
+  //   Constant: '<S597>/Constant8'
+  //   Constant: '<S597>/Constant9'
+  //   Constant: '<S7>/Constant10'
+  //   DataTypeConversion: '<S9>/Data Type Conversion14'
+  //   Product: '<S597>/Divide'
+  //   Product: '<S597>/Multiply'
+  //   Sum: '<S597>/Sum'
+  //   Sum: '<S597>/Sum2'
+
+  Aenea_model_B.Sum3_h = (static_cast<real_T>
+    (Aenea_model_B.manual_aileronCmd_pwm) - 1184.0) / Aenea_model_ConstB.Sum1_o *
+    0.82030474843733492 + -0.38397243543875248;
+
+  // Gain: '<S416>/Gain' incorporates:
+  //   Abs: '<S418>/Abs1'
+
+  Aenea_model_B.Gain_e = 57.295779513082323 * std::abs(Aenea_model_B.Sum3_h);
+
+  // MATLAB Function: '<S419>/MATLAB Function1' incorporates:
+  //   Constant: '<S419>/Constant3'
+  //   Constant: '<S419>/Constant4'
+
+  if (Aenea_model_DW.Memory2_PreviousInput_d[1] == 1) {
+    if ((Aenea_model_B.Gain_e > 2.0) && (Aenea_model_B.Gain_e < 7.5)) {
+      Aenea_model_B.idx = 1;
+      Aenea_model_B.b_k = 0;
+      Aenea_model_B.npad = 1;
+    } else if (Aenea_model_B.Gain_e > 7.5) {
+      Aenea_model_B.idx = 0;
+      Aenea_model_B.b_k = 1;
+      Aenea_model_B.npad = 0;
+    } else {
+      Aenea_model_B.idx = 0;
+      Aenea_model_B.b_k = 0;
+      Aenea_model_B.npad = 1;
+    }
+  } else {
+    Aenea_model_B.idx = 0;
+    Aenea_model_B.b_k = 0;
+    Aenea_model_B.npad = 1;
+  }
+
+  // End of MATLAB Function: '<S419>/MATLAB Function1'
+
+  // Outputs for Resettable SubSystem: '<S441>/Resettable Subsystem'
+  Aenea_mod_ResettableSubsystem_i(static_cast<real_T>(Aenea_model_B.idx),
+    &Aenea_model_B.Abs1, &Aenea_model_DW.ResettableSubsystem_p0,
+    &Aenea_model_PrevZCX.ResettableSubsystem_p0);
+
+  // End of Outputs for SubSystem: '<S441>/Resettable Subsystem'
+
+  // Outputs for Enabled SubSystem: '<S441>/Enabled '
+  Aenea_model_Enabled_o(static_cast<real_T>(Aenea_model_B.idx),
+                        Aenea_model_B.Abs1, &Aenea_model_B.Switch_n,
+                        &Aenea_model_DW.Enabled_h);
+
+  // End of Outputs for SubSystem: '<S441>/Enabled '
+
+  // Outputs for Resettable SubSystem: '<S440>/Resettable Subsystem'
+  Aenea_mod_ResettableSubsystem_i(static_cast<real_T>(Aenea_model_B.b_k),
+    &Aenea_model_B.Abs1, &Aenea_model_DW.ResettableSubsystem_h,
+    &Aenea_model_PrevZCX.ResettableSubsystem_h);
+
+  // End of Outputs for SubSystem: '<S440>/Resettable Subsystem'
+
+  // Outputs for Enabled SubSystem: '<S440>/Enabled '
+  Aenea_model_Enabled(static_cast<real_T>(Aenea_model_B.b_k), Aenea_model_B.Abs1,
+                      &Aenea_model_B.Switch_l, &Aenea_model_DW.Enabled_n);
+
+  // End of Outputs for SubSystem: '<S440>/Enabled '
+
+  // Switch: '<S419>/Switch'
+  if (Aenea_model_B.npad != 0) {
+    Aenea_model_B.Switch_d_c = Aenea_model_B.Switch_n;
+  } else {
+    Aenea_model_B.Switch_d_c = Aenea_model_B.Switch_l;
+  }
+
+  // End of Switch: '<S419>/Switch'
 
   // Chart: '<S38>/ STATI' incorporates:
   //   MATLAB Function: '<S3>/MATLAB Function1'
@@ -3671,6 +3781,9 @@ void Aenea_model_step(void)
       } else if (Aenea_model_B.Switch_e == 1.0) {
         Aenea_model_DW.is_AUTOMATICA = Aenea_model_IN_NO_ACTIVE_CHILD;
         Aenea_model_DW.is_c26_Aenea_model = Aenea_model_IN_Safe;
+      } else if (Aenea_model_B.Switch_d_c == 1.0) {
+        Aenea_model_DW.is_AUTOMATICA = Aenea_model_IN_NO_ACTIVE_CHILD;
+        Aenea_model_DW.is_c26_Aenea_model = Aenea_model_IN_Go_Home;
       } else if (Aenea_model_DW.Memory2_PreviousInput_d[1] == 0) {
         Aenea_model_DW.is_AUTOMATICA = Aenea_model_IN_NO_ACTIVE_CHILD;
         Aenea_model_DW.is_c26_Aenea_model = Aenea_model_IN_Stand_By;
@@ -3772,11 +3885,12 @@ void Aenea_model_step(void)
       break;
 
      case Aenea_model_IN_Go_Home:
-      if ((Aenea_model_DW.Memory2_PreviousInput_d[6] == 1) ||
-          (Aenea_model_DW.Memory2_PreviousInput_d[3] == 1) ||
-          (Aenea_model_DW.Memory2_PreviousInput_d[4] == 1) ||
-          (Aenea_model_DW.Memory2_PreviousInput_d[2] == 1) ||
-          (Aenea_model_DW.Memory2_PreviousInput_d[8] == 1)) {
+      if ((Aenea_model_B.Switch_d_c == 0.0) &&
+          ((Aenea_model_DW.Memory2_PreviousInput_d[6] == 1) ||
+           (Aenea_model_DW.Memory2_PreviousInput_d[3] == 1) ||
+           (Aenea_model_DW.Memory2_PreviousInput_d[4] == 1) ||
+           (Aenea_model_DW.Memory2_PreviousInput_d[2] == 1) ||
+           (Aenea_model_DW.Memory2_PreviousInput_d[8] == 1))) {
         Aenea_model_DW.is_c26_Aenea_model = Aenea_model_IN_AUTOMATICA;
         Aenea_model_DW.is_AUTOMATICA = Aenea_model_IN_VETTORIALE;
       } else if (Aenea_model_B.Switch_e == 1.0) {
@@ -3804,7 +3918,10 @@ void Aenea_model_step(void)
       break;
 
      case Aenea_model_IN_MANUALE:
-      if (Aenea_model_DW.Memory2_PreviousInput_d[0] == 0) {
+      if ((Aenea_model_B.Switch_d_c == 1.0) && (Aenea_model_B.Switch_e == 0.0))
+      {
+        Aenea_model_DW.is_c26_Aenea_model = Aenea_model_IN_Go_Home;
+      } else if (Aenea_model_DW.Memory2_PreviousInput_d[0] == 0) {
         Aenea_model_DW.is_c26_Aenea_model = Aenea_model_IN_Stand_By;
       } else {
         Aenea_model_B.switch_manetta = 0.0;
@@ -3870,11 +3987,11 @@ void Aenea_model_step(void)
 
   // Saturate: '<S349>/Saturation'
   if (Aenea_model_B.Switch_a_p > 0.41887902047863912) {
-    Aenea_model_B.Saturation = 0.41887902047863912;
+    Aenea_model_B.Switch_d_c = 0.41887902047863912;
   } else if (Aenea_model_B.Switch_a_p < -0.4014257279586958) {
-    Aenea_model_B.Saturation = -0.4014257279586958;
+    Aenea_model_B.Switch_d_c = -0.4014257279586958;
   } else {
-    Aenea_model_B.Saturation = Aenea_model_B.Switch_a_p;
+    Aenea_model_B.Switch_d_c = Aenea_model_B.Switch_a_p;
   }
 
   // End of Saturate: '<S349>/Saturation'
@@ -3883,7 +4000,7 @@ void Aenea_model_step(void)
   if (static_cast<int32_T>(Aenea_model_B.switch_equilibratore) == 0) {
     Aenea_model_B.SwitchBumpless2 = Aenea_model_B.Sum3;
   } else {
-    Aenea_model_B.SwitchBumpless2 = Aenea_model_B.Saturation;
+    Aenea_model_B.SwitchBumpless2 = Aenea_model_B.Switch_d_c;
   }
 
   // End of MultiPortSwitch: '<S304>/Switch Bumpless 2'
@@ -4080,28 +4197,28 @@ void Aenea_model_step(void)
   // End of Chart: '<S39>/Chart'
 
   // Outputs for Enabled SubSystem: '<S39>/DECOLLO AUTOMATICO' incorporates:
-  //   EnablePort: '<S440>/Enable'
+  //   EnablePort: '<S450>/Enable'
 
   if (Aenea_model_B.Ato_selector > 0.0) {
-    // Outputs for Triggered SubSystem: '<S440>/Sample and Hold' incorporates:
-    //   TriggerPort: '<S448>/Trigger'
+    // Outputs for Triggered SubSystem: '<S450>/Sample and Hold' incorporates:
+    //   TriggerPort: '<S458>/Trigger'
 
-    // Memory: '<S440>/Memory'
+    // Memory: '<S450>/Memory'
     rt_ZCFcn(RISING_ZERO_CROSSING,&Aenea_model_PrevZCX.SampleandHold_Trig_ZCE_a,
              (Aenea_model_DW.Memory_PreviousInput_p));
 
-    // End of Outputs for SubSystem: '<S440>/Sample and Hold'
+    // End of Outputs for SubSystem: '<S450>/Sample and Hold'
 
-    // Outputs for Triggered SubSystem: '<S440>/Sample and Hold1' incorporates:
-    //   TriggerPort: '<S449>/Trigger'
+    // Outputs for Triggered SubSystem: '<S450>/Sample and Hold1' incorporates:
+    //   TriggerPort: '<S459>/Trigger'
 
-    // Memory: '<S440>/Memory1'
+    // Memory: '<S450>/Memory1'
     rt_ZCFcn(RISING_ZERO_CROSSING,&Aenea_model_PrevZCX.SampleandHold1_Trig_ZCE,
              (Aenea_model_DW.Memory1_PreviousInput_e));
 
-    // End of Outputs for SubSystem: '<S440>/Sample and Hold1'
+    // End of Outputs for SubSystem: '<S450>/Sample and Hold1'
 
-    // Chart: '<S440>/Chart1'
+    // Chart: '<S450>/Chart1'
     if (Aenea_model_DW.temporalCounter_i1 < 255U) {
       Aenea_model_DW.temporalCounter_i1 = static_cast<uint8_T>
         (Aenea_model_DW.temporalCounter_i1 + 1U);
@@ -4174,12 +4291,12 @@ void Aenea_model_step(void)
       }
     }
 
-    // End of Chart: '<S440>/Chart1'
+    // End of Chart: '<S450>/Chart1'
 
-    // Update for Memory: '<S440>/Memory'
+    // Update for Memory: '<S450>/Memory'
     Aenea_model_DW.Memory_PreviousInput_p = Aenea_model_B.psi_ref_selector;
 
-    // Update for Memory: '<S440>/Memory1'
+    // Update for Memory: '<S450>/Memory1'
     Aenea_model_DW.Memory1_PreviousInput_e = Aenea_model_B.theta_ground_selector;
   }
 
@@ -4381,15 +4498,15 @@ void Aenea_model_step(void)
   // S-Function (PWMinterrupt_rudder_sfun): '<S9>/S-Function Builder2'
   PWMinterrupt_rudder_sfun_Outputs_wrapper(&Aenea_model_B.manual_rudderCmd_pwm);
 
-  // Sum: '<S591>/Sum4' incorporates:
-  //   Constant: '<S591>/Constant8'
-  //   Constant: '<S591>/Constant9'
+  // Sum: '<S601>/Sum4' incorporates:
+  //   Constant: '<S601>/Constant8'
+  //   Constant: '<S601>/Constant9'
   //   Constant: '<S7>/Constant12'
   //   DataTypeConversion: '<S9>/Data Type Conversion15'
-  //   Product: '<S591>/Divide'
-  //   Product: '<S591>/Multiply'
-  //   Sum: '<S591>/Sum1'
-  //   Sum: '<S591>/Sum3'
+  //   Product: '<S601>/Divide'
+  //   Product: '<S601>/Multiply'
+  //   Sum: '<S601>/Sum1'
+  //   Sum: '<S601>/Sum3'
 
   Aenea_model_B.Sum4_b = (static_cast<real_T>(Aenea_model_B.manual_rudderCmd_pwm)
     - 1175.0) / Aenea_model_ConstB.Sum2 * 0.92502450355699462 +
@@ -4532,15 +4649,15 @@ void Aenea_model_step(void)
   // Memory: '<S4>/Memory'
   Aenea_model_B.Memory_o = Aenea_model_DW.Memory_PreviousInput_e4;
 
-  // MATLAB Function: '<S571>/MATLAB Function' incorporates:
-  //   DataTypeConversion: '<S571>/Data Type Conversion2'
-  //   DataTypeConversion: '<S578>/Data Type Conversion1'
+  // MATLAB Function: '<S581>/MATLAB Function' incorporates:
+  //   DataTypeConversion: '<S581>/Data Type Conversion2'
+  //   DataTypeConversion: '<S588>/Data Type Conversion1'
 
   if (Aenea_model_B.SFunction_o14 == 1) {
-    // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+    // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
     Aenea_model_DW.P_ref = Aenea_model_B.SFunctionBuilder_o2_p;
 
-    // End of Outputs for SubSystem: '<S571>/Execution_loop'
+    // End of Outputs for SubSystem: '<S581>/Execution_loop'
   }
 
   if (Aenea_model_B.SFunction_o16 == 1) {
@@ -4549,104 +4666,104 @@ void Aenea_model_step(void)
     Aenea_model_DW.rl_dw = -20.0;
   }
 
-  // Product: '<S577>/delta rise limit' incorporates:
-  //   MATLAB Function: '<S571>/MATLAB Function'
-  //   SampleTimeMath: '<S577>/sample time'
+  // Product: '<S587>/delta rise limit' incorporates:
+  //   MATLAB Function: '<S581>/MATLAB Function'
+  //   SampleTimeMath: '<S587>/sample time'
   //
-  //  About '<S577>/sample time':
+  //  About '<S587>/sample time':
   //   y = K where K = ( w * Ts )
 
-  Aenea_model_B.Gain_h = Aenea_model_DW.rl_up * 0.02;
+  Aenea_model_B.Abs1 = Aenea_model_DW.rl_up * 0.02;
 
-  // Sum: '<S577>/Difference Inputs1' incorporates:
-  //   MATLAB Function: '<S571>/MATLAB Function'
-  //   UnitDelay: '<S577>/Delay Input2'
+  // Sum: '<S587>/Difference Inputs1' incorporates:
+  //   MATLAB Function: '<S581>/MATLAB Function'
+  //   UnitDelay: '<S587>/Delay Input2'
   //
-  //  Block description for '<S577>/Difference Inputs1':
+  //  Block description for '<S587>/Difference Inputs1':
   //
   //   Add in CPU
   //
-  //  Block description for '<S577>/Delay Input2':
+  //  Block description for '<S587>/Delay Input2':
   //
   //   Store in Global RAM
 
   Aenea_model_B.Gain_dt = Aenea_model_DW.P_ref -
     Aenea_model_DW.DelayInput2_DSTATE;
 
-  // Switch: '<S581>/Switch2' incorporates:
-  //   RelationalOperator: '<S581>/LowerRelop1'
+  // Switch: '<S591>/Switch2' incorporates:
+  //   RelationalOperator: '<S591>/LowerRelop1'
 
-  if (!(Aenea_model_B.Gain_dt > Aenea_model_B.Gain_h)) {
-    // Product: '<S577>/delta fall limit' incorporates:
-    //   MATLAB Function: '<S571>/MATLAB Function'
-    //   SampleTimeMath: '<S577>/sample time'
+  if (!(Aenea_model_B.Gain_dt > Aenea_model_B.Abs1)) {
+    // Product: '<S587>/delta fall limit' incorporates:
+    //   MATLAB Function: '<S581>/MATLAB Function'
+    //   SampleTimeMath: '<S587>/sample time'
     //
-    //  About '<S577>/sample time':
+    //  About '<S587>/sample time':
     //   y = K where K = ( w * Ts )
 
-    Aenea_model_B.Gain_h = Aenea_model_DW.rl_dw * 0.02;
+    Aenea_model_B.Abs1 = Aenea_model_DW.rl_dw * 0.02;
 
-    // Switch: '<S581>/Switch' incorporates:
-    //   RelationalOperator: '<S581>/UpperRelop'
+    // Switch: '<S591>/Switch' incorporates:
+    //   RelationalOperator: '<S591>/UpperRelop'
 
-    if (!(Aenea_model_B.Gain_dt < Aenea_model_B.Gain_h)) {
-      Aenea_model_B.Gain_h = Aenea_model_B.Gain_dt;
+    if (!(Aenea_model_B.Gain_dt < Aenea_model_B.Abs1)) {
+      Aenea_model_B.Abs1 = Aenea_model_B.Gain_dt;
     }
 
-    // End of Switch: '<S581>/Switch'
+    // End of Switch: '<S591>/Switch'
   }
 
-  // End of Switch: '<S581>/Switch2'
+  // End of Switch: '<S591>/Switch2'
 
-  // Sum: '<S577>/Difference Inputs2' incorporates:
-  //   UnitDelay: '<S577>/Delay Input2'
+  // Sum: '<S587>/Difference Inputs2' incorporates:
+  //   UnitDelay: '<S587>/Delay Input2'
   //
-  //  Block description for '<S577>/Difference Inputs2':
+  //  Block description for '<S587>/Difference Inputs2':
   //
   //   Add in CPU
   //
-  //  Block description for '<S577>/Delay Input2':
+  //  Block description for '<S587>/Delay Input2':
   //
   //   Store in Global RAM
 
-  Aenea_model_DW.DelayInput2_DSTATE += Aenea_model_B.Gain_h;
+  Aenea_model_DW.DelayInput2_DSTATE += Aenea_model_B.Abs1;
 
   // DataTypeConversion: '<S1>/Data Type Conversion2' incorporates:
-  //   UnitDelay: '<S577>/Delay Input2'
+  //   UnitDelay: '<S587>/Delay Input2'
   //
-  //  Block description for '<S577>/Delay Input2':
+  //  Block description for '<S587>/Delay Input2':
   //
   //   Store in Global RAM
 
   Aenea_model_B.DataTypeConversion2 = static_cast<real32_T>
     (Aenea_model_DW.DelayInput2_DSTATE);
 
-  // Outputs for Enabled SubSystem: '<S580>/Subsystem1' incorporates:
-  //   EnablePort: '<S582>/Enable'
+  // Outputs for Enabled SubSystem: '<S590>/Subsystem1' incorporates:
+  //   EnablePort: '<S592>/Enable'
 
   if (Aenea_model_B.SFunction_o14 > 0) {
-    // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
-    // Inport: '<S582>/T' incorporates:
-    //   DataTypeConversion: '<S578>/Data Type Conversion'
+    // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
+    // Inport: '<S592>/T' incorporates:
+    //   DataTypeConversion: '<S588>/Data Type Conversion'
 
     Aenea_model_B.T = Aenea_model_B.SFunctionBuilder_o1_g;
 
-    // End of Outputs for SubSystem: '<S571>/Execution_loop'
+    // End of Outputs for SubSystem: '<S581>/Execution_loop'
   }
 
-  // End of Outputs for SubSystem: '<S580>/Subsystem1'
+  // End of Outputs for SubSystem: '<S590>/Subsystem1'
 
-  // Switch: '<S580>/Switch1' incorporates:
-  //   Constant: '<S580>/Constant'
+  // Switch: '<S590>/Switch1' incorporates:
+  //   Constant: '<S590>/Constant'
   //   MATLAB Function: '<S3>/MATLAB Function1'
-  //   RelationalOperator: '<S580>/NotEqual'
-  //   Switch: '<S580>/Switch'
+  //   RelationalOperator: '<S590>/NotEqual'
+  //   Switch: '<S590>/Switch'
 
   if (15.0F != Aenea_model_DW.riferimenti[12]) {
     // DataTypeConversion: '<S1>/Data Type Conversion1'
     Aenea_model_B.DataTypeConversion1_m = Aenea_model_DW.riferimenti[12];
   } else if (Aenea_model_B.T > 0.0) {
-    // Switch: '<S580>/Switch' incorporates:
+    // Switch: '<S590>/Switch' incorporates:
     //   DataTypeConversion: '<S1>/Data Type Conversion1'
 
     Aenea_model_B.DataTypeConversion1_m = static_cast<real32_T>(Aenea_model_B.T);
@@ -4655,17 +4772,17 @@ void Aenea_model_step(void)
     Aenea_model_B.DataTypeConversion1_m = Aenea_model_DW.riferimenti[12];
   }
 
-  // End of Switch: '<S580>/Switch1'
+  // End of Switch: '<S590>/Switch1'
 
-  // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+  // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
   // DataTypeConversion: '<S4>/Data Type Conversion' incorporates:
-  //   DataTypeConversion: '<S578>/Data Type Conversion1'
+  //   DataTypeConversion: '<S588>/Data Type Conversion1'
   //   Gain: '<S4>/Pa to hPa'
 
   Aenea_model_B.DataTypeConversion = static_cast<real32_T>(0.01 *
     Aenea_model_B.SFunctionBuilder_o2_p);
 
-  // End of Outputs for SubSystem: '<S571>/Execution_loop'
+  // End of Outputs for SubSystem: '<S581>/Execution_loop'
 
   // DataTypeConversion: '<S4>/Data Type Conversion1' incorporates:
   //   Gain: '<S4>/Pa to hPa1'
@@ -4673,13 +4790,13 @@ void Aenea_model_step(void)
   Aenea_model_B.DataTypeConversion1_e = static_cast<real32_T>(0.01 *
     Aenea_model_B.SFunctionBuilder_o3);
 
-  // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+  // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
   // DataTypeConversion: '<S4>/Data Type Conversion2' incorporates:
-  //   DataTypeConversion: '<S578>/Data Type Conversion'
+  //   DataTypeConversion: '<S588>/Data Type Conversion'
 
   Aenea_model_B.f = std::floor(Aenea_model_B.SFunctionBuilder_o1_g);
 
-  // End of Outputs for SubSystem: '<S571>/Execution_loop'
+  // End of Outputs for SubSystem: '<S581>/Execution_loop'
   if (rtIsNaNF(Aenea_model_B.f) || rtIsInfF(Aenea_model_B.f)) {
     Aenea_model_B.f = 0.0F;
   } else {
@@ -4693,10 +4810,10 @@ void Aenea_model_step(void)
     static_cast<int16_T>(static_cast<uint16_T>(Aenea_model_B.f))));
 
   // Outputs for Enabled SubSystem: '<S39>/Subsystem1' incorporates:
-  //   EnablePort: '<S442>/Enable'
+  //   EnablePort: '<S452>/Enable'
 
   if (Aenea_model_B.Al_selector > 0.0) {
-    // DataTypeConversion: '<S442>/Data Type Conversion4' incorporates:
+    // DataTypeConversion: '<S452>/Data Type Conversion4' incorporates:
     //   MATLAB Function: '<S3>/MATLAB Function1'
 
     for (Aenea_model_B.i = 0; Aenea_model_B.i < 42; Aenea_model_B.i++) {
@@ -4704,97 +4821,96 @@ void Aenea_model_step(void)
         Aenea_model_DW.WP_dbP_AL[Aenea_model_B.i];
     }
 
-    // End of DataTypeConversion: '<S442>/Data Type Conversion4'
+    // End of DataTypeConversion: '<S452>/Data Type Conversion4'
 
-    // MATLAB Function: '<S442>/CALIBRATING_HOME_COORDINATES' incorporates:
-    //   DataTypeConversion: '<S442>/Data Type Conversion4'
-    //   MATLAB Function: '<S455>/MATLAB Function'
+    // MATLAB Function: '<S452>/CALIBRATING_HOME_COORDINATES' incorporates:
+    //   DataTypeConversion: '<S452>/Data Type Conversion4'
+    //   MATLAB Function: '<S465>/MATLAB Function'
 
     Aenea_model_B.Gain_dt = Aenea_model_B.DataTypeConversion4[30] *
       0.017453292519943295;
     Aenea_model_B.h_Home = Aenea_model_B.DataTypeConversion4[36];
     Aenea_model_B.a_b = std::cos(Aenea_model_B.DataTypeConversion4[25] *
       0.017453292519943295);
-    Aenea_model_B.Gain_h = std::sin(Aenea_model_B.DataTypeConversion4[24] *
+    Aenea_model_B.Abs1 = std::sin(Aenea_model_B.DataTypeConversion4[24] *
       0.017453292519943295);
     Aenea_model_B.Switch_j = std::cos(Aenea_model_B.DataTypeConversion4[24] *
       0.017453292519943295);
     Aenea_model_B.Abs1_l = Aenea_model_B.DataTypeConversion4[31] *
       0.017453292519943295 - Aenea_model_B.DataTypeConversion4[30] *
       0.017453292519943295;
-    Aenea_model_B.Al_selector = rt_atan2d_snf(std::sin(Aenea_model_B.Abs1_l) *
+    Aenea_model_B.Gain_h = rt_atan2d_snf(std::sin(Aenea_model_B.Abs1_l) *
       Aenea_model_B.a_b, std::sin(Aenea_model_B.DataTypeConversion4[25] *
       0.017453292519943295) * Aenea_model_B.Switch_j - std::cos
-      (Aenea_model_B.Abs1_l) * (Aenea_model_B.Gain_h * Aenea_model_B.a_b));
-    if (Aenea_model_B.Al_selector < 0.0) {
-      Aenea_model_B.Al_selector = 6.2831853071795862 - std::abs
-        (Aenea_model_B.Al_selector);
+      (Aenea_model_B.Abs1_l) * (Aenea_model_B.Abs1 * Aenea_model_B.a_b));
+    if (Aenea_model_B.Gain_h < 0.0) {
+      Aenea_model_B.Gain_h = 6.2831853071795862 - std::abs(Aenea_model_B.Gain_h);
     }
 
-    // MATLAB Function: '<S455>/MATLAB Function' incorporates:
-    //   MATLAB Function: '<S442>/CALIBRATING_HOME_COORDINATES'
-    //   Trigonometry: '<S526>/SinCos'
+    // MATLAB Function: '<S465>/MATLAB Function' incorporates:
+    //   MATLAB Function: '<S452>/CALIBRATING_HOME_COORDINATES'
+    //   Trigonometry: '<S536>/SinCos'
 
-    Aenea_model_B.a_b = std::cos(Aenea_model_B.Al_selector);
+    Aenea_model_B.a_b = std::cos(Aenea_model_B.Gain_h);
     Aenea_model_B.Abs1_l = std::asin(Aenea_model_B.Switch_j *
-      -0.00015678559364639647 * Aenea_model_B.a_b + Aenea_model_B.Gain_h *
+      -0.00015678559364639647 * Aenea_model_B.a_b + Aenea_model_B.Abs1 *
       0.99999998770913878);
-    Aenea_model_B.Al_selector = std::sin(Aenea_model_B.Al_selector);
+    Aenea_model_B.Gain_h = std::sin(Aenea_model_B.Gain_h);
 
-    // MATLAB Function: '<S455>/AUTOLANDING_WAYPOINTS' incorporates:
-    //   Gain: '<S471>/Gain'
-    //   Gain: '<S472>/Gain'
-    //   MATLAB Function: '<S455>/MATLAB Function'
+    // MATLAB Function: '<S465>/AUTOLANDING_WAYPOINTS' incorporates:
+    //   Gain: '<S481>/Gain'
+    //   Gain: '<S482>/Gain'
+    //   MATLAB Function: '<S465>/MATLAB Function'
 
     Aenea_model_B.y[12] = 57.295779513082323 * Aenea_model_B.Abs1_l;
     Aenea_model_B.y[15] = 57.295779513082323 * (rt_atan2d_snf
-      (Aenea_model_B.Al_selector * -0.00015678559364639647 *
-       Aenea_model_B.Switch_j, 0.99999998770913878 - Aenea_model_B.Gain_h * std::
-       sin(Aenea_model_B.Abs1_l)) + Aenea_model_B.Gain_dt);
+      (Aenea_model_B.Gain_h * -0.00015678559364639647 * Aenea_model_B.Switch_j,
+       0.99999998770913878 - Aenea_model_B.Abs1 * std::sin(Aenea_model_B.Abs1_l))
+      + Aenea_model_B.Gain_dt);
     Aenea_model_B.y[3] = 1.0;
     Aenea_model_B.y[6] = 0.0;
     Aenea_model_B.y[9] = 0.0;
     Aenea_model_B.y[18] = Aenea_model_B.h_Home + 45.0;
 
-    // MATLAB Function: '<S455>/MATLAB Function'
+    // MATLAB Function: '<S465>/MATLAB Function'
     Aenea_model_B.Abs1_l = std::asin(Aenea_model_B.Switch_j *
-      -0.00012542847510211208 * Aenea_model_B.a_b + Aenea_model_B.Gain_h *
+      -0.00012542847510211208 * Aenea_model_B.a_b + Aenea_model_B.Abs1 *
       0.99999999213384883);
 
-    // MATLAB Function: '<S455>/AUTOLANDING_WAYPOINTS' incorporates:
-    //   Constant: '<S455>/Constant1'
-    //   Gain: '<S471>/Gain'
-    //   Gain: '<S472>/Gain'
-    //   MATLAB Function: '<S455>/MATLAB Function'
+    // MATLAB Function: '<S465>/AUTOLANDING_WAYPOINTS' incorporates:
+    //   Constant: '<S465>/Constant1'
+    //   Gain: '<S481>/Gain'
+    //   Gain: '<S482>/Gain'
+    //   MATLAB Function: '<S465>/MATLAB Function'
 
     Aenea_model_B.y[13] = 57.295779513082323 * Aenea_model_B.Abs1_l;
     Aenea_model_B.y[16] = 57.295779513082323 * (rt_atan2d_snf
-      (Aenea_model_B.Al_selector * -0.00012542847510211208 *
-       Aenea_model_B.Switch_j, 0.99999999213384883 - Aenea_model_B.Gain_h * std::
-       sin(Aenea_model_B.Abs1_l)) + Aenea_model_B.Gain_dt);
+      (Aenea_model_B.Gain_h * -0.00012542847510211208 * Aenea_model_B.Switch_j,
+       0.99999999213384883 - Aenea_model_B.Abs1 * std::sin(Aenea_model_B.Abs1_l))
+      + Aenea_model_B.Gain_dt);
     Aenea_model_B.y[1] = 20.0;
     Aenea_model_B.y[4] = 1.0;
     Aenea_model_B.y[7] = 0.0;
     Aenea_model_B.y[10] = 0.0;
     Aenea_model_B.y[19] = Aenea_model_B.h_Home + 45.0;
 
-    // MATLAB Function: '<S455>/MATLAB Function'
+    // MATLAB Function: '<S465>/MATLAB Function'
     Aenea_model_B.Abs1_l = std::asin(Aenea_model_B.Switch_j *
-      0.00031357118343873296 * Aenea_model_B.a_b + Aenea_model_B.Gain_h *
+      0.00031357118343873296 * Aenea_model_B.a_b + Aenea_model_B.Abs1 *
       0.99999995083655524);
 
-    // MATLAB Function: '<S455>/AUTOLANDING_WAYPOINTS' incorporates:
-    //   Constant: '<S455>/Constant'
-    //   Constant: '<S455>/Constant1'
-    //   Gain: '<S471>/Gain'
-    //   Gain: '<S472>/Gain'
-    //   MATLAB Function: '<S455>/MATLAB Function'
+    // MATLAB Function: '<S465>/AUTOLANDING_WAYPOINTS' incorporates:
+    //   Constant: '<S465>/Constant'
+    //   Constant: '<S465>/Constant1'
+    //   Gain: '<S481>/Gain'
+    //   Gain: '<S482>/Gain'
+    //   MATLAB Function: '<S465>/MATLAB Function'
 
     Aenea_model_B.y[14] = 57.295779513082323 * Aenea_model_B.Abs1_l;
     Aenea_model_B.y[17] = 57.295779513082323 * (rt_atan2d_snf
-      (Aenea_model_B.Al_selector * 0.00031357118343873296 *
-       Aenea_model_B.Switch_j, 0.99999995083655524 - Aenea_model_B.Gain_h * std::
-       sin(Aenea_model_B.Abs1_l)) + Aenea_model_B.Gain_dt);
+      (Aenea_model_B.Gain_h * 0.00031357118343873296 * Aenea_model_B.Switch_j,
+       0.99999995083655524 - Aenea_model_B.Abs1 * std::sin(Aenea_model_B.Abs1_l))
+      + Aenea_model_B.Gain_dt);
     Aenea_model_B.y[2] = 20.0;
     Aenea_model_B.y[8] = 0.0;
     Aenea_model_B.y[11] = 0.0;
@@ -4802,21 +4918,21 @@ void Aenea_model_step(void)
     Aenea_model_B.y[0] = 25.0;
     Aenea_model_B.y[5] = 0.0;
 
-    // Gain: '<S460>/Gain' incorporates:
-    //   DataTypeConversion: '<S442>/Data Type Conversion4'
-    //   MATLAB Function: '<S442>/CALIBRATING_HOME_COORDINATES'
+    // Gain: '<S470>/Gain' incorporates:
+    //   DataTypeConversion: '<S452>/Data Type Conversion4'
+    //   MATLAB Function: '<S452>/CALIBRATING_HOME_COORDINATES'
 
     Aenea_model_B.Gain = Aenea_model_B.DataTypeConversion4[24] *
       0.017453292519943295 * 57.295779513082323;
 
-    // Switch: '<S536>/Switch' incorporates:
-    //   Abs: '<S536>/Abs'
-    //   Bias: '<S536>/Bias'
-    //   Bias: '<S536>/Bias1'
-    //   Constant: '<S536>/Constant2'
-    //   Constant: '<S537>/Constant'
-    //   Math: '<S536>/Math Function1'
-    //   RelationalOperator: '<S537>/Compare'
+    // Switch: '<S546>/Switch' incorporates:
+    //   Abs: '<S546>/Abs'
+    //   Bias: '<S546>/Bias'
+    //   Bias: '<S546>/Bias1'
+    //   Constant: '<S546>/Constant2'
+    //   Constant: '<S547>/Constant'
+    //   Math: '<S546>/Math Function1'
+    //   RelationalOperator: '<S547>/Compare'
 
     if (std::abs(Aenea_model_B.Gain) > 180.0) {
       Aenea_model_B.Switch_j = rt_modd_snf(Aenea_model_B.Gain + 180.0, 360.0) +
@@ -4825,27 +4941,27 @@ void Aenea_model_step(void)
       Aenea_model_B.Switch_j = Aenea_model_B.Gain;
     }
 
-    // End of Switch: '<S536>/Switch'
+    // End of Switch: '<S546>/Switch'
 
-    // Abs: '<S533>/Abs1'
-    Aenea_model_B.Gain_h = std::abs(Aenea_model_B.Switch_j);
+    // Abs: '<S543>/Abs1'
+    Aenea_model_B.Abs1 = std::abs(Aenea_model_B.Switch_j);
 
-    // RelationalOperator: '<S535>/Compare' incorporates:
+    // RelationalOperator: '<S545>/Compare' incorporates:
+    //   Constant: '<S545>/Constant'
+
+    Ap_sel = (Aenea_model_B.Abs1 > 90.0);
+
+    // Switch: '<S543>/Switch' incorporates:
+    //   Bias: '<S543>/Bias'
+    //   Bias: '<S543>/Bias1'
     //   Constant: '<S535>/Constant'
-
-    Ap_sel = (Aenea_model_B.Gain_h > 90.0);
-
-    // Switch: '<S533>/Switch' incorporates:
-    //   Bias: '<S533>/Bias'
-    //   Bias: '<S533>/Bias1'
-    //   Constant: '<S525>/Constant'
-    //   Constant: '<S525>/Constant1'
-    //   Gain: '<S533>/Gain'
-    //   Product: '<S533>/Divide1'
-    //   Switch: '<S525>/Switch1'
+    //   Constant: '<S535>/Constant1'
+    //   Gain: '<S543>/Gain'
+    //   Product: '<S543>/Divide1'
+    //   Switch: '<S535>/Switch1'
 
     if (Ap_sel) {
-      // Signum: '<S533>/Sign1'
+      // Signum: '<S543>/Sign1'
       if (Aenea_model_B.Switch_j < 0.0) {
         Aenea_model_B.Switch_j = -1.0;
       } else if (Aenea_model_B.Switch_j > 0.0) {
@@ -4856,206 +4972,206 @@ void Aenea_model_step(void)
         Aenea_model_B.Switch_j = (rtNaN);
       }
 
-      // End of Signum: '<S533>/Sign1'
-      Aenea_model_B.Switch_j *= -(Aenea_model_B.Gain_h + -90.0) + 90.0;
+      // End of Signum: '<S543>/Sign1'
+      Aenea_model_B.Switch_j *= -(Aenea_model_B.Abs1 + -90.0) + 90.0;
       Aenea_model_B.npad = 180;
     } else {
       Aenea_model_B.npad = 0;
     }
 
-    // End of Switch: '<S533>/Switch'
+    // End of Switch: '<S543>/Switch'
 
-    // Gain: '<S461>/Gain'
+    // Gain: '<S471>/Gain'
     Aenea_model_B.Gain_o = 57.295779513082323 * Aenea_model_B.Gain_dt;
 
-    // Sum: '<S525>/Sum'
+    // Sum: '<S535>/Sum'
     Aenea_model_B.Gain_dt = static_cast<real_T>(Aenea_model_B.npad) +
       Aenea_model_B.Gain_o;
 
-    // Sum: '<S459>/Sum1' incorporates:
-    //   Gain: '<S463>/Gain'
+    // Sum: '<S469>/Sum1' incorporates:
+    //   Gain: '<S473>/Gain'
 
-    Aenea_model_B.Gain_h = 57.295779513082323 * Aenea_model_B.Lat_K -
+    Aenea_model_B.Abs1 = 57.295779513082323 * Aenea_model_B.Lat_K -
       Aenea_model_B.Switch_j;
 
-    // Switch: '<S530>/Switch' incorporates:
-    //   Abs: '<S530>/Abs'
-    //   Bias: '<S530>/Bias'
-    //   Bias: '<S530>/Bias1'
-    //   Constant: '<S530>/Constant2'
-    //   Constant: '<S531>/Constant'
-    //   Math: '<S530>/Math Function1'
-    //   RelationalOperator: '<S531>/Compare'
+    // Switch: '<S540>/Switch' incorporates:
+    //   Abs: '<S540>/Abs'
+    //   Bias: '<S540>/Bias'
+    //   Bias: '<S540>/Bias1'
+    //   Constant: '<S540>/Constant2'
+    //   Constant: '<S541>/Constant'
+    //   Math: '<S540>/Math Function1'
+    //   RelationalOperator: '<S541>/Compare'
 
-    if (std::abs(Aenea_model_B.Gain_h) > 180.0) {
-      Aenea_model_B.Gain_h = rt_modd_snf(Aenea_model_B.Gain_h + 180.0, 360.0) +
+    if (std::abs(Aenea_model_B.Abs1) > 180.0) {
+      Aenea_model_B.Abs1 = rt_modd_snf(Aenea_model_B.Abs1 + 180.0, 360.0) +
         -180.0;
     }
 
-    // End of Switch: '<S530>/Switch'
+    // End of Switch: '<S540>/Switch'
 
-    // Abs: '<S527>/Abs1'
-    Aenea_model_B.Abs1_l = std::abs(Aenea_model_B.Gain_h);
+    // Abs: '<S537>/Abs1'
+    Aenea_model_B.Abs1_l = std::abs(Aenea_model_B.Abs1);
 
-    // Switch: '<S527>/Switch' incorporates:
-    //   Bias: '<S527>/Bias'
-    //   Bias: '<S527>/Bias1'
-    //   Constant: '<S524>/Constant'
-    //   Constant: '<S524>/Constant1'
-    //   Constant: '<S529>/Constant'
-    //   Gain: '<S527>/Gain'
-    //   Product: '<S527>/Divide1'
-    //   RelationalOperator: '<S529>/Compare'
-    //   Switch: '<S524>/Switch1'
+    // Switch: '<S537>/Switch' incorporates:
+    //   Bias: '<S537>/Bias'
+    //   Bias: '<S537>/Bias1'
+    //   Constant: '<S534>/Constant'
+    //   Constant: '<S534>/Constant1'
+    //   Constant: '<S539>/Constant'
+    //   Gain: '<S537>/Gain'
+    //   Product: '<S537>/Divide1'
+    //   RelationalOperator: '<S539>/Compare'
+    //   Switch: '<S534>/Switch1'
 
     if (Aenea_model_B.Abs1_l > 90.0) {
-      // Signum: '<S527>/Sign1'
-      if (Aenea_model_B.Gain_h < 0.0) {
-        Aenea_model_B.Gain_h = -1.0;
-      } else if (Aenea_model_B.Gain_h > 0.0) {
-        Aenea_model_B.Gain_h = 1.0;
-      } else if (Aenea_model_B.Gain_h == 0.0) {
-        Aenea_model_B.Gain_h = 0.0;
+      // Signum: '<S537>/Sign1'
+      if (Aenea_model_B.Abs1 < 0.0) {
+        Aenea_model_B.Abs1 = -1.0;
+      } else if (Aenea_model_B.Abs1 > 0.0) {
+        Aenea_model_B.Abs1 = 1.0;
+      } else if (Aenea_model_B.Abs1 == 0.0) {
+        Aenea_model_B.Abs1 = 0.0;
       } else {
-        Aenea_model_B.Gain_h = (rtNaN);
+        Aenea_model_B.Abs1 = (rtNaN);
       }
 
-      // End of Signum: '<S527>/Sign1'
-      Aenea_model_B.Gain_h *= -(Aenea_model_B.Abs1_l + -90.0) + 90.0;
+      // End of Signum: '<S537>/Sign1'
+      Aenea_model_B.Abs1 *= -(Aenea_model_B.Abs1_l + -90.0) + 90.0;
       Aenea_model_B.npad = 180;
     } else {
       Aenea_model_B.npad = 0;
     }
 
-    // End of Switch: '<S527>/Switch'
+    // End of Switch: '<S537>/Switch'
 
-    // Switch: '<S534>/Switch' incorporates:
-    //   Abs: '<S534>/Abs'
-    //   Bias: '<S534>/Bias'
-    //   Bias: '<S534>/Bias1'
-    //   Constant: '<S534>/Constant2'
-    //   Constant: '<S538>/Constant'
-    //   Math: '<S534>/Math Function1'
-    //   RelationalOperator: '<S538>/Compare'
+    // Switch: '<S544>/Switch' incorporates:
+    //   Abs: '<S544>/Abs'
+    //   Bias: '<S544>/Bias'
+    //   Bias: '<S544>/Bias1'
+    //   Constant: '<S544>/Constant2'
+    //   Constant: '<S548>/Constant'
+    //   Math: '<S544>/Math Function1'
+    //   RelationalOperator: '<S548>/Compare'
 
     if (std::abs(Aenea_model_B.Gain_dt) > 180.0) {
       Aenea_model_B.Gain_dt = rt_modd_snf(Aenea_model_B.Gain_dt + 180.0, 360.0)
         + -180.0;
     }
 
-    // End of Switch: '<S534>/Switch'
+    // End of Switch: '<S544>/Switch'
 
-    // Sum: '<S524>/Sum' incorporates:
-    //   Gain: '<S462>/Gain'
-    //   Sum: '<S459>/Sum1'
+    // Sum: '<S534>/Sum' incorporates:
+    //   Gain: '<S472>/Gain'
+    //   Sum: '<S469>/Sum1'
 
-    Aenea_model_B.Sum_h = (57.295779513082323 * Aenea_model_B.Long_K -
+    Aenea_model_B.Al_selector = (57.295779513082323 * Aenea_model_B.Long_K -
       Aenea_model_B.Gain_dt) + static_cast<real_T>(Aenea_model_B.npad);
 
-    // Gain: '<S540>/Gain1'
+    // Gain: '<S550>/Gain1'
     Aenea_model_B.Switch_j *= 0.017453292519943295;
 
-    // Trigonometry: '<S543>/Trigonometric Function1'
+    // Trigonometry: '<S553>/Trigonometric Function1'
     Aenea_model_B.Gain_dt = std::sin(Aenea_model_B.Switch_j);
 
-    // Sum: '<S543>/Sum1' incorporates:
-    //   Constant: '<S543>/Constant'
-    //   Product: '<S543>/Product1'
+    // Sum: '<S553>/Sum1' incorporates:
+    //   Constant: '<S553>/Constant'
+    //   Product: '<S553>/Product1'
 
     Aenea_model_B.Gain_dt = 1.0 - 0.0066943799901413295 * Aenea_model_B.Gain_dt *
       Aenea_model_B.Gain_dt;
 
-    // Product: '<S539>/Product1' incorporates:
-    //   Constant: '<S539>/Constant1'
-    //   Sqrt: '<S539>/sqrt'
+    // Product: '<S549>/Product1' incorporates:
+    //   Constant: '<S549>/Constant1'
+    //   Sqrt: '<S549>/sqrt'
 
     Aenea_model_B.Abs1_l = 6.378137E+6 / std::sqrt(Aenea_model_B.Gain_dt);
 
-    // Switch: '<S528>/Switch' incorporates:
-    //   Abs: '<S528>/Abs'
-    //   Bias: '<S528>/Bias'
-    //   Bias: '<S528>/Bias1'
-    //   Constant: '<S528>/Constant2'
-    //   Constant: '<S532>/Constant'
-    //   Math: '<S528>/Math Function1'
-    //   RelationalOperator: '<S532>/Compare'
+    // Switch: '<S538>/Switch' incorporates:
+    //   Abs: '<S538>/Abs'
+    //   Bias: '<S538>/Bias'
+    //   Bias: '<S538>/Bias1'
+    //   Constant: '<S538>/Constant2'
+    //   Constant: '<S542>/Constant'
+    //   Math: '<S538>/Math Function1'
+    //   RelationalOperator: '<S542>/Compare'
 
-    if (std::abs(Aenea_model_B.Sum_h) > 180.0) {
-      Aenea_model_B.Sum_h = rt_modd_snf(Aenea_model_B.Sum_h + 180.0, 360.0) +
-        -180.0;
+    if (std::abs(Aenea_model_B.Al_selector) > 180.0) {
+      Aenea_model_B.Al_selector = rt_modd_snf(Aenea_model_B.Al_selector + 180.0,
+        360.0) + -180.0;
     }
 
-    // End of Switch: '<S528>/Switch'
+    // End of Switch: '<S538>/Switch'
 
-    // Sum: '<S526>/Sum2' incorporates:
-    //   Constant: '<S539>/Constant'
-    //   Constant: '<S539>/Constant2'
-    //   Constant: '<S539>/Constant3'
-    //   Gain: '<S523>/Gain1'
-    //   Product: '<S526>/dEast'
-    //   Product: '<S526>/dNorth'
-    //   Product: '<S526>/x*cos'
-    //   Product: '<S526>/y*sin'
-    //   Product: '<S539>/Product2'
-    //   Product: '<S539>/Product3'
-    //   Product: '<S539>/Product4'
-    //   Sum: '<S539>/Sum1'
-    //   Trigonometry: '<S539>/Trigonometric Function'
-    //   Trigonometry: '<S539>/Trigonometric Function1'
-    //   Trigonometry: '<S539>/Trigonometric Function2'
+    // Sum: '<S536>/Sum2' incorporates:
+    //   Constant: '<S549>/Constant'
+    //   Constant: '<S549>/Constant2'
+    //   Constant: '<S549>/Constant3'
+    //   Gain: '<S533>/Gain1'
+    //   Product: '<S536>/dEast'
+    //   Product: '<S536>/dNorth'
+    //   Product: '<S536>/x*cos'
+    //   Product: '<S536>/y*sin'
+    //   Product: '<S549>/Product2'
+    //   Product: '<S549>/Product3'
+    //   Product: '<S549>/Product4'
+    //   Sum: '<S549>/Sum1'
+    //   Trigonometry: '<S549>/Trigonometric Function'
+    //   Trigonometry: '<S549>/Trigonometric Function1'
+    //   Trigonometry: '<S549>/Trigonometric Function2'
 
-    Aenea_model_B.Gain_dt = 0.017453292519943295 * Aenea_model_B.Gain_h /
+    Aenea_model_B.Gain_dt = 0.017453292519943295 * Aenea_model_B.Abs1 /
       rt_atan2d_snf(1.0, Aenea_model_B.Abs1_l * 0.99330562000985867 /
                     Aenea_model_B.Gain_dt) * Aenea_model_B.a_b + 1.0 /
       rt_atan2d_snf(1.0, Aenea_model_B.Abs1_l * std::cos(Aenea_model_B.Switch_j))
-      * (0.017453292519943295 * Aenea_model_B.Sum_h) * Aenea_model_B.Al_selector;
+      * (0.017453292519943295 * Aenea_model_B.Al_selector) *
+      Aenea_model_B.Gain_h;
 
-    // Gain: '<S464>/Gain'
-    Aenea_model_B.Sum_h = 57.295779513082323 * Aenea_model_B.Lat_K;
+    // Gain: '<S474>/Gain'
+    Aenea_model_B.Al_selector = 57.295779513082323 * Aenea_model_B.Lat_K;
 
-    // Gain: '<S465>/Gain'
+    // Gain: '<S475>/Gain'
     Aenea_model_B.Gain_hh = 57.295779513082323 * Aenea_model_B.Long_K;
 
-    // MATLAB Function: '<S442>/ALLINEAMENTO' incorporates:
-    //   Memory: '<S442>/Memory7'
+    // MATLAB Function: '<S452>/ALLINEAMENTO' incorporates:
+    //   Memory: '<S452>/Memory7'
 
     Aenea_model_B.b_a_tmp = Aenea_model_B.y[static_cast<int32_T>
       (Aenea_model_DW.Memory7_PreviousInput) + 11];
-    Aenea_model_B.a_b = std::sin((Aenea_model_B.b_a_tmp - Aenea_model_B.Sum_h) *
-      3.1415926535897931 / 180.0 / 2.0);
+    Aenea_model_B.a_b = std::sin((Aenea_model_B.b_a_tmp -
+      Aenea_model_B.Al_selector) * 3.1415926535897931 / 180.0 / 2.0);
     Aenea_model_B.dist_fut = Aenea_model_B.y[static_cast<int32_T>
       (Aenea_model_DW.Memory7_PreviousInput) + 14];
     Aenea_model_B.dist = (Aenea_model_B.dist_fut - Aenea_model_B.Gain_hh) *
       3.1415926535897931 / 180.0;
-    Aenea_model_B.Gain_h = std::sin(Aenea_model_B.dist / 2.0);
-    Aenea_model_B.Al_selector = Aenea_model_B.b_a_tmp * 3.1415926535897931 /
+    Aenea_model_B.Abs1 = std::sin(Aenea_model_B.dist / 2.0);
+    Aenea_model_B.Gain_h = Aenea_model_B.b_a_tmp * 3.1415926535897931 / 180.0;
+    Aenea_model_B.Abs1_l = std::cos(Aenea_model_B.Gain_h);
+    Aenea_model_B.a_tmp_tmp = Aenea_model_B.Al_selector * 3.1415926535897931 /
       180.0;
-    Aenea_model_B.Abs1_l = std::cos(Aenea_model_B.Al_selector);
-    Aenea_model_B.a_tmp_tmp = Aenea_model_B.Sum_h * 3.1415926535897931 / 180.0;
     Aenea_model_B.Switch_j = std::cos(Aenea_model_B.a_tmp_tmp);
     Aenea_model_B.a_b = Aenea_model_B.Switch_j * Aenea_model_B.Abs1_l *
-      (Aenea_model_B.Gain_h * Aenea_model_B.Gain_h) + Aenea_model_B.a_b *
+      (Aenea_model_B.Abs1 * Aenea_model_B.Abs1) + Aenea_model_B.a_b *
       Aenea_model_B.a_b;
-    Aenea_model_B.Gain_h = rt_atan2d_snf(std::sqrt(Aenea_model_B.a_b), std::sqrt
+    Aenea_model_B.Abs1 = rt_atan2d_snf(std::sqrt(Aenea_model_B.a_b), std::sqrt
       (1.0 - Aenea_model_B.a_b)) * 2.0 * 6.378137E+6;
     if (Aenea_model_DW.Memory7_PreviousInput > 1.0) {
       Aenea_model_B.a_tmp_tmp = Aenea_model_B.y[static_cast<int32_T>
         (Aenea_model_DW.Memory7_PreviousInput - 1.0) + 11];
-      Aenea_model_B.Al_selector = Aenea_model_B.a_tmp_tmp * 3.1415926535897931 /
+      Aenea_model_B.Gain_h = Aenea_model_B.a_tmp_tmp * 3.1415926535897931 /
         180.0;
-      Aenea_model_B.a_b = std::cos(Aenea_model_B.Al_selector);
+      Aenea_model_B.a_b = std::cos(Aenea_model_B.Gain_h);
       Aenea_model_B.dist = Aenea_model_B.y[static_cast<int32_T>
         (Aenea_model_DW.Memory7_PreviousInput - 1.0) + 14];
       Aenea_model_B.psi_ref_tmp = (Aenea_model_B.dist_fut - Aenea_model_B.dist) *
         3.1415926535897931 / 180.0;
-      Aenea_model_B.Al_selector = rt_atan2d_snf(std::sin
-        (Aenea_model_B.psi_ref_tmp) * Aenea_model_B.Abs1_l, std::sin
-        (Aenea_model_B.y[static_cast<int32_T>
-         (Aenea_model_DW.Memory7_PreviousInput) + 11] * 3.1415926535897931 /
-         180.0) * Aenea_model_B.a_b - std::sin(Aenea_model_B.Al_selector) *
+      Aenea_model_B.Gain_h = rt_atan2d_snf(std::sin(Aenea_model_B.psi_ref_tmp) *
+        Aenea_model_B.Abs1_l, std::sin(Aenea_model_B.y[static_cast<int32_T>
+        (Aenea_model_DW.Memory7_PreviousInput) + 11] * 3.1415926535897931 /
+        180.0) * Aenea_model_B.a_b - std::sin(Aenea_model_B.Gain_h) *
         Aenea_model_B.Abs1_l * std::cos(Aenea_model_B.psi_ref_tmp)) * 180.0 /
         3.1415926535897931;
-      Aenea_model_B.a_tmp_tmp = std::sin((Aenea_model_B.Sum_h -
+      Aenea_model_B.a_tmp_tmp = std::sin((Aenea_model_B.Al_selector -
         Aenea_model_B.a_tmp_tmp) * 3.1415926535897931 / 180.0 / 2.0);
       Aenea_model_B.dist = std::sin((Aenea_model_B.Gain_hh - Aenea_model_B.dist)
         * 3.1415926535897931 / 180.0 / 2.0);
@@ -5065,16 +5181,16 @@ void Aenea_model_step(void)
       Aenea_model_B.dist = rt_atan2d_snf(std::sqrt(Aenea_model_B.a_b), std::sqrt
         (1.0 - Aenea_model_B.a_b)) * 2.0 * 6.378137E+6;
     } else {
-      Aenea_model_B.Al_selector = rt_atan2d_snf(std::sin(Aenea_model_B.dist) *
-        Aenea_model_B.Abs1_l, std::sin(Aenea_model_B.Al_selector) *
+      Aenea_model_B.Gain_h = rt_atan2d_snf(std::sin(Aenea_model_B.dist) *
+        Aenea_model_B.Abs1_l, std::sin(Aenea_model_B.Gain_h) *
         Aenea_model_B.Switch_j - std::cos(Aenea_model_B.dist) * (std::sin
         (Aenea_model_B.a_tmp_tmp) * Aenea_model_B.Abs1_l)) * 180.0 /
         3.1415926535897931;
       Aenea_model_B.dist = 0.0;
     }
 
-    if (Aenea_model_B.Al_selector < 0.0) {
-      Aenea_model_B.Al_selector = 360.0 - std::abs(Aenea_model_B.Al_selector);
+    if (Aenea_model_B.Gain_h < 0.0) {
+      Aenea_model_B.Gain_h = 360.0 - std::abs(Aenea_model_B.Gain_h);
     }
 
     Aenea_model_B.a_b = Aenea_model_B.y[static_cast<int32_T>
@@ -5108,7 +5224,7 @@ void Aenea_model_step(void)
 
       if (Aenea_model_DW.Memory7_PreviousInput > 1.0) {
         Aenea_model_B.Abs1_l = std::abs(Aenea_model_B.Abs1_l -
-          Aenea_model_B.Al_selector);
+          Aenea_model_B.Gain_h);
       } else {
         Aenea_model_B.Abs1_l = std::abs(Aenea_model_B.Abs1_l - rt_atan2d_snf(std::
           sin((Aenea_model_B.y[static_cast<int32_T>
@@ -5119,14 +5235,14 @@ void Aenea_model_step(void)
            180.0), std::sin(Aenea_model_B.y[static_cast<int32_T>
                             (Aenea_model_DW.Memory7_PreviousInput) + 11] *
                             3.1415926535897931 / 180.0) * std::cos
-          (Aenea_model_B.Sum_h * 3.1415926535897931 / 180.0) - std::cos
+          (Aenea_model_B.Al_selector * 3.1415926535897931 / 180.0) - std::cos
           (Aenea_model_B.y[static_cast<int32_T>
            (Aenea_model_DW.Memory7_PreviousInput) + 11] * 3.1415926535897931 /
-           180.0) * std::sin(Aenea_model_B.Sum_h * 3.1415926535897931 / 180.0) *
-          std::cos((Aenea_model_B.y[static_cast<int32_T>
-                    (Aenea_model_DW.Memory7_PreviousInput) + 14] -
-                    Aenea_model_B.Gain_hh) * 3.1415926535897931 / 180.0)) *
-          180.0 / 3.1415926535897931);
+           180.0) * std::sin(Aenea_model_B.Al_selector * 3.1415926535897931 /
+                             180.0) * std::cos((Aenea_model_B.y
+          [static_cast<int32_T>(Aenea_model_DW.Memory7_PreviousInput) + 14] -
+          Aenea_model_B.Gain_hh) * 3.1415926535897931 / 180.0)) * 180.0 /
+          3.1415926535897931);
       }
     } else {
       Aenea_model_B.dist_fut = 0.0;
@@ -5142,18 +5258,18 @@ void Aenea_model_step(void)
       Aenea_model_B.Gain_hh = (Aenea_model_B.y[static_cast<int32_T>
         (Aenea_model_DW.Memory7_PreviousInput - 1.0) + 14] -
         Aenea_model_B.Gain_hh) * 3.1415926535897931 / 180.0;
-      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Al_selector -
-        rt_atan2d_snf(std::sin(Aenea_model_B.Gain_hh) * Aenea_model_B.b_a_tmp,
-                      std::sin(Aenea_model_B.y[static_cast<int32_T>
-        (Aenea_model_DW.Memory7_PreviousInput - 1.0) + 11] * 3.1415926535897931 /
-        180.0) * Aenea_model_B.Switch_j - std::cos(Aenea_model_B.Gain_hh) * (std::
-        sin(Aenea_model_B.Sum_h * 3.1415926535897931 / 180.0) *
-        Aenea_model_B.b_a_tmp)) * 180.0 / 3.1415926535897931);
+      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Gain_h - rt_atan2d_snf(std::
+        sin(Aenea_model_B.Gain_hh) * Aenea_model_B.b_a_tmp, std::sin
+        (Aenea_model_B.y[static_cast<int32_T>
+         (Aenea_model_DW.Memory7_PreviousInput - 1.0) + 11] * 3.1415926535897931
+         / 180.0) * Aenea_model_B.Switch_j - std::cos(Aenea_model_B.Gain_hh) *
+        (std::sin(Aenea_model_B.Al_selector * 3.1415926535897931 / 180.0) *
+         Aenea_model_B.b_a_tmp)) * 180.0 / 3.1415926535897931);
     } else {
       Aenea_model_B.Switch_j = std::cos(Aenea_model_B.y[static_cast<int32_T>
         (Aenea_model_DW.Memory7_PreviousInput - 1.0) + 11] * 3.1415926535897931 /
         180.0);
-      Aenea_model_B.Sum_h = Aenea_model_B.y[static_cast<int32_T>
+      Aenea_model_B.Al_selector = Aenea_model_B.y[static_cast<int32_T>
         (Aenea_model_DW.Memory7_PreviousInput - 2.0) + 11] * 3.1415926535897931 /
         180.0;
       Aenea_model_B.Gain_hh = (Aenea_model_B.y[static_cast<int32_T>
@@ -5161,16 +5277,16 @@ void Aenea_model_step(void)
         static_cast<int32_T>(Aenea_model_DW.Memory7_PreviousInput - 2.0) + 14]) *
         3.1415926535897931 / 180.0;
       Aenea_model_B.Switch_j = rt_atan2d_snf(std::sin(Aenea_model_B.Gain_hh) *
-        Aenea_model_B.Switch_j, std::cos(Aenea_model_B.Sum_h) * std::sin
+        Aenea_model_B.Switch_j, std::cos(Aenea_model_B.Al_selector) * std::sin
         (Aenea_model_B.y[static_cast<int32_T>
          (Aenea_model_DW.Memory7_PreviousInput - 1.0) + 11] * 3.1415926535897931
-         / 180.0) - std::sin(Aenea_model_B.Sum_h) * Aenea_model_B.Switch_j * std::
-        cos(Aenea_model_B.Gain_hh)) * 180.0 / 3.1415926535897931;
+         / 180.0) - std::sin(Aenea_model_B.Al_selector) * Aenea_model_B.Switch_j
+        * std::cos(Aenea_model_B.Gain_hh)) * 180.0 / 3.1415926535897931;
       if (Aenea_model_B.Switch_j < 0.0) {
         Aenea_model_B.Switch_j = 360.0 - std::abs(Aenea_model_B.Switch_j);
       }
 
-      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Al_selector -
+      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Gain_h -
         Aenea_model_B.Switch_j);
     }
 
@@ -5230,10 +5346,10 @@ void Aenea_model_step(void)
       }
 
       if (((!(Aenea_model_B.dist < Aenea_model_B.soglia_dist)) ||
-           (!(Aenea_model_B.Gain_h > Aenea_model_B.Abs1_l))) &&
+           (!(Aenea_model_B.Abs1 > Aenea_model_B.Abs1_l))) &&
           ((!(Aenea_model_B.dist > Aenea_model_B.soglia_dist)) ||
-           (!(Aenea_model_B.Gain_h > Aenea_model_B.Abs1_l))) &&
-          (Aenea_model_B.Gain_h < Aenea_model_B.Abs1_l)) {
+           (!(Aenea_model_B.Abs1 > Aenea_model_B.Abs1_l))) &&
+          (Aenea_model_B.Abs1 < Aenea_model_B.Abs1_l)) {
         if (Aenea_model_B.dist_fut > Aenea_model_B.srem) {
           Aenea_model_DW.Memory7_PreviousInput++;
         } else if (Aenea_model_DW.Memory7_PreviousInput < 2.0) {
@@ -5245,7 +5361,7 @@ void Aenea_model_step(void)
     } else {
       if (((!(Aenea_model_B.dist < Aenea_model_B.soglia_dist)) ||
            (!(Aenea_model_DW.flag_k == 0.0))) && ((!(Aenea_model_B.dist >
-             Aenea_model_B.soglia_dist)) || (!(Aenea_model_B.Gain_h > 40.0)) ||
+             Aenea_model_B.soglia_dist)) || (!(Aenea_model_B.Abs1 > 40.0)) ||
            (!(Aenea_model_DW.flag_k == 0.0)))) {
         Aenea_model_DW.flag_k = 1.0;
       }
@@ -5255,15 +5371,15 @@ void Aenea_model_step(void)
       Aenea_model_DW.Memory7_PreviousInput = 1.0;
     }
 
-    // End of MATLAB Function: '<S442>/ALLINEAMENTO'
+    // End of MATLAB Function: '<S452>/ALLINEAMENTO'
 
-    // Abs: '<S442>/Abs1'
+    // Abs: '<S452>/Abs1'
     Aenea_model_B.a_b = std::abs(Aenea_model_B.Gain_dt);
 
-    // Chart: '<S442>/Chart1' incorporates:
-    //   Memory: '<S442>/Memory1'
-    //   Memory: '<S442>/Memory2'
-    //   Memory: '<S442>/Memory5'
+    // Chart: '<S452>/Chart1' incorporates:
+    //   Memory: '<S452>/Memory1'
+    //   Memory: '<S452>/Memory2'
+    //   Memory: '<S452>/Memory5'
 
     if (Aenea_model_DW.is_active_c10_Aenea_model == 0U) {
       Aenea_model_DW.is_active_c10_Aenea_model = 1U;
@@ -5340,43 +5456,43 @@ void Aenea_model_step(void)
       }
     }
 
-    // End of Chart: '<S442>/Chart1'
+    // End of Chart: '<S452>/Chart1'
 
-    // Outputs for Triggered SubSystem: '<S442>/Sample and Hold' incorporates:
-    //   TriggerPort: '<S467>/Trigger'
+    // Outputs for Triggered SubSystem: '<S452>/Sample and Hold' incorporates:
+    //   TriggerPort: '<S477>/Trigger'
 
     Aenea_model_B.zcEvent = rt_ZCFcn(RISING_ZERO_CROSSING,
       &Aenea_model_PrevZCX.SampleandHold_Trig_ZCE_l,
       (Aenea_model_B.approach_selector));
     if (Aenea_model_B.zcEvent != NO_ZCEVENT) {
-      // Inport: '<S467>/In' incorporates:
-      //   Abs: '<S442>/Abs2'
-      //   Sum: '<S459>/Sum'
-      //   UnaryMinus: '<S459>/Ze2height'
+      // Inport: '<S477>/In' incorporates:
+      //   Abs: '<S452>/Abs2'
+      //   Sum: '<S469>/Sum'
+      //   UnaryMinus: '<S469>/Ze2height'
 
       Aenea_model_B.In_c[0] = std::abs(-Aenea_model_B.Alt);
       Aenea_model_B.In_c[1] = Aenea_model_B.Gain_dt;
     }
 
-    // End of Outputs for SubSystem: '<S442>/Sample and Hold'
+    // End of Outputs for SubSystem: '<S452>/Sample and Hold'
 
-    // Outputs for Enabled SubSystem: '<S442>/APPROACH' incorporates:
-    //   EnablePort: '<S453>/Enable'
+    // Outputs for Enabled SubSystem: '<S452>/APPROACH' incorporates:
+    //   EnablePort: '<S463>/Enable'
 
     if (Aenea_model_B.trig_approach > 0.0) {
-      // Product: '<S453>/Divide' incorporates:
-      //   Constant: '<S453>/x_g0'
-      //   Sum: '<S453>/Sum'
+      // Product: '<S463>/Divide' incorporates:
+      //   Constant: '<S463>/x_g0'
+      //   Sum: '<S463>/Sum'
 
-      Aenea_model_B.Gain_h = Aenea_model_B.In_c[0] / (Aenea_model_B.In_c[1] -
+      Aenea_model_B.Abs1 = Aenea_model_B.In_c[0] / (Aenea_model_B.In_c[1] -
         -100.0);
 
-      // Abs: '<S453>/Abs' incorporates:
-      //   Trigonometry: '<S453>/Atan'
+      // Abs: '<S463>/Abs' incorporates:
+      //   Trigonometry: '<S463>/Atan'
 
-      Aenea_model_B.Switch_j = std::abs(std::atan(Aenea_model_B.Gain_h));
+      Aenea_model_B.Switch_j = std::abs(std::atan(Aenea_model_B.Abs1));
 
-      // DiscreteIntegrator: '<S453>/Discrete-Time Integrator'
+      // DiscreteIntegrator: '<S463>/Discrete-Time Integrator'
       if ((Aenea_model_B.trig_approach > 0.0) &&
           (Aenea_model_DW.DiscreteTimeIntegrator_PrevRe_o <= 0)) {
         Aenea_model_DW.DiscreteTimeIntegrator_DSTATE_j = 0.0;
@@ -5390,12 +5506,12 @@ void Aenea_model_step(void)
         }
       }
 
-      // Switch: '<S453>/Switch' incorporates:
-      //   DiscreteIntegrator: '<S453>/Discrete-Time Integrator'
+      // Switch: '<S463>/Switch' incorporates:
+      //   DiscreteIntegrator: '<S463>/Discrete-Time Integrator'
 
       Aenea_model_B.npad = (Aenea_model_DW.DiscreteTimeIntegrator_DSTATE_j > 0.0);
 
-      // MATLAB Function: '<S453>/MATLAB Function'
+      // MATLAB Function: '<S463>/MATLAB Function'
       Aenea_model_B.srem = 0;
       if ((!Aenea_model_DW.x_not_empty) || (Aenea_model_B.npad == 0)) {
         Aenea_model_DW.x[0] = 1.5;
@@ -5436,26 +5552,26 @@ void Aenea_model_step(void)
         Aenea_model_B.A[12] = 0.0;
         Aenea_model_B.A[1] = Aenea_model_DW.x[2];
         Aenea_model_B.A[5] = 0.0;
-        Aenea_model_B.Sum_h = Aenea_model_DW.x[0] - Aenea_model_DW.x[3];
-        Aenea_model_B.A[9] = Aenea_model_B.Sum_h;
+        Aenea_model_B.Al_selector = Aenea_model_DW.x[0] - Aenea_model_DW.x[3];
+        Aenea_model_B.A[9] = Aenea_model_B.Al_selector;
         Aenea_model_B.A[13] = -Aenea_model_DW.x[2];
         Aenea_model_B.A[2] = Aenea_model_B.Abs1_l;
-        Aenea_model_B.dist = Aenea_model_B.Sum_h * Aenea_model_DW.x[2];
+        Aenea_model_B.dist = Aenea_model_B.Al_selector * Aenea_model_DW.x[2];
         Aenea_model_B.A[6] = Aenea_model_B.dist * Aenea_model_B.Abs1_l;
-        Aenea_model_B.A[10] = Aenea_model_B.Sum_h * (Aenea_model_DW.x[1] - 5.0) *
-          Aenea_model_B.Abs1_l;
+        Aenea_model_B.A[10] = Aenea_model_B.Al_selector * (Aenea_model_DW.x[1] -
+          5.0) * Aenea_model_B.Abs1_l;
         Aenea_model_B.A[14] = 1.0;
         Aenea_model_B.A[3] = Aenea_model_DW.x[2] * 18.0 * Aenea_model_B.Abs1_l;
-        Aenea_model_B.A[7] = Aenea_model_B.Sum_h * (Aenea_model_DW.x[2] *
+        Aenea_model_B.A[7] = Aenea_model_B.Al_selector * (Aenea_model_DW.x[2] *
           Aenea_model_DW.x[2]) * 18.0 * Aenea_model_B.Abs1_l;
-        Aenea_model_B.Al_selector = Aenea_model_B.dist * 18.0;
-        Aenea_model_B.A[11] = Aenea_model_B.Al_selector * (Aenea_model_DW.x[1] -
-          5.0) * Aenea_model_B.Abs1_l + Aenea_model_B.Sum_h * 18.0 *
+        Aenea_model_B.Gain_h = Aenea_model_B.dist * 18.0;
+        Aenea_model_B.A[11] = Aenea_model_B.Gain_h * (Aenea_model_DW.x[1] - 5.0)
+          * Aenea_model_B.Abs1_l + Aenea_model_B.Al_selector * 18.0 *
           Aenea_model_B.Abs1_l;
         Aenea_model_B.A[15] = -Aenea_model_DW.x[2] * 18.0 * Aenea_model_B.Abs1_l;
-        Aenea_model_B.ipiv_p[0] = 1;
-        Aenea_model_B.ipiv_p[1] = 2;
-        Aenea_model_B.ipiv_p[2] = 3;
+        Aenea_model_B.ipiv_l[0] = 1;
+        Aenea_model_B.ipiv_l[1] = 2;
+        Aenea_model_B.ipiv_l[2] = 3;
         for (Aenea_model_B.npad = 0; Aenea_model_B.npad < 3; Aenea_model_B.npad
              ++) {
           Aenea_model_B.soglia_dist = Aenea_model_B.npad * 5;
@@ -5478,7 +5594,7 @@ void Aenea_model_step(void)
               0.0) {
             if (Aenea_model_B.i != 0) {
               Aenea_model_B.d_k = Aenea_model_B.npad + Aenea_model_B.i;
-              Aenea_model_B.ipiv_p[Aenea_model_B.npad] = static_cast<int8_T>
+              Aenea_model_B.ipiv_l[Aenea_model_B.npad] = static_cast<int8_T>
                 (Aenea_model_B.d_k + 1);
               Aenea_model_B.a_b = Aenea_model_B.A[Aenea_model_B.npad];
               Aenea_model_B.A[Aenea_model_B.npad] =
@@ -5535,21 +5651,21 @@ void Aenea_model_step(void)
         Aenea_model_B.p[1] = 2;
         Aenea_model_B.p[2] = 3;
         Aenea_model_B.p[3] = 4;
-        if (Aenea_model_B.ipiv_p[0] > 1) {
-          Aenea_model_B.npad = Aenea_model_B.p[Aenea_model_B.ipiv_p[0] - 1];
-          Aenea_model_B.p[Aenea_model_B.ipiv_p[0] - 1] = 1;
+        if (Aenea_model_B.ipiv_l[0] > 1) {
+          Aenea_model_B.npad = Aenea_model_B.p[Aenea_model_B.ipiv_l[0] - 1];
+          Aenea_model_B.p[Aenea_model_B.ipiv_l[0] - 1] = 1;
           Aenea_model_B.p[0] = static_cast<int8_T>(Aenea_model_B.npad);
         }
 
-        if (Aenea_model_B.ipiv_p[1] > 2) {
-          Aenea_model_B.npad = Aenea_model_B.p[Aenea_model_B.ipiv_p[1] - 1];
-          Aenea_model_B.p[Aenea_model_B.ipiv_p[1] - 1] = Aenea_model_B.p[1];
+        if (Aenea_model_B.ipiv_l[1] > 2) {
+          Aenea_model_B.npad = Aenea_model_B.p[Aenea_model_B.ipiv_l[1] - 1];
+          Aenea_model_B.p[Aenea_model_B.ipiv_l[1] - 1] = Aenea_model_B.p[1];
           Aenea_model_B.p[1] = static_cast<int8_T>(Aenea_model_B.npad);
         }
 
-        if (Aenea_model_B.ipiv_p[2] > 3) {
-          Aenea_model_B.npad = Aenea_model_B.p[Aenea_model_B.ipiv_p[2] - 1];
-          Aenea_model_B.p[Aenea_model_B.ipiv_p[2] - 1] = Aenea_model_B.p[2];
+        if (Aenea_model_B.ipiv_l[2] > 3) {
+          Aenea_model_B.npad = Aenea_model_B.p[Aenea_model_B.ipiv_l[2] - 1];
+          Aenea_model_B.p[Aenea_model_B.ipiv_l[2] - 1] = Aenea_model_B.p[2];
           Aenea_model_B.p[2] = static_cast<int8_T>(Aenea_model_B.npad);
         }
 
@@ -5679,18 +5795,19 @@ void Aenea_model_step(void)
         Aenea_model_B.a_b = (Aenea_model_DW.x[1] - -100.0) *
           Aenea_model_B.Gain_hh + Aenea_model_DW.x[0];
         Aenea_model_B.Gain_hh = Aenea_model_B.dist - Aenea_model_B.Gain_hh;
-        Aenea_model_B.Sum_h = Aenea_model_B.Sum_h * Aenea_model_B.Abs1_l +
-          Aenea_model_DW.x[3];
-        Aenea_model_B.Abs1_l = Aenea_model_B.Al_selector * Aenea_model_B.Abs1_l
-          + -0.1;
+        Aenea_model_B.Al_selector = Aenea_model_B.Al_selector *
+          Aenea_model_B.Abs1_l + Aenea_model_DW.x[3];
+        Aenea_model_B.Abs1_l = Aenea_model_B.Gain_h * Aenea_model_B.Abs1_l +
+          -0.1;
         for (Aenea_model_B.npad = 0; Aenea_model_B.npad < 4; Aenea_model_B.npad
              ++) {
           Aenea_model_B.x_new[Aenea_model_B.npad] =
             Aenea_model_DW.x[Aenea_model_B.npad] -
             (((Aenea_model_B.a[Aenea_model_B.npad + 4] * Aenea_model_B.Gain_hh +
                Aenea_model_B.a[Aenea_model_B.npad] * Aenea_model_B.a_b) +
-              Aenea_model_B.a[Aenea_model_B.npad + 8] * Aenea_model_B.Sum_h) +
-             Aenea_model_B.a[Aenea_model_B.npad + 12] * Aenea_model_B.Abs1_l);
+              Aenea_model_B.a[Aenea_model_B.npad + 8] *
+              Aenea_model_B.Al_selector) + Aenea_model_B.a[Aenea_model_B.npad +
+             12] * Aenea_model_B.Abs1_l);
         }
 
         Aenea_model_DW.eps[0] = std::abs(Aenea_model_B.x_new[0] -
@@ -5727,20 +5844,20 @@ void Aenea_model_step(void)
 
       Aenea_model_B.no_solution = Aenea_model_B.srem;
 
-      // End of MATLAB Function: '<S453>/MATLAB Function'
+      // End of MATLAB Function: '<S463>/MATLAB Function'
 
-      // Product: '<S453>/Multiply' incorporates:
-      //   Constant: '<S453>/x_g0'
-      //   Gain: '<S453>/Gain'
-      //   Sum: '<S453>/Sum1'
+      // Product: '<S463>/Multiply' incorporates:
+      //   Constant: '<S463>/x_g0'
+      //   Gain: '<S463>/Gain'
+      //   Sum: '<S463>/Sum1'
 
       Aenea_model_B.Multiply = -(Aenea_model_B.Gain_dt - -100.0) *
-        Aenea_model_B.Gain_h;
+        Aenea_model_B.Abs1;
 
-      // Constant: '<S453>/Constant1'
+      // Constant: '<S463>/Constant1'
       Aenea_model_B.Constant1_h = 20.0;
 
-      // Update for DiscreteIntegrator: '<S453>/Discrete-Time Integrator'
+      // Update for DiscreteIntegrator: '<S463>/Discrete-Time Integrator'
       Aenea_model_DW.DiscreteTimeIntegrator_DSTATE_j += 0.02;
       if (Aenea_model_DW.DiscreteTimeIntegrator_DSTATE_j >= 1.0) {
         Aenea_model_DW.DiscreteTimeIntegrator_DSTATE_j = 1.0;
@@ -5760,27 +5877,27 @@ void Aenea_model_step(void)
         Aenea_model_DW.DiscreteTimeIntegrator_PrevRe_o = 2;
       }
 
-      // End of Update for DiscreteIntegrator: '<S453>/Discrete-Time Integrator' 
+      // End of Update for DiscreteIntegrator: '<S463>/Discrete-Time Integrator' 
     }
 
-    // End of Outputs for SubSystem: '<S442>/APPROACH'
+    // End of Outputs for SubSystem: '<S452>/APPROACH'
 
-    // Outputs for Enabled SubSystem: '<S442>/FLARE' incorporates:
-    //   EnablePort: '<S457>/Enable'
+    // Outputs for Enabled SubSystem: '<S452>/FLARE' incorporates:
+    //   EnablePort: '<S467>/Enable'
 
     if (Aenea_model_B.trig_flare > 0.0) {
-      // Constant: '<S457>/Constant1'
+      // Constant: '<S467>/Constant1'
       Aenea_model_B.Constant1 = 18.0;
 
-      // Sum: '<S457>/Sum2' incorporates:
-      //   Gain: '<S457>/Gain'
-      //   Math: '<S457>/Exp'
-      //   Product: '<S457>/Multiply'
-      //   Product: '<S457>/Multiply1'
-      //   Sum: '<S457>/Sum'
-      //   Sum: '<S457>/Sum1'
+      // Sum: '<S467>/Sum2' incorporates:
+      //   Gain: '<S467>/Gain'
+      //   Math: '<S467>/Exp'
+      //   Product: '<S467>/Multiply'
+      //   Product: '<S467>/Multiply1'
+      //   Sum: '<S467>/Sum'
+      //   Sum: '<S467>/Sum1'
       //
-      //  About '<S457>/Exp':
+      //  About '<S467>/Exp':
       //   Operator: exp
 
       Aenea_model_B.Sum2 = std::exp(-((Aenea_model_B.Gain_dt -
@@ -5788,63 +5905,63 @@ void Aenea_model_step(void)
         (Aenea_model_B.h_f_out - Aenea_model_B.h_c_out) + Aenea_model_B.h_c_out;
     }
 
-    // End of Outputs for SubSystem: '<S442>/FLARE'
+    // End of Outputs for SubSystem: '<S452>/FLARE'
 
-    // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation5' 
+    // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation5' 
     switch (static_cast<int32_T>(Aenea_model_B.maneuver_selector)) {
      case 1:
-      // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation5' incorporates:
-      //   Constant: '<S442>/Constant6'
+      // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation5' incorporates:
+      //   Constant: '<S452>/Constant6'
 
       Aenea_model_B.velocita = 20.0;
       break;
 
      case 2:
-      // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation5' 
+      // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation5' 
       Aenea_model_B.velocita = Aenea_model_B.Constant1_h;
       break;
 
      default:
-      // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation5' 
+      // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation5' 
       Aenea_model_B.velocita = Aenea_model_B.Constant1;
       break;
     }
 
-    // End of MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation5' 
+    // End of MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation5' 
 
-    // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation4' 
+    // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation4' 
     switch (static_cast<int32_T>(Aenea_model_B.maneuver_selector)) {
      case 1:
-      // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation4' incorporates:
-      //   Constant: '<S442>/Constant2'
+      // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation4' incorporates:
+      //   Constant: '<S452>/Constant2'
 
       Aenea_model_B.QUOTA_e = 45.0;
       break;
 
      case 2:
-      // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation4' incorporates:
-      //   Abs: '<S442>/Abs3'
+      // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation4' incorporates:
+      //   Abs: '<S452>/Abs3'
 
       Aenea_model_B.QUOTA_e = std::abs(Aenea_model_B.Multiply);
       break;
 
      default:
-      // MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation4' incorporates:
-      //   Abs: '<S442>/Abs4'
+      // MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation4' incorporates:
+      //   Abs: '<S452>/Abs4'
 
       Aenea_model_B.QUOTA_e = std::abs(Aenea_model_B.Sum2);
       break;
     }
 
-    // End of MultiPortSwitch: '<S442>/Switch di selezione  Task - Waypoint navigation4' 
+    // End of MultiPortSwitch: '<S452>/Switch di selezione  Task - Waypoint navigation4' 
 
-    // Update for Memory: '<S442>/Memory5'
+    // Update for Memory: '<S452>/Memory5'
     Aenea_model_DW.Memory5_PreviousInput = Aenea_model_B.x_f_out;
 
-    // Update for Memory: '<S442>/Memory1'
+    // Update for Memory: '<S452>/Memory1'
     Aenea_model_DW.Memory1_PreviousInput_f = Aenea_model_B.h_f_out;
 
-    // Update for Memory: '<S442>/Memory2'
+    // Update for Memory: '<S452>/Memory2'
     Aenea_model_DW.Memory2_PreviousInput_e = Aenea_model_B.no_solution;
   }
 
@@ -5902,31 +6019,31 @@ void Aenea_model_step(void)
 
   // End of DataTypeConversion: '<S3>/Data Tversion'
 
-  // DataTypeConversion: '<S575>/Data Type Conversion1' incorporates:
-  //   UnitDelay: '<S575>/Unit Delay'
+  // DataTypeConversion: '<S585>/Data Type Conversion1' incorporates:
+  //   UnitDelay: '<S585>/Unit Delay'
 
   for (Aenea_model_B.i = 0; Aenea_model_B.i < 9; Aenea_model_B.i++) {
     Aenea_model_DW.UnitDelay_DSTATE[Aenea_model_B.i] =
       Aenea_model_B.ByteReversal[Aenea_model_B.i];
   }
 
-  // End of DataTypeConversion: '<S575>/Data Type Conversion1'
+  // End of DataTypeConversion: '<S585>/Data Type Conversion1'
 
   // Outputs for Enabled SubSystem: '<S39>/Subsystem2' incorporates:
-  //   EnablePort: '<S443>/Enable'
+  //   EnablePort: '<S453>/Enable'
 
   if (Aenea_model_B.Wp_selector > 0.0) {
-    // Gain: '<S544>/Gain'
+    // Gain: '<S554>/Gain'
     Aenea_model_B.Gain_hh = 57.295779513082323 * Aenea_model_B.Lat_K;
 
-    // Gain: '<S545>/Gain'
-    Aenea_model_B.Sum_h = 57.295779513082323 * Aenea_model_B.Long_K;
+    // Gain: '<S555>/Gain'
+    Aenea_model_B.Al_selector = 57.295779513082323 * Aenea_model_B.Long_K;
 
-    // MATLAB Function: '<S443>/WAYPOINTS' incorporates:
+    // MATLAB Function: '<S453>/WAYPOINTS' incorporates:
     //   DataTypeConversion: '<S3>/Data Tversion'
     //   DataTypeConversion: '<S3>/Data Tversion1'
     //   DataTypeConversion: '<S3>/Data Tversion2'
-    //   Memory: '<S443>/Memory4'
+    //   Memory: '<S453>/Memory4'
 
     Aenea_model_B.npad = 1;
     if (Aenea_model_DW.Memory4_PreviousInput == 6.0) {
@@ -5936,7 +6053,7 @@ void Aenea_model_step(void)
     if (static_cast<uint8_T>(Aenea_model_B.GC_info[0]) == 3) {
       Aenea_model_DW.Memory4_PreviousInput = 1.0;
       Aenea_model_DW.lat1 = Aenea_model_B.Gain_hh;
-      Aenea_model_DW.long1 = Aenea_model_B.Sum_h;
+      Aenea_model_DW.long1 = Aenea_model_B.Al_selector;
       for (Aenea_model_B.srem = 0; Aenea_model_B.srem < 6; Aenea_model_B.srem++)
       {
         if (Aenea_model_DW.WP_dbI[Aenea_model_B.srem + 24] == 1) {
@@ -5954,39 +6071,38 @@ void Aenea_model_step(void)
       (Aenea_model_DW.Memory4_PreviousInput) + 35];
     Aenea_model_B.a_b = std::sin((Aenea_model_B.Wp_selector -
       Aenea_model_B.Gain_hh) * 3.1415926535897931 / 180.0 / 2.0);
-    Aenea_model_B.Gain_h = std::sin((Aenea_model_B.Gain_dt - Aenea_model_B.Sum_h)
-      * 3.1415926535897931 / 180.0 / 2.0);
-    Aenea_model_B.Al_selector = Aenea_model_B.Wp_selector * 3.1415926535897931 /
+    Aenea_model_B.Abs1 = std::sin((Aenea_model_B.Gain_dt -
+      Aenea_model_B.Al_selector) * 3.1415926535897931 / 180.0 / 2.0);
+    Aenea_model_B.Gain_h = Aenea_model_B.Wp_selector * 3.1415926535897931 /
       180.0;
-    Aenea_model_B.Abs1_l = std::cos(Aenea_model_B.Al_selector);
+    Aenea_model_B.Abs1_l = std::cos(Aenea_model_B.Gain_h);
     Aenea_model_B.Switch_j = std::cos(Aenea_model_B.Gain_hh * 3.1415926535897931
       / 180.0);
     Aenea_model_B.a_b = Aenea_model_B.Switch_j * Aenea_model_B.Abs1_l *
-      (Aenea_model_B.Gain_h * Aenea_model_B.Gain_h) + Aenea_model_B.a_b *
+      (Aenea_model_B.Abs1 * Aenea_model_B.Abs1) + Aenea_model_B.a_b *
       Aenea_model_B.a_b;
-    Aenea_model_B.Gain_h = rt_atan2d_snf(std::sqrt(Aenea_model_B.a_b), std::sqrt
+    Aenea_model_B.Abs1 = rt_atan2d_snf(std::sqrt(Aenea_model_B.a_b), std::sqrt
       (1.0 - Aenea_model_B.a_b)) * 2.0 * 6.378137E+6;
     if (Aenea_model_DW.Memory4_PreviousInput > 1.0) {
       Aenea_model_B.a_tmp_tmp = Aenea_model_B.DataTypeConversion4
         [static_cast<int32_T>(Aenea_model_DW.Memory4_PreviousInput - 1.0) + 23];
-      Aenea_model_B.Al_selector = Aenea_model_B.a_tmp_tmp * 3.1415926535897931 /
+      Aenea_model_B.Gain_h = Aenea_model_B.a_tmp_tmp * 3.1415926535897931 /
         180.0;
-      Aenea_model_B.a_b = std::cos(Aenea_model_B.Al_selector);
+      Aenea_model_B.a_b = std::cos(Aenea_model_B.Gain_h);
       Aenea_model_B.dist = Aenea_model_B.DataTypeConversion4[static_cast<int32_T>
         (Aenea_model_DW.Memory4_PreviousInput - 1.0) + 29];
       Aenea_model_B.psi_ref_tmp = (Aenea_model_B.Gain_dt - Aenea_model_B.dist) *
         3.1415926535897931 / 180.0;
-      Aenea_model_B.Al_selector = rt_atan2d_snf(std::sin
-        (Aenea_model_B.psi_ref_tmp) * Aenea_model_B.Abs1_l, std::sin
-        (Aenea_model_B.DataTypeConversion4[static_cast<int32_T>
-         (Aenea_model_DW.Memory4_PreviousInput) + 23] * 3.1415926535897931 /
-         180.0) * Aenea_model_B.a_b - std::sin(Aenea_model_B.Al_selector) *
-        Aenea_model_B.Abs1_l * std::cos(Aenea_model_B.psi_ref_tmp)) * 180.0 /
-        3.1415926535897931;
+      Aenea_model_B.Gain_h = rt_atan2d_snf(std::sin(Aenea_model_B.psi_ref_tmp) *
+        Aenea_model_B.Abs1_l, std::sin(Aenea_model_B.DataTypeConversion4[
+        static_cast<int32_T>(Aenea_model_DW.Memory4_PreviousInput) + 23] *
+        3.1415926535897931 / 180.0) * Aenea_model_B.a_b - std::sin
+        (Aenea_model_B.Gain_h) * Aenea_model_B.Abs1_l * std::cos
+        (Aenea_model_B.psi_ref_tmp)) * 180.0 / 3.1415926535897931;
       Aenea_model_B.a_tmp_tmp = std::sin((Aenea_model_B.Gain_hh -
         Aenea_model_B.a_tmp_tmp) * 3.1415926535897931 / 180.0 / 2.0);
-      Aenea_model_B.dist = std::sin((Aenea_model_B.Sum_h - Aenea_model_B.dist) *
-        3.1415926535897931 / 180.0 / 2.0);
+      Aenea_model_B.dist = std::sin((Aenea_model_B.Al_selector -
+        Aenea_model_B.dist) * 3.1415926535897931 / 180.0 / 2.0);
       Aenea_model_B.a_b = Aenea_model_B.a_b * Aenea_model_B.Switch_j *
         (Aenea_model_B.dist * Aenea_model_B.dist) + Aenea_model_B.a_tmp_tmp *
         Aenea_model_B.a_tmp_tmp;
@@ -5997,16 +6113,16 @@ void Aenea_model_step(void)
         3.1415926535897931 / 180.0;
       Aenea_model_B.psi_ref_tmp = Aenea_model_DW.lat1 * 3.1415926535897931 /
         180.0;
-      Aenea_model_B.Al_selector = rt_atan2d_snf(std::sin(Aenea_model_B.a_b) *
-        Aenea_model_B.Abs1_l, std::sin(Aenea_model_B.Al_selector) * std::cos
+      Aenea_model_B.Gain_h = rt_atan2d_snf(std::sin(Aenea_model_B.a_b) *
+        Aenea_model_B.Abs1_l, std::sin(Aenea_model_B.Gain_h) * std::cos
         (Aenea_model_B.psi_ref_tmp) - std::cos(Aenea_model_B.a_b) * (std::sin
         (Aenea_model_B.psi_ref_tmp) * Aenea_model_B.Abs1_l)) * 180.0 /
         3.1415926535897931;
       Aenea_model_B.dist = 0.0;
     }
 
-    if (Aenea_model_B.Al_selector < 0.0) {
-      Aenea_model_B.Al_selector = 360.0 - std::abs(Aenea_model_B.Al_selector);
+    if (Aenea_model_B.Gain_h < 0.0) {
+      Aenea_model_B.Gain_h = 360.0 - std::abs(Aenea_model_B.Gain_h);
     }
 
     if (Aenea_model_B.npad == 1) {
@@ -6038,7 +6154,7 @@ void Aenea_model_step(void)
 
       if (Aenea_model_DW.Memory4_PreviousInput > 1.0) {
         Aenea_model_B.Abs1_l = std::abs(Aenea_model_B.Abs1_l -
-          Aenea_model_B.Al_selector);
+          Aenea_model_B.Gain_h);
       } else {
         Aenea_model_B.Abs1_l = std::abs(Aenea_model_B.Abs1_l - rt_atan2d_snf(std::
           sin((Aenea_model_B.DataTypeConversion4[static_cast<int32_T>
@@ -6072,18 +6188,17 @@ void Aenea_model_step(void)
       Aenea_model_B.b_a_tmp = std::cos(Aenea_model_B.a_b);
       Aenea_model_B.Gain_hh = (Aenea_model_B.DataTypeConversion4[30] -
         Aenea_model_DW.long1) * 3.1415926535897931 / 180.0;
-      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Al_selector -
-        rt_atan2d_snf(std::sin(Aenea_model_B.Gain_hh) * Aenea_model_B.b_a_tmp,
-                      std::cos(Aenea_model_DW.lat1 * 3.1415926535897931 / 180.0)
-                      * std::sin(Aenea_model_B.a_b) - std::sin
-                      (Aenea_model_DW.lat1 * 3.1415926535897931 / 180.0) *
-                      Aenea_model_B.b_a_tmp * std::cos(Aenea_model_B.Gain_hh)) *
+      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Gain_h - rt_atan2d_snf(std::
+        sin(Aenea_model_B.Gain_hh) * Aenea_model_B.b_a_tmp, std::cos
+        (Aenea_model_DW.lat1 * 3.1415926535897931 / 180.0) * std::sin
+        (Aenea_model_B.a_b) - std::sin(Aenea_model_DW.lat1 * 3.1415926535897931 /
+        180.0) * Aenea_model_B.b_a_tmp * std::cos(Aenea_model_B.Gain_hh)) *
         180.0 / 3.1415926535897931);
     } else {
       Aenea_model_B.Switch_j = std::cos(Aenea_model_B.DataTypeConversion4[
         static_cast<int32_T>(Aenea_model_DW.Memory4_PreviousInput - 1.0) + 23] *
         3.1415926535897931 / 180.0);
-      Aenea_model_B.Sum_h = Aenea_model_B.DataTypeConversion4
+      Aenea_model_B.Al_selector = Aenea_model_B.DataTypeConversion4
         [static_cast<int32_T>(Aenea_model_DW.Memory4_PreviousInput - 2.0) + 23] *
         3.1415926535897931 / 180.0;
       Aenea_model_B.Gain_hh = (Aenea_model_B.DataTypeConversion4
@@ -6092,16 +6207,16 @@ void Aenea_model_step(void)
         (Aenea_model_DW.Memory4_PreviousInput - 2.0) + 29]) * 3.1415926535897931
         / 180.0;
       Aenea_model_B.Switch_j = rt_atan2d_snf(std::sin(Aenea_model_B.Gain_hh) *
-        Aenea_model_B.Switch_j, std::cos(Aenea_model_B.Sum_h) * std::sin
+        Aenea_model_B.Switch_j, std::cos(Aenea_model_B.Al_selector) * std::sin
         (Aenea_model_B.DataTypeConversion4[static_cast<int32_T>
          (Aenea_model_DW.Memory4_PreviousInput - 1.0) + 23] * 3.1415926535897931
-         / 180.0) - std::sin(Aenea_model_B.Sum_h) * Aenea_model_B.Switch_j * std::
-        cos(Aenea_model_B.Gain_hh)) * 180.0 / 3.1415926535897931;
+         / 180.0) - std::sin(Aenea_model_B.Al_selector) * Aenea_model_B.Switch_j
+        * std::cos(Aenea_model_B.Gain_hh)) * 180.0 / 3.1415926535897931;
       if (Aenea_model_B.Switch_j < 0.0) {
         Aenea_model_B.Switch_j = 360.0 - std::abs(Aenea_model_B.Switch_j);
       }
 
-      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Al_selector -
+      Aenea_model_B.Switch_j = std::abs(Aenea_model_B.Gain_h -
         Aenea_model_B.Switch_j);
     }
 
@@ -6158,10 +6273,10 @@ void Aenea_model_step(void)
       }
 
       if (((!(Aenea_model_B.dist < Aenea_model_B.soglia_dist)) ||
-           (!(Aenea_model_B.Gain_h > Aenea_model_B.Abs1_l))) &&
+           (!(Aenea_model_B.Abs1 > Aenea_model_B.Abs1_l))) &&
           ((!(Aenea_model_B.dist > Aenea_model_B.soglia_dist)) ||
-           (!(Aenea_model_B.Gain_h > Aenea_model_B.Abs1_l))) &&
-          (Aenea_model_B.Gain_h < Aenea_model_B.Abs1_l)) {
+           (!(Aenea_model_B.Abs1 > Aenea_model_B.Abs1_l))) &&
+          (Aenea_model_B.Abs1 < Aenea_model_B.Abs1_l)) {
         if (Aenea_model_B.dist_fut > Aenea_model_B.srem) {
           Aenea_model_DW.Memory4_PreviousInput++;
         } else if (Aenea_model_DW.Memory4_PreviousInput < 5.0) {
@@ -6182,7 +6297,7 @@ void Aenea_model_step(void)
 
       if (((!(Aenea_model_B.dist < Aenea_model_B.soglia_dist)) ||
            (!(Aenea_model_DW.flag_o == 0.0))) && ((!(Aenea_model_B.dist >
-             Aenea_model_B.soglia_dist)) || (!(Aenea_model_B.Gain_h > 40.0)) ||
+             Aenea_model_B.soglia_dist)) || (!(Aenea_model_B.Abs1 > 40.0)) ||
            (!(Aenea_model_DW.flag_o == 0.0)))) {
         Aenea_model_B.VELOCITA = 22.0;
         Aenea_model_B.QUOTA = Aenea_model_B.Alt + 0.4;
@@ -6196,34 +6311,34 @@ void Aenea_model_step(void)
       Aenea_model_B.VELOCITA = 22.0;
     }
 
-    // Saturate: '<S443>/saturatore V' incorporates:
-    //   MATLAB Function: '<S443>/WAYPOINTS'
+    // Saturate: '<S453>/saturatore V' incorporates:
+    //   MATLAB Function: '<S453>/WAYPOINTS'
 
     if (Aenea_model_B.VELOCITA > 40.0) {
-      // Saturate: '<S443>/saturatore V'
+      // Saturate: '<S453>/saturatore V'
       Aenea_model_B.VELOCITA = 40.0;
     } else {
       if (Aenea_model_B.VELOCITA < 15.0) {
-        // Saturate: '<S443>/saturatore V'
+        // Saturate: '<S453>/saturatore V'
         Aenea_model_B.VELOCITA = 15.0;
       }
     }
 
-    // End of Saturate: '<S443>/saturatore V'
+    // End of Saturate: '<S453>/saturatore V'
   }
 
   // End of Outputs for SubSystem: '<S39>/Subsystem2'
 
   // Outputs for Enabled SubSystem: '<S39>/Subsystem' incorporates:
-  //   EnablePort: '<S441>/Enable'
+  //   EnablePort: '<S451>/Enable'
 
   if (Aenea_model_B.Vec_selector > 0.0) {
-    // MATLAB Function: '<S441>/VETTORIALE' incorporates:
+    // MATLAB Function: '<S451>/VETTORIALE' incorporates:
     //   MATLAB Function: '<S3>/MATLAB Function1'
-    //   Memory: '<S441>/Memory1'
-    //   Memory: '<S441>/Memory2'
-    //   Memory: '<S441>/Memory3'
-    //   Memory: '<S441>/Memory6'
+    //   Memory: '<S451>/Memory1'
+    //   Memory: '<S451>/Memory2'
+    //   Memory: '<S451>/Memory3'
+    //   Memory: '<S451>/Memory6'
 
     if ((Aenea_model_DW.Memory2_PreviousInput_d[1] !=
          Aenea_model_DW.Memory6_PreviousInput) || (Aenea_model_B.modo !=
@@ -6253,25 +6368,25 @@ void Aenea_model_step(void)
       Aenea_model_B.h_vett = Aenea_model_DW.ALT_ref;
     }
 
-    // Update for Memory: '<S441>/Memory1' incorporates:
-    //   MATLAB Function: '<S441>/VETTORIALE'
+    // Update for Memory: '<S451>/Memory1' incorporates:
+    //   MATLAB Function: '<S451>/VETTORIALE'
 
     Aenea_model_DW.Memory1_PreviousInput_k =
       Aenea_model_DW.Memory2_PreviousInput_d[4];
 
-    // Update for Memory: '<S441>/Memory2' incorporates:
-    //   MATLAB Function: '<S441>/VETTORIALE'
+    // Update for Memory: '<S451>/Memory2' incorporates:
+    //   MATLAB Function: '<S451>/VETTORIALE'
 
     Aenea_model_DW.Memory2_PreviousInput_d2 =
       Aenea_model_DW.Memory2_PreviousInput_d[3];
 
-    // Update for Memory: '<S441>/Memory3' incorporates:
-    //   MATLAB Function: '<S441>/VETTORIALE'
+    // Update for Memory: '<S451>/Memory3' incorporates:
+    //   MATLAB Function: '<S451>/VETTORIALE'
 
     Aenea_model_DW.Memory3_PreviousInput = Aenea_model_B.modo;
 
-    // Update for Memory: '<S441>/Memory6' incorporates:
-    //   MATLAB Function: '<S441>/VETTORIALE'
+    // Update for Memory: '<S451>/Memory6' incorporates:
+    //   MATLAB Function: '<S451>/VETTORIALE'
 
     Aenea_model_DW.Memory6_PreviousInput =
       Aenea_model_DW.Memory2_PreviousInput_d[1];
@@ -6280,24 +6395,26 @@ void Aenea_model_step(void)
   // End of Outputs for SubSystem: '<S39>/Subsystem'
 
   // Outputs for Enabled SubSystem: '<S39>/Subsystem3' incorporates:
-  //   EnablePort: '<S444>/Enable'
+  //   EnablePort: '<S454>/Enable'
 
   if (Aenea_model_B.Go_home_selector > 0.0) {
-    // Gain: '<S549>/Gain'
+    // Gain: '<S559>/Gain'
     Aenea_model_B.Vec_selector = 57.295779513082323 * Aenea_model_B.Lat_K;
 
-    // MATLAB Function: '<S444>/GO_HOME' incorporates:
+    // MATLAB Function: '<S454>/GO_HOME' incorporates:
     //   Constant: '<S39>/Constant'
     //   Constant: '<S39>/Constant1'
-    //   Gain: '<S550>/Gain'
+    //   Constant: '<S39>/Constant2'
+    //   Constant: '<S39>/Constant3'
+    //   Gain: '<S560>/Gain'
 
-    Aenea_model_B.a_b = std::sin((0.0 - Aenea_model_B.Vec_selector) *
+    Aenea_model_B.a_b = std::sin((38.315339 - Aenea_model_B.Vec_selector) *
       3.1415926535897931 / 180.0 / 2.0);
-    Aenea_model_B.Gain_h = std::sin((0.0 - 57.295779513082323 *
+    Aenea_model_B.Abs1 = std::sin((-76.548108 - 57.295779513082323 *
       Aenea_model_B.Long_K) * 3.1415926535897931 / 180.0 / 2.0);
     Aenea_model_B.a_b = std::cos(Aenea_model_B.Vec_selector * 3.1415926535897931
-      / 180.0) * (Aenea_model_B.Gain_h * Aenea_model_B.Gain_h) +
-      Aenea_model_B.a_b * Aenea_model_B.a_b;
+      / 180.0) * 0.78461041761514261 * (Aenea_model_B.Abs1 * Aenea_model_B.Abs1)
+      + Aenea_model_B.a_b * Aenea_model_B.a_b;
     Aenea_model_B.h_goHome = 70.0;
     Aenea_model_B.V_goHome = 20.0;
     if ((rt_atan2d_snf(std::sqrt(Aenea_model_B.a_b), std::sqrt(1.0 -
@@ -6307,7 +6424,7 @@ void Aenea_model_step(void)
       Aenea_model_B.h_goHome = 70.4;
     }
 
-    // End of MATLAB Function: '<S444>/GO_HOME'
+    // End of MATLAB Function: '<S454>/GO_HOME'
   }
 
   // End of Outputs for SubSystem: '<S39>/Subsystem3'
@@ -6315,36 +6432,36 @@ void Aenea_model_step(void)
   // MultiPortSwitch: '<S39>/Switch di selezione  Task - Waypoint navigation1'
   switch (static_cast<int32_T>(Aenea_model_B.modo)) {
    case 1:
-    Aenea_model_B.Gain_h = Aenea_model_B.VELOCITA;
+    Aenea_model_B.Abs1 = Aenea_model_B.VELOCITA;
     break;
 
    case 2:
-    Aenea_model_B.Gain_h = Aenea_model_B.V_vett;
+    Aenea_model_B.Abs1 = Aenea_model_B.V_vett;
     break;
 
    case 3:
-    Aenea_model_B.Gain_h = Aenea_model_B.Tas_ref;
+    Aenea_model_B.Abs1 = Aenea_model_B.Tas_ref;
     break;
 
    case 4:
-    Aenea_model_B.Gain_h = Aenea_model_B.velocita;
+    Aenea_model_B.Abs1 = Aenea_model_B.velocita;
     break;
 
    default:
-    Aenea_model_B.Gain_h = Aenea_model_B.V_goHome;
+    Aenea_model_B.Abs1 = Aenea_model_B.V_goHome;
     break;
   }
 
   // End of MultiPortSwitch: '<S39>/Switch di selezione  Task - Waypoint navigation1' 
 
   // Sum: '<S42>/Sum3'
-  Aenea_model_B.Gain_h -= Aenea_model_B.Product1;
+  Aenea_model_B.Abs1 -= Aenea_model_B.Product1;
 
   // Sum: '<S294>/Sum' incorporates:
   //   DiscreteIntegrator: '<S285>/Integrator'
   //   Product: '<S290>/PProd Out'
 
-  Aenea_model_B.Gain_dt = Aenea_model_B.Gain_h * 0.033649999648332596 +
+  Aenea_model_B.Gain_dt = Aenea_model_B.Abs1 * 0.033649999648332596 +
     Aenea_model_DW.Integrator_DSTATE_lq;
 
   // Saturate: '<S292>/Saturation'
@@ -6552,8 +6669,11 @@ void Aenea_model_step(void)
 
   // End of Chart: '<S40>/SELEZIONE MODALITA'  HOLD//SELECT'
 
-  // Sum: '<S595>/Sum' incorporates:
-  //   Product: '<S595>/Multiply'
+  // S-Function (PWMinterrupt_goHome_sfun): '<S9>/S-Function Builder4'
+  PWMinterrupt_goHome_sfun_Outputs_wrapper(&Aenea_model_B.SFunctionBuilder4);
+
+  // Sum: '<S605>/Sum' incorporates:
+  //   Product: '<S605>/Multiply'
 
   Aenea_model_B.a_b = std::floor(Aenea_model_B.Sum5 * Aenea_model_ConstB.Sum1_j);
   if (rtIsNaN(Aenea_model_B.a_b) || rtIsInf(Aenea_model_B.a_b)) {
@@ -6562,7 +6682,7 @@ void Aenea_model_step(void)
     Aenea_model_B.a_b = std::fmod(Aenea_model_B.a_b, 65536.0);
   }
 
-  // Sum: '<S595>/Sum' incorporates:
+  // Sum: '<S605>/Sum' incorporates:
   //   Constant: '<S7>/Constant6'
 
   Aenea_model_B.Sum = static_cast<int16_T>((Aenea_model_B.a_b < 0.0 ?
@@ -6575,14 +6695,14 @@ void Aenea_model_step(void)
     &Aenea_model_DW.SFunctionBuilder_DSTATE);
 
   // DataTypeConversion: '<S10>/Data Type Conversion' incorporates:
-  //   Constant: '<S596>/Constant'
-  //   Constant: '<S596>/Constant1'
+  //   Constant: '<S606>/Constant'
+  //   Constant: '<S606>/Constant1'
   //   Constant: '<S7>/Constant7'
-  //   Product: '<S596>/Divide'
-  //   Product: '<S596>/Multiply'
-  //   Sum: '<S596>/Sum'
-  //   Sum: '<S596>/Sum1'
-  //   Sum: '<S596>/Sum3'
+  //   Product: '<S606>/Divide'
+  //   Product: '<S606>/Multiply'
+  //   Sum: '<S606>/Sum'
+  //   Sum: '<S606>/Sum1'
+  //   Sum: '<S606>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Equilibratore_n -
     -0.4014257279586958) / 0.82030474843733492 * Aenea_model_ConstB.Sum2_d +
@@ -6604,14 +6724,14 @@ void Aenea_model_step(void)
     &Aenea_model_DW.SFunctionBuilder1_DSTATE);
 
   // DataTypeConversion: '<S10>/Data Type Conversion1' incorporates:
-  //   Constant: '<S593>/Constant'
-  //   Constant: '<S593>/Constant1'
+  //   Constant: '<S603>/Constant'
+  //   Constant: '<S603>/Constant1'
   //   Constant: '<S7>/Constant10'
-  //   Product: '<S593>/Divide'
-  //   Product: '<S593>/Multiply'
-  //   Sum: '<S593>/Sum'
-  //   Sum: '<S593>/Sum1'
-  //   Sum: '<S593>/Sum3'
+  //   Product: '<S603>/Divide'
+  //   Product: '<S603>/Multiply'
+  //   Sum: '<S603>/Sum'
+  //   Sum: '<S603>/Sum1'
+  //   Sum: '<S603>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum3_k - -0.38397243543875248) /
     0.82030474843733492 * Aenea_model_ConstB.Sum2_a + 1184.0);
@@ -6632,14 +6752,14 @@ void Aenea_model_step(void)
     &Aenea_model_DW.SFunctionBuilder2_DSTATE);
 
   // DataTypeConversion: '<S10>/Data Type Conversion2' incorporates:
-  //   Constant: '<S594>/Constant'
-  //   Constant: '<S594>/Constant1'
+  //   Constant: '<S604>/Constant'
+  //   Constant: '<S604>/Constant1'
   //   Constant: '<S7>/Constant12'
-  //   Product: '<S594>/Divide'
-  //   Product: '<S594>/Multiply'
-  //   Sum: '<S594>/Sum'
-  //   Sum: '<S594>/Sum1'
-  //   Sum: '<S594>/Sum3'
+  //   Product: '<S604>/Divide'
+  //   Product: '<S604>/Multiply'
+  //   Sum: '<S604>/Sum'
+  //   Sum: '<S604>/Sum1'
+  //   Sum: '<S604>/Sum3'
 
   Aenea_model_B.a_b = std::floor((Aenea_model_B.Sum2_k2 - -0.36651914291880922) /
     0.92502450355699462 * Aenea_model_ConstB.Sum2_g + 1175.0);
@@ -6659,11 +6779,11 @@ void Aenea_model_step(void)
   Servo_timone_sfun_Outputs_wrapper(&Aenea_model_B.rudderCmd_pwm,
     &Aenea_model_DW.SFunctionBuilder3_DSTATE);
   if (Aenea_model_M->Timing.TaskCounters.TID[2] == 0) {
-    // Switch: '<S584>/FixPt Switch' incorporates:
-    //   Constant: '<S583>/FixPt Constant'
-    //   Constant: '<S584>/Constant'
-    //   Sum: '<S583>/FixPt Sum1'
-    //   UnitDelay: '<S573>/Output'
+    // Switch: '<S594>/FixPt Switch' incorporates:
+    //   Constant: '<S593>/FixPt Constant'
+    //   Constant: '<S594>/Constant'
+    //   Sum: '<S593>/FixPt Sum1'
+    //   UnitDelay: '<S583>/Output'
 
     if (static_cast<uint8_T>(Aenea_model_DW.Output_DSTATE + 1U) > 1) {
       Aenea_model_DW.Output_DSTATE = 0U;
@@ -6672,7 +6792,7 @@ void Aenea_model_step(void)
         (Aenea_model_DW.Output_DSTATE + 1U);
     }
 
-    // End of Switch: '<S584>/FixPt Switch'
+    // End of Switch: '<S594>/FixPt Switch'
   }
 
   if (Aenea_model_M->Timing.TaskCounters.TID[1] == 0) {
@@ -6732,65 +6852,67 @@ void Aenea_model_step(void)
   //   Product: '<S282>/IProd Out'
   //   Sum: '<S296>/SumI3'
 
-  Aenea_model_B.Gain_dt = Aenea_model_B.Gain_h * 0.00800000037997961 +
+  Aenea_model_B.Gain_dt = Aenea_model_B.Abs1 * 0.00800000037997961 +
     (Aenea_model_B.Abs1_l - Aenea_model_B.Vec_selector);
 
-  // Sum: '<S561>/Sum1' incorporates:
-  //   MATLAB Function: '<S561>/MATLAB Function'
-  //   Product: '<S561>/Product4'
-  //   UnitDelay: '<S561>/Unit Delay'
+  // Sum: '<S571>/Sum1' incorporates:
+  //   MATLAB Function: '<S571>/MATLAB Function'
+  //   Product: '<S571>/Product4'
+  //   UnitDelay: '<S571>/Unit Delay'
 
   Aenea_model_DW.UnitDelay_DSTATE_c = 0.23456790123456794 * Aenea_model_B.Sum_l
     + Aenea_model_B.SFunctionBuilder_o1;
 
-  // Sum: '<S612>/Sum' incorporates:
-  //   Constant: '<S612>/Constant8'
-  //   UnitDelay: '<S612>/Unit Delay'
+  // Sum: '<S622>/Sum' incorporates:
+  //   Constant: '<S622>/Constant8'
+  //   UnitDelay: '<S622>/Unit Delay'
 
   Aenea_model_DW.UnitDelay_DSTATE_n += 0.02;
 
-  // RelationalOperator: '<S597>/Compare' incorporates:
-  //   Constant: '<S597>/Constant'
-  //   UnitDelay: '<S598>/Output'
+  // RelationalOperator: '<S607>/Compare' incorporates:
+  //   Constant: '<S607>/Constant'
+  //   UnitDelay: '<S608>/Output'
 
   Aenea_model_B.Compare_i = (Aenea_model_DW.Output_DSTATE_k == 50);
 
   // BusCreator generated from: '<S2>/S-Function Builder' incorporates:
-  //   BusCreator: '<S602>/Bus Creator5'
-  //   BusCreator: '<S606>/Bus Creator6'
-  //   Constant: '<S602>/Constant18'
-  //   Constant: '<S602>/Constant9'
-  //   Constant: '<S606>/Constant19'
-  //   Constant: '<S606>/Constant20'
+  //   BusCreator: '<S612>/Bus Creator5'
+  //   BusCreator: '<S616>/Bus Creator6'
+  //   Constant: '<S39>/Constant2'
+  //   Constant: '<S39>/Constant3'
+  //   Constant: '<S612>/Constant18'
+  //   Constant: '<S612>/Constant9'
+  //   Constant: '<S616>/Constant19'
+  //   Constant: '<S616>/Constant20'
   //   Constant: '<S7>/Constant3'
-  //   DataTypeConversion: '<S578>/Data Type Conversion'
-  //   DataTypeConversion: '<S578>/Data Type Conversion1'
-  //   DataTypeConversion: '<S578>/Data Type Conversion2'
-  //   DataTypeConversion: '<S604>/Data Type Conversion'
-  //   DataTypeConversion: '<S604>/Data Type Conversion1'
-  //   DataTypeConversion: '<S604>/Data Type Conversion10'
-  //   DataTypeConversion: '<S604>/Data Type Conversion11'
-  //   DataTypeConversion: '<S604>/Data Type Conversion12'
-  //   DataTypeConversion: '<S604>/Data Type Conversion13'
-  //   DataTypeConversion: '<S604>/Data Type Conversion14'
-  //   DataTypeConversion: '<S604>/Data Type Conversion15'
-  //   DataTypeConversion: '<S604>/Data Type Conversion16'
-  //   DataTypeConversion: '<S604>/Data Type Conversion17'
-  //   DataTypeConversion: '<S604>/Data Type Conversion18'
-  //   DataTypeConversion: '<S604>/Data Type Conversion19'
-  //   DataTypeConversion: '<S604>/Data Type Conversion2'
-  //   DataTypeConversion: '<S604>/Data Type Conversion23'
-  //   DataTypeConversion: '<S604>/Data Type Conversion3'
-  //   DataTypeConversion: '<S604>/Data Type Conversion4'
-  //   DataTypeConversion: '<S604>/Data Type Conversion5'
-  //   DataTypeConversion: '<S604>/Data Type Conversion6'
-  //   DataTypeConversion: '<S604>/Data Type Conversion7'
-  //   DataTypeConversion: '<S604>/Data Type Conversion8'
-  //   DataTypeConversion: '<S604>/Data Type Conversion9'
-  //   Gain: '<S610>/Gain'
-  //   Gain: '<S611>/Gain'
-  //   UnitDelay: '<S574>/Unit Delay'
-  //   UnitDelay: '<S612>/Unit Delay'
+  //   DataTypeConversion: '<S588>/Data Type Conversion'
+  //   DataTypeConversion: '<S588>/Data Type Conversion1'
+  //   DataTypeConversion: '<S588>/Data Type Conversion2'
+  //   DataTypeConversion: '<S614>/Data Type Conversion'
+  //   DataTypeConversion: '<S614>/Data Type Conversion1'
+  //   DataTypeConversion: '<S614>/Data Type Conversion10'
+  //   DataTypeConversion: '<S614>/Data Type Conversion11'
+  //   DataTypeConversion: '<S614>/Data Type Conversion12'
+  //   DataTypeConversion: '<S614>/Data Type Conversion13'
+  //   DataTypeConversion: '<S614>/Data Type Conversion14'
+  //   DataTypeConversion: '<S614>/Data Type Conversion15'
+  //   DataTypeConversion: '<S614>/Data Type Conversion16'
+  //   DataTypeConversion: '<S614>/Data Type Conversion17'
+  //   DataTypeConversion: '<S614>/Data Type Conversion18'
+  //   DataTypeConversion: '<S614>/Data Type Conversion19'
+  //   DataTypeConversion: '<S614>/Data Type Conversion2'
+  //   DataTypeConversion: '<S614>/Data Type Conversion23'
+  //   DataTypeConversion: '<S614>/Data Type Conversion3'
+  //   DataTypeConversion: '<S614>/Data Type Conversion4'
+  //   DataTypeConversion: '<S614>/Data Type Conversion5'
+  //   DataTypeConversion: '<S614>/Data Type Conversion6'
+  //   DataTypeConversion: '<S614>/Data Type Conversion7'
+  //   DataTypeConversion: '<S614>/Data Type Conversion8'
+  //   DataTypeConversion: '<S614>/Data Type Conversion9'
+  //   Gain: '<S620>/Gain'
+  //   Gain: '<S621>/Gain'
+  //   UnitDelay: '<S584>/Unit Delay'
+  //   UnitDelay: '<S622>/Unit Delay'
 
   Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.time_frame =
     Aenea_model_DW.UnitDelay_DSTATE_n;
@@ -6808,6 +6930,9 @@ void Aenea_model_step(void)
     Aenea_model_B.Gain_e;
   Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.absT =
     Aenea_model_B.abs_ManualThrottle;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.lat_home = 38.315339;
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.double_data.long_home =
+    -76.548108;
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.v_gps_raw =
     static_cast<real32_T>(Aenea_model_DW.UnitDelay_DSTATE_h[2]);
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.h_gps_raw =
@@ -6837,7 +6962,7 @@ void Aenea_model_step(void)
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.dist_lidar_raw =
     0.0F;
 
-  // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+  // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.h_baro_raw =
     Aenea_model_B.SFunctionBuilder_o3_h;
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.press_raw =
@@ -6845,7 +6970,7 @@ void Aenea_model_step(void)
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.temp_raw =
     Aenea_model_B.SFunctionBuilder_o1_g;
 
-  // End of Outputs for SubSystem: '<S571>/Execution_loop'
+  // End of Outputs for SubSystem: '<S581>/Execution_loop'
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.h_baro_filt =
     static_cast<real32_T>(Aenea_model_B.Alt);
   Aenea_model_B.BusConversion_InsertedFor_SFunc.single_data.ias_filt =
@@ -6942,13 +7067,10 @@ void Aenea_model_step(void)
   }
 
   // BusCreator generated from: '<S2>/S-Function Builder' incorporates:
-  //   BusCreator: '<S601>/Bus Creator7'
-  //   BusCreator: '<S603>/Bus Creator9'
-  //   BusCreator: '<S605>/Bus Creator8'
-  //   Constant: '<S603>/Constant14'
-  //   Constant: '<S603>/Constant23'
-  //   Constant: '<S605>/Constant11'
-  //   Constant: '<S605>/Constant22'
+  //   BusCreator: '<S611>/Bus Creator7'
+  //   BusCreator: '<S615>/Bus Creator8'
+  //   Constant: '<S615>/Constant11'
+  //   Constant: '<S615>/Constant22'
   //   DataTypeConversion: '<S9>/Data Type Conversion2'
 
   Aenea_model_B.BusConversion_InsertedFor_SFunc.int16_data.manual_rudderCmd_pwm =
@@ -6966,10 +7088,31 @@ void Aenea_model_step(void)
     Aenea_model_B.rudderCmd_pwm;
   Aenea_model_B.BusConversion_InsertedFor_SFunc.uint16_data.dummy9 = 20U;
   Aenea_model_B.BusConversion_InsertedFor_SFunc.uint16_data.dummy10 = 20U;
-  Aenea_model_B.BusConversion_InsertedFor_SFunc.int8_data.dummy11 = -5;
+
+  // DataTypeConversion: '<S613>/Data Type Conversion'
+  Aenea_model_B.Equilibratore_n = std::floor(Aenea_model_B.modo);
+  if (rtIsNaN(Aenea_model_B.Equilibratore_n) || rtIsInf
+      (Aenea_model_B.Equilibratore_n)) {
+    Aenea_model_B.Equilibratore_n = 0.0;
+  } else {
+    Aenea_model_B.Equilibratore_n = std::fmod(Aenea_model_B.Equilibratore_n,
+      256.0);
+  }
+
+  // BusCreator generated from: '<S2>/S-Function Builder' incorporates:
+  //   BusCreator: '<S613>/Bus Creator9'
+  //   Constant: '<S613>/Constant23'
+  //   DataTypeConversion: '<S613>/Data Type Conversion'
+
+  Aenea_model_B.BusConversion_InsertedFor_SFunc.int8_data.modo =
+    static_cast<int8_T>(Aenea_model_B.Equilibratore_n < 0.0 ?
+                        static_cast<int32_T>(static_cast<int8_T>
+    (-static_cast<int8_T>(static_cast<uint8_T>(-Aenea_model_B.Equilibratore_n))))
+                        : static_cast<int32_T>(static_cast<int8_T>
+    (static_cast<uint8_T>(Aenea_model_B.Equilibratore_n))));
   Aenea_model_B.BusConversion_InsertedFor_SFunc.int8_data.dummy12 = 120;
 
-  // DataTypeConversion: '<S607>/Data Type Conversion'
+  // DataTypeConversion: '<S617>/Data Type Conversion'
   Aenea_model_B.Equilibratore_n = std::floor(Aenea_model_B.SFunctionBuilder_o6);
   if (rtIsNaN(Aenea_model_B.Equilibratore_n) || rtIsInf
       (Aenea_model_B.Equilibratore_n)) {
@@ -6980,10 +7123,10 @@ void Aenea_model_step(void)
   }
 
   // BusCreator generated from: '<S2>/S-Function Builder' incorporates:
-  //   BusCreator: '<S599>/Bus Creator11'
-  //   Constant: '<S599>/Constant24'
-  //   Constant: '<S607>/Constant15'
-  //   DataTypeConversion: '<S607>/Data Type Conversion'
+  //   BusCreator: '<S609>/Bus Creator11'
+  //   Constant: '<S609>/Constant24'
+  //   Constant: '<S617>/Constant15'
+  //   DataTypeConversion: '<S617>/Data Type Conversion'
 
   Aenea_model_B.BusConversion_InsertedFor_SFunc.uint8_data.gps_fix =
     static_cast<uint8_T>(Aenea_model_B.Equilibratore_n < 0.0 ?
@@ -7001,11 +7144,11 @@ void Aenea_model_step(void)
   Signal_Logger_sfun_Outputs_wrapper
     (&Aenea_model_B.BusConversion_InsertedFor_SFunc, &Aenea_model_B.Compare_i);
 
-  // Switch: '<S609>/FixPt Switch' incorporates:
-  //   Constant: '<S608>/FixPt Constant'
-  //   Constant: '<S609>/Constant'
-  //   Sum: '<S608>/FixPt Sum1'
-  //   UnitDelay: '<S598>/Output'
+  // Switch: '<S619>/FixPt Switch' incorporates:
+  //   Constant: '<S618>/FixPt Constant'
+  //   Constant: '<S619>/Constant'
+  //   Sum: '<S618>/FixPt Sum1'
+  //   UnitDelay: '<S608>/Output'
 
   if (static_cast<uint8_T>(Aenea_model_DW.Output_DSTATE_k + 1U) > 50) {
     Aenea_model_DW.Output_DSTATE_k = 0U;
@@ -7014,19 +7157,19 @@ void Aenea_model_step(void)
       (Aenea_model_DW.Output_DSTATE_k + 1U);
   }
 
-  // End of Switch: '<S609>/FixPt Switch'
+  // End of Switch: '<S619>/FixPt Switch'
 
   // Update for Memory: '<S3>/Memory4'
   std::memcpy(&Aenea_model_DW.Memory4_PreviousInput_j[0], &Aenea_model_B.buffer
               [0], 300U * sizeof(uint8_T));
 
-  // Update for UnitDelay: '<S575>/Unit Delay1'
+  // Update for UnitDelay: '<S585>/Unit Delay1'
   for (Aenea_model_B.i = 0; Aenea_model_B.i < 41; Aenea_model_B.i++) {
     Aenea_model_DW.UnitDelay1_DSTATE_b[Aenea_model_B.i] =
       Aenea_model_B.SFunctionBuilder1[Aenea_model_B.i];
   }
 
-  // End of Update for UnitDelay: '<S575>/Unit Delay1'
+  // End of Update for UnitDelay: '<S585>/Unit Delay1'
 
   // Update for Memory: '<S3>/Memory5'
   std::memcpy(&Aenea_model_DW.Memory5_PreviousInput_b[0],
@@ -7053,53 +7196,53 @@ void Aenea_model_step(void)
 
   Aenea_model_DW.Memory_PreviousInput += 0.02;
 
-  // Update for UnitDelay: '<S571>/Unit Delay1' incorporates:
-  //   UnitDelay: '<S577>/Delay Input2'
+  // Update for UnitDelay: '<S581>/Unit Delay1' incorporates:
+  //   UnitDelay: '<S587>/Delay Input2'
   //
-  //  Block description for '<S577>/Delay Input2':
+  //  Block description for '<S587>/Delay Input2':
   //
   //   Store in Global RAM
 
   Aenea_model_DW.UnitDelay1_DSTATE = Aenea_model_DW.DelayInput2_DSTATE;
 
-  // Update for Memory: '<S565>/Memory' incorporates:
-  //   DataTypeConversion: '<S578>/Data Type Conversion2'
+  // Update for Memory: '<S575>/Memory' incorporates:
+  //   DataTypeConversion: '<S588>/Data Type Conversion2'
 
   Aenea_model_DW.Memory_PreviousInput_e[0] = Aenea_model_B.Gain1_i;
   Aenea_model_DW.Memory_PreviousInput_e[1] = Aenea_model_B.Gain1_i0;
 
-  // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+  // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
   Aenea_model_DW.Memory_PreviousInput_e[2] = Aenea_model_B.SFunctionBuilder_o3_h;
 
-  // End of Outputs for SubSystem: '<S571>/Execution_loop'
+  // End of Outputs for SubSystem: '<S581>/Execution_loop'
   Aenea_model_DW.Memory_PreviousInput_e[3] = Aenea_model_B.V_nord;
   Aenea_model_DW.Memory_PreviousInput_e[4] = Aenea_model_B.e_d;
   Aenea_model_DW.Memory_PreviousInput_e[5] = Aenea_model_B.checksum;
   Aenea_model_DW.Memory_PreviousInput_e[6] = Aenea_model_B.olddi;
   Aenea_model_DW.Memory_PreviousInput_e[7] = Aenea_model_B.Gain1_o;
 
-  // Update for Memory: '<S564>/Memory' incorporates:
-  //   DataTypeConversion: '<S578>/Data Type Conversion2'
+  // Update for Memory: '<S574>/Memory' incorporates:
+  //   DataTypeConversion: '<S588>/Data Type Conversion2'
 
   Aenea_model_DW.Memory_PreviousInput_o[0] = Aenea_model_B.Gain1_i;
   Aenea_model_DW.Memory_PreviousInput_o[1] = Aenea_model_B.Gain1_i0;
 
-  // Outputs for Atomic SubSystem: '<S571>/Execution_loop'
+  // Outputs for Atomic SubSystem: '<S581>/Execution_loop'
   Aenea_model_DW.Memory_PreviousInput_o[2] = Aenea_model_B.SFunctionBuilder_o3_h;
 
-  // End of Outputs for SubSystem: '<S571>/Execution_loop'
+  // End of Outputs for SubSystem: '<S581>/Execution_loop'
   Aenea_model_DW.Memory_PreviousInput_o[3] = Aenea_model_B.V_nord;
   Aenea_model_DW.Memory_PreviousInput_o[4] = Aenea_model_B.e_d;
   Aenea_model_DW.Memory_PreviousInput_o[5] = Aenea_model_B.checksum;
   Aenea_model_DW.Memory_PreviousInput_o[6] = Aenea_model_B.olddi;
   Aenea_model_DW.Memory_PreviousInput_o[7] = Aenea_model_B.Gain1_o;
   for (Aenea_model_B.i = 0; Aenea_model_B.i < 6; Aenea_model_B.i++) {
-    // Update for Memory: '<S565>/Memory'
+    // Update for Memory: '<S575>/Memory'
     Aenea_model_B.Alt = Aenea_model_B.DataTypeConversion1_c[Aenea_model_B.i];
     Aenea_model_DW.Memory_PreviousInput_e[Aenea_model_B.i + 8] =
       Aenea_model_B.Alt;
 
-    // Update for Memory: '<S564>/Memory'
+    // Update for Memory: '<S574>/Memory'
     Aenea_model_DW.Memory_PreviousInput_o[Aenea_model_B.i + 8] =
       Aenea_model_B.Alt;
   }
@@ -7115,7 +7258,7 @@ void Aenea_model_step(void)
 
   Aenea_model_DW.Integrator_DSTATE += (((0.0 - Aenea_model_B.olddi) *
     -0.64064997434616089 + (Aenea_model_B.SwitchBumpless2 -
-    Aenea_model_B.Saturation)) + (Aenea_model_B.Saturation -
+    Aenea_model_B.Switch_d_c)) + (Aenea_model_B.Switch_d_c -
     Aenea_model_B.Switch_a_p)) * 0.02;
 
   // Update for DiscreteIntegrator: '<S392>/Integrator' incorporates:
@@ -7276,9 +7419,9 @@ void Aenea_model_initialize(void)
     static const real32_T tmp[16] = { 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
       0.0F, 20.0F, 100.0F, 2.0F, 101325.0F, 15.0F, 0.0F, 0.0F, 0.0F };
 
-    // Start for S-Function (Mti_sfun): '<S575>/S-Function Builder1'
+    // Start for S-Function (Mti_sfun): '<S585>/S-Function Builder1'
 
-    // S-Function Block: <S575>/S-Function Builder1
+    // S-Function Block: <S585>/S-Function Builder1
     Mti_sfun_Start_wrapper();
 
     // Start for S-Function (Seriale_mav_sfun): '<S3>/S-Function Builder'
@@ -7286,14 +7429,14 @@ void Aenea_model_initialize(void)
     // S-Function Block: <S3>/S-Function Builder
     Seriale_mav_sfun_Start_wrapper();
 
-    // Start for S-Function (GPS_sfun): '<S574>/S-Function Builder'
+    // Start for S-Function (GPS_sfun): '<S584>/S-Function Builder'
 
-    // S-Function Block: <S574>/S-Function Builder
+    // S-Function Block: <S584>/S-Function Builder
     GPS_sfun_Start_wrapper();
 
-    // Start for S-Function (pitot_lidar_sfun): '<S576>/S-Function Builder'
+    // Start for S-Function (pitot_lidar_sfun): '<S586>/S-Function Builder'
 
-    // S-Function Block: <S576>/S-Function Builder
+    // S-Function Block: <S586>/S-Function Builder
     pitot_lidar_sfun_Start_wrapper();
 
     // Start for S-Function (blink_sfun): '<S7>/S-Function Builder'
@@ -7337,6 +7480,10 @@ void Aenea_model_initialize(void)
     Aenea_model_PrevZCX.SampleandHold1_Trig_ZCE = UNINITIALIZED_ZCSIG;
     Aenea_model_PrevZCX.SampleandHold_Trig_ZCE_l = UNINITIALIZED_ZCSIG;
     Aenea_model_PrevZCX.SampleandHold_Trig_ZCE = UNINITIALIZED_ZCSIG;
+    Aenea_model_PrevZCX.ResettableSubsystem_p0.ResettableSubsystem_Reset_ZCE =
+      UNINITIALIZED_ZCSIG;
+    Aenea_model_PrevZCX.ResettableSubsystem_h.ResettableSubsystem_Reset_ZCE =
+      UNINITIALIZED_ZCSIG;
     Aenea_model_PrevZCX.ResettableSubsystem_p.ResettableSubsystem_Reset_ZCE =
       UNINITIALIZED_ZCSIG;
     Aenea_model_PrevZCX.ResettableSubsystem_o.ResettableSubsystem_Reset_ZCE =
@@ -7356,15 +7503,15 @@ void Aenea_model_initialize(void)
     // InitializeConditions for Memory: '<S27>/Memory'
     Aenea_model_DW.Memory_PreviousInput = -0.02;
 
-    // InitializeConditions for UnitDelay: '<S571>/Unit Delay1'
+    // InitializeConditions for UnitDelay: '<S581>/Unit Delay1'
     Aenea_model_DW.UnitDelay1_DSTATE = 101440.0;
 
     // InitializeConditions for DiscreteIntegrator: '<S392>/Integrator'
     Aenea_model_DW.Integrator_PrevResetState = 2;
 
-    // InitializeConditions for UnitDelay: '<S577>/Delay Input2'
+    // InitializeConditions for UnitDelay: '<S587>/Delay Input2'
     //
-    //  Block description for '<S577>/Delay Input2':
+    //  Block description for '<S587>/Delay Input2':
     //
     //   Store in Global RAM
 
@@ -7435,40 +7582,40 @@ void Aenea_model_initialize(void)
     // SystemInitialize for MATLAB Function: '<S3>/MATLAB Function1'
     std::memcpy(&Aenea_model_DW.riferimenti[0], &tmp[0], sizeof(real32_T) << 4U);
 
-    // SystemInitialize for Atomic SubSystem: '<S571>/Execution_loop'
-    // Start for S-Function (BMP280_sfun): '<S578>/S-Function Builder'
+    // SystemInitialize for Atomic SubSystem: '<S581>/Execution_loop'
+    // Start for S-Function (BMP280_sfun): '<S588>/S-Function Builder'
 
-    // S-Function Block: <S578>/S-Function Builder
+    // S-Function Block: <S588>/S-Function Builder
     BMP280_sfun_Start_wrapper();
 
-    // End of SystemInitialize for SubSystem: '<S571>/Execution_loop'
+    // End of SystemInitialize for SubSystem: '<S581>/Execution_loop'
 
     // SystemInitialize for Chart: '<S38>/ STATI'
     Aenea_model_B.modo = 1.0;
 
-    // SystemInitialize for MATLAB Function: '<S571>/MATLAB Function'
+    // SystemInitialize for MATLAB Function: '<S581>/MATLAB Function'
     Aenea_model_DW.P_ref = 102600.0;
     Aenea_model_DW.rl_up = 300.0;
     Aenea_model_DW.rl_dw = -300.0;
 
     // SystemInitialize for Enabled SubSystem: '<S39>/Subsystem1'
-    // InitializeConditions for Memory: '<S442>/Memory7'
+    // InitializeConditions for Memory: '<S452>/Memory7'
     Aenea_model_DW.Memory7_PreviousInput = 1.0;
 
-    // SystemInitialize for Enabled SubSystem: '<S442>/APPROACH'
-    // Start for Constant: '<S453>/Constant1'
+    // SystemInitialize for Enabled SubSystem: '<S452>/APPROACH'
+    // Start for Constant: '<S463>/Constant1'
     Aenea_model_B.Constant1_h = 20.0;
 
-    // InitializeConditions for DiscreteIntegrator: '<S453>/Discrete-Time Integrator' 
+    // InitializeConditions for DiscreteIntegrator: '<S463>/Discrete-Time Integrator' 
     Aenea_model_DW.DiscreteTimeIntegrator_PrevRe_o = 2;
 
-    // End of SystemInitialize for SubSystem: '<S442>/APPROACH'
+    // End of SystemInitialize for SubSystem: '<S452>/APPROACH'
 
-    // SystemInitialize for Enabled SubSystem: '<S442>/FLARE'
-    // Start for Constant: '<S457>/Constant1'
+    // SystemInitialize for Enabled SubSystem: '<S452>/FLARE'
+    // Start for Constant: '<S467>/Constant1'
     Aenea_model_B.Constant1 = 18.0;
 
-    // End of SystemInitialize for SubSystem: '<S442>/FLARE'
+    // End of SystemInitialize for SubSystem: '<S452>/FLARE'
     // End of SystemInitialize for SubSystem: '<S39>/Subsystem1'
 
     // SystemInitialize for Enabled SubSystem: '<S4>/Subsystem'
@@ -7480,7 +7627,7 @@ void Aenea_model_initialize(void)
     // End of SystemInitialize for SubSystem: '<S4>/Subsystem'
 
     // SystemInitialize for Enabled SubSystem: '<S39>/Subsystem2'
-    // InitializeConditions for Memory: '<S443>/Memory4'
+    // InitializeConditions for Memory: '<S453>/Memory4'
     Aenea_model_DW.Memory4_PreviousInput = 1.0;
 
     // End of SystemInitialize for SubSystem: '<S39>/Subsystem2'
@@ -7498,19 +7645,19 @@ void Aenea_model_initialize(void)
 // Model terminate function
 void Aenea_model_terminate(void)
 {
-  // Terminate for S-Function (Mti_sfun): '<S575>/S-Function Builder1'
+  // Terminate for S-Function (Mti_sfun): '<S585>/S-Function Builder1'
 
-  // S-Function Block: <S575>/S-Function Builder1
+  // S-Function Block: <S585>/S-Function Builder1
   Mti_sfun_Terminate_wrapper();
 
-  // Terminate for Atomic SubSystem: '<S571>/Execution_loop'
+  // Terminate for Atomic SubSystem: '<S581>/Execution_loop'
 
-  // Terminate for S-Function (BMP280_sfun): '<S578>/S-Function Builder'
+  // Terminate for S-Function (BMP280_sfun): '<S588>/S-Function Builder'
 
-  // S-Function Block: <S578>/S-Function Builder
+  // S-Function Block: <S588>/S-Function Builder
   BMP280_sfun_Terminate_wrapper();
 
-  // End of Terminate for SubSystem: '<S571>/Execution_loop'
+  // End of Terminate for SubSystem: '<S581>/Execution_loop'
 
   // Terminate for S-Function (blink_sfun): '<S7>/S-Function Builder'
 

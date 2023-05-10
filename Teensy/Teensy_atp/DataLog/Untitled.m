@@ -117,6 +117,17 @@ while a<=100
         plot(dataLog.absT,'b-','Linewidth',1)
         title('absT')
         
+    elseif a==14
+        figure(a)
+        subplot(3,1,1)
+        plot(dataLog.long_home,'b-','LineWidth',1)
+        title('Longitudine_home')
+        subplot(3,1,2)
+        plot(dataLog.lat_home,'b-','LineWidth',1)
+        title('Latitudine_home')
+        subplot(3,1,3)
+        plot(dataLog.modo,'b-','LineWidth',1)
+        title('Modo')
     end
     n=input(' altrografico si 1 no 0');
     

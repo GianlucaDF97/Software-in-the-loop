@@ -33,7 +33,7 @@ typedef struct {
 #ifndef _DEFINED_TYPEDEF_FOR_BUS_int8_log_t_
 #define _DEFINED_TYPEDEF_FOR_BUS_int8_log_t_ 
 typedef struct {
-  int8_T dummy11;
+  int8_T modo;
   int8_T dummy12;
 } BUS_int8_log_t;
 #endif
@@ -123,6 +123,8 @@ typedef struct {
   real_T absE;
   real_T absA;
   real_T absT;
+  real_T lat_home;
+  real_T long_home;
 } BUS_double_log_t;
 #endif
 

@@ -1,5 +1,5 @@
 %% File : Mti_sfun.tlc
-%% Created : Thu May 11 14:59:47 2023
+%% Created : Mon Feb 27 14:30:37 2023
 %%
 %% Description: 
 %%   Simulink Coder wrapper functions interface generated for 
@@ -44,6 +44,7 @@
     SFB_EXTERN_C void Mti_sfun_Start_wrapper_accel(void);
     SFB_EXTERN_C void Mti_sfun_Outputs_wrapper_accel(const real_T *debug,
 			uint8_T *messaggio);
+    SFB_EXTERN_C void Mti_sfun_Terminate_wrapper_accel(void);
     #undef SFB_EXTERN_C
     #endif
     %closefile hFile
@@ -71,6 +72,9 @@
 			uint8_T *messaggio){
     Mti_sfun_Outputs_wrapper(debug,
 			messaggio);
+    }
+    void Mti_sfun_Terminate_wrapper_accel(void){
+    Mti_sfun_Terminate_wrapper();
     }
 
     %closefile cFile
@@ -134,6 +138,18 @@
   %%
 %endfunction
 
+%% Function: Terminate ========================================================
+%%
+%function Terminate(block, system) Output
+   /* %<Type> Block: %<Name> */
+  
+  %if IsModelReferenceSimTarget() || CodeFormat == "S-Function" || ::isRAccel
+    Mti_sfun_Terminate_wrapper_accel();
+  %else
+    Mti_sfun_Terminate_wrapper();
+  %endif
+
+%endfunction
 
 %% [EOF] Mti_sfun.tlc
 

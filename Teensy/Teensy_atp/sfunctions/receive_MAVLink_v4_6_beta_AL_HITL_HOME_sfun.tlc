@@ -1,5 +1,5 @@
 %% File : receive_MAVLink_v4_6_beta_AL_HITL_HOME_sfun.tlc
-%% Created : Thu May 11 18:18:20 2023
+%% Created : Thu May 11 19:01:30 2023
 %%
 %% Description: 
 %%   Simulink Coder wrapper functions interface generated for 
@@ -57,16 +57,16 @@
 			uint8_T *Cal_home,
 			uint8_T *Base_mode,
 			uint16_T *GC_request,
-			real_T *P_value_change,
+			real32_T *P_value_change,
 			uint16_T *WP_info,
-			real_T *WP_param,
+			real32_T *WP_param,
 			uint16_T *mem_out,
 			uint8_T *T_number,
-			real_T *T_ref,
+			real32_T *T_ref,
 			uint8_T *Cal_alt,
 			uint8_T *T_int,
 			uint8_T *P_int,
-			real_T *P_ref,
+			real32_T *P_ref,
 			uint8_T *go_home,
 			const int_T u_width);
     #undef SFB_EXTERN_C
@@ -101,16 +101,16 @@
 			uint8_T *Cal_home,
 			uint8_T *Base_mode,
 			uint16_T *GC_request,
-			real_T *P_value_change,
+			real32_T *P_value_change,
 			uint16_T *WP_info,
-			real_T *WP_param,
+			real32_T *WP_param,
 			uint16_T *mem_out,
 			uint8_T *T_number,
-			real_T *T_ref,
+			real32_T *T_ref,
 			uint8_T *Cal_alt,
 			uint8_T *T_int,
 			uint8_T *P_int,
-			real_T *P_ref,
+			real32_T *P_ref,
 			uint8_T *go_home,
 			const int_T u_width);
     extern void receive_MAVLink_v4_6_beta_AL_HITL_HOME_sfun_Terminate_wrapper(void);
@@ -132,16 +132,16 @@
 			uint8_T *Cal_home,
 			uint8_T *Base_mode,
 			uint16_T *GC_request,
-			real_T *P_value_change,
+			real32_T *P_value_change,
 			uint16_T *WP_info,
-			real_T *WP_param,
+			real32_T *WP_param,
 			uint16_T *mem_out,
 			uint8_T *T_number,
-			real_T *T_ref,
+			real32_T *T_ref,
 			uint8_T *Cal_alt,
 			uint8_T *T_int,
 			uint8_T *P_int,
-			real_T *P_ref,
+			real32_T *P_ref,
 			uint8_T *go_home,
 			const int_T u_width){
     receive_MAVLink_v4_6_beta_AL_HITL_HOME_sfun_Outputs_wrapper(bytes_in,
@@ -202,16 +202,16 @@
 			uint8_T *Cal_home,
 			uint8_T *Base_mode,
 			uint16_T *GC_request,
-			real_T *P_value_change,
+			real32_T *P_value_change,
 			uint16_T *WP_info,
-			real_T *WP_param,
+			real32_T *WP_param,
 			uint16_T *mem_out,
 			uint8_T *T_number,
-			real_T *T_ref,
+			real32_T *T_ref,
 			uint8_T *Cal_alt,
 			uint8_T *T_int,
 			uint8_T *P_int,
-			real_T *P_ref,
+			real32_T *P_ref,
 			uint8_T *go_home,
 			const int_T u_width);
 

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.211
+// Model version                  : 1.213
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu May 11 18:19:09 2023
+// C/C++ source code generated on : Thu May 11 19:02:44 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -161,16 +161,16 @@ extern "C" {
     uint8_T *Cal_home,
     uint8_T *Base_mode,
     uint16_T *GC_request,
-    real_T *P_value_change,
+    real32_T *P_value_change,
     uint16_T *WP_info,
-    real_T *WP_param,
+    real32_T *WP_param,
     uint16_T *mem_out,
     uint8_T *T_number,
-    real_T *T_ref,
+    real32_T *T_ref,
     uint8_T *Cal_alt,
     uint8_T *T_int,
     uint8_T *P_int,
-    real_T *P_ref,
+    real32_T *P_ref,
     uint8_T *go_home,
     const int_T u_width);
   extern void receive_MAVLink_v4_6_beta_AL_HITL_HOME_sfun_Terminate_wrapper(void);
@@ -299,12 +299,12 @@ extern "C" {
 
 #endif
 
-  extern void send_MAVLink_v4_4_2_beta_3_HOME_Start_wrapper(void);
-  extern void send_MAVLink_v4_4_2_beta_3_HOME_Outputs_wrapper(const uint8_T
+  extern void send_MAVLink_v4_4_2_beta_3_HOME_sfun_Start_wrapper(void);
+  extern void send_MAVLink_v4_4_2_beta_3_HOME_sfun_Outputs_wrapper(const uint8_T
     *iflogic,
     const uint32_T *time_in,
     const uint8_T *AP_SI,
-    const uint16_T *GC_req,
+    const uint16_T *GC_Req,
     const real32_T *P_val,
     const uint16_T *WP_info,
     const real32_T *WP_param,
@@ -323,7 +323,7 @@ extern "C" {
     const int16_T *VFR_H,
     const uint16_T *VFR_T,
     const uint16_T *Ser_data,
-    const uint16_T *prior_in,
+    const uint16_T *priori_in,
     const real32_T *P_refer,
     const uint8_T *Cal_alt,
     const real32_T *T_0,
@@ -340,7 +340,7 @@ extern "C" {
     uint8_T *msg_out,
     uint16_T *Len,
     uint16_T *prior_out);
-  extern void send_MAVLink_v4_4_2_beta_3_HOME_Terminate_wrapper(void);
+  extern void send_MAVLink_v4_4_2_beta_3_HOME_sfun_Terminate_wrapper(void);
 
 #ifdef __cplusplus
 

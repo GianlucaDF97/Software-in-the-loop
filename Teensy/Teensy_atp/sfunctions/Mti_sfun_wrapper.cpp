@@ -141,4 +141,14 @@ extern "C" void Mti_sfun_Outputs_wrapper(const real_T *debug,
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */
 }
  
+/*
+ * Terminate function
+ *
+ */
+extern "C" void Mti_sfun_Terminate_wrapper(void)
+{
+/* %%%-SFUNWIZ_wrapper_Terminate_Changes_BEGIN --- EDIT HERE TO _END */
+ 
+/* %%%-SFUNWIZ_wrapper_Terminate_Changes_END --- EDIT HERE TO _BEGIN */
+}
  

@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Thu May 11 18:18:20 2023
+ * Created: Thu May 11 19:01:30 2023
  */
 
 #define S_FUNCTION_LEVEL 2
@@ -288,7 +288,7 @@
 #define OUT_PORT_7_NAME       P_value_change
 #define OUTPUT_7_WIDTH        1
 #define OUTPUT_DIMS_7_COL     1
-#define OUTPUT_7_DTYPE        real_T
+#define OUTPUT_7_DTYPE        real32_T
 #define OUTPUT_7_COMPLEX      COMPLEX_NO
 #define OUT_7_FRAME_BASED     FRAME_NO
 #define OUT_7_BUS_BASED       0
@@ -320,7 +320,7 @@
 #define OUT_PORT_9_NAME       WP_param
 #define OUTPUT_9_WIDTH        7
 #define OUTPUT_DIMS_9_COL     1
-#define OUTPUT_9_DTYPE        real_T
+#define OUTPUT_9_DTYPE        real32_T
 #define OUTPUT_9_COMPLEX      COMPLEX_NO
 #define OUT_9_FRAME_BASED     FRAME_NO
 #define OUT_9_BUS_BASED       0
@@ -368,7 +368,7 @@
 #define OUT_PORT_12_NAME       T_ref
 #define OUTPUT_12_WIDTH        1
 #define OUTPUT_DIMS_12_COL     1
-#define OUTPUT_12_DTYPE        real_T
+#define OUTPUT_12_DTYPE        real32_T
 #define OUTPUT_12_COMPLEX      COMPLEX_NO
 #define OUT_12_FRAME_BASED     FRAME_NO
 #define OUT_12_BUS_BASED       0
@@ -432,7 +432,7 @@
 #define OUT_PORT_16_NAME       P_ref
 #define OUTPUT_16_WIDTH        1
 #define OUTPUT_DIMS_16_COL     1
-#define OUTPUT_16_DTYPE        real_T
+#define OUTPUT_16_DTYPE        real32_T
 #define OUTPUT_16_COMPLEX      COMPLEX_NO
 #define OUT_16_FRAME_BASED     FRAME_NO
 #define OUT_16_BUS_BASED       0
@@ -498,16 +498,16 @@ extern void receive_MAVLink_v4_6_beta_AL_HITL_HOME_sfun_Outputs_wrapper(const ui
 			uint8_T *Cal_home,
 			uint8_T *Base_mode,
 			uint16_T *GC_request,
-			real_T *P_value_change,
+			real32_T *P_value_change,
 			uint16_T *WP_info,
-			real_T *WP_param,
+			real32_T *WP_param,
 			uint16_T *mem_out,
 			uint8_T *T_number,
-			real_T *T_ref,
+			real32_T *T_ref,
 			uint8_T *Cal_alt,
 			uint8_T *T_int,
 			uint8_T *P_int,
-			real_T *P_ref,
+			real32_T *P_ref,
 			uint8_T *go_home,
 			const int_T u_width);
 /*====================*
@@ -624,7 +624,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortComplexSignal(S, 6, OUTPUT_6_COMPLEX);
     /* Output Port 7 */
     ssSetOutputPortWidth(S, 7, OUTPUT_7_WIDTH);
-    ssSetOutputPortDataType(S, 7, SS_DOUBLE);
+    ssSetOutputPortDataType(S, 7, SS_SINGLE);
     ssSetOutputPortComplexSignal(S, 7, OUTPUT_7_COMPLEX);
     /* Output Port 8 */
     ssSetOutputPortWidth(S, 8, OUTPUT_8_WIDTH);
@@ -632,7 +632,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortComplexSignal(S, 8, OUTPUT_8_COMPLEX);
     /* Output Port 9 */
     ssSetOutputPortWidth(S, 9, OUTPUT_9_WIDTH);
-    ssSetOutputPortDataType(S, 9, SS_DOUBLE);
+    ssSetOutputPortDataType(S, 9, SS_SINGLE);
     ssSetOutputPortComplexSignal(S, 9, OUTPUT_9_COMPLEX);
     /* Output Port 10 */
     ssSetOutputPortWidth(S, 10, OUTPUT_10_WIDTH);
@@ -644,7 +644,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortComplexSignal(S, 11, OUTPUT_11_COMPLEX);
     /* Output Port 12 */
     ssSetOutputPortWidth(S, 12, OUTPUT_12_WIDTH);
-    ssSetOutputPortDataType(S, 12, SS_DOUBLE);
+    ssSetOutputPortDataType(S, 12, SS_SINGLE);
     ssSetOutputPortComplexSignal(S, 12, OUTPUT_12_COMPLEX);
     /* Output Port 13 */
     ssSetOutputPortWidth(S, 13, OUTPUT_13_WIDTH);
@@ -660,7 +660,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortComplexSignal(S, 15, OUTPUT_15_COMPLEX);
     /* Output Port 16 */
     ssSetOutputPortWidth(S, 16, OUTPUT_16_WIDTH);
-    ssSetOutputPortDataType(S, 16, SS_DOUBLE);
+    ssSetOutputPortDataType(S, 16, SS_SINGLE);
     ssSetOutputPortComplexSignal(S, 16, OUTPUT_16_COMPLEX);
     /* Output Port 17 */
     ssSetOutputPortWidth(S, 17, OUTPUT_17_WIDTH);
@@ -761,16 +761,16 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     uint8_T *Cal_home = (uint8_T *) ssGetOutputPortRealSignal(S, 4);
     uint8_T *Base_mode = (uint8_T *) ssGetOutputPortRealSignal(S, 5);
     uint16_T *GC_request = (uint16_T *) ssGetOutputPortRealSignal(S, 6);
-    real_T *P_value_change = (real_T *) ssGetOutputPortRealSignal(S, 7);
+    real32_T *P_value_change = (real32_T *) ssGetOutputPortRealSignal(S, 7);
     uint16_T *WP_info = (uint16_T *) ssGetOutputPortRealSignal(S, 8);
-    real_T *WP_param = (real_T *) ssGetOutputPortRealSignal(S, 9);
+    real32_T *WP_param = (real32_T *) ssGetOutputPortRealSignal(S, 9);
     uint16_T *mem_out = (uint16_T *) ssGetOutputPortRealSignal(S, 10);
     uint8_T *T_number = (uint8_T *) ssGetOutputPortRealSignal(S, 11);
-    real_T *T_ref = (real_T *) ssGetOutputPortRealSignal(S, 12);
+    real32_T *T_ref = (real32_T *) ssGetOutputPortRealSignal(S, 12);
     uint8_T *Cal_alt = (uint8_T *) ssGetOutputPortRealSignal(S, 13);
     uint8_T *T_int = (uint8_T *) ssGetOutputPortRealSignal(S, 14);
     uint8_T *P_int = (uint8_T *) ssGetOutputPortRealSignal(S, 15);
-    real_T *P_ref = (real_T *) ssGetOutputPortRealSignal(S, 16);
+    real32_T *P_ref = (real32_T *) ssGetOutputPortRealSignal(S, 16);
     uint8_T *go_home = (uint8_T *) ssGetOutputPortRealSignal(S, 17);
     const int_T u_width = ssGetInputPortWidth(S, 0);
 

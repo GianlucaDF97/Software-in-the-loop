@@ -67,16 +67,16 @@ extern "C" void receive_MAVLink_v4_6_beta_AL_HITL_HOME_sfun_Outputs_wrapper(cons
 			uint8_T *Cal_home,
 			uint8_T *Base_mode,
 			uint16_T *GC_request,
-			real_T *P_value_change,
+			real32_T *P_value_change,
 			uint16_T *WP_info,
-			real_T *WP_param,
+			real32_T *WP_param,
 			uint16_T *mem_out,
 			uint8_T *T_number,
-			real_T *T_ref,
+			real32_T *T_ref,
 			uint8_T *Cal_alt,
 			uint8_T *T_int,
 			uint8_T *P_int,
-			real_T *P_ref,
+			real32_T *P_ref,
 			uint8_T *go_home,
 			const int_T u_width)
 {
@@ -225,7 +225,7 @@ if (mem_in[7]!=count[0]) //controllo che è arrivato un messaggio nuovo
 				//Parte aggiunta da De Santis per l'attivazione del go_home
                     Serial.print("comando:");
                     Serial.println(cmd_long255.command);
-				if (cmd_long255.command == 104) // 104 è l'id del messaggio usato
+				if (cmd_long255.command == 15) // 104 è l'id del messaggio usato
                         {
                             
                             go_home[0] = cmd_long255.param1; 

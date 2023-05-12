@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Thu May 11 14:59:47 2023
+ * Created: Mon Feb 27 14:30:37 2023
  */
 
 #define S_FUNCTION_LEVEL 2
@@ -84,7 +84,7 @@
 #define USE_SIMSTRUCT         0
 #define SHOW_COMPILE_STEPS    0
 #define CREATE_DEBUG_MEXFILE  0
-#define SAVE_CODE_ONLY        0
+#define SAVE_CODE_ONLY        1
 #define SFUNWIZ_REVISION      3.0
 /* %%%-SFUNWIZ_defines_Changes_END --- EDIT HERE TO _BEGIN */
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -94,6 +94,7 @@
 extern void Mti_sfun_Start_wrapper(void);
 extern void Mti_sfun_Outputs_wrapper(const real_T *debug,
 			uint8_T *messaggio);
+extern void Mti_sfun_Terminate_wrapper(void);
 /*====================*
  * S-function methods *
  *====================*/
@@ -234,6 +235,8 @@ static void mdlOutputs(SimStruct *S, int_T tid)
  */
 static void mdlTerminate(SimStruct *S)
 {
+
+    Mti_sfun_Terminate_wrapper();
 
 }
 

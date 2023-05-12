@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.211
+// Model version                  : 1.213
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu May 11 18:19:09 2023
+// C/C++ source code generated on : Thu May 11 19:02:44 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -92,18 +92,12 @@ typedef struct {
   real32_T ByteUnpack_o2[9];           // '<S585>/Byte Unpack'
   real32_T ByteReversal[9];            // '<S585>/Byte Reversal'
   real_T x_new[4];
-  real_T aterra[3];
-  real32_T DataTypeConversion1[6];     // '<S17>/Data Type Conversion1'
-  char_T hex_checksum_data[17];
-  real32_T AGAC[4];                    // '<S22>/Data Type Conversion'
   real32_T WP_param[7];                // '<S23>/MATLAB Function'
   real32_T Val_out_MAV[16];            // '<S3>/MATLAB Function1'
+  real_T aterra[3];
+  char_T hex_checksum_data[17];
   boolean_T NOT[14];                   // '<S575>/NOT'
   uint16_T WP_info_in[6];
-  real_T SFunctionBuilder2_o8;         // '<S3>/S-Function Builder2'
-  real_T SFunctionBuilder2_o10[7];     // '<S3>/S-Function Builder2'
-  real_T SFunctionBuilder2_o13;        // '<S3>/S-Function Builder2'
-  real_T SFunctionBuilder2_o17;        // '<S3>/S-Function Builder2'
   real_T Lat;                          // '<S584>/S-Function Builder'
   real_T Long;                         // '<S584>/S-Function Builder'
   real_T V;                            // '<S584>/S-Function Builder'
@@ -180,6 +174,7 @@ typedef struct {
   real_T Sum5;                         // '<S602>/Sum5'
   real_T Sum3;                         // '<S597>/Sum3'
   real_T Gain_e;                       // '<S416>/Gain'
+  real_T Sum_fb;                       // '<S351>/Sum'
   real_T Saturation;                   // '<S349>/Saturation'
   real_T SwitchBumpless2;              // '<S304>/Switch Bumpless 2'
   real_T Sum3_p;                       // '<S599>/Sum3'
@@ -192,7 +187,6 @@ typedef struct {
   real_T Gain_dt;                      // '<S621>/Gain'
   real_T Alt;                          // '<S6>/Switch'
   real_T V_nord;                       // '<S6>/Multiply2'
-  real_T Switch_d;                     // '<S419>/Switch'
   real_T Sum2_k2;                      // '<S305>/Sum2'
   real_T Switch_j;                     // '<S546>/Switch'
   real_T Abs1;                         // '<S543>/Abs1'
@@ -220,6 +214,12 @@ typedef struct {
   real_T Y_tmp_n;
   int8_T p[4];
   int8_T ipiv_p[4];
+  real32_T SFunctionBuilder2_o8;       // '<S3>/S-Function Builder2'
+  real32_T SFunctionBuilder2_o10[7];   // '<S3>/S-Function Builder2'
+  real32_T SFunctionBuilder2_o13;      // '<S3>/S-Function Builder2'
+  real32_T SFunctionBuilder2_o17;      // '<S3>/S-Function Builder2'
+  real32_T DataTypeConversion1[6];     // '<S17>/Data Type Conversion1'
+  real32_T AGAC[4];                    // '<S22>/Data Type Conversion'
   real32_T DataTypeConversion2;        // '<S1>/Data Type Conversion2'
   real32_T DataTypeConversion1_m;      // '<S1>/Data Type Conversion1'
   real32_T DataTypeConversion;         // '<S4>/Data Type Conversion'
@@ -258,8 +258,8 @@ typedef struct {
   uint16_T DataTypeConversion2_p;      // '<S15>/Data Type Conversion2'
   uint16_T Heading[9];                 // '<S19>/Data Type Conversion1'
   uint16_T Memory_o;                   // '<S4>/Memory'
-  uint16_T SFunction_o3;               // '<S4>/S-Function'
-  uint16_T SFunction_o4;               // '<S4>/S-Function'
+  uint16_T SFunctionBuilder1_o3;       // '<S4>/S-Function Builder1'
+  uint16_T SFunctionBuilder1_o4;       // '<S4>/S-Function Builder1'
   uint16_T WP_info[6];                 // '<S23>/MATLAB Function'
   uint16_T new_mex;                    // '<S3>/MATLAB Function3'
   uint16_T GC_info[3];                 // '<S3>/MATLAB Function1'
@@ -294,8 +294,8 @@ typedef struct {
   uint8_T SFunctionBuilder2_o16;       // '<S3>/S-Function Builder2'
   uint8_T SFunctionBuilder2_o18;       // '<S3>/S-Function Builder2'
   uint8_T DataTypeConversion1_f[4];    // '<S16>/Data Type Conversion1'
-  uint8_T SFunction_o1;                // '<S4>/S-Function'
-  uint8_T SFunction_o2[264];           // '<S4>/S-Function'
+  uint8_T SFunctionBuilder1_o1;        // '<S4>/S-Function Builder1'
+  uint8_T SFunctionBuilder1_o2[264];   // '<S4>/S-Function Builder1'
   uint8_T SFunctionBuilder;            // '<S4>/S-Function Builder'
   uint8_T Mex_out[41];                 // '<S585>/MATLAB Function1'
   uint8_T iflogic;                     // '<S18>/iflogic_function'
@@ -374,6 +374,7 @@ typedef struct {
   uint8_T Memory4_PreviousInput_j[300];// '<S3>/Memory4'
   uint8_T Memory5_PreviousInput_b[100];// '<S3>/Memory5'
   uint8_T Memory1_PreviousInput_b[2];  // '<S3>/Memory1'
+  uint8_T Memory_PreviousInput_a[4];   // '<S1>/Memory'
   uint8_T Memory3_PreviousInput_g;     // '<S3>/Memory3'
   uint8_T Memory2_PreviousInput_d[9];  // '<S3>/Memory2'
   uint8_T is_active_c10_Aenea_model;   // '<S452>/Chart1'
@@ -773,7 +774,6 @@ extern "C" {
 //  Block '<S6>/Data Type Conversion1' : Eliminate redundant data type conversion
 //  Block '<S581>/Data Type Conversion' : Eliminate redundant data type conversion
 //  Block '<S581>/Data Type Conversion1' : Eliminate redundant data type conversion
-//  Block '<S581>/Data Type Conversion2' : Eliminate redundant data type conversion
 //  Block '<S7>/Manual Switch1' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch2' : Eliminated due to constant selection input
 //  Block '<S7>/Manual Switch3' : Eliminated due to constant selection input

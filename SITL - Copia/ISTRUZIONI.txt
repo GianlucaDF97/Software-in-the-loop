@@ -1,0 +1,39 @@
+Spiegazione di cosa è presente nella cartella:
+
+1.v2021_10_27_avvioSITL.m
+	codice di avvio della simulazione per Aenea.
+
+ 	SEZIONE 1:
+	Richiama le seguenti funzioni IN ORDINE:
+
+		v2021_10_27_calcoloAerodinamica: 
+			file .m che da i seguenti dati circa il velivolo:
+			- sez 1: i vettori caratteristici dell'aereo rispetto ad un sistema di riferimento con origine nel motore e vettori rispetto al baricentro. (IN PRESENZA DI NUOVE 					SIMULAZIONI VA EVENTUALMENTE SOSTITUITA); polo aerodinamico rispetto al baricentro; posizione motore rispetto al baricentro;
+	     		- sez 2: Dati aero-termodinamici e geometrici e costanti di adimensionalizzazione
+			- sez 3: Dati Aerodinamici e Geometrici con Rover e Fotocamera (DIPENDONO DALLA MISSIONE) 
+				Viene richiamata una funzione:
+
+				   calcoloPolari.m:
+					Funzione che richiama i dati dalla simulazione aerodinamica e calcola 12 tabelle per forze e momenti in assi vento e forze e momenti in assi corpo
+
+			- sez 3:Calcolo delle derivate di controllo dell'equilibratore
+			- sez 4:Calcolo delle derivate di controllo dell'alettoni
+			- sez 5:Calcolo delle derivate di controllo del timone
+			- sez 6: Derivate p q r funzionanti (MA non si sa come sono stata ricavate)
+			- sez 7: Caricamento dei dati dell'elica tramite file mat
+			- sex 8: specifiche attuatori
+
+		(Prima della prossima funzione vengono caricati i dati del file : coefficienti_curve_renard.mat)
+
+		v2021_10_27_trimCalc:
+			che a sua volta richiama la funzione: 
+
+				calcoloDatiIniziali.m:
+					questa funzione fornisce i dati iniziali per il calcolo del trim, ovvero stato in assi corpo , controlli (pressi ragionevolmente vicino al trim), vettore 						degli output Y=[alpha, beta, abs(V), gamma, Cm, CL];
+
+				modello_calcolo_trim_1.slx:
+					modello Simulink per il calcolo del trim, non contiene il carrello e presenta il modello statico del propulsore.
+
+					
+
+	

@@ -5,7 +5,7 @@ long=reshape(long.Data,[1,length(long.Time)]);
 
 waypoint=WP_db_param;
 coordinate=waypoint(:,5:6);
-posizione_iniziale=[41.87974753565198, 12.703602634460767];
+posizione_iniziale=[41.89538064905558, 12.403498219629371];
 
 geoplot(lat,long,"c","LineWidth",3)
 hold on

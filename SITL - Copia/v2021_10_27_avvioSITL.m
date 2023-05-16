@@ -183,7 +183,7 @@ WP_db_param=[...
 0 0 25 0 42.053092641670744 12.608190828902032 70
              ];
 
- GC_info_CV=1;
+
  WP_CV=input('simulare waypoint provenienti da CV 1, 0 altrimenti');
  
  
@@ -193,7 +193,7 @@ WP_db_param=[...
            6 4 0 0 0 0; 
            6 5 0 0 0 0; 
            6 6 0 0 0 0;
-           6 7 0 0 0 0; ];
+           6 7 0 0 0 0 ];
 
 WP_db_param_CV=[...    
 0 0 23 0 42.05047960115445 12.622867877224342 40 ;
@@ -229,7 +229,6 @@ targetrover = [42.1235406 12.3261368];
 load('SIL_HIL_Bus3.6_ADA_4.mat')  % caricare questi per usare i pwm e il modello nuovo
 load('dataTypes.mat','slBus8_comandi') %caricare questo bus editor per usare i comandi senza pwm che danno problemi per ora
 load('bus.mat');
-load('slBus6_Riferimenti')
 %% Parametri decollo automatico--------------------------------------------
 
 final_h = 35;     %quota finale raggiunta

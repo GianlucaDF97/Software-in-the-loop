@@ -119,15 +119,12 @@ while a<=100
         
     elseif a==14
         figure(a)
-        subplot(3,1,1)
-        plot(dataLog.long_home,'b-','LineWidth',1)
-        title('Longitudine_home')
-        subplot(3,1,2)
-        plot(dataLog.lat_home,'b-','LineWidth',1)
-        title('Latitudine_home')
-        subplot(3,1,3)
+        subplot(2,1,1)
         plot(dataLog.modo,'b-','LineWidth',1)
         title('Modo')
+        subplot(2,1,2)
+        plot(dataLog.go_home,'b-','LineWidth',1)
+        title('go_home')
     end
     n=input(' altrografico si 1 no 0');
     

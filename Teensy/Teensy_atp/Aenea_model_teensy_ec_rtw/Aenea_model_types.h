@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.213
+// Model version                  : 1.212
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu May 11 19:02:44 2023
+// C/C++ source code generated on : Tue May 16 14:36:41 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -66,7 +66,7 @@ typedef struct {
 // double data Log bus structure
 typedef struct {
   int8_T modo;
-  int8_T dummy12;
+  int8_T go_home;
 } BUS_int8_log_t;
 
 #endif
@@ -139,8 +139,6 @@ typedef struct {
   real_T absE;
   real_T absA;
   real_T absT;
-  real_T lat_home;
-  real_T long_home;
 } BUS_double_log_t;
 
 #endif
@@ -151,7 +149,6 @@ typedef struct {
 // double data Log bus structure
 typedef struct {
   uint8_T gps_fix;
-  uint8_T dummy12;
   uint8_T Base_mode;
 } BUS_uint8_log_t;
 

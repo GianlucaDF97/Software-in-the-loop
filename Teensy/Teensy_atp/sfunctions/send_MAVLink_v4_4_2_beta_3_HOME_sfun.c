@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Thu May 11 18:21:32 2023
+ * Created: Tue May 16 13:43:52 2023
  */
 
 #define S_FUNCTION_LEVEL 2
@@ -86,7 +86,7 @@
 #define IN_2_BIAS             0
 #define IN_2_SLOPE            0.125
 /* Input Port  3 */
-#define IN_PORT_3_NAME        GC_Req
+#define IN_PORT_3_NAME        GC_req
 #define INPUT_3_WIDTH         3
 #define INPUT_DIMS_3_COL      1
 #define INPUT_3_DTYPE         uint16_T
@@ -409,7 +409,7 @@
 #define IN_21_BIAS             0
 #define IN_21_SLOPE            0.125
 /* Input Port  22 */
-#define IN_PORT_22_NAME        priori_in
+#define IN_PORT_22_NAME        prior_in
 #define INPUT_22_WIDTH         1
 #define INPUT_DIMS_22_COL      1
 #define INPUT_22_DTYPE         uint16_T
@@ -710,7 +710,7 @@
 #define USE_SIMSTRUCT         0
 #define SHOW_COMPILE_STEPS    0
 #define CREATE_DEBUG_MEXFILE  0
-#define SAVE_CODE_ONLY        0
+#define SAVE_CODE_ONLY        1
 #define SFUNWIZ_REVISION      3.0
 /* %%%-SFUNWIZ_defines_Changes_END --- EDIT HERE TO _BEGIN */
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -721,7 +721,7 @@ extern void send_MAVLink_v4_4_2_beta_3_HOME_sfun_Start_wrapper(void);
 extern void send_MAVLink_v4_4_2_beta_3_HOME_sfun_Outputs_wrapper(const uint8_T *iflogic,
 			const uint32_T *time_in,
 			const uint8_T *AP_SI,
-			const uint16_T *GC_Req,
+			const uint16_T *GC_req,
 			const real32_T *P_val,
 			const uint16_T *WP_info,
 			const real32_T *WP_param,
@@ -740,7 +740,7 @@ extern void send_MAVLink_v4_4_2_beta_3_HOME_sfun_Outputs_wrapper(const uint8_T *
 			const int16_T *VFR_H,
 			const uint16_T *VFR_T,
 			const uint16_T *Ser_data,
-			const uint16_T *priori_in,
+			const uint16_T *prior_in,
 			const real32_T *P_refer,
 			const uint8_T *Cal_alt,
 			const real32_T *T_0,
@@ -1116,7 +1116,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const uint8_T *iflogic = (uint8_T *) ssGetInputPortRealSignal(S, 0);
     const uint32_T *time_in = (uint32_T *) ssGetInputPortRealSignal(S, 1);
     const uint8_T *AP_SI = (uint8_T *) ssGetInputPortRealSignal(S, 2);
-    const uint16_T *GC_Req = (uint16_T *) ssGetInputPortRealSignal(S, 3);
+    const uint16_T *GC_req = (uint16_T *) ssGetInputPortRealSignal(S, 3);
     const real32_T *P_val = (real32_T *) ssGetInputPortRealSignal(S, 4);
     const uint16_T *WP_info = (uint16_T *) ssGetInputPortRealSignal(S, 5);
     const real32_T *WP_param = (real32_T *) ssGetInputPortRealSignal(S, 6);
@@ -1135,7 +1135,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const int16_T *VFR_H = (int16_T *) ssGetInputPortRealSignal(S, 19);
     const uint16_T *VFR_T = (uint16_T *) ssGetInputPortRealSignal(S, 20);
     const uint16_T *Ser_data = (uint16_T *) ssGetInputPortRealSignal(S, 21);
-    const uint16_T *priori_in = (uint16_T *) ssGetInputPortRealSignal(S, 22);
+    const uint16_T *prior_in = (uint16_T *) ssGetInputPortRealSignal(S, 22);
     const real32_T *P_refer = (real32_T *) ssGetInputPortRealSignal(S, 23);
     const uint8_T *Cal_alt = (uint8_T *) ssGetInputPortRealSignal(S, 24);
     const real32_T *T_0 = (real32_T *) ssGetInputPortRealSignal(S, 25);
@@ -1153,7 +1153,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     uint16_T *Len = (uint16_T *) ssGetOutputPortRealSignal(S, 2);
     uint16_T *prior_out = (uint16_T *) ssGetOutputPortRealSignal(S, 3);
 
-    send_MAVLink_v4_4_2_beta_3_HOME_sfun_Outputs_wrapper(iflogic, time_in, AP_SI, GC_Req, P_val, WP_info, WP_param, ss_onboard, ss_LVDE, ss_C, ss_R, Heartbeat_custom, Heartbeat_data, IMU_data, attitude, lat_long_alt, velGPS, hdg, VFR_speed, VFR_H, VFR_T, Ser_data, priori_in, P_refer, Cal_alt, T_0, T_int, P_RAW, deltaP_RAW, AB_T, Cal_home, H_LAT, H_LONG, H_ALT, h_lidar, enable, msg_out, Len, prior_out);
+    send_MAVLink_v4_4_2_beta_3_HOME_sfun_Outputs_wrapper(iflogic, time_in, AP_SI, GC_req, P_val, WP_info, WP_param, ss_onboard, ss_LVDE, ss_C, ss_R, Heartbeat_custom, Heartbeat_data, IMU_data, attitude, lat_long_alt, velGPS, hdg, VFR_speed, VFR_H, VFR_T, Ser_data, prior_in, P_refer, Cal_alt, T_0, T_int, P_RAW, deltaP_RAW, AB_T, Cal_home, H_LAT, H_LONG, H_ALT, h_lidar, enable, msg_out, Len, prior_out);
 
 }
 

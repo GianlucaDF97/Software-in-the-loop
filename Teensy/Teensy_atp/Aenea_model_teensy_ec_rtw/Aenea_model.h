@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.213
+// Model version                  : 1.212
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Thu May 11 19:02:44 2023
+// C/C++ source code generated on : Tue May 16 14:36:41 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -49,15 +49,25 @@ typedef struct {
   ZCSigState ResettableSubsystem_Reset_ZCE_k;// '<S410>/Resettable Subsystem'
 } ZCE_ResettableSubsystem_Aenea_T;
 
-// Block states (default storage) for system '<S435>/Resettable Subsystem'
+// Block states (default storage) for system '<S426>/Enabled '
 typedef struct {
-  real_T Memory_PreviousInput;         // '<S439>/Memory'
-} DW_ResettableSubsystem_Aene_d_T;
+  boolean_T Enabled_MODE;              // '<S426>/Enabled '
+} DW_Enabled_Aenea_model_T;
 
-// Zero-crossing (trigger) state for system '<S435>/Resettable Subsystem'
+// Block states (default storage) for system '<S426>/Resettable Subsystem'
 typedef struct {
-  ZCSigState ResettableSubsystem_Reset_ZCE;// '<S435>/Resettable Subsystem'
+  real_T Memory_PreviousInput;         // '<S431>/Memory'
+} DW_ResettableSubsystem_Aene_c_T;
+
+// Zero-crossing (trigger) state for system '<S426>/Resettable Subsystem'
+typedef struct {
+  ZCSigState ResettableSubsystem_Reset_ZCE;// '<S426>/Resettable Subsystem'
 } ZCE_ResettableSubsystem_Aen_h_T;
+
+// Block states (default storage) for system '<S427>/Enabled '
+typedef struct {
+  boolean_T Enabled_MODE;              // '<S427>/Enabled '
+} DW_Enabled_Aenea_model_d_T;
 
 // Block signals (default storage)
 typedef struct {
@@ -89,11 +99,7 @@ typedef struct {
   char_T b_data[64];
   char_T sfull[64];
   int32_T ipiv[11];
-  real32_T ByteUnpack_o2[9];           // '<S585>/Byte Unpack'
-  real32_T ByteReversal[9];            // '<S585>/Byte Reversal'
   real_T x_new[4];
-  real32_T WP_param[7];                // '<S23>/MATLAB Function'
-  real32_T Val_out_MAV[16];            // '<S3>/MATLAB Function1'
   real_T aterra[3];
   char_T hex_checksum_data[17];
   boolean_T NOT[14];                   // '<S575>/NOT'
@@ -151,6 +157,8 @@ typedef struct {
   real_T Switch_n;                     // '<S446>/Switch'
   real_T Switch_l;                     // '<S443>/Switch'
   real_T Switch_e;                     // '<S437>/Switch'
+  real_T Switch_d;                     // '<S432>/Switch'
+  real_T Switch_m;                     // '<S429>/Switch'
   real_T Switch_a;                     // '<S423>/Switch'
   real_T Switch_k;                     // '<S420>/Switch'
   real_T switch_manetta;               // '<S38>/ STATI'
@@ -166,18 +174,18 @@ typedef struct {
   real_T dist;
   real_T dist_fut;
   real_T Sum_l;                        // '<S571>/Sum'
-  real_T Gain1_o;                      // '<S564>/Gain1'
   real_T e_d;                          // '<S37>/Sum2'
+  real_T Sum5;                         // '<S602>/Sum5'
+  real_T abs_ManualThrottle;           // '<S418>/Abs3'
+  real_T Gain1_o;                      // '<S564>/Gain1'
   real_T Gain1_i;                      // '<S565>/Gain1'
   real_T Gain1_i0;                     // '<S566>/Gain1'
   real_T Gain_h;                       // '<S33>/Gain'
-  real_T Sum5;                         // '<S602>/Sum5'
-  real_T Sum3;                         // '<S597>/Sum3'
+  real_T Sum3_h;                       // '<S597>/Sum3'
   real_T Gain_e;                       // '<S416>/Gain'
-  real_T Sum_fb;                       // '<S351>/Sum'
   real_T Saturation;                   // '<S349>/Saturation'
   real_T SwitchBumpless2;              // '<S304>/Switch Bumpless 2'
-  real_T Sum3_p;                       // '<S599>/Sum3'
+  real_T Sum3;                         // '<S599>/Sum3'
   real_T Equilibratore_n;              // '<S37>/Switch Bumpless 1'
   real_T Sum3_k;                       // '<S603>/Sum3'
   real_T Saturation_a;                 // '<S399>/Saturation'
@@ -186,6 +194,8 @@ typedef struct {
   real_T Product1;                     // '<S571>/Product1'
   real_T Gain_dt;                      // '<S621>/Gain'
   real_T Alt;                          // '<S6>/Switch'
+  real_T Switch1;                      // '<S38>/Switch1'
+  real_T Switch_a_p;                   // '<S412>/Switch'
   real_T V_nord;                       // '<S6>/Multiply2'
   real_T Sum2_k2;                      // '<S305>/Sum2'
   real_T Switch_j;                     // '<S546>/Switch'
@@ -199,7 +209,7 @@ typedef struct {
   real_T Wp_selector;
   real_T Vec_selector;
   real_T Go_home_selector;
-  real_T rtb_TmpSignalConversionAtSFun_p;
+  real_T aterra_tmp_tmp;
   real_T b_a_tmp;
   real_T a_tmp_tmp;
   real_T psi_ref_tmp;
@@ -214,26 +224,14 @@ typedef struct {
   real_T Y_tmp_n;
   int8_T p[4];
   int8_T ipiv_p[4];
-  real32_T SFunctionBuilder2_o8;       // '<S3>/S-Function Builder2'
-  real32_T SFunctionBuilder2_o10[7];   // '<S3>/S-Function Builder2'
-  real32_T SFunctionBuilder2_o13;      // '<S3>/S-Function Builder2'
-  real32_T SFunctionBuilder2_o17;      // '<S3>/S-Function Builder2'
-  real32_T DataTypeConversion1[6];     // '<S17>/Data Type Conversion1'
-  real32_T AGAC[4];                    // '<S22>/Data Type Conversion'
-  real32_T DataTypeConversion2;        // '<S1>/Data Type Conversion2'
-  real32_T DataTypeConversion1_m;      // '<S1>/Data Type Conversion1'
-  real32_T DataTypeConversion;         // '<S4>/Data Type Conversion'
-  real32_T DataTypeConversion1_e;      // '<S4>/Data Type Conversion1'
-  real32_T DataTypeConversion3_p;      // '<S588>/Data Type Conversion3'
-  real32_T SFunctionBuilder_o1_g;      // '<S588>/S-Function Builder'
-  real32_T SFunctionBuilder_o2_p;      // '<S588>/S-Function Builder'
   real32_T SFunctionBuilder_o3_h;      // '<S588>/S-Function Builder'
+  real32_T WP_param[7];                // '<S23>/MATLAB Function'
+  real32_T Val_out_MAV[16];            // '<S3>/MATLAB Function1'
   real32_T f;
   int32_T SFunctionBuilder_o2_a;       // '<S3>/S-Function Builder'
   int32_T Add;                         // '<S3>/Add'
   int32_T DataTypeConversion_g[4];     // '<S15>/Data Type Conversion'
   uint16_T Memory[8];                  // '<S3>/Memory'
-  uint16_T SFunctionBuilder2_o9[6];    // '<S3>/S-Function Builder2'
   uint16_T SFunctionBuilder2_o11[8];   // '<S3>/S-Function Builder2'
   uint16_T LVDE[8];                    // '<S21>/Data Type Conversion2'
   int32_T srem;
@@ -252,9 +250,25 @@ typedef struct {
   int32_T jBcol;
   uint32_T SFunctionBuilder2_o2;       // '<S3>/S-Function Builder2'
   uint32_T DataTypeConversion3;        // '<S18>/Data Type Conversion3'
+  real32_T ByteUnpack_o2[9];           // '<S585>/Byte Unpack'
+  real32_T ByteReversal[9];            // '<S585>/Byte Reversal'
+  real32_T SFunctionBuilder2_o8;       // '<S3>/S-Function Builder2'
+  real32_T SFunctionBuilder2_o10[7];   // '<S3>/S-Function Builder2'
+  real32_T SFunctionBuilder2_o13;      // '<S3>/S-Function Builder2'
+  real32_T SFunctionBuilder2_o17;      // '<S3>/S-Function Builder2'
+  real32_T DataTypeConversion1[6];     // '<S17>/Data Type Conversion1'
+  real32_T AGAC[4];                    // '<S22>/Data Type Conversion'
+  real32_T DataTypeConversion2;        // '<S1>/Data Type Conversion2'
+  real32_T DataTypeConversion1_m;      // '<S1>/Data Type Conversion1'
+  real32_T DataTypeConversion;         // '<S4>/Data Type Conversion'
+  real32_T DataTypeConversion1_e;      // '<S4>/Data Type Conversion1'
+  real32_T DataTypeConversion3_p;      // '<S588>/Data Type Conversion3'
+  real32_T SFunctionBuilder_o1_g;      // '<S588>/S-Function Builder'
+  real32_T SFunctionBuilder_o2_p;      // '<S588>/S-Function Builder'
   uint32_T qY;
   ZCEventType zcEvent;
   uint16_T SFunctionBuilder2_o7[2];    // '<S3>/S-Function Builder2'
+  uint16_T SFunctionBuilder2_o9[6];    // '<S3>/S-Function Builder2'
   uint16_T DataTypeConversion2_p;      // '<S15>/Data Type Conversion2'
   uint16_T Heading[9];                 // '<S19>/Data Type Conversion1'
   uint16_T Memory_o;                   // '<S4>/Memory'
@@ -263,12 +277,12 @@ typedef struct {
   uint16_T WP_info[6];                 // '<S23>/MATLAB Function'
   uint16_T new_mex;                    // '<S3>/MATLAB Function3'
   uint16_T GC_info[3];                 // '<S3>/MATLAB Function1'
+  int16_T manual_elevatorCmd_pwm;      // '<S9>/S-Function Builder3'
+  int16_T manual_throttleCmd_pwm;      // '<S9>/S-Function Builder'
   int16_T DataTypeConversion_j[9];     // '<S17>/Data Type Conversion'
   int16_T DataTypeConversion1_j[3];    // '<S15>/Data Type Conversion1'
   int16_T Heading_f;                   // '<S22>/Data Type Conversion1'
-  int16_T manual_throttleCmd_pwm;      // '<S9>/S-Function Builder'
   int16_T manual_aileronCmd_pwm;       // '<S9>/S-Function Builder1'
-  int16_T manual_elevatorCmd_pwm;      // '<S9>/S-Function Builder3'
   int16_T manual_rudderCmd_pwm;        // '<S9>/S-Function Builder2'
   int16_T DataTypeConversion2_m;       // '<S4>/Data Type Conversion2'
   int16_T SFunctionBuilder4;           // '<S9>/S-Function Builder4'
@@ -355,6 +369,7 @@ typedef struct {
   real_T Memory_PreviousInput_p;       // '<S450>/Memory'
   real_T Memory1_PreviousInput_e;      // '<S450>/Memory1'
   real_T alarm;                        // '<S417>/MATLAB Function1'
+  real_T Tf;                           // '<S412>/MATLAB Function1'
   real_T mess_len;                     // '<S3>/MATLAB Function4'
   real_T test1;                        // '<S3>/MATLAB Function1'
   real32_T riferimenti[16];            // '<S3>/MATLAB Function1'
@@ -395,6 +410,7 @@ typedef struct {
   uint8_T is_c23_Aenea_model;      // '<S40>/SELEZIONE MODALITA'  HOLD//SELECT'
   uint8_T message[100];                // '<S3>/MATLAB Function4'
   uint8_T counter_f;                   // '<S3>/MATLAB Function4'
+  boolean_T Memory_PreviousInput_n;    // '<S38>/Memory'
   boolean_T x_prd_not_empty;           // '<S569>/DEFINITIVA'
   boolean_T x_not_empty;               // '<S463>/MATLAB Function'
   boolean_T x_new_not_empty;           // '<S463>/MATLAB Function'
@@ -404,14 +420,16 @@ typedef struct {
   boolean_T Interr_parz;               // '<S3>/MATLAB Function4'
   boolean_T WP_dbP_not_empty;          // '<S3>/MATLAB Function1'
   boolean_T WP_dbP_AL_not_empty;       // '<S3>/MATLAB Function1'
-  boolean_T Enabled_MODE;              // '<S441>/Enabled '
-  boolean_T Enabled_MODE_j;            // '<S440>/Enabled '
-  boolean_T Enabled_MODE_c;            // '<S435>/Enabled '
-  boolean_T Enabled_MODE_i;            // '<S427>/Enabled '
-  boolean_T Enabled_MODE_b;            // '<S426>/Enabled '
-  DW_ResettableSubsystem_Aene_d_T ResettableSubsystem_p0;// '<S441>/Resettable Subsystem' 
-  DW_ResettableSubsystem_Aene_d_T ResettableSubsystem_h;// '<S440>/Resettable Subsystem' 
-  DW_ResettableSubsystem_Aene_d_T ResettableSubsystem_p;// '<S435>/Resettable Subsystem' 
+  boolean_T Enabled_MODE;              // '<S435>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_p0;// '<S441>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_d_T Enabled_h;// '<S441>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_h;// '<S440>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_T Enabled_n;  // '<S440>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_p;// '<S435>/Resettable Subsystem' 
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_o;// '<S427>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_d_T Enabled_o;// '<S427>/Enabled '
+  DW_ResettableSubsystem_Aene_c_T ResettableSubsystem_i;// '<S426>/Resettable Subsystem' 
+  DW_Enabled_Aenea_model_T Enabled;    // '<S426>/Enabled '
   DW_ResettableSubsystem_Aenea__T ResettableSubsystem_j;// '<S411>/Resettable Subsystem' 
   DW_ResettableSubsystem_Aenea__T ResettableSubsystem;// '<S410>/Resettable Subsystem' 
 } DW_Aenea_model_T;
@@ -426,8 +444,8 @@ typedef struct {
   ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_p0;// '<S441>/Resettable Subsystem' 
   ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_h;// '<S440>/Resettable Subsystem' 
   ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_p;// '<S435>/Resettable Subsystem' 
-  ZCSigState ResettableSubsystem_Reset_ZCE_b;// '<S427>/Resettable Subsystem'
-  ZCSigState ResettableSubsystem_Reset_ZCE_l;// '<S426>/Resettable Subsystem'
+  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_o;// '<S427>/Resettable Subsystem' 
+  ZCE_ResettableSubsystem_Aen_h_T ResettableSubsystem_i;// '<S426>/Resettable Subsystem' 
   ZCE_ResettableSubsystem_Aenea_T ResettableSubsystem_j;// '<S411>/Resettable Subsystem' 
   ZCE_ResettableSubsystem_Aenea_T ResettableSubsystem;// '<S410>/Resettable Subsystem' 
   ZCSigState EnabledSubsystem_Trig_ZCE;// '<S251>/Enabled Subsystem'
@@ -435,10 +453,10 @@ typedef struct {
 
 // Invariant block signals (default storage)
 typedef const struct tag_ConstB_Aenea_model_T {
-  real_T USCITAPERCENTUALE;            // '<S22>/USCITA PERCENTUALE'
+  real_T Sum1;                         // '<S599>/Sum1'
   real_T Sum3;                         // '<S602>/Sum3'
-  real_T Sum1;                         // '<S597>/Sum1'
-  real_T Sum1_p;                       // '<S599>/Sum1'
+  real_T USCITAPERCENTUALE;            // '<S22>/USCITA PERCENTUALE'
+  real_T Sum1_o;                       // '<S597>/Sum1'
   real_T Sum2;                         // '<S601>/Sum2'
   real_T Sum1_j;                       // '<S605>/Sum1'
   real_T Sum2_d;                       // '<S606>/Sum2'
@@ -665,19 +683,6 @@ extern "C" {
 //  Block '<S37>/Switch Bumpless 7' : Unused code path elimination
 //  Block '<S410>/Display' : Unused code path elimination
 //  Block '<S410>/Display1' : Unused code path elimination
-//  Block '<S429>/Constant' : Unused code path elimination
-//  Block '<S429>/Constant1' : Unused code path elimination
-//  Block '<S429>/Switch' : Unused code path elimination
-//  Block '<S431>/Constant4' : Unused code path elimination
-//  Block '<S431>/Memory' : Unused code path elimination
-//  Block '<S431>/Sum' : Unused code path elimination
-//  Block '<S432>/Constant' : Unused code path elimination
-//  Block '<S432>/Constant1' : Unused code path elimination
-//  Block '<S432>/Switch' : Unused code path elimination
-//  Block '<S434>/Constant4' : Unused code path elimination
-//  Block '<S434>/Memory' : Unused code path elimination
-//  Block '<S434>/Sum' : Unused code path elimination
-//  Block '<S412>/Switch' : Unused code path elimination
 //  Block '<S38>/Scope1' : Unused code path elimination
 //  Block '<S418>/Abs2' : Unused code path elimination
 //  Block '<S463>/Multiply1' : Unused code path elimination

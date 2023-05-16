@@ -108,32 +108,6 @@ elems(end).Max = [];
 elems(end).DocUnits = sprintf('m');
 elems(end).Description = sprintf('');
 
-elems(end+1) = Simulink.BusElement;
-elems(end).Name = 'lat_home';
-elems(end).Dimensions = 1;
-elems(end).DimensionsMode = 'Fixed';
-elems(end).DataType = 'double';
-elems(end).SampleTime = -1;
-elems(end).Complexity = 'real';
-elems(end).SamplingMode = 'Sample based';
-elems(end).Min = [];
-elems(end).Max = [];
-elems(end).DocUnits = sprintf('m');
-elems(end).Description = sprintf('');
-
-elems(end+1) = Simulink.BusElement;
-elems(end).Name = 'long_home';
-elems(end).Dimensions = 1;
-elems(end).DimensionsMode = 'Fixed';
-elems(end).DataType = 'double';
-elems(end).SampleTime = -1;
-elems(end).Complexity = 'real';
-elems(end).SamplingMode = 'Sample based';
-elems(end).Min = [];
-elems(end).Max = [];
-elems(end).DocUnits = sprintf('m');
-elems(end).Description = sprintf('');
-
 BUS_double_log_t = Simulink.Bus;
 BUS_double_log_t.Description = sprintf('double data Log bus structure');
 %BUS_log_t.HeaderFile = 'busLog_def.h';
@@ -708,7 +682,7 @@ elems(end).DocUnits = sprintf('m');
 elems(end).Description = sprintf('');
 
 elems(end+1) = Simulink.BusElement;
-elems(end).Name = 'dummy12';
+elems(end).Name = 'go_home';
 elems(end).Dimensions = 1;
 elems(end).DimensionsMode = 'Fixed';
 elems(end).DataType = 'int8';
@@ -742,19 +716,6 @@ elems(end).SamplingMode = 'Sample based';
 elems(end).Min = [];
 elems(end).Max = [];
 elems(end).DocUnits = sprintf('m');
-elems(end).Description = sprintf('');
-
-elems(end+1) = Simulink.BusElement;
-elems(end).Name = 'dummy12';
-elems(end).Dimensions = 1;
-elems(end).DimensionsMode = 'Fixed';
-elems(end).DataType = 'uint8';
-elems(end).SampleTime = -1;
-elems(end).Complexity = 'real';
-elems(end).SamplingMode = 'Sample based';
-elems(end).Min = [];
-elems(end).Max = [];
-elems(end).DocUnits = sprintf('round/s');
 elems(end).Description = sprintf('');
 
 elems(end+1) = Simulink.BusElement;

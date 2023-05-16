@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'Aenea_model'.
 //
-// Model version                  : 1.212
+// Model version                  : 1.214
 // Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
-// C/C++ source code generated on : Tue May 16 14:36:41 2023
+// C/C++ source code generated on : Tue May 16 17:26:30 2023
 //
 // Target selection: teensy_ec.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -79,7 +79,7 @@ typedef struct {
   real_T ab[198];
   real_T S[121];
   real_T b_A[121];
-  real_T DataTypeConversion4[42];      // '<S452>/Data Type Conversion4'
+  real_T DataTypeConversion4[105];     // '<S452>/Data Type Conversion4'
   uint8_T buffer[300];                 // '<S3>/MATLAB Function2'
   BUS_log_t BusConversion_InsertedFor_SFunc;
   real_T y[21];                        // '<S570>/MATLAB Function2'
@@ -177,12 +177,12 @@ typedef struct {
   real_T e_d;                          // '<S37>/Sum2'
   real_T Sum5;                         // '<S602>/Sum5'
   real_T abs_ManualThrottle;           // '<S418>/Abs3'
-  real_T Gain1_o;                      // '<S564>/Gain1'
-  real_T Gain1_i;                      // '<S565>/Gain1'
   real_T Gain1_i0;                     // '<S566>/Gain1'
-  real_T Gain_h;                       // '<S33>/Gain'
+  real_T Gain1_f;                      // '<S563>/Gain1'
+  real_T Gain1_o;                      // '<S564>/Gain1'
   real_T Sum3_h;                       // '<S597>/Sum3'
   real_T Gain_e;                       // '<S416>/Gain'
+  real_T Gain_h;                       // '<S33>/Gain'
   real_T Saturation;                   // '<S349>/Saturation'
   real_T SwitchBumpless2;              // '<S304>/Switch Bumpless 2'
   real_T Sum3;                         // '<S599>/Sum3'
@@ -199,8 +199,8 @@ typedef struct {
   real_T V_nord;                       // '<S6>/Multiply2'
   real_T Sum2_k2;                      // '<S305>/Sum2'
   real_T Switch_j;                     // '<S546>/Switch'
-  real_T Abs1;                         // '<S543>/Abs1'
   real_T Abs1_l;                       // '<S537>/Abs1'
+  real_T Sum_h;                        // '<S534>/Sum'
   real_T Gain_hh;                      // '<S475>/Gain'
   real_T Switch1_g;                    // '<S27>/Switch1'
   real_T Ato_selector;
@@ -250,6 +250,7 @@ typedef struct {
   int32_T jBcol;
   uint32_T SFunctionBuilder2_o2;       // '<S3>/S-Function Builder2'
   uint32_T DataTypeConversion3;        // '<S18>/Data Type Conversion3'
+  uint32_T DataTypeConversion;         // '<S16>/Data Type Conversion'
   real32_T ByteUnpack_o2[9];           // '<S585>/Byte Unpack'
   real32_T ByteReversal[9];            // '<S585>/Byte Reversal'
   real32_T SFunctionBuilder2_o8;       // '<S3>/S-Function Builder2'
@@ -260,7 +261,7 @@ typedef struct {
   real32_T AGAC[4];                    // '<S22>/Data Type Conversion'
   real32_T DataTypeConversion2;        // '<S1>/Data Type Conversion2'
   real32_T DataTypeConversion1_m;      // '<S1>/Data Type Conversion1'
-  real32_T DataTypeConversion;         // '<S4>/Data Type Conversion'
+  real32_T DataTypeConversion_n;       // '<S4>/Data Type Conversion'
   real32_T DataTypeConversion1_e;      // '<S4>/Data Type Conversion1'
   real32_T DataTypeConversion3_p;      // '<S588>/Data Type Conversion3'
   real32_T SFunctionBuilder_o1_g;      // '<S588>/S-Function Builder'
@@ -279,10 +280,10 @@ typedef struct {
   uint16_T GC_info[3];                 // '<S3>/MATLAB Function1'
   int16_T manual_elevatorCmd_pwm;      // '<S9>/S-Function Builder3'
   int16_T manual_throttleCmd_pwm;      // '<S9>/S-Function Builder'
+  int16_T manual_aileronCmd_pwm;       // '<S9>/S-Function Builder1'
   int16_T DataTypeConversion_j[9];     // '<S17>/Data Type Conversion'
   int16_T DataTypeConversion1_j[3];    // '<S15>/Data Type Conversion1'
   int16_T Heading_f;                   // '<S22>/Data Type Conversion1'
-  int16_T manual_aileronCmd_pwm;       // '<S9>/S-Function Builder1'
   int16_T manual_rudderCmd_pwm;        // '<S9>/S-Function Builder2'
   int16_T DataTypeConversion2_m;       // '<S4>/Data Type Conversion2'
   int16_T SFunctionBuilder4;           // '<S9>/S-Function Builder4'
@@ -373,13 +374,13 @@ typedef struct {
   real_T mess_len;                     // '<S3>/MATLAB Function4'
   real_T test1;                        // '<S3>/MATLAB Function1'
   real32_T riferimenti[16];            // '<S3>/MATLAB Function1'
-  real32_T WP_dbP[42];                 // '<S3>/MATLAB Function1'
-  real32_T WP_dbP_AL[42];              // '<S3>/MATLAB Function1'
+  real32_T WP_dbP[105];                // '<S3>/MATLAB Function1'
+  real32_T WP_dbP_AL[105];             // '<S3>/MATLAB Function1'
   int_T HitCrossing_MODE;              // '<S251>/Hit  Crossing'
   uint16_T Memory_PreviousInput_i[8];  // '<S3>/Memory'
   uint16_T Memory_PreviousInput_e4;    // '<S4>/Memory'
   uint16_T counter;                    // '<S3>/MATLAB Function3'
-  uint16_T WP_dbI[36];                 // '<S3>/MATLAB Function1'
+  uint16_T WP_dbI[90];                 // '<S3>/MATLAB Function1'
   uint8_T UnitDelay1_DSTATE_b[41];     // '<S585>/Unit Delay1'
   uint8_T Output_DSTATE;               // '<S583>/Output'
   uint8_T Output_DSTATE_k;             // '<S608>/Output'
@@ -455,14 +456,13 @@ typedef struct {
 typedef const struct tag_ConstB_Aenea_model_T {
   real_T Sum1;                         // '<S599>/Sum1'
   real_T Sum3;                         // '<S602>/Sum3'
-  real_T USCITAPERCENTUALE;            // '<S22>/USCITA PERCENTUALE'
   real_T Sum1_o;                       // '<S597>/Sum1'
+  real_T USCITAPERCENTUALE;            // '<S22>/USCITA PERCENTUALE'
   real_T Sum2;                         // '<S601>/Sum2'
   real_T Sum1_j;                       // '<S605>/Sum1'
   real_T Sum2_d;                       // '<S606>/Sum2'
   real_T Sum2_a;                       // '<S603>/Sum2'
   real_T Sum2_g;                       // '<S604>/Sum2'
-  uint32_T DataTypeConversion;         // '<S16>/Data Type Conversion'
   uint16_T Gain;                       // '<S21>/Gain'
   uint16_T Throttle;                   // '<S22>/Data Type Conversion2'
   int16_T K_imb_inv;                   // '<S8>/Gain3'

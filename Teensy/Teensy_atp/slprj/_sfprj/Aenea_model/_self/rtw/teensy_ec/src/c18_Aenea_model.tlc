@@ -27,7 +27,7 @@
       SFName       ""\
       Path         ""\
       SrcLocation  "Aenea_model:5606:1639-1645"\
-      Dimensions   [6,7]\
+      Dimensions   [15,7]\
     }\
     ChartData {\
       Name         "WP_dbP_not_empty"\
@@ -42,7 +42,7 @@
       SFName       ""\
       Path         ""\
       SrcLocation  "Aenea_model:5606:1646-1652"\
-      Dimensions   [6,6]\
+      Dimensions   [15,6]\
     }\
     ChartData {\
       Name         "WP_dbP_AL"\
@@ -50,7 +50,7 @@
       SFName       ""\
       Path         ""\
       SrcLocation  "Aenea_model:5606:1653-1662"\
-      Dimensions   [6,7]\
+      Dimensions   [15,7]\
     }\
     ChartData {\
       Name         "WP_dbP_AL_not_empty"\

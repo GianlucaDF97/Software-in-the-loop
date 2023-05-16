@@ -108,7 +108,7 @@ uint16_T p_len=16;//numero parametri
 //uint16_T p_len1=;
 uint16_T p_n;     //indice dei parametri
 uint8_T t_n=9; //tipo del parametro 9=realt32_T
-uint16_T max_WP=6; //numero massimo di waypoint
+uint16_T max_WP=15; //numero massimo di waypoint
 char*   param_id[16]={"I_HDG","I_IAS", "I_ALT","I_RC","I_WP","I_ATO","I_AL",
 "V_HDG","V_IAS","V_ALT","V_RC","C_P0","C_T0","H_LAT","H_LONG","H_ALT"}; //label dei parametri
  

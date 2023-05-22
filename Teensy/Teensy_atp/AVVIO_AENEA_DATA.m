@@ -30,10 +30,10 @@ attuatore_Rmin = deg2rad(-21);%-30
 attuatore_Tmax = 1;
 attuatore_Tmin = 0;
 
-theta_max = deg2rad(30);%15
-theta_min = deg2rad(-30);%-15
-phi_max = deg2rad(45);%45
-phi_min = deg2rad(-45);%-45
+theta_max = deg2rad(20);%15
+theta_min = deg2rad(-20);%-15
+phi_max = deg2rad(30);%45
+phi_min = deg2rad(-30);%-45
 %% SEGNALI PWM MAX E MIN
 pwm_throttle_max=1940;
 pwm_throttle_min=1160;
